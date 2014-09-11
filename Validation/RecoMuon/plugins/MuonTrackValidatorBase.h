@@ -65,9 +65,6 @@ class MuonTrackValidatorBase {
     minDz(pset.getParameter<double>("minDz")),
     maxDz(pset.getParameter<double>("maxDz")),
     nintDz(pset.getParameter<int>("nintDz")),
-    minPurity(pset.getParameter<double>("minPurity")),
-    maxPurity(pset.getParameter<double>("maxPurity")),
-    nintPurity(pset.getParameter<int>("nintPurity")),
     minVertpos(pset.getParameter<double>("minVertpos")),
     maxVertpos(pset.getParameter<double>("maxVertpos")),
     nintVertpos(pset.getParameter<int>("nintVertpos")),
@@ -196,7 +193,6 @@ class MuonTrackValidatorBase {
     std::vector<double> pTintervalsv;
     std::vector<double> dxyintervalsv;
     std::vector<double> dzintervalsv;
-    std::vector<double> purityintervalsv;
     std::vector<double> vertposintervalsv;
     std::vector<double> zposintervalsv;
     std::vector<int>    totSIMveta,totASSveta,totASS2veta,totRECveta,totASS2veta_075,totASS2veta_050;
@@ -205,7 +201,6 @@ class MuonTrackValidatorBase {
     std::vector<int>    totSIMv_phi,totASSv_phi,totASS2v_phi,totRECv_phi;
     std::vector<int>    totSIMv_dxy,totASSv_dxy,totASS2v_dxy,totRECv_dxy;
     std::vector<int>    totSIMv_dz,totASSv_dz,totASS2v_dz,totRECv_dz;
-    std::vector<int>    totSIMv_Purity,totASSv_Purity;
     std::vector<int>    totSIMv_vertpos,totASSv_vertpos,totSIMv_zpos,totASSv_zpos; 
 
     // for muon Validation
@@ -344,20 +339,6 @@ class MuonTrackValidatorBase {
     totASS2_dz.push_back(totASS2v_dz);
     totREC_dz.push_back(totRECv_dz);
 
-  double stepPurity = (maxPurity-minPurity)/nintPurity;
-    purityintervalsv.push_back(minPurity);
-    for (int k=1;k<nintPurity+1;k++) {
-      double d=minPurity+k*stepPurity;
-      purityintervalsv.push_back(d);
-      totSIMv_Purity.push_back(0);
-      totASSv_Purity.push_back(0);
-   
-      }
-    purityintervals.push_back(purityintervalsv);
-    totSIM_Purity.push_back(totSIMv_Purity);
-    totASS_Purity.push_back(totASSv_Purity);
- 
-    
 
 
 
@@ -414,8 +395,6 @@ class MuonTrackValidatorBase {
   int nintDxy;
   double minDz, maxDz;
   int nintDz;
-  double minPurity, maxPurity;
-  int nintPurity;
  
   double minVertpos, maxVertpos;
   int nintVertpos;
@@ -444,9 +423,8 @@ class MuonTrackValidatorBase {
   std::vector<MonitorElement*> h_recophi, h_assocphi, h_assoc2phi, h_simulphi;
   std::vector<MonitorElement*> h_recodxy, h_assocdxy, h_assoc2dxy, h_simuldxy;
   std::vector<MonitorElement*> h_recodz, h_assocdz, h_assoc2dz, h_simuldz;
-  std::vector<MonitorElement*> h_assocPurity, h_simulPurity;
   std::vector<MonitorElement*> h_assocvertpos, h_simulvertpos, h_assoczpos, h_simulzpos;
-  std::vector<MonitorElement*> h_pt, h_eta, h_pullTheta,h_pullPhi,h_pullDxy,h_pullDz,h_pullQoverp;
+  std::vector<MonitorElement*> h_pt, h_eta, h_pullTheta,h_pullPhi,h_pullDxy,h_pullDz,h_pullQoverp,h_PurityofAssTrks;
 
   std::vector<MonitorElement*> h_assoceta_Quality05, h_assoceta_Quality075;
   std::vector<MonitorElement*> h_assocpT_Quality05, h_assocpT_Quality075;
@@ -474,7 +452,6 @@ class MuonTrackValidatorBase {
   std::vector< std::vector<double> > phiintervals;
   std::vector< std::vector<double> > dxyintervals;
   std::vector< std::vector<double> > dzintervals;
-  std::vector< std::vector<double> > purityintervals;
   std::vector< std::vector<double> > vertposintervals;
   std::vector< std::vector<double> > zposintervals;
   std::vector< std::vector<int> > totSIMeta,totRECeta,totASSeta,totASS2eta,totASS2eta_075,totASS2eta_050;
@@ -483,7 +460,6 @@ class MuonTrackValidatorBase {
   std::vector< std::vector<int> > totSIM_phi,totREC_phi,totASS_phi,totASS2_phi;
   std::vector< std::vector<int> > totSIM_dxy,totREC_dxy,totASS_dxy,totASS2_dxy;
   std::vector< std::vector<int> > totSIM_dz,totREC_dz,totASS_dz,totASS2_dz;
-  std::vector< std::vector<int> > totSIM_Purity,totASS_Purity;
   std::vector< std::vector<int> > totSIM_vertpos,totASS_vertpos,totSIM_zpos,totASS_zpos;
 
   // for muon Validation (SimToReco distributions for Quality > 0.5, 0.75)
