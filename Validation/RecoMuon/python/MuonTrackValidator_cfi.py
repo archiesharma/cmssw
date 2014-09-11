@@ -79,10 +79,6 @@ muonTrackValidator = cms.EDAnalyzer("MuonTrackValidator",
     dzRes_rangeMin = cms.double(-0.05),
     dzRes_rangeMax = cms.double(0.05),
     #
-    minPurity = cms.double(0.01),
-    maxPurity = cms.double(1.01),
-    nintPurity = cms.int32(20),
-    # 
     minpT = cms.double(0.1),
     maxpT = cms.double(1500),
     nintpT = cms.int32(40),
