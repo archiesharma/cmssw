@@ -110,8 +110,6 @@ void MuonTrackValidator::beginRun(Run const&, EventSetup const& setup) {
       h_assocdz.push_back( dbe_->book1D("num_assoc(simToReco)_dz","N of associated tracks (simToReco) vs dz",nintDz,minDz,maxDz) );
       h_assoc2dz.push_back( dbe_->book1D("num_assoc(recoToSim)_dz","N of associated (recoToSim) tracks vs dz",nintDz,minDz,maxDz) );
       h_simuldz.push_back( dbe_->book1D("num_simul_dz","N of simulated tracks vs dz",nintDz,minDz,maxDz) );
-    //  h_simulchi2.push_back( dbe_->book1D("num_simul_chi2","N of simulated tracks vs chi2",nintchi2,minchi2,maxchi2) );
-    //  h_assocchi2.push_back( dbe_->book1D("num_assoc(simToReco)_chi2","N of associated tracks (simToReco) vs chi2",nintchi2,minchi2,maxchi2) );
 
       h_assocvertpos.push_back( dbe_->book1D("num_assoc(simToReco)_vertpos","N of associated tracks (simToReco) vs transverse vert position",nintVertpos,minVertpos,maxVertpos) );
       h_simulvertpos.push_back( dbe_->book1D("num_simul_vertpos","N of simulated tracks vs transverse vert position",nintVertpos,minVertpos,maxVertpos) );
@@ -398,9 +396,6 @@ void MuonTrackValidator::analyze(const edm::Event& event, const edm::EventSetup&
 	bool Quality05  = false;
 	bool Quality075 = false;
        
-        bool chi2cut1  = false;
-        bool chi2cut10  = false;
-     
 
 	TrackingParticleRef tpr(TPCollectionHeff, i);
 	TrackingParticle* tp=const_cast<TrackingParticle*>(tpr.get());
@@ -469,14 +464,6 @@ void MuonTrackValidator::analyze(const edm::Event& event, const edm::EventSetup&
           if (MABH) {
 
 
-             if (assoc_recoTrack->normalizedChi2()<1){
-                   chi2cut1  = true;
-            }
-
-            if (assoc_recoTrack->normalizedChi2()<10){
-                   chi2cut10  = true;
-            }
-
              if (quality > 0.75) {
 		Quality075 = true;
 		Quality05  = true;
@@ -511,13 +498,6 @@ void MuonTrackValidator::analyze(const edm::Event& event, const edm::EventSetup&
 
 	
            if (MABH) {
-           //      if (chi2cut1) {
-           //       totASSeta_Quality075[w][f]++;
-           //     }
-
-           //     if (chi2cut10) {
-           //       totASSeta_Quality05[w][f]++;
-           //      }
 
 		if (Quality075) {
 		  totASSeta_Quality075[w][f]++;
@@ -540,11 +520,11 @@ void MuonTrackValidator::analyze(const edm::Event& event, const edm::EventSetup&
 	      totASS_phi[w][f]++;
 	      
 	      if (MABH) {
-		if (Quality075 && chi2cut1 ) {
+		if (Quality075) {
 		  totASS_phi_Quality075[w][f]++;
 		  totASS_phi_Quality05[w][f]++;
 		}
-		else if (Quality05 && chi2cut10 ) {
+		else if (Quality05) {
 		  totASS_phi_Quality05[w][f]++;
 		}
 	      }
@@ -607,29 +587,7 @@ void MuonTrackValidator::analyze(const edm::Event& event, const edm::EventSetup&
 	  }
 	} // END for (unsigned int f=0; f<vertposintervals[w].size()-1; f++){
 
-/*
-       for (unsigned int f=0; f<chi2intervals[w].size()-1; f++){
-          if (chi2Sim>chi2intervals[w][f]&&
-              chi2Sim<chi2intervals[w][f+1]) {
-            totSIM_chi2[w][f]++;
-            if (TP_is_matched) {
-              totASS_chi2[w][f]++;
 
-            if (MABH) {
-                if (Quality075 && cutonhits) {
-                  totASSchi2_Quality075[w][f]++;
-                  totASSchi2_Quality05[w][f]++;
-                }
-                else if (Quality05 && cutonhits) {
-                  totASSchi2_Quality05[w][f]++;
-                }
-              }
-
-            }
-          }
-        } // END for (unsigned int f=0; f<dzintervals[w].size()-1; f++){
-
-*/
 
 	for (unsigned int f=0; f<zposintervals[w].size()-1; f++){
 	  if (vertexTP.z()>zposintervals[w][f]&&
