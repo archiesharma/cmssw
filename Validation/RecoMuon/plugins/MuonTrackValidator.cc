@@ -110,9 +110,6 @@ void MuonTrackValidator::beginRun(Run const&, EventSetup const& setup) {
       h_assocdz.push_back( dbe_->book1D("num_assoc(simToReco)_dz","N of associated tracks (simToReco) vs dz",nintDz,minDz,maxDz) );
       h_assoc2dz.push_back( dbe_->book1D("num_assoc(recoToSim)_dz","N of associated (recoToSim) tracks vs dz",nintDz,minDz,maxDz) );
       h_simuldz.push_back( dbe_->book1D("num_simul_dz","N of simulated tracks vs dz",nintDz,minDz,maxDz) );
-
-   h_simulPurity.push_back( dbe_->book1D("num_simul_Purity","N of simulated tracks vs purity",nintPurity,minPurity,maxPurity) ); 
-   h_assocPurity.push_back( dbe_->book1D("num_assoc(simToReco)_Purity","N of associated tracks (simToReco) vs purity",nintPurity,minPurity,maxPurity) );
     //  h_simulchi2.push_back( dbe_->book1D("num_simul_chi2","N of simulated tracks vs chi2",nintchi2,minchi2,maxchi2) );
     //  h_assocchi2.push_back( dbe_->book1D("num_assoc(simToReco)_chi2","N of associated tracks (simToReco) vs chi2",nintchi2,minchi2,maxchi2) );
 
@@ -124,7 +121,7 @@ void MuonTrackValidator::beginRun(Run const&, EventSetup const& setup) {
 
 
       /////////////////////////////////
-
+      h_PurityofAssTrks.push_back( dbe_->book1D("PurityofAssTrks", "purity of associated tracks", 20,0.01,1.01) );
       h_eta.push_back( dbe_->book1D("eta", "pseudorapidity residue", 1000, -0.1, 0.1 ) );
       h_pt.push_back( dbe_->book1D("pullPt", "pull of p_{t}", 100, -10, 10 ) );
       h_pullTheta.push_back( dbe_->book1D("pullTheta","pull of #theta parameter",250,-25,25) );
@@ -438,20 +435,8 @@ void MuonTrackValidator::analyze(const edm::Event& event, const edm::EventSetup&
 	edm::LogVerbatim("MuonTrackValidator") <<"--------------------Selected TrackingParticle #"<<tpr.key();
 	st++;
 
-///////////////////////////////////////////////////////////////////////////////////
-       RefToBase<Track> track1(trackCollection, i); 
-     
-        std::vector<std::pair<TrackingParticleRef, double> > tp2;
-           if(recSimColl.find(track1)!= recSimColl.end()) {
-           tp2 = recSimColl[track1];
-               if (tp2.size() != 0) {
-
-           mupurity = tp2.begin()->second;
-       }
-    } 
-//////////////////////////////////////////////////////////////////////////////////////
    
-    std::cout<<"Purity of tracks "<<mupurity<<std::endl;
+  
 
 	h_ptSIM[w]->Fill(sqrt(momentumTP.perp2()));
 	h_etaSIM[w]->Fill(momentumTP.eta());
@@ -469,8 +454,17 @@ void MuonTrackValidator::analyze(const edm::Event& event, const edm::EventSetup&
 	    edm::LogVerbatim("MuonTrackValidator") << "TrackingParticle #" <<tpr.key()  
 						   << " with pt=" << sqrt(momentumTP.perp2()) 
 						   << " associated with quality:" << quality <<"\n";
+           std::vector<std::pair<TrackingParticleRef, double> > tp2;
+            if(recSimColl.find(assoc_recoTrack)!= recSimColl.end()) {
 
-         
+            tp2 = recSimColl[assoc_recoTrack];
+              if (tp2.size() != 0) {
+             mupurity = tp2.begin()->second;
+            std::cout<<"Purity of tracks "<<mupurity<<std::endl;
+            h_PurityofAssTrks[w]->Fill(mupurity);   
+           }
+    } 
+
         
           if (MABH) {
 
@@ -601,16 +595,6 @@ void MuonTrackValidator::analyze(const edm::Event& event, const edm::EventSetup&
  	  }
  	} // END for (unsigned int f=0; f<dzintervals[w].size()-1; f++){
 
-       for (unsigned int f=0; f<purityintervals[w].size()-1; f++){
-          if (mupurity>purityintervals[w][f]&&
-              mupurity<purityintervals[w][f+1]) {
-            totSIM_Purity[w][f]++;
-            if (TP_is_matched) {
-              totASS_Purity[w][f]++;
-            }
-          }
-        } // END for (unsigned int f=0; f<purityintervals[w].size()-1; f++){
-
 
 
 	for (unsigned int f=0; f<vertposintervals[w].size()-1; f++){
@@ -727,6 +711,7 @@ void MuonTrackValidator::analyze(const edm::Event& event, const edm::EventSetup&
 	    tp = recSimColl[track];	    
 	    if (tp.size() != 0) {
 	      tpr = tp.begin()->first;	      
+                          
 	      // RtS and StR must associate the same pair !
 	      if(simRecColl.find(tpr) != simRecColl.end()) {
 		std::vector<std::pair<RefToBase<Track>, double> > track_checkback  = simRecColl[tpr];
@@ -1198,8 +1183,6 @@ void MuonTrackValidator::endRun(Run const&, EventSetup const&)
       fillPlotFromVector(h_assocdz[w],totASS_dz[w]);
       fillPlotFromVector(h_assoc2dz[w],totASS2_dz[w]);
 
-      fillPlotFromVector(h_simulPurity[w],totSIM_Purity[w]);
-      fillPlotFromVector(h_assocPurity[w],totASS_Purity[w]);
 
 
     //  fillPlotFromVector(h_simulchi2[w],totSIM_chi2[w]);
