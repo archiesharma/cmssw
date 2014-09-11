@@ -174,6 +174,15 @@ tpToL2MuonAssociation = SimMuon.MCTruth.MuonAssociatorByHits_cfi.muonAssociatorB
 tpToL2UpdMuonAssociation = SimMuon.MCTruth.MuonAssociatorByHits_cfi.muonAssociatorByHits.clone()
 tpToL3MuonAssociation = SimMuon.MCTruth.MuonAssociatorByHits_cfi.muonAssociatorByHits.clone()
 
+tpToStaUpdSelMuonAssociation = SimMuon.MCTruth.MuonAssociatorByHits_cfi.muonAssociatorByHits.clone()
+tpToStaUpdSelMuonAssociation.tpTag = 'mix:MergedTrackTruth'
+tpToStaUpdSelMuonAssociation.tracksTag = 'standAloneMuons:UpdatedAtVtx'
+tpToStaUpdSelMuonAssociation.UseTracker = False
+tpToStaUpdSelMuonAssociation.UseMuon = True
+tpToStaUpdSelMuonAssociation.includeZeroHitMuons = False
+tpToStaUpdSelMuonAssociation.PurityCut_muon = cms.double(0.75) 
+
+
 tpToTkMuonAssociation.tpTag = 'mix:MergedTrackTruth'
 #tpToTkMuonAssociation.tracksTag = 'generalTracks'
 tpToTkMuonAssociation.tracksTag = 'probeTracks'
@@ -195,6 +204,8 @@ tpToStaUpdMuonAssociation.tpTag = 'mix:MergedTrackTruth'
 tpToStaUpdMuonAssociation.tracksTag = 'standAloneMuons:UpdatedAtVtx'
 tpToStaUpdMuonAssociation.UseTracker = False
 tpToStaUpdMuonAssociation.UseMuon = True
+tpToStaUpdMuonAssociation.includeZeroHitMuons = False
+
 
 tpToGlbMuonAssociation.tpTag = 'mix:MergedTrackTruth'
 tpToGlbMuonAssociation.tracksTag = 'extractedGlobalMuons'
@@ -326,6 +337,7 @@ muonAssociation_seq = cms.Sequence(
 #    +(tpToStaSeedAssociation+tpToStaMuonAssociation+tpToStaUpdMuonAssociation+tpToGlbMuonAssociation)
     +(tpToStaMuonAssociation+tpToStaUpdMuonAssociation+tpToGlbMuonAssociation)
 #   +(tpToStaTrackAssociation+tpToStaUpdTrackAssociation+tpToGlbTrackAssociation)
+    +(tpToStaUpdSelMuonAssociation)
 )
 muonAssociationTEV_seq = cms.Sequence(
     (tpToTevFirstMuonAssociation+tpToTevPickyMuonAssociation+tpToTevDytMuonAssociation)

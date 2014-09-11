@@ -190,6 +190,13 @@ tevMuonDytTrackVMuonAssoc.label = ('tevMuons:dyt',)
 tevMuonDytTrackVMuonAssoc.usetracker = True
 tevMuonDytTrackVMuonAssoc.usemuon = True
 
+staUpdMuonTrackVSelMuonAssoc = Validation.RecoMuon.MuonTrackValidator_cfi.muonTrackValidator.clone()
+staUpdMuonTrackVSelMuonAssoc.associatormap = 'tpToStaUpdSelMuonAssociation'
+staUpdMuonTrackVSelMuonAssoc.associators = ('MuonAssociationByHits',)
+staUpdMuonTrackVSelMuonAssoc.label = ('standAloneMuons:UpdatedAtVtx',)
+staUpdMuonTrackVSelMuonAssoc.usetracker = False
+staUpdMuonTrackVSelMuonAssoc.usemuon = True
+
 staCosmicMuonTrackVMuonAssoc = Validation.RecoMuon.MuonTrackValidator_cfi.muonTrackValidator.clone()
 staCosmicMuonTrackVMuonAssoc.associatormap = 'tpToStaCosmicMuonAssociation'
 staCosmicMuonTrackVMuonAssoc.associators = ('MuonAssociationByHits',)
@@ -320,6 +327,9 @@ recoMuonVMuAssoc_tgt.primaryVertex = 'offlinePrimaryVertices'
 muonValidation_seq = cms.Sequence(trkProbeTrackVMuonAssoc+trkMuonTrackVTrackAssoc
 #                                 +staSeedTrackVMuonAssoc
                                  +staMuonTrackVMuonAssoc+staUpdMuonTrackVMuonAssoc+glbMuonTrackVMuonAssoc
+#
+                                 +staUpdMuonTrackVSelMuonAssoc
+#
                                  +recoMuonVMuAssoc_trk+recoMuonVMuAssoc_sta+recoMuonVMuAssoc_glb+recoMuonVMuAssoc_tgt)
                                   
 muonValidationTEV_seq = cms.Sequence(tevMuonFirstTrackVMuonAssoc+tevMuonPickyTrackVMuonAssoc+tevMuonDytTrackVMuonAssoc)

@@ -154,12 +154,23 @@ private:
   bool MABH;
   
   //1D
-  std::vector<MonitorElement*> h_nchi2, h_nchi2_prob, h_losthits;
+  std::vector<MonitorElement*> h_nchi2, h_nchi2_prob, h_losthits, h_nchi2_Q050, h_nchi2_Q075;
+  
+  std::vector<MonitorElement*> chargeMisID_vs_etaNum, chargeMisID_vs_etaDen, chargeMisID_vs_ptNum;
+  std::vector<MonitorElement*> chargeMisID_vs_ptDen, chargeMisID_vs_phiNum, chargeMisID_vs_phiDen;
+  std::vector<MonitorElement*> chargeMisID_vs_etaNum_sim, chargeMisID_vs_etaDen_sim, chargeMisID_vs_ptNum_sim;
+  std::vector<MonitorElement*> chargeMisID_vs_ptDen_sim, chargeMisID_vs_phiNum_sim, chargeMisID_vs_phiDen_sim;
+  std::vector<MonitorElement*> chargeMisID_vs_etaNum_sim_Q075, chargeMisID_vs_etaNum_sim_Q050, chargeMisID_vs_etaDen_sim_Q050, chargeMisID_vs_etaDen_sim_Q075; 
 
   //2D  
   std::vector<MonitorElement*> chi2_vs_nhits, etares_vs_eta;
   std::vector<MonitorElement*> h_ptshifteta;
   std::vector<MonitorElement*> ptres_vs_phi, chi2_vs_phi, nhits_vs_phi, phires_vs_phi;
+  std::vector<MonitorElement*> qOverPtres_vs_phi, qOverPtresXL_vs_phi;
+  std::vector<MonitorElement*> chargeMisID_vs_eta, chargeMisID_vs_pt, chargeMisID_vs_phi;
+
+  std::vector<MonitorElement*> qOverPtres_vs_phi_sim, qOverPtresXL_vs_phi_sim;
+  std::vector<MonitorElement*> chargeMisID_vs_eta_sim, chargeMisID_vs_eta_sim_Q075, chargeMisID_vs_eta_sim_Q050, chargeMisID_vs_pt_sim, chargeMisID_vs_phi_sim;
 
   //Profile2D
   std::vector<MonitorElement*> ptmean_vs_eta_phi, phimean_vs_eta_phi;
@@ -182,6 +193,13 @@ private:
   std::vector<MonitorElement*> ptpull_vs_phi, phipull_vs_phi, thetapull_vs_phi;
   std::vector<MonitorElement*> h_dxypulleta, h_ptpulleta, h_dzpulleta, h_phipulleta, h_thetapulleta;
   std::vector<MonitorElement*> h_ptpullphi, h_phipullphi, h_thetapullphi;
+
+  std::vector<MonitorElement*> qOverPtres_vs_eta_sim, qOverPtres_vs_eta_sim_Q075, qOverPtres_vs_eta_sim_Q050, qOverPtresXL_vs_eta_sim, qOverPtresXL_vs_eta_sim_Q075, qOverPtresXL_vs_eta_sim_Q050;
+  std::vector<MonitorElement*> qOverPtres_vs_pt_sim, qOverPtresXL_vs_pt_sim;
+
+  std::vector<MonitorElement*> qOverPtres_vs_eta, qOverPtresXL_vs_eta;
+  std::vector<MonitorElement*> qOverPtres_vs_pt, qOverPtresXL_vs_pt;
+
 
 };
 

@@ -1,0 +1,762 @@
+140711_163733: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140711_164523: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140711_165007: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140711_165539: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140711_165900: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140711_170039: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140711_170354: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140711_170511: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140711_170706: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140711_170849: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140711_184818: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME11_WithoutUpgrade_PT100
+140711_184922: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME11_WithUpgrade_PT100
+140711_184945: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithoutME11_WithoutUpgrade_PT100
+140711_200711: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithoutME11_WithoutUpgrade_PT100
+140711_200810: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithoutME11_WithoutUpgrade_PT100
+140711_200820: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME11_WithUpgrade_PT100
+140711_200833: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME11_WithoutUpgrade_PT100
+140713_131309: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME11_WithoutUpgrade_PT100
+140713_131354: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME11_WithoutUpgrade_PT100
+140713_131505: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME11_WithoutUpgrade_PT100
+140713_131853: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME11_WithUpgrade_PT100
+140713_131914: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME11_WithUpgrade_PT100
+140713_132015: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME11_WithUpgrade_PT100
+140713_132421: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithoutME11_WithUpgrade_PT100
+140713_132447: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithoutME11_WithUpgrade_PT100
+140713_132532: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithoutME11_WithUpgrade_PT100
+140713_132715: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithoutME11_WithoutUpgrade_PT100
+140713_132739: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithoutME11_WithoutUpgrade_PT100
+140713_132919: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithoutME11_WithoutUpgrade_PT100
+140713_133821: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140713_134315: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140713_134739: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140713_135440: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140714_111855: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_ME11_Upgrade_PT100
+140714_111937: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_ME11_Upgrade_PT100
+140714_112922: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_ME11_NoUpgrade_PT100
+140714_113021: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_ME11_NoUpgrade_PT100
+140714_113331: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_NoME11_Upgrade_PT100
+140714_113352: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_NoME11_Upgrade_PT100
+140714_113810: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_NoME11_NoUpgrade_PT100
+140714_113842: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_NoME11_NoUpgrade_PT100
+140716_162816: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140716_163138: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140716_163347: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140716_163832: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140716_164221: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140716_164500: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140716_164713: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140716_164857: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140716_165057: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140716_165235: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140716_165430: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140716_165623: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140716_165926: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140716_170138: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140716_170323: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140716_170509: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140716_170656: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140716_170856: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140716_171103: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140716_171257: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140717_104909: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_NoME21_Upgrade_PT100
+140717_105028: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_NoME21_Upgrade_PT100
+140717_105128: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_NoME21_Upgrade_PT100
+140717_105225: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_NoME31_Upgrade_PT100
+140717_105325: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_NoME31_Upgrade_PT100
+140717_105413: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_NoME31_Upgrade_PT100
+140717_105518: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_NoME41_Upgrade_PT100
+140717_105545: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_NoME41_Upgrade_PT100
+140717_105639: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_NoME41_Upgrade_PT100
+140717_172513: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT5
+140717_172647: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT5
+140717_172744: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT5
+140717_172924: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT10
+140717_172946: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT10
+140717_173029: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT10
+140717_173252: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT50
+140717_173327: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT50
+140717_173413: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT50
+140717_173529: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT200
+140717_173747: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT200
+140717_173955: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT200
+140717_174234: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT500
+140717_174434: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT500
+140717_174521: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT500
+140717_174645: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT800
+140717_174708: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT800
+140717_174750: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT800
+140717_174906: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT1000
+140717_174926: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT1000
+140717_175007: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT1000
+140717_175240: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT5
+140717_175339: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT5
+140717_175549: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT5
+140717_175659: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT10
+140717_175732: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT10
+140717_175842: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT10
+140717_180004: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT50
+140717_180030: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT50
+140717_180116: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT50
+140717_180237: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT200
+140717_180313: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT200
+140717_180450: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT200
+140717_180617: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT500
+140717_180647: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT500
+140717_180734: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT500
+140717_181035: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT800
+140717_181055: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT800
+140717_181206: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT800
+140717_181359: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT1000
+140717_181459: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT1000
+140717_181625: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT1000
+140718_140120: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140718_140403: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140718_140553: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140718_140738: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140718_140919: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140718_141129: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140718_141301: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140718_141422: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140718_141551: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -submit -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT1000
+140718_144117: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -submit -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT1000
+140718_144127: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140718_144317: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140718_144515: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140718_144653: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140718_144824: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140718_145019: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140718_145155: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140718_145433: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140718_145749: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140718_150058: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140718_150306: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140718_150506: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140718_182247: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT5
+140718_184537: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT5
+140718_185810: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT5
+140718_190630: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT10
+140718_193928: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT10
+140718_193957: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT5
+140718_203358: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT5
+140720_114931: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT5
+140720_115215: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -kill 5,9,30,46,48-80 -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT5
+140720_115319: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -resubmit 5,9,30,46,48-80 -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT5
+140720_115428: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT10
+140720_115447: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -kill all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT10
+140720_115659: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -submit all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT10
+140720_115711: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -resubmit all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT10
+140720_115745: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT50
+140720_115847: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -kill 43 -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT50
+140720_115907: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -resubmit 43 -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT50
+140720_115935: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT100
+140720_120042: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -kill 10-70 -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT100
+140720_120146: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -resubmit 10-70 -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT100
+140720_120258: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT200
+140720_120326: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -kill all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT200
+140720_120455: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -resubmit all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT200
+140720_120637: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT500
+140720_120705: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -kill 30,48-71 -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT500
+140720_120738: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -resubmit 30,48-71 -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT500
+140720_120758: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT800
+140720_120818: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -kill all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT800
+140720_121010: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -resubmit all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT800
+140720_121037: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT1000
+140720_121101: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -kill all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT1000
+140720_121243: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -resubmit all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT1000
+140720_121350: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT5
+140720_121431: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -kill all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT5
+140720_121728: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -resubmit all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT5
+140720_121834: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT10
+140720_121850: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -kill all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT10
+140720_122006: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -resubmit all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT10
+140720_122102: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT50
+140720_122150: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -kill all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT50
+140720_122257: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -resubmit all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT50
+140720_122313: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100
+140720_122338: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -kill all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100
+140720_122508: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -resubmit all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100
+140720_122535: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT200
+140720_122554: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -kill all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT200
+140720_122645: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -resubmit all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT200
+140720_122808: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT500
+140720_122830: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -kill all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT500
+140720_123126: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -resubmit all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT500
+140720_123201: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT800
+140720_123226: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -kill all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT800
+140720_123549: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -resubmit all -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT800
+140720_123617: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT1000
+140720_123643: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -kill 10,17-66 -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT1000
+140720_123812: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -resubmit 10,17-66 -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT1000
+140720_123857: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithoutME11_WithUpgrade_PT100
+140720_123913: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -kill all -c CMSSW_620_Patch1_SLHC12_WithoutME11_WithUpgrade_PT100
+140720_124211: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -submit all -c CMSSW_620_Patch1_SLHC12_WithoutME11_WithUpgrade_PT100
+140720_124228: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -resubmit all -c CMSSW_620_Patch1_SLHC12_WithoutME11_WithUpgrade_PT100
+140720_124259: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithoutME21_WithUpgrade_PT100
+140720_124317: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -kill all -c CMSSW_620_Patch1_SLHC12_WithoutME21_WithUpgrade_PT100
+140720_124628: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -resubmit all -c CMSSW_620_Patch1_SLHC12_WithoutME21_WithUpgrade_PT100
+140720_124709: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithoutME31_WithUpgrade_PT100
+140720_124727: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -kill all -c CMSSW_620_Patch1_SLHC12_WithoutME31_WithUpgrade_PT100
+140720_124931: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -resubmit all -c CMSSW_620_Patch1_SLHC12_WithoutME31_WithUpgrade_PT100
+140720_125139: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithoutME41_WithUpgrade_PT100
+140720_125246: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -kill all -c CMSSW_620_Patch1_SLHC12_WithoutME41_WithUpgrade_PT100
+140720_125355: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -resubmit all -c CMSSW_620_Patch1_SLHC12_WithoutME41_WithUpgrade_PT100
+140721_105018: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT5
+140721_105054: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT5
+140721_105158: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT5
+140721_105318: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT10
+140721_105344: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT10
+140721_105504: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT10
+140721_105609: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT50
+140721_105637: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT50
+140721_105734: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT50
+140721_105846: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT100
+140721_105938: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT100
+140721_110057: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT100
+140721_110153: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT200
+140721_110310: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT200
+140721_110407: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT200
+140721_110504: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT500
+140721_110530: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT500
+140721_110614: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT500
+140721_110702: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT800
+140721_110716: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT800
+140721_110800: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT800
+140721_110857: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT1000
+140721_110922: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT1000
+140721_111019: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_V2_PT1000
+140721_111236: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT5
+140721_111259: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT5
+140721_111416: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT5
+140721_111532: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT10
+140721_111549: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT10
+140721_111637: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT10
+140721_111751: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT50
+140721_111822: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT50
+140721_111919: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT50
+140721_112016: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100
+140721_112039: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100
+140721_112144: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100
+140721_112237: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT200
+140721_112258: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT200
+140721_112348: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT200
+140721_112454: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT500
+140721_112509: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT500
+140721_112608: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT500
+140721_112700: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT800
+140721_112716: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT800
+140721_112834: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT800
+140721_112926: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT1000
+140721_112956: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT1000
+140721_113048: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT1000
+140721_113144: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithoutME11_WithUpgrade_PT100
+140721_113201: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithoutME11_WithUpgrade_PT100
+140721_113249: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithoutME11_WithUpgrade_PT100
+140721_113410: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithoutME21_WithUpgrade_PT100
+140721_113427: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithoutME21_WithUpgrade_PT100
+140721_113527: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithoutME21_WithUpgrade_PT100
+140721_113622: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithoutME31_WithUpgrade_PT100
+140721_113642: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithoutME31_WithUpgrade_PT100
+140721_113729: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithoutME31_WithUpgrade_PT100
+140721_113820: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithoutME41_WithUpgrade_PT100
+140721_113835: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithoutME41_WithUpgrade_PT100
+140721_113913: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithoutME41_WithUpgrade_PT100
+140722_163019: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140722_163259: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140722_223743: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100
+140722_223904: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100
+140722_224000: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100
+140722_224321: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100
+140722_230108: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100
+140722_230143: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100
+140722_230307: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100
+140724_204539: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140724_205529: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140724_205821: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140724_205955: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -submit -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_new
+140724_210103: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -submit -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_new
+140724_210130: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -submit -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_new
+140725_092112: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_new
+140725_092317: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_new
+140725_094438: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140725_094916: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140725_095145: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -submit -c CMSSW_620_Patch1_SLHC12_WithME_Upgrade_PT100_new
+140725_102721: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_new
+140725_102810: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_Upgrade_PT100_new
+140725_103001: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create submit
+140725_103829: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -submit -c CMSSW_620_Patch1_SLHC12_WithME_Upgrade_PT100_25july
+140725_104201: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create submit
+140725_105919: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -submit -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_25july
+140725_110010: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_new
+140725_110134: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_Upgrade_PT100_new
+140725_110202: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_Upgrade_PT100_25july
+140725_122741: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_new
+140725_122835: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_new
+140725_122958: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_new
+140725_123127: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_new
+140725_124903: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_Upgrade_PT100_new
+140725_124947: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_Upgrade_PT100_25july
+140725_130006: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_Upgrade_PT100_new
+140725_132525: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_Upgrade_PT100_new
+140725_133007: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_Upgrade_PT100_new
+140725_133032: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_Upgrade_PT100_25july
+140725_133230: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_25july
+140725_133708: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_25july
+140725_133826: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_25july
+140725_135122: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_Upgrade_PT100_new
+140725_135843: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_Upgrade_PT100_new
+140725_135908: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_Upgrade_PT100_new
+140725_135956: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_Upgrade_PT100_new
+140725_141807: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_Upgrade_PT100_25july
+140725_145522: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_Upgrade_PT100_25july
+140725_145606: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_Upgrade_PT100_25july
+140725_151821: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_Upgrade_PT100_25july
+140725_183320: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140725_183542: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_barrel
+140725_183736: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140725_183938: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140725_184046: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140725_184226: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140725_185119: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140725_185332: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140725_185815: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_cutonhits_oldsamples
+140725_185832: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -submit -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_cutonhits_oldsamples
+140725_192402: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_barrel_fulleta
+140725_192715: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_cutonhits_oldsamples
+140725_192746: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_cutonhits_oldsamples
+140725_192845: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_cutonhits_oldsamples
+140725_193928: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_cutonhits_oldsamples
+140725_194032: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_cutonhits_oldsamples
+140725_194156: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_cutonhits_oldsamples
+140725_195139: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_barrel_fulleta
+140725_195201: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_barrel_fulleta
+140725_195216: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_barrel_fulleta
+140725_195258: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_barrel_fulleta
+140725_202934: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_cutonhits_oldsamples
+140725_203217: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_barrel_fulleta
+140726_001523: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_barrel_fulleta
+140726_001655: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_barrel_fulleta
+140726_001735: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_barrel_fulleta
+140726_014308: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140726_014334: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140726_014647: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140726_103435: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_cutonhits_oldsamples_v1
+140726_103733: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_cutonhits_oldsamples_v1
+140726_103812: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_cutonhits_oldsamples_v1
+140726_105316: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_cutonhits_oldsamples_v1
+140726_105340: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_cutonhits_oldsamples_v1
+140726_105453: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_cutonhits_oldsamples_v1
+140726_122536: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140726_122555: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140726_122909: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140726_172007: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140726_172126: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140726_172433: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140726_172718: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -submit -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_newsampleswithfulleta
+140726_235651: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_newsampleswithfulleta
+140726_235729: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_newsampleswithfulleta
+140726_235752: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_newsampleswithfulleta
+140727_000212: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_newsampleswithfulleta
+140727_000246: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_newsampleswithfulleta
+140727_000319: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_newsampleswithfulleta
+140727_001149: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_cutonhitschi2_oldsamples
+140727_001221: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_cutonhitschi2_oldsamples
+140727_001310: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_cutonhitschi2_oldsamples
+140727_002853: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_cutonhitschi2_oldsamples
+140727_002920: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_cutonhitschi2_oldsamples
+140727_003004: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_cutonhitschi2_oldsamples
+140727_005930: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140727_010419: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140727_110432: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_cutonhitschi2_oldsamples
+140727_110533: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_cutonhitschi2_oldsamples
+140727_110619: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_cutonhitschi2_oldsamples
+140727_112226: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_NoUpgrade_PT100_cutonhitschi2_oldsamples
+140727_112317: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_NoUpgrade_PT100_cutonhitschi2_oldsamples
+140727_112429: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_NoUpgrade_PT100_cutonhitschi2_oldsamples
+140727_121958: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140727_122330: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140727_173806: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140727_174220: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140727_175323: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140727_175455: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140727_192646: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_newsamples_v3
+140727_192737: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_newsamples_v3
+140727_192944: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_newsamples_v3
+140727_193716: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_newsamples_v3
+140727_194808: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_newsamples_v3
+140727_194847: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_newsamples_v3
+140727_195004: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_newsamples_v3
+140806_060925: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140806_061357: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140806_064825: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit
+140806_071713: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit
+140806_071736: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit
+140806_072510: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit
+140806_072529: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit
+140806_080909: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit
+140806_084851: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit
+140806_084928: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit
+140806_085755: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit
+140806_100049: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit
+140806_100922: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit
+140806_103626: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit
+140806_125118: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit
+140806_125319: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit
+140806_130654: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit
+140806_132422: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit
+140806_132436: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit
+140806_134148: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit
+140806_134211: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit
+140806_135100: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit
+140806_135805: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit
+140806_135825: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit
+140806_140625: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit
+140806_140645: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit
+140806_142953: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit
+140806_143027: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit
+140806_145631: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit
+140806_145938: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit
+140806_151010: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit
+140806_152215: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140806_152858: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140806_153330: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit
+140806_153419: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit
+140806_153643: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140806_153919: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140806_160556: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140806_160645: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140806_160722: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit
+140806_160805: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit
+140806_191027: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit
+140806_191130: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140806_191203: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140806_191224: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit
+140806_192129: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140806_192145: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140806_192745: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140806_192757: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140806_200244: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140806_200258: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140806_200331: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140806_204603: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140806_204720: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit
+140806_210421: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140806_212158: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140807_045409: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140807_045443: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit
+140807_045510: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140807_045616: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140807_045838: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140807_050906: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140807_051424: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140807_052739: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140807_053137: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140807_053302: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140807_165520: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140807_165934: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -submit -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140807_182959: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140807_183048: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -submit -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140807_183808: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140807_184252: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -submit -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140807_195236: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140807_195322: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140807_203915: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140807_203936: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140807_211810: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140807_212723: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140808_040853: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140808_040955: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140808_045937: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140808_050022: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140808_132744: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140808_132805: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140808_132933: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140808_134505: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140808_134636: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140808_141604: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140808_141934: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140808_184705: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v2
+140808_184954: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v2
+140808_185043: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140808_185131: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140808_190132: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140808_192247: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v2
+140808_194423: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v2
+140808_201017: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v2
+140808_201327: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140808_201538: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140808_212750: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140808_213207: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -resubmit 1 -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140808_213411: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -submit 1 -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140808_213432: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140809_151518: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new
+140809_151722: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new
+140809_152009: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v2
+140809_152036: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v2
+140809_191354: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v2
+140809_193029: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v2
+140809_193510: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v2
+140809_193832: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v2
+140809_194837: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v2
+140809_200458: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v2
+140809_201619: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v2
+140809_204630: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v2
+140809_204840: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140809_205131: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140809_205855: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v2
+140810_055456: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v2
+140810_055627: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v2
+140810_055845: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v2
+140810_060609: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v3
+140810_060704: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v3
+140810_061834: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v3
+140810_074031: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v3
+140810_074706: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v3
+140811_093613: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v3
+140811_093657: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v3
+140811_093811: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v3
+140811_095209: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v3
+140811_095526: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v3
+140811_095729: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v3
+140812_212041: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140812_212124: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140812_212527: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -create -submit
+140813_134218: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v4
+140813_134428: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v4
+140813_140128: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v4
+140813_140137: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v4
+140813_140238: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v4
+140813_140753: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v4
+140813_140909: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v4
+140813_141742: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v4
+140813_141826: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v4
+140813_141847: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v4
+140813_142003: /cvmfs/cms.cern.ch/crab/CRAB_2_10_6/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v4
+140822_074033: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -create -submit
+140822_074847: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -create -submit
+140822_140310: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v5
+140822_140425: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v5
+140822_150201: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v5
+140822_150328: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v5
+140822_151311: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v5
+140822_151328: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v5
+140822_184238: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v5
+140822_184424: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v5
+140822_191008: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v5
+140822_191024: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v5
+140823_054239: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v5
+140823_054339: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v5
+140823_054516: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v5
+140823_055235: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v5
+140823_055313: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v5
+140823_055416: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v5
+140823_184443: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -create -submit
+140823_184857: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -create -submit
+140824_065649: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v6
+140824_065800: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v6
+140824_065959: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v6
+140824_070207: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v6
+140824_070950: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v6
+140824_071016: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v6
+140824_071113: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v6
+140824_130425: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v6
+140824_130716: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v6
+140825_075209: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v6
+140825_075339: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v6
+140825_075414: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithoutUpgrade_PT100_PU_fromhit_new_v6
+140825_080544: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v6
+140825_080610: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v6
+140825_080738: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v6
+140825_081126: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v6
+140828_120015: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140828_120042: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140828_120343: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140828_120801: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140828_121301: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140828_125755: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140828_130211: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140828_130457: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140828_151041: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v7
+140828_151150: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_new_v7
+140828_151220: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_muongunwithoutBg
+140828_151317: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_NuGun
+140828_161411: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v7
+140828_163215: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v7
+140828_192903: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v7
+140829_125340: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v7
+140829_125507: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v7
+140829_125603: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_new_v7
+140829_130317: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_new_v7
+140829_130455: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_new_v7
+140829_130713: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_new_v7
+140829_143919: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140829_144238: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140829_144616: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140829_144813: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140829_145212: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_muongunwithoutBg
+140829_145306: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_NuGun
+140829_145336: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_MinBiasNoBg
+140829_145417: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_MinBiasBg
+140829_230446: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140829_231115: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140829_231933: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140829_232352: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140829_233359: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140829_233605: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140829_233958: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_withoutvalidhitcut_muongunwithoutBg
+140830_102541: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_withoutvalidhitcut_muongunwithoutBg
+140830_102554: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_withoutvalidhitcut_muongunwithoutBg
+140830_102627: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_withoutvalidhitcut_muongunwithoutBg
+140830_102714: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_withoutvalidhitcut_muongunwithoutBg
+140830_103448: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_withoutvalidhitcut_NuGun
+140830_103525: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_withoutvalidhitcut_NuGun
+140830_103703: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_withoutvalidhitcut_NuGun
+140830_104405: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_withoutvalidhitcut_MinBiasNoBg
+140830_104455: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_withoutvalidhitcut_MinBiasNoBg
+140830_104644: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_withoutvalidhitcut_MinBiasNoBg
+140830_112016: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_withoutvalidhitcut_MinBiasBg
+140830_112330: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_withoutvalidhitcut_MinBiasBg
+140830_112536: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_withoutvalidhitcut_MinBiasBg
+140830_160923: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_withoutvalidhitcut
+140830_161038: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithUpgrade_PT100_PU_fromhit_withoutvalidhitcut
+140830_225556: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_muongunwithoutBg
+140830_225800: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_muongunwithoutBg
+140830_225924: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_muongunwithoutBg
+140830_231206: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_NuGun
+140830_231250: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_NuGun
+140830_231449: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_NuGun
+140830_232124: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_MinBiasNoBg
+140830_232307: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_MinBiasNoBg
+140830_232447: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_MinBiasNoBg
+140830_234800: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_MinBiasBg
+140830_234902: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_MinBiasBg
+140830_235108: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_WithME_WithioutUpgrade_PT100_PU_fromhit_MinBiasBg
+140831_002223: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140831_002825: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140831_112953: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_NuGun_fromhit_withvalidhit
+140831_113038: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_PT100_NuGun_fromhit_withvalidhit
+140831_113121: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_PT100_NuGun_fromhit_withvalidhit
+140831_113704: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_NuGun_fromhit_withoutvalidhit
+140831_113756: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_PT100_NuGun_fromhit_withoutvalidhit
+140831_113842: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_PT100_NuGun_fromhit_withoutvalidhit
+140901_113748: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140901_114031: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140901_114108: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140901_114156: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140901_114507: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140901_194422: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140901_194741: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140901_195002: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140901_195205: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140901_195454: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140901_200924: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140901_205931: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingluMu_NoUpg_fromhit_POG
+140901_222024: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingluMu_NoUpg_fromhit_POG
+140901_231932: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingluMu_NoUpg_fromhit_POG
+140902_002808: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingluMu_NoUpg_fromhit_POG
+140902_004122: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingluMu_NoUpg_fromhit_POG
+140902_012859: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingluMu_NoUpg_fromhit_POG
+140902_052646: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingluMu_NoUpg_fromhit_POG
+140902_052717: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingluMu_Upg_fromhit_POG
+140902_052941: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_PT100_SingluMu_Upg_fromhit_POG
+140902_053104: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_PT100_SingluMu_Upg_fromhit_POG
+140902_053903: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_NuGun_fromhit_POG
+140902_053933: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_PT100_NuGun_fromhit_POG
+140902_054030: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_PT100_NuGun_fromhit_POG
+140902_055638: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingluMu_NoUpg_fromhit_POG
+140902_055709: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_MinBias_Bkg_fromhit_POG
+140902_055735: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_PT100_MinBias_Bkg_fromhit_POG
+140902_055919: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_PT100_MinBias_Bkg_fromhit_POG
+140902_063602: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_MinBias_NoBkg_fromhit_POG
+140902_063629: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_PT100_MinBias_NoBkg_fromhit_POG
+140902_063827: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_PT100_MinBias_NoBkg_fromhit_POG
+140902_071712: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingluMu_NoUpg_fromhit_POG
+140902_071739: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_PT100_SingluMu_NoUpg_fromhit_POG
+140902_071838: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_PT100_SingluMu_NoUpg_fromhit_POG
+140902_081548: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140902_081816: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140902_081939: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140902_082253: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140902_082447: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140902_082704: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140902_082845: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140902_091857: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_NoUpg_fromhit_POG_v2
+140902_091917: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_Upg_fromhit_POG_v2
+140902_123159: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_NoUpg_fromhit_POG_v2
+140902_123225: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_Upg_fromhit_POG_v2
+140902_134522: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_Upg_fromhit_POG_v2
+140902_134542: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_NoUpg_fromhit_POG_v2
+140902_140401: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_NoUpg_fromhit_POG_v2
+140902_141225: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_Upg_fromhit_POG_v2
+140902_155236: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_NoUpg_fromhit_POG_v2
+140902_155429: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_Upg_fromhit_POG_v2
+140902_174006: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_Upg_fromhit_POG_v2
+140902_174035: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_NoUpg_fromhit_POG_v2
+140902_180817: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_NoUpg_fromhit_POG_v2
+140902_181044: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_Upg_fromhit_POG_v2
+140902_195850: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_NoUpg_fromhit_POG_v2
+140902_195956: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_Upg_fromhit_POG_v2
+140902_200031: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_NuGun_fromhit_POG_v2
+140902_200103: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_MinBias_Bkg_fromhit_POG_v2
+140902_200214: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_MinBias_NoBkg_fromhit_POG_v2
+140902_200440: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_PT100_MinBias_NoBkg_fromhit_POG_v2
+140902_200638: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_PT100_MinBias_NoBkg_fromhit_POG_v2
+140902_204518: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_PT100_MinBias_Bkg_fromhit_POG_v2
+140902_204740: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_MinBias_Bkg_fromhit_POG_v2
+140902_204803: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_PT100_MinBias_Bkg_fromhit_POG_v2
+140902_212129: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_NuGun_fromhit_POG_v2
+140902_212215: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_PT100_NuGun_fromhit_POG_v2
+140902_212314: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_PT100_NuGun_fromhit_POG_v2
+140902_212838: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_Upg_fromhit_POG_v2
+140902_212904: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_NoUpg_fromhit_POG_v2
+140902_212933: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_Upg_fromhit_POG_v2
+140902_213038: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_Upg_fromhit_POG_v2
+140902_213655: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_NoUpg_fromhit_POG_v2
+140902_213721: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_NoUpg_fromhit_POG_v2
+140902_213815: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -publish -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_NoUpg_fromhit_POG_v2
+140902_224116: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_NoUpg_fromhit_POG_v2
+140903_061225: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_NoUpg_fromhit_POG_v2
+140903_063611: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_NoUpg_fromhit_POG_v2
+140903_092319: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140903_092809: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140903_093203: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140910_000106: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140910_001213: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140910_111816: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit
+140910_111911: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit_old
+140910_114208: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit_old
+140910_114222: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit
+140910_115016: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit
+140910_120350: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit
+140910_121720: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit
+140910_130006: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit
+140910_130026: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit_old
+140910_131519: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit_old
+140910_131531: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit
+140910_132528: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit
+140910_132537: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit_old
+140910_142909: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit_old
+140910_142928: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit
+140910_144538: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit
+140910_145551: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit
+140910_145827: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit_old
+140910_151821: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit_old
+140910_151834: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit
+140910_161340: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit_old
+140910_170235: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit
+140910_210142: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140910_232048: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit
+140910_232219: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -getoutput 1 -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit
+140910_233033: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140910_233650: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140910_235838: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit_new_v1
+140911_001212: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140911_002737: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit_newsample
+140911_003630: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit_newsample
+140911_010152: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit_newsample
+140911_010220: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit_newsample
+140911_011931: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit_newsample
+140911_012029: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -create -submit
+140911_012625: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit_newsample
+140911_090515: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit_newsample
+140911_091832: /cvmfs/cms.cern.ch/crab/CRAB_2_10_7_patch1/python/crab.py -status -c CMSSW_620_Patch1_SLHC12_PT100_SingleMu_withUpg_fromhit_newsample_v1
