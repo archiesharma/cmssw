@@ -61,17 +61,21 @@ void MuonTrackValidator::beginRun(Run const&, EventSetup const& setup) {
       dbe_->setCurrentFolder(subDirName.c_str());
       h_ptSIM.push_back( dbe_->book1D("ptSIM", "generated p_{t}", 5500, 0, 110 ) );
       h_etaSIM.push_back( dbe_->book1D("etaSIM", "generated pseudorapidity", 500, -2.5, 2.5 ) );
+      h_etaSIMNewRange.push_back( dbe_->book1D("etaSIMNewRange", "generated pseudorapidity in eta range", 9, 1.5, 2.4 ) );
+      h_phiSIMNewRange.push_back( dbe_->book1D("phiSIMNewRange", "generated phi in eta range", nintPhi,minPhi,maxPhi ) );
       h_tracksSIM.push_back( dbe_->book1D("tracksSIM","number of simulated tracks",200,-0.5,99.5) );
       h_vertposSIM.push_back( dbe_->book1D("vertposSIM","Transverse position of sim vertices",100,0.,120.) );
       
       dbe_->cd();
       dbe_->setCurrentFolder(dirName.c_str());
       h_tracks.push_back( dbe_->book1D("tracks","number of reconstructed tracks",200,-0.5,19.5) );
+      h_recEtaNewRange.push_back( dbe_->book1D("recEtaNewRange", "reconstructed pseudorapidity in eta range", 9, 1.5, 2.4 ) );
       h_fakes.push_back( dbe_->book1D("fakes","number of fake reco tracks",20,-0.5,19.5) );
       h_charge.push_back( dbe_->book1D("charge","charge",3,-1.5,1.5) );
       h_hits.push_back( dbe_->book1D("hits", "number of hits per track", nintHit,minHit,maxHit ) );
       h_losthits.push_back( dbe_->book1D("losthits", "number of lost hits per track", nintHit,minHit,maxHit) );
       h_nchi2.push_back( dbe_->book1D("chi2", "normalized #chi^{2}", 200, 0, 20 ) );
+      h_nchi2_new.push_back( dbe_->book1D("chi2_new", "normalized #chi^{2} in selected eta range", 200, 0, 20 ) );
       h_nchi2_prob.push_back( dbe_->book1D("chi2_prob", "normalized #chi^{2} probability",100,0,1));
       h_nchi2_Q050.push_back( dbe_->book1D("chi2_Q050", "normalized #chi^{2} Q>50%", 200, 0, 20 ) );
       h_nchi2_Q075.push_back( dbe_->book1D("chi2_Q075", "normalized #chi^{2}  Q>75%", 200, 0, 20 ) );
@@ -120,6 +124,8 @@ void MuonTrackValidator::beginRun(Run const&, EventSetup const& setup) {
 
       /////////////////////////////////
       h_PurityofAssTrks.push_back( dbe_->book1D("PurityofAssTrks", "purity of associated tracks", 20,0.01,1.01) );
+      h_Purityassrecotrks.push_back( dbe_->book1D("PurityofAssRecoTrks", "purity of associated reco tracks", 20,0.01,1.01) );
+      h_Purityallrecotrks.push_back( dbe_->book1D("PurityofAllRecoTrks", "purity of all reco tracks", 20,0.01,1.01) );
       h_eta.push_back( dbe_->book1D("eta", "pseudorapidity residue", 1000, -0.1, 0.1 ) );
       h_pt.push_back( dbe_->book1D("pullPt", "pull of p_{t}", 100, -10, 10 ) );
       h_pullTheta.push_back( dbe_->book1D("pullTheta","pull of #theta parameter",250,-25,25) );
@@ -254,7 +260,7 @@ void MuonTrackValidator::beginRun(Run const&, EventSetup const& setup) {
       
       if (MABH) {
 	h_PurityVsQuality.push_back( dbe_->book2D("PurityVsQuality","Purity vs Quality (MABH)",20,0.01,1.01,20,0.01,1.01) );
-	h_assoceta_Quality05.push_back( dbe_->book1D("num_assoc(simToReco)_eta_Q05","N of associated tracks (simToReco) vs eta (Quality>0.5)",nint,min,max) );
+  	h_assoceta_Quality05.push_back( dbe_->book1D("num_assoc(simToReco)_eta_Q05","N of associated tracks (simToReco) vs eta (Quality>0.5)",nint,min,max) );
 	h_assoceta_Quality075.push_back( dbe_->book1D("num_assoc(simToReco)_eta_Q075","N of associated tracks (simToReco) vs eta (Quality>0.75)",nint,min,max) );
 	h_assocpT_Quality05.push_back( dbe_->book1D("num_assoc(simToReco)_pT_Q05","N of associated tracks (simToReco) vs pT (Quality>0.5)",nintpT,minpT,maxpT) );
 	h_assocpT_Quality075.push_back( dbe_->book1D("num_assoc(simToReco)_pT_Q075","N of associated tracks (simToReco) vs pT (Quality>0.75)",nintpT,minpT,maxpT) );
@@ -430,9 +436,11 @@ void MuonTrackValidator::analyze(const edm::Event& event, const edm::EventSetup&
 	edm::LogVerbatim("MuonTrackValidator") <<"--------------------Selected TrackingParticle #"<<tpr.key();
 	st++;
 
-   
-  
+     if(fabs(momentumTP.eta())>=1.5 && fabs(momentumTP.eta())<=2.4){
+       h_etaSIMNewRange[w]->Fill(momentumTP.eta());
+       h_phiSIMNewRange[w]->Fill(momentumTP.phi());
 
+ }
 	h_ptSIM[w]->Fill(sqrt(momentumTP.perp2()));
 	h_etaSIM[w]->Fill(momentumTP.eta());
 	h_vertposSIM[w]->Fill(sqrt(vertexTP.perp2()));
@@ -456,7 +464,11 @@ void MuonTrackValidator::analyze(const edm::Event& event, const edm::EventSetup&
               if (tp2.size() != 0) {
              mupurity = tp2.begin()->second;
             std::cout<<"Purity of tracks "<<mupurity<<std::endl;
-            h_PurityofAssTrks[w]->Fill(mupurity);   
+         if(fabs(momentumTP.eta())>=1.5 && fabs(momentumTP.eta())<=2.4){        
+
+             h_PurityofAssTrks[w]->Fill(mupurity);   
+               }
+
            }
     } 
 
@@ -493,7 +505,7 @@ void MuonTrackValidator::analyze(const edm::Event& event, const edm::EventSetup&
 	      getEta(momentumTP.eta())<etaintervals[w][f+1]) {
            	
            totSIMeta[w][f]++;
-	    if (TP_is_matched) {
+	    if (TP_is_matched){ 
 	      totASSeta[w][f]++;
 
 	
@@ -669,7 +681,12 @@ void MuonTrackValidator::analyze(const edm::Event& event, const edm::EventSetup&
 	    tp = recSimColl[track];	    
 	    if (tp.size() != 0) {
 	      tpr = tp.begin()->first;	      
-                          
+          
+               double Purity_alltrks = tp.begin()->second;
+               
+               if(fabs(track->momentum().eta())>=1.5 && fabs(track->momentum().eta())<=2.4){
+               h_Purityallrecotrks[w]->Fill(Purity_alltrks); 
+                }
 	      // RtS and StR must associate the same pair !
 	      if(simRecColl.find(tpr) != simRecColl.end()) {
 		std::vector<std::pair<RefToBase<Track>, double> > track_checkback  = simRecColl[tpr];
@@ -689,6 +706,11 @@ void MuonTrackValidator::analyze(const edm::Event& event, const edm::EventSetup&
                   cout << "reco::Track #" << track.key() << " with pt=" << track->pt()
                                                          << " associated with quality:" << Purity <<"\n";
                   if (MABH) h_PurityVsQuality[w]->Fill(Quality,Purity);
+
+                  if(fabs(track->momentum().eta())>=1.5 && fabs(track->momentum().eta())<=2.4){
+                  h_Purityassrecotrks[w]->Fill(Purity); 
+                   }
+
                 }
               }
             }
@@ -736,11 +758,15 @@ void MuonTrackValidator::analyze(const edm::Event& event, const edm::EventSetup&
 	for (unsigned int f=0; f<phiintervals[w].size()-1; f++){
 	  if (track->momentum().phi()>phiintervals[w][f]&&
 	      track->momentum().phi()<phiintervals[w][f+1]) {
-	    totREC_phi[w][f]++; 
+	
+             totREC_phi[w][f]++; 
 	    if (Track_is_matched ) {
 	      totASS2_phi[w][f]++;
 	    }		
 	  }
+
+      
+
 	} // End for (unsigned int f=0; f<phiintervals[w].size()-1; f++){
 
 	
@@ -783,6 +809,15 @@ void MuonTrackValidator::analyze(const edm::Event& event, const edm::EventSetup&
 	  }
 	} // End for (unsigned int f=0; f<dzintervals[w].size()-1; f++){
 
+
+         if(fabs(track->momentum().eta())>=1.5 && fabs(track->momentum().eta())<=2.4){
+          h_recEtaNewRange[w]->Fill(track->momentum().eta());
+          }
+
+        if(fabs(track->momentum().eta())>=1.5 && fabs(track->momentum().eta())<=2.4){
+         h_nchi2_new[w]->Fill(track->normalizedChi2());
+        }
+       
 	int tmp = std::min((int)track->found(),int(maxHit-1));
  	totREC_hit[w][tmp]++;
 	if (Track_is_matched) totASS2_hit[w][tmp]++;
@@ -810,7 +845,7 @@ void MuonTrackValidator::analyze(const edm::Event& event, const edm::EventSetup&
          // if(Recohitcut){
           h_nchi2[w]->Fill(track->normalizedChi2());
 	   
-            if (Track_is_matched_075){
+          if(fabs(track->momentum().eta())>=1.5 && fabs(track->momentum().eta())<=2.4){ 
            h_nchi2_Q075[w]->Fill(track->normalizedChi2());
            }
 
@@ -823,6 +858,8 @@ void MuonTrackValidator::analyze(const edm::Event& event, const edm::EventSetup&
 
           h_nchi2_prob[w]->Fill(TMath::Prob(track->chi2(),(int)track->ndof())); 
 
+          
+          
 
           if (Track_is_matched_050){
 	  h_hits[w]->Fill(track->numberOfValidHits());
@@ -1063,6 +1100,9 @@ void MuonTrackValidator::analyze(const edm::Event& event, const edm::EventSetup&
 	}
       } // End of for(View<Track>::size_type i=0; i<trackCollectionSize; ++i){
       if (at!=0) h_tracks[w]->Fill(at);
+      
+     
+       
       h_fakes[w]->Fill(rT-at);
       edm::LogVerbatim("MuonTrackValidator") << "Total Simulated: " << st << "\n"
 					     << "Total Associated (simToReco): " << ats << "\n"
