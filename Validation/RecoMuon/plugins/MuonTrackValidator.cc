@@ -736,6 +736,7 @@ void MuonTrackValidator::analyze(const edm::Event& event, const edm::EventSetup&
           }
         }
 
+std::cout<<"Number of valid hits ="<<track->numberOfValidHits()<<std::endl;
        //Compute fake rate vs eta
         for (unsigned int f=0; f<etaintervals[w].size()-1; f++){
           if (getEta(track->momentum().eta())>etaintervals[w][f]&&
@@ -861,9 +862,9 @@ void MuonTrackValidator::analyze(const edm::Event& event, const edm::EventSetup&
           
           
 
-          if (Track_is_matched_050){
+          
 	  h_hits[w]->Fill(track->numberOfValidHits());
-          }
+          
 
 	  h_losthits[w]->Fill(track->numberOfLostHits());
 	  chi2_vs_nhits[w]->Fill(track->numberOfValidHits(),track->normalizedChi2());
