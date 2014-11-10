@@ -5,7 +5,21 @@
 <use   name="SimTracker/Records"/>
 <use   name="SimTracker/TrackAssociation"/>
 <use   name="MuonAnalysis/MuonAssociators"/>
+<use   name="FWCore/Framework"/>
+<use   name="FWCore/PluginManager"/>
+<use   name="FWCore/ParameterSet"/>
+<use   name="DataFormats/TrackingRecHit"/>
+<use   name="DataFormats/MuonReco"/>
+<use   name="DataFormats/TrackReco"/>
+<use   name="DataFormats/METReco"/>
+<use   name="DataFormats/Candidate"/>
+<use   name="DataFormats/HepMCCandidate"/>
+<use   name="DataFormats/VertexReco"/>
+<use   name="CommonTools/UtilAlgos"/>
+<use   name="PhysicsTools/UtilAlgos"/>
 <export>
 </export>
 <library   name="MuonAnalysisMuonAssociators_plugins" file="*.cc">
 </library>
+
+

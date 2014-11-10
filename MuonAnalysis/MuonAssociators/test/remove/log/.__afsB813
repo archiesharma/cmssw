@@ -1,0 +1,19 @@
+2014-11-10 11:59:16,282 [DEBUG] 	/cvmfs/cms.cern.ch/crab/CRAB_2_11_1/python/crab.py -create -submit
+
+2014-11-10 11:59:16,282 [INFO] 	Version 2.11.1 running on Mon Nov 10 11:59:16 2014 CET (10:59:16 UTC)
+
+crab. Working options:
+	scheduler           remoteGlidein
+	job type            CMSSW
+	server              OFF
+	working directory   /afs/cern.ch/work/a/archie/private/Roumyana_punch/CMSSW_6_2_0_SLHC12/src/MuonAnalysis/MuonAssociators/test/CMSSW_620_Patch1_SLHC12_punchthrough_DY23_NoUpg_endcap_NoPtcut/
+
+2014-11-10 11:59:16,282 [DEBUG] 	Downloading file [http://cmsdoc.cern.ch/cms/LCG/crab/config/] to [/afs/cern.ch/user/a/archie/.cms_crab/allowed_releases.conf].
+2014-11-10 11:59:16,429 [DEBUG] 	Input whitelist: 
+2014-11-10 11:59:16,430 [DEBUG] 	Input blacklist: 
+2014-11-10 11:59:16,430 [DEBUG] 	Converted whitelist: 
+2014-11-10 11:59:16,430 [DEBUG] 	Converted blacklist: 
+2014-11-10 11:59:16,430 [DEBUG] 	Downloading file [http://cmsdoc.cern.ch/cms/LCG/crab/config/] to [/afs/cern.ch/user/a/archie/.cms_crab/myproxy_server.conf].
+2014-11-10 11:59:16,431 [DEBUG] 	Downloading file [http://cmsdoc.cern.ch/cms/LCG/crab/config/] to [/afs/cern.ch/user/a/archie/.cms_crab/site_black_list.conf].
+2014-11-10 11:59:16,431 [DEBUG] 	Enforced black list: TAPE,srm-cms.cern.ch,cmssrm.fnal.gov,T1_FR,T1_RU,T1_TW,cmseos.fnal.gov,cmsdca2.fnal.gov,T2_PK_NCP,T3_US_Vanderbilt_EC2
+ 
