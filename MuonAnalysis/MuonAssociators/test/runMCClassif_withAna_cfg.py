@@ -98,9 +98,9 @@ readFiles.extend( [
 #       '/store/user/calabria/MinBias_TuneZ2star_14TeV-pythia6/calabria_MinBias2_GEN-SIM-DIGI-RECO_CMSSW_6_2_0_SLHC12_2023Scenario_3Step/751194ca5d3aeb41ed7baca383591b5f/step3_105_1_SeP.root',
 #       '/store/user/calabria/MinBias_TuneZ2star_14TeV-pythia6/calabria_MinBias2_GEN-SIM-DIGI-RECO_CMSSW_6_2_0_SLHC12_2023Scenario_3Step/751194ca5d3aeb41ed7baca383591b5f/step3_106_1_rBt.root',
 #       '/store/user/calabria/MinBias_TuneZ2star_14TeV-pythia6/calabria_MinBias2_GEN-SIM-DIGI-RECO_CMSSW_6_2_0_SLHC12_2023Scenario_3Step/751194ca5d3aeb41ed7baca383591b5f/step3_107_1_cuW.root'
-       '/store/user/calabria/DYToMuMu_M-20_TuneZ2star_14TeV-pythia6-tauola/calabria_DYToMuMu_GEN-SIM-DIGI-RECO_CMSSW_6_2_0_SLHC12_2023Scenario_3Step/7e82c0353afc1625567b3844e4c947b8/step3_1000_1_HIo.root',
-       '/store/user/calabria/DYToMuMu_M-20_TuneZ2star_14TeV-pythia6-tauola/calabria_DYToMuMu_GEN-SIM-DIGI-RECO_CMSSW_6_2_0_SLHC12_2023Scenario_3Step/7e82c0353afc1625567b3844e4c947b8/step3_1001_1_PG2.root',
-       '/store/user/calabria/DYToMuMu_M-20_TuneZ2star_14TeV-pythia6-tauola/calabria_DYToMuMu_GEN-SIM-DIGI-RECO_CMSSW_6_2_0_SLHC12_2023Scenario_3Step/7e82c0353afc1625567b3844e4c947b8/step3_1002_1_tVX.root',
+#       '/store/user/calabria/DYToMuMu_M-20_TuneZ2star_14TeV-pythia6-tauola/calabria_DYToMuMu_GEN-SIM-DIGI-RECO_CMSSW_6_2_0_SLHC12_2023Scenario_3Step/7e82c0353afc1625567b3844e4c947b8/step3_1000_1_HIo.root',
+#       '/store/user/calabria/DYToMuMu_M-20_TuneZ2star_14TeV-pythia6-tauola/calabria_DYToMuMu_GEN-SIM-DIGI-RECO_CMSSW_6_2_0_SLHC12_2023Scenario_3Step/7e82c0353afc1625567b3844e4c947b8/step3_1001_1_PG2.root',
+#       '/store/user/calabria/DYToMuMu_M-20_TuneZ2star_14TeV-pythia6-tauola/calabria_DYToMuMu_GEN-SIM-DIGI-RECO_CMSSW_6_2_0_SLHC12_2023Scenario_3Step/7e82c0353afc1625567b3844e4c947b8/step3_1002_1_tVX.root',
        '/store/user/calabria/DYToMuMu_M-20_TuneZ2star_14TeV-pythia6-tauola/calabria_DYToMuMu_GEN-SIM-DIGI-RECO_CMSSW_6_2_0_SLHC12_2023Scenario_3Step/7e82c0353afc1625567b3844e4c947b8/step3_1003_1_0rr.root',
        '/store/user/calabria/DYToMuMu_M-20_TuneZ2star_14TeV-pythia6-tauola/calabria_DYToMuMu_GEN-SIM-DIGI-RECO_CMSSW_6_2_0_SLHC12_2023Scenario_3Step/7e82c0353afc1625567b3844e4c947b8/step3_1004_1_uAL.root'
 
@@ -139,5 +139,6 @@ process.p = cms.Path(
                      process.checkMuSize*
                      process.scrapingVeto*
         	     process.primaryVertexFilter*
+                     process.selectedVertices*
                      process.classByHits
 		 ) 

@@ -66,8 +66,7 @@ class MuonMCClassifAndAna: public edm::EDAnalyzer
 {
 public:
   explicit MuonMCClassifAndAna(const edm::ParameterSet&);
-  bool isTight(reco::Muon myMuon, reco::VertexCollection::const_iterator myPVit,
-      const reco::VertexCollection myVertices);
+  bool isTight(const edm::Event& iEvent, reco::Muon myMuon);
   bool isSoft(reco::Muon myMuon, reco::VertexCollection::const_iterator myPVit,
       const reco::VertexCollection myVertices);
   ~MuonMCClassifAndAna();
@@ -375,6 +374,7 @@ private:
   double muonMinEtaCut_;
   double muonMaxEtaCut_;
   double isoCut_;
+  edm::InputTag vxtTag;
   //Get Mother of the tracking particle
   TrackingParticleRef getTpMother(TrackingParticleRef tp)
   {
@@ -393,19 +393,24 @@ private:
   int convertAndPush(const TrackingParticle &tp, reco::GenParticleCollection &out, const TrackingParticleRef &momRef,
       const edm::Handle<reco::GenParticleCollection> & genParticles) const;
 };
-bool MuonMCClassifAndAna::isTight(reco::Muon myMuon, reco::VertexCollection::const_iterator myPVit,
-    const reco::VertexCollection myVertices)
+bool MuonMCClassifAndAna::isTight(const edm::Event& iEvent, reco::Muon myMuon)
 {
   bool results = false;
-  if (myMuon.isGlobalMuon())
+  if (myMuon.isGlobalMuon() && myMuon.isPFMuon())
   {
     if (myMuon.isIsolationValid() && (myMuon.isolationR03().sumPt) / myMuon.muonBestTrack()->pt() < isoCut_)
     // if (myMuon.isIsolationValid() && (myMuon.isolationR03().sumPt) / myMuon.pt() < isoCut_)
     {
       reco::TrackRef trackRefGl = myMuon.globalTrack();
       reco::TrackRef trackRefIn = myMuon.innerTrack();
-      if (trackRefGl.isNonnull() && trackRefIn.isNonnull())
+      reco::TrackRef trackRefBest = myMuon.muonBestTrack();
+      if (trackRefGl.isNonnull() && trackRefIn.isNonnull() && trackRefBest.isNonnull())
       {
+
+       edm::Handle<reco::VertexCollection> vertexHandle;
+       iEvent.getByLabel(vxtTag,vertexHandle);
+       const reco::VertexCollection* vertices = vertexHandle.product();
+
         if (myMuon.numberOfMatchedStations() > 1)
         {
           if (trackRefGl->hitPattern().numberOfValidMuonHits() > 0)
@@ -418,14 +423,11 @@ bool MuonMCClassifAndAna::isTight(reco::Muon myMuon, reco::VertexCollection::con
                 // if (myMuon.track()->normalizedChi2() < 10.)
                 {
 
-                  reco::Vertex pv = myVertices.front();
-                  if ((pv.isValid()) && !(pv.isFake())
-                      && (fabs(pv.position().z()) <= 24 && fabs(pv.position().rho()) <= 2 && pv.ndof() > 4))
-                  {
-                    if (fabs(myMuon.innerTrack()->dxy(pv.position())) < 0.2
-                        && fabs(myMuon.innerTrack()->dz(pv.position())) < 0.5)
+                 
+                    if (vertices->size()!=0 && fabs(myMuon.muonBestTrack()->dxy((*vertices)[0].position())) < 0.2
+                        && fabs(myMuon.muonBestTrack()->dz((*vertices)[0].position())) < 0.5)
                       results = true;
-                  }
+                  
 
                 }
               }
@@ -480,6 +482,7 @@ MuonMCClassifAndAna::MuonMCClassifAndAna(const edm::ParameterSet &iConfig) :
         , muonMinEtaCut_(iConfig.getParameter<double>("muonMinEtaCut")) //
         , muonMaxEtaCut_(iConfig.getParameter<double>("muonMaxEtaCut")) //
         , isoCut_(iConfig.getParameter<double>("isoCut")) //
+        , vxtTag(iConfig.getParameter < edm::InputTag > ("vxtTag")) //
 {
   debug = false;
   glb_pch = 4;
@@ -763,7 +766,7 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
         if (debug)
           std::cout << "I am Good muon!" << std::endl;
       }
-      bool tight = isTight((*myMuons)[i], myPV, vertices);
+      bool tight = isTight(iEvent, (*myMuons)[i]);
       if (tight)
       {
         N_Muons->Fill(35);
