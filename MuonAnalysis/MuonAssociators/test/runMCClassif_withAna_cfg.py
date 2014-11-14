@@ -140,5 +140,5 @@ process.p = cms.Path(
                      process.scrapingVeto*
         	     process.primaryVertexFilter*
                      process.selectedVertices*
-                     process.classByHits
+                     process.muonClassificationByHits 
 		 ) 
