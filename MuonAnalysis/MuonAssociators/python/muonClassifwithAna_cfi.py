@@ -22,12 +22,34 @@ classByHits = cms.EDAnalyzer("MuonMCClassifAndAna",
     muAssocLabel = cms.string("muonAssociatorByHits"),
     decayRho  = cms.double(200),
     decayAbsZ = cms.double(400),
-    muonPtCut = cms.double(3.),
-    muonMinEtaCut = cms.double(-2.4),
-    muonMaxEtaCut = cms.double(2.4),
+    muonPtCut = cms.double(0.),
+    muonMinEtaCut = cms.double(1.5),
+    muonMaxEtaCut = cms.double(2.1),
     isoCut = cms.double(100),             #tight 0.05, loose 0.1
     vxtTag = cms.InputTag("selectedVertices")
 )
 
+classByHitsPtCut15 = classByHits.clone(
+ muonPtCut = cms.double(15.),
+ muonMinEtaCut = cms.double(1.5),
+ muonMaxEtaCut = cms.double(2.1),
+)
 
-    
+classByHitsPtCut3 = classByHits.clone(
+ muonPtCut = cms.double(3.),
+ muonMinEtaCut = cms.double(1.5),
+ muonMaxEtaCut = cms.double(2.1),
+)
+
+classByHitsPtCut5 = classByHits.clone(
+ muonPtCut = cms.double(5.),
+ muonMinEtaCut = cms.double(1.5),
+ muonMaxEtaCut = cms.double(2.1),
+) 
+
+muonClassificationByHits = cms.Sequence(
+ classByHits +
+ classByHitsPtCut15 +
+ classByHitsPtCut3 +
+ classByHitsPtCut5
+)   
