@@ -73,8 +73,7 @@ public:
   void myClassification(size_t myNmu, edm::Handle<edm::View<reco::Muon> > myMuons_handle,
       edm::RefToBaseVector<reco::Muon> selMuons, MuonAssociatorByHits::MuonToSimCollection myRecSimColl,
       MuonAssociatorByHits::SimToMuonCollection mySimRecColl,
-      MuonAssociatorByHits::MuonToSimCollection myUpdSTA_recSimColl,
-      MuonAssociatorByHits::SimToMuonCollection myUpdSTA_simRecColl, std::vector<int> &myClassif,
+      std::vector<int> &myClassif,
       std::vector<int> &myExt, std::vector<int> &myHitsPdgId, std::vector<int> &myMomPdgId,
       std::vector<int> &myGmomPdgId, std::vector<int> &myMomStatus, std::vector<int> &myFlav,
       std::vector<int> &myMomFlav, std::vector<int> &myGmomFlav, std::vector<int> &myHmomFlav, std::vector<int> &myTpId,
@@ -893,88 +892,46 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
   MuonAssociatorByHits::MuonToSimCollection recSimColl_glb;
   MuonAssociatorByHits::SimToMuonCollection simRecColl_glb;
   edm::LogVerbatim("MuonMCClassifAndAna") << "\n Global Muon association by global track"; //
-  assoByHits->associateMuons(recSimColl_glb, simRecColl_glb, selGlbMuons, MuonAssociatorByHits::GlobalTk, allTPs,
+  assoByHits->associateMuons(recSimColl_glb, simRecColl_glb, selGlbMuons, MuonAssociatorByHits::OuterTk, allTPs,
       &iEvent, &iSetup); //
-//new part: adding global muon asso by OuterTk track
-  MuonAssociatorByHits::MuonToSimCollection UpdSTA_recSimColl_glb;
-  MuonAssociatorByHits::SimToMuonCollection UpdSTA_simRecColl_glb;
-  edm::LogVerbatim("MuonMCClassifAndAna") << "\n Global Muon association by outer track"; //
-  assoByHits->associateMuons(UpdSTA_recSimColl_glb, UpdSTA_simRecColl_glb, selGlbMuons, MuonAssociatorByHits::OuterTk,
-      allTPs, &iEvent, &iSetup); //
 //tracker muon
   MuonAssociatorByHits::MuonToSimCollection recSimColl_trk;
   MuonAssociatorByHits::SimToMuonCollection simRecColl_trk;
   edm::LogVerbatim("MuonMCClassifAndAna") << "\n Tracker muon association by inner track "; //
   assoByHits->associateMuons(recSimColl_trk, simRecColl_trk, selTrkMuons, MuonAssociatorByHits::InnerTk, allTPs,
       &iEvent, &iSetup); //
-//new part: adding tracker muon asso by OuterTk track - a dummy part, it is not expected that tracker muon might be associated by hits from the outer track, but just to not change the code so much
-  MuonAssociatorByHits::MuonToSimCollection UpdSTA_recSimColl_trk;
-  MuonAssociatorByHits::SimToMuonCollection UpdSTA_simRecColl_trk;
-  edm::LogVerbatim("MuonMCClassifAndAna") << "\n Tracker Muon association by outer track"; //
-  assoByHits->associateMuons(UpdSTA_recSimColl_trk, UpdSTA_simRecColl_trk, selTrkMuons, MuonAssociatorByHits::OuterTk,
-      allTPs, &iEvent, &iSetup); //
 //standalone muon
   MuonAssociatorByHits::MuonToSimCollection recSimColl_sta;
   MuonAssociatorByHits::SimToMuonCollection simRecColl_sta;
   edm::LogVerbatim("MuonMCClassifAndAna") << "\n Standalone Muon association by outer track "; //
   assoByHits->associateMuons(recSimColl_sta, simRecColl_sta, selStaMuons, MuonAssociatorByHits::OuterTk, allTPs,
       &iEvent, &iSetup); //
-//new part: adding standalone muon asso by InnerTk track - a dummy part, it is not expected that standalone muon might be associated by hits from the inner track, but just to not change the code so much
-  MuonAssociatorByHits::MuonToSimCollection UpdSTA_recSimColl_sta;
-  MuonAssociatorByHits::SimToMuonCollection UpdSTA_simRecColl_sta;
-  edm::LogVerbatim("MuonMCClassifAndAna") << "\n Standalone Muon association by inner track"; //
-  assoByHits->associateMuons(UpdSTA_recSimColl_sta, UpdSTA_simRecColl_sta, selStaMuons, MuonAssociatorByHits::OuterTk,
-      allTPs, &iEvent, &iSetup); //
 //good muon
   MuonAssociatorByHits::MuonToSimCollection recSimColl_good;
   MuonAssociatorByHits::SimToMuonCollection simRecColl_good;
   edm::LogVerbatim("MuonMCClassifAndAna") << "\n Good Muon association by GlobalTk "; //
   assoByHits->associateMuons(recSimColl_good, simRecColl_good, selGoodMuons, MuonAssociatorByHits::GlobalTk, allTPs,
       &iEvent, &iSetup); //
-// assoByHits->associateMuons(recSimColl_good, simRecColl_good, selGoodMuons, MuonAssociatorByHits::Segments, allTPs, &iEvent, &iSetup); //
-//new part: adding good muon asso by outer track
-  MuonAssociatorByHits::MuonToSimCollection UpdSTA_recSimColl_good;
-  MuonAssociatorByHits::SimToMuonCollection UpdSTA_simRecColl_good;
-  edm::LogVerbatim("MuonMCClassifAndAna") << "\n Good Muon association by outer track"; //
-  assoByHits->associateMuons(UpdSTA_recSimColl_good, UpdSTA_simRecColl_good, selGoodMuons,
-      MuonAssociatorByHits::OuterTk, allTPs, &iEvent, &iSetup); //
 //tight muon asso by global track
   MuonAssociatorByHits::MuonToSimCollection recSimColl_tight;
   MuonAssociatorByHits::SimToMuonCollection simRecColl_tight;
   edm::LogVerbatim("MuonMCClassifAndAna") << "\n Tight Muon association by global track "; //
-  assoByHits->associateMuons(recSimColl_tight, simRecColl_tight, selTightMuons, MuonAssociatorByHits::GlobalTk, allTPs,
+  assoByHits->associateMuons(recSimColl_tight, simRecColl_tight, selTightMuons, MuonAssociatorByHits::OuterTk, allTPs,
       &iEvent, &iSetup); //
-//new part: adding tight muon asso by OuterTk track
-  MuonAssociatorByHits::MuonToSimCollection UpdSTA_recSimColl_tight;
-  MuonAssociatorByHits::SimToMuonCollection UpdSTA_simRecColl_tight;
-  edm::LogVerbatim("MuonMCClassifAndAna") << "\n Tight Muon association by outer track "; //
-  assoByHits->associateMuons(UpdSTA_recSimColl_tight, UpdSTA_simRecColl_tight, selTightMuons,
-      MuonAssociatorByHits::OuterTk, allTPs, &iEvent, &iSetup); //
 //Soft muon
   MuonAssociatorByHits::MuonToSimCollection recSimColl_soft;
   MuonAssociatorByHits::SimToMuonCollection simRecColl_soft;
   edm::LogVerbatim("MuonMCClassifAndAna") << "\n Soft Muon association by inner track "; //
   assoByHits->associateMuons(recSimColl_soft, simRecColl_soft, selSoftMuons, MuonAssociatorByHits::GlobalTk, allTPs,
       &iEvent, &iSetup); //
-//new part: adding soft muon asso by OuterTk track
-  MuonAssociatorByHits::MuonToSimCollection UpdSTA_recSimColl_soft;
-  MuonAssociatorByHits::SimToMuonCollection UpdSTA_simRecColl_soft;
-  edm::LogVerbatim("MuonMCClassifAndAna") << "\n Soft Muon association by outer track "; //
-  assoByHits->associateMuons(UpdSTA_recSimColl_soft, UpdSTA_simRecColl_soft, selSoftMuons,
-      MuonAssociatorByHits::OuterTk, allTPs, &iEvent, &iSetup); //
 //Loose
   MuonAssociatorByHits::MuonToSimCollection recSimColl_loose;
   MuonAssociatorByHits::SimToMuonCollection simRecColl_loose;
   edm::LogVerbatim("MuonMCClassifAndAna") << "\n Loose Muon association by inner track "; //
-  assoByHits->associateMuons(recSimColl_loose, simRecColl_loose, selLooseMuons, MuonAssociatorByHits::GlobalTk, allTPs,
+  assoByHits->associateMuons(recSimColl_loose, simRecColl_loose, selLooseMuons, MuonAssociatorByHits::Segments, allTPs,
       &iEvent, &iSetup); //
-//new part: adding loose muon asso by OuterTk track
-  MuonAssociatorByHits::MuonToSimCollection UpdSTA_recSimColl_loose;
-  MuonAssociatorByHits::SimToMuonCollection UpdSTA_simRecColl_loose;
-  edm::LogVerbatim("MuonMCClassifAndAna") << "\n Tight Muon association by OuterTk track "; //
-  assoByHits->associateMuons(UpdSTA_recSimColl_loose, UpdSTA_simRecColl_loose, selLooseMuons,
-      MuonAssociatorByHits::OuterTk, allTPs, &iEvent, &iSetup); //
-  if (debug)
+  
+if (debug)
     std::cout << "there are " << nmu << " reco::Muons" << std::endl;
   if (debug)
     std::cout << "=================================" << std::endl;
@@ -1010,8 +967,8 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
   std::vector<int> tpIdgl(nmu, -1);
   std::vector<float> prodRhogl(nmu, 0.0), prodZgl(nmu, 0.0), momRhogl(nmu, 0.0), momZgl(nmu, 0.0);
   std::vector<float> tpAssoQualitygl(nmu, -1);
-  myClassification(nmu, myMuons, selGlbMuons, recSimColl_glb, simRecColl_glb, UpdSTA_recSimColl_glb,
-      UpdSTA_simRecColl_glb, classifgl, extgl, hitsPdgIdgl, momPdgIdgl, gmomPdgIdgl, momStatusgl, flavgl, momFlavgl,
+  myClassification(nmu, myMuons, selGlbMuons, recSimColl_glb, simRecColl_glb, 
+      classifgl, extgl, hitsPdgIdgl, momPdgIdgl, gmomPdgIdgl, momStatusgl, flavgl, momFlavgl,
       gmomFlavgl, hmomFlavgl, tpIdgl, prodRhogl, prodZgl, momRhogl, momZgl, tpAssoQualitygl, secondariesforGlb,
       muToPrimaryforGlb, muToSecondaryforGlb, genParticlesforGlb, glb_pch, glb_l, glb_h, glb_prm, glb_n, glb_gst,
       muPt_Glb_punch, muPt_Glb_lightflv, muPt_Glb_heavyflv, muPt_Glb_primary, muPt_Glb_noise, muPt_Glb_ghost,
@@ -1024,8 +981,8 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
   std::vector<int> tpIdtr(nmu, -1);
   std::vector<float> prodRhotr(nmu, 0.0), prodZtr(nmu, 0.0), momRhotr(nmu, 0.0), momZtr(nmu, 0.0);
   std::vector<float> tpAssoQualitytr(nmu, -1);
-  myClassification(nmu, myMuons, selTrkMuons, recSimColl_trk, simRecColl_trk, UpdSTA_recSimColl_trk,
-      UpdSTA_simRecColl_trk, classiftr, exttr, hitsPdgIdtr, momPdgIdtr, gmomPdgIdtr, momStatustr, flavtr, momFlavtr,
+  myClassification(nmu, myMuons, selTrkMuons, recSimColl_trk, simRecColl_trk, 
+      classiftr, exttr, hitsPdgIdtr, momPdgIdtr, gmomPdgIdtr, momStatustr, flavtr, momFlavtr,
       gmomFlavtr, hmomFlavtr, tpIdtr, prodRhotr, prodZtr, momRhotr, momZtr, tpAssoQualitytr, secondariesforTrk,
       muToPrimaryforTrk, muToSecondaryforTrk, genParticlesforTrk, trk_pch, trk_l, trk_h, trk_prm, trk_n, trk_gst,
       muPt_Trk_punch, muPt_Trk_lightflv, muPt_Trk_heavyflv, muPt_Trk_primary, muPt_Trk_noise, muPt_Trk_ghost,
@@ -1038,8 +995,8 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
   std::vector<int> tpIds(nmu, -1);
   std::vector<float> prodRhos(nmu, 0.0), prodZs(nmu, 0.0), momRhos(nmu, 0.0), momZs(nmu, 0.0);
   std::vector<float> tpAssoQualitys(nmu, -1);
-  myClassification(nmu, myMuons, selStaMuons, recSimColl_sta, simRecColl_sta, UpdSTA_recSimColl_sta,
-      UpdSTA_simRecColl_sta, classifs, exts, hitsPdgIds, momPdgIds, gmomPdgIds, momStatuss, flavs, momFlavs, gmomFlavs,
+  myClassification(nmu, myMuons, selStaMuons, recSimColl_sta, simRecColl_sta, 
+      classifs, exts, hitsPdgIds, momPdgIds, gmomPdgIds, momStatuss, flavs, momFlavs, gmomFlavs,
       hmomFlavs, tpIds, prodRhos, prodZs, momRhos, momZs, tpAssoQualitys, secondariesforSta, muToPrimaryforSta,
       muToSecondaryforSta, genParticlesforSta, sta_pch, sta_l, sta_h, sta_prm, sta_n, sta_gst, muPt_Sta_punch,
       muPt_Sta_lightflv, muPt_Sta_heavyflv, muPt_Sta_primary, muPt_Sta_noise, muPt_Sta_ghost, muEta_Sta_punch,
@@ -1052,8 +1009,8 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
   std::vector<int> tpIdgd(nmu, -1);
   std::vector<float> prodRhogd(nmu, 0.0), prodZgd(nmu, 0.0), momRhogd(nmu, 0.0), momZgd(nmu, 0.0);
   std::vector<float> tpAssoQualitygd(nmu, -1);
-  myClassification(nmu, myMuons, selGoodMuons, recSimColl_good, simRecColl_good, UpdSTA_recSimColl_good,
-      UpdSTA_simRecColl_good, classifgd, extgd, hitsPdgIdgd, momPdgIdgd, gmomPdgIdgd, momStatusgd, flavgd, momFlavgd,
+  myClassification(nmu, myMuons, selGoodMuons, recSimColl_good, simRecColl_good, 
+      classifgd, extgd, hitsPdgIdgd, momPdgIdgd, gmomPdgIdgd, momStatusgd, flavgd, momFlavgd,
       gmomFlavgd, hmomFlavgd, tpIdgd, prodRhogd, prodZgd, momRhogd, momZgd, tpAssoQualitygd, secondariesforGood,
       muToPrimaryforGood, muToSecondaryforGood, genParticlesforGood, good_pch, good_l, good_h, good_prm, good_n,
       good_gst, muPt_Good_punch, muPt_Good_lightflv, muPt_Good_heavyflv, muPt_Good_primary, muPt_Good_noise,
@@ -1067,8 +1024,8 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
   std::vector<int> tpIdt(nmu, -1);
   std::vector<float> prodRhot(nmu, 0.0), prodZt(nmu, 0.0), momRhot(nmu, 0.0), momZt(nmu, 0.0);
   std::vector<float> tpAssoQualityt(nmu, -1);
-  myClassification(nmu, myMuons, selTightMuons, recSimColl_tight, simRecColl_tight, UpdSTA_recSimColl_tight,
-      UpdSTA_simRecColl_tight, classift, extt, hitsPdgIdt, momPdgIdt, gmomPdgIdt, momStatust, flavt, momFlavt,
+  myClassification(nmu, myMuons, selTightMuons, recSimColl_tight, simRecColl_tight, 
+      classift, extt, hitsPdgIdt, momPdgIdt, gmomPdgIdt, momStatust, flavt, momFlavt,
       gmomFlavt, hmomFlavt, tpIdt, prodRhot, prodZt, momRhot, momZt, tpAssoQualityt, secondariesforTight,
       muToPrimaryforTight, muToSecondaryforTight, genParticlesforTight, tight_pch, tight_l, tight_h, tight_prm, tight_n,
       tight_gst, muPt_Tight_punch, muPt_Tight_lightflv, muPt_Tight_heavyflv, muPt_Tight_primary, muPt_Tight_noise,
@@ -1082,8 +1039,8 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
   std::vector<int> tpIdsf(nmu, -1);
   std::vector<float> prodRhosf(nmu, 0.0), prodZsf(nmu, 0.0), momRhosf(nmu, 0.0), momZsf(nmu, 0.0);
   std::vector<float> tpAssoQualitysf(nmu, -1);
-  myClassification(nmu, myMuons, selSoftMuons, recSimColl_soft, simRecColl_soft, UpdSTA_recSimColl_soft,
-      UpdSTA_simRecColl_soft, classifsf, extsf, hitsPdgIdsf, momPdgIdsf, gmomPdgIdsf, momStatussf, flavsf, momFlavsf,
+  myClassification(nmu, myMuons, selSoftMuons, recSimColl_soft, simRecColl_soft, 
+      classifsf, extsf, hitsPdgIdsf, momPdgIdsf, gmomPdgIdsf, momStatussf, flavsf, momFlavsf,
       gmomFlavsf, hmomFlavsf, tpIdsf, prodRhosf, prodZsf, momRhosf, momZsf, tpAssoQualitysf, secondariesforSoft,
       muToPrimaryforSoft, muToSecondaryforSoft, genParticlesforSoft, soft_pch, soft_l, soft_h, soft_prm, soft_n,
       soft_gst, muPt_Soft_punch, muPt_Soft_lightflv, muPt_Soft_heavyflv, muPt_Soft_primary, muPt_Soft_noise,
@@ -1097,8 +1054,8 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
   std::vector<int> tpIdls(nmu, -1);
   std::vector<float> prodRhosl(nmu, 0.0), prodZls(nmu, 0.0), momRhols(nmu, 0.0), momZls(nmu, 0.0);
   std::vector<float> tpAssoQualityls(nmu, -1);
-  myClassification(nmu, myMuons, selLooseMuons, recSimColl_loose, simRecColl_loose, UpdSTA_recSimColl_loose,
-      UpdSTA_simRecColl_loose, classifls, extls, hitsPdgIdls, momPdgIdls, gmomPdgIdls, momStatusls, flavs, momFlavls,
+  myClassification(nmu, myMuons, selLooseMuons, recSimColl_loose, simRecColl_loose,
+      classifls, extls, hitsPdgIdls, momPdgIdls, gmomPdgIdls, momStatusls, flavs, momFlavls,
       gmomFlavls, hmomFlavls, tpIdls, prodRhosl, prodZls, momRhols, momZls, tpAssoQualityls, secondariesforLoose,
       muToPrimaryforLoose, muToSecondaryforLoose, genParticlesforLoose, loose_pch, loose_l, loose_h, loose_prm, loose_n,
       loose_gst, muPt_Loose_punch, muPt_Loose_lightflv, muPt_Loose_heavyflv, muPt_Loose_primary, muPt_Loose_noise,
@@ -1110,8 +1067,7 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
 void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<reco::Muon> > myMuons_handle,
     edm::RefToBaseVector<reco::Muon> selMuons, MuonAssociatorByHits::MuonToSimCollection myRecSimColl,
     MuonAssociatorByHits::SimToMuonCollection mySimRecColl,
-    MuonAssociatorByHits::MuonToSimCollection myUpdSTA_recSimColl,
-    MuonAssociatorByHits::SimToMuonCollection myUpdSTA_simRecColl, std::vector<int> &myClassif, std::vector<int> &myExt,
+    std::vector<int> &myClassif, std::vector<int> &myExt,
     std::vector<int> &myHitsPdgId, std::vector<int> &myMomPdgId, std::vector<int> &myGmomPdgId,
     std::vector<int> &myMomStatus, std::vector<int> &myFlav, std::vector<int> &myMomFlav, std::vector<int> &myGmomFlav,
     std::vector<int> &myHmomFlav, std::vector<int> &myTpId, std::vector<float> &myProdRho, std::vector<float> &myProdZ,
@@ -1143,49 +1099,33 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
     edm::RefToBase < reco::Muon > muMatchBack;
     r2s_it match = myRecSimColl.find(mu);
     s2r_it matchback;
-//new part:
-    r2s_it matchSta = myUpdSTA_recSimColl.find(mu);
-//new part end
-    if (match != myRecSimColl.end()) //look for match with sim particle
-    {
-      edm::LogVerbatim("MuonMCClassifAndAna") << "\t Reco to Sim matched Ok...";
-// match->second is vector, front is first element, first is the ref (second would be the quality)
-      tp = match->second.front().first;
-      myTpId[i] = tp.isNonnull() ? tp.key() : -1; // we check, even if null refs should not appear here at all; ako ref e nenuleva wzima Id na 4asticata
-      myTpAssoQuality[i] = match->second.front().second; //quality
-// s2r_it matchback = mySimRecColl.find(tp);
+
+   if (match != myRecSimColl.end()) //look for match with sim particle
+     {
+        edm::LogVerbatim("MuonMCClassifAndAna") << "\t Reco to Sim matched Ok...";
+   // match->second is vector, front is first element, first is the ref (second would be the quality)
+    tp = match->second.front().first;
+    myTpId[i] = tp.isNonnull() ? tp.key() : -1; // we check, even if null refs should not appear here at all; ako ref e nenuleva wzima Id na 4asticata
+    myTpAssoQuality[i] = match->second.front().second; //quality
+  
+    //s2r_it matchback = mySimRecColl.find(tp);
       matchback = mySimRecColl.find(tp); //sim to reco match; t.e. obratno - tyrsi machnata tp v reco colekciata
-      if (matchback != mySimRecColl.end())
-      {
-        muMatchBack = matchback->second.front().first; //ako ima syvpadenie vzima referencia kym reco 4asticata
-      }
-      else
-      {
-        edm::LogWarning("MuonMCClassifAndAna") << "\n***WARNING: This I do NOT understand: why no match back? *** \n";
-      }
-    } //end reco to sim match OK
+           if (matchback != mySimRecColl.end())
+               {
+                  muMatchBack = matchback->second.front().first; //ako ima syvpadenie vzima referencia kym reco 4asticata
+               }
+          else
+            {
+              edm::LogWarning("MuonMCClassifAndAna") << "\n***WARNING: This I do NOT understand: why no match back? *** \n";
+            }
+         } //end reco to sim match OK
+
+//new part:
 //new part
 // else if ((trackType_ == MuonAssociatorByHits::GlobalTk) && mu->isGlobalMuon())
 // {
 // perform a second attempt, matching with the standalone muon
 // r2s_it matchSta = UpdSTA_recSimColl.find(mu);
-    else if ((mu->isGlobalMuon() > 0) && matchSta != myUpdSTA_recSimColl.end())
-    {
-      edm::LogVerbatim("MuonMCClassifier") << "\t RtS matched Ok... from the UpdSTA_recSimColl ";
-      tp = matchSta->second.front().first;
-      myTpId[i] = tp.isNonnull() ? tp.key() : -1; // we check, even if null refs should not appear here at all
-      myTpAssoQuality[i] = matchSta->second.front().second;
-      matchback = myUpdSTA_simRecColl.find(tp);
-      if (matchback != myUpdSTA_simRecColl.end())
-      {
-        muMatchBack = matchback->second.front().first;
-      }
-      else
-      {
-        edm::LogWarning("MuonMCClassifier")
-            << "\n***WARNING: This I do NOT understand: why no match back in UpdSTA? *** \n";
-      }
-    }
 // }
 //new part end
     if (tp.isNonnull())
