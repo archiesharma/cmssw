@@ -84,7 +84,8 @@ public:
       int &binh, int &binpr, int &binn, int &bingst, TH1F *histoPt_p, TH1F *histoPt_l, TH1F *histoPt_h,
       TH1F *histoPt_pr, TH1F *histoPt_n, TH1F *histoPt_gst, TH1F *histoEta_p, TH1F *histoEta_l, TH1F *histoEta_h,
       TH1F *histoEta_pr, TH1F *histoEta_n, TH1F *histoEta_gst, TH1F *histoPhi_p, TH1F *histoPhi_l, TH1F *histoPhi_h,
-      TH1F *histoPhi_pr, TH1F *histoPhi_n, TH1F *histoPhi_gst, int myCase);
+      TH1F *histoPhi_pr, TH1F *histoPhi_n, TH1F *histoPhi_gst, TH1F *histomatchedstation_p, TH1F *histomatchedstation_l,
+      TH1F *histomatchedstation_h, TH1F *histomatchedstation_pr, TH1F *histomatchedstation_n, TH1F *histomatchedstation_gst, int myCase);
   static void fillDescriptions(edm::ConfigurationDescriptions& descriptions);
 private:
   virtual void beginJob() override;
@@ -173,6 +174,11 @@ private:
   TH1F *histoMuStaWithValidHitsOutLoose;
   TH1F *histoGemStaWithValidHitsOutLoose;
 
+//////////// plots for matched stations///////////////////////////////////
+  TH1F *GlobalMuons_matchedstation;
+  TH1F *StaMuons_matchedstation;  
+  TH1F *TightMuons_matchedstation; 
+  TH1F *LooseMuons_matchedstation;
 
 //test reco end
   TH1F *N_Muons;
@@ -359,6 +365,35 @@ private:
   TH1F *muPhi_Loose_primary;
   TH1F *muPhi_Loose_noise;
   TH1F *muPhi_Loose_ghost;
+// Matched stations////
+  TH1F *muMStation_Glb_punch;
+  TH1F *muMStation_Glb_lightflv;
+  TH1F *muMStation_Glb_heavyflv;
+  TH1F *muMStation_Glb_primary;
+  TH1F *muMStation_Glb_noise;
+  TH1F *muMStation_Glb_ghost;
+//
+  TH1F *muMStation_Sta_punch;
+  TH1F *muMStation_Sta_lightflv;
+  TH1F *muMStation_Sta_heavyflv;
+  TH1F *muMStation_Sta_primary;
+  TH1F *muMStation_Sta_noise;
+  TH1F *muMStation_Sta_ghost;
+//
+  TH1F *muMStation_Tight_punch;
+  TH1F *muMStation_Tight_lightflv;
+  TH1F *muMStation_Tight_heavyflv;
+  TH1F *muMStation_Tight_primary;
+  TH1F *muMStation_Tight_noise;
+  TH1F *muMStation_Tight_ghost;
+//
+  TH1F *muMStation_Loose_punch;
+  TH1F *muMStation_Loose_lightflv;
+  TH1F *muMStation_Loose_heavyflv;
+  TH1F *muMStation_Loose_primary;
+  TH1F *muMStation_Loose_noise;
+  TH1F *muMStation_Loose_ghost;
+
 /// The RECO objects
   edm::InputTag trackingParticles_;
   edm::InputTag muons_;
@@ -539,8 +574,8 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
   iEvent.getByLabel("offlinePrimaryVertices", pvHandle);
   int numberOfVertices = pvHandle->size();
   numb_PV->Fill(numberOfVertices);
-  const reco::VertexCollection & vertices = *pvHandle.product();
-  reco::VertexCollection::const_iterator myPV;
+  ///const reco::VertexCollection & vertices = *pvHandle.product();
+  ///reco::VertexCollection::const_iterator myPV;
 //////////Sim Vertex////////////////////
   /*
   edm::Handle < std::vector<SimVertex> > simVertices;
@@ -606,20 +641,14 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
   }
 //////////////////////////////////////////////////////////////////
   edm::Handle < reco::GenParticleCollection > genParticlesforGlb;
-  edm::Handle < reco::GenParticleCollection > genParticlesforTrk;
   edm::Handle < reco::GenParticleCollection > genParticlesforSta;
-  edm::Handle < reco::GenParticleCollection > genParticlesforGood;
   edm::Handle < reco::GenParticleCollection > genParticlesforTight;
-  edm::Handle < reco::GenParticleCollection > genParticlesforSoft;
   edm::Handle < reco::GenParticleCollection > genParticlesforLoose;
   if (linkToGenParticles_)
   {
     iEvent.getByLabel(genParticles_, genParticlesforGlb);
-    iEvent.getByLabel(genParticles_, genParticlesforTrk);
     iEvent.getByLabel(genParticles_, genParticlesforSta);
-    iEvent.getByLabel(genParticles_, genParticlesforGood);
     iEvent.getByLabel(genParticles_, genParticlesforTight);
-    iEvent.getByLabel(genParticles_, genParticlesforSoft);
     iEvent.getByLabel(genParticles_, genParticlesforLoose);
   }
   edm::ESHandle < TrackAssociatorBase > associatorBase;
@@ -632,11 +661,8 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
   MuonAssociatorByHits::SimToMuonCollection simRecColl;
   edm::RefToBaseVector < reco::Muon > selAllMuons;
   edm::RefToBaseVector < reco::Muon > selGlbMuons;
-  edm::RefToBaseVector < reco::Muon > selTrkMuons;
   edm::RefToBaseVector < reco::Muon > selStaMuons;
-  edm::RefToBaseVector < reco::Muon > selGoodMuons;
   edm::RefToBaseVector < reco::Muon > selTightMuons;
-  edm::RefToBaseVector < reco::Muon > selSoftMuons;
   edm::RefToBaseVector < reco::Muon > selLooseMuons;
 // int allMu_sel = 0;
 // int glbMu_sel = 0;
@@ -719,26 +745,11 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
         GlobalMuonsEta->Fill(glbtrackref->eta());
         GlobalMuonsPt->Fill(glbtrackref->pt());
         GlobalMuonsPhi->Fill(glbtrackref->phi());
+        GlobalMuons_matchedstation->Fill((*myMuons)[i].numberOfMatchedStations());
         if (debug)
           std::cout << "I am Global muon!" << std::endl;
       }
     }
-      if ((*myMuons)[i].isTrackerMuon())
-      {
-// trkMu_sel++;
-      if ((*myMuons)[i].pt() > muonPtCut_ && fabs((*myMuons)[i].eta()) >= muonMinEtaCut_
-        && fabs((*myMuons)[i].eta()) <= muonMaxEtaCut_)
-      { 
-        N_Muons->Fill(11);
-        N_Muons_norm->Fill(11);
-        TrackerMuonsEta->Fill((*myMuons)[i].eta());
-        TrackerMuonsPt->Fill((*myMuons)[i].pt());
-        TrackerMuonsPhi->Fill((*myMuons)[i].phi());
-        selTrkMuons.push_back(rmu);
-        if (debug)
-          std::cout << "I am Tracker muon!" << std::endl;
-      }
-     }
   
       if ((*myMuons)[i].isStandAloneMuon())
       {
@@ -755,27 +766,12 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
         StaMuonsEta->Fill(statrackref->eta());
         StaMuonsPt->Fill(statrackref->pt());
         StaMuonsPhi->Fill(statrackref->phi());
+        StaMuons_matchedstation->Fill((*myMuons)[i].numberOfMatchedStations());
         if (debug)
           std::cout << "I am Standalone muon!" << std::endl;
       }
      }
     
-      if (muon::isGoodMuon((*myMuons)[i], muon::TMOneStationTight))
-      {
-
-      if ((*myMuons)[i].pt() > muonPtCut_ && fabs((*myMuons)[i].eta()) >= muonMinEtaCut_
-        && fabs((*myMuons)[i].eta()) <= muonMaxEtaCut_)
-       {
-        N_Muons->Fill(27);
-        N_Muons_norm->Fill(27);
-        selGoodMuons.push_back(rmu);
-        GoodMuonsEta->Fill((*myMuons)[i].eta());
-        GoodMuonsPt->Fill((*myMuons)[i].pt());
-        GoodMuonsPhi->Fill((*myMuons)[i].phi());
-        if (debug)
-          std::cout << "I am Good muon!" << std::endl;
-      }
-     }
 
       bool tight = isTight(iEvent, (*myMuons)[i]);
       if (tight)
@@ -790,6 +786,7 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
         TightMuonsEta->Fill((*myMuons)[i].eta());
         TightMuonsPt->Fill((*myMuons)[i].pt());
         TightMuonsPhi->Fill((*myMuons)[i].phi());
+        TightMuons_matchedstation->Fill((*myMuons)[i].numberOfMatchedStations());
 /////test reco
         reco::TrackRef trackRefGl = (*myMuons)[i].globalTrack();
         if (trackRefGl.isNonnull())
@@ -813,42 +810,6 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
       }
      }
  
-      bool soft = isSoft((*myMuons)[i], myPV, vertices);
-      if (soft)
-      {
-
-     if ((*myMuons)[i].pt() > muonPtCut_ && fabs((*myMuons)[i].eta()) >= muonMinEtaCut_
-        && fabs((*myMuons)[i].eta()) <= muonMaxEtaCut_)
-       {
-        N_Muons->Fill(43);
-        N_Muons_norm->Fill(43);
-        selSoftMuons.push_back(rmu);
-        SoftMuonsEta->Fill((*myMuons)[i].eta());
-        SoftMuonsPt->Fill((*myMuons)[i].pt());
-        SoftMuonsPhi->Fill((*myMuons)[i].phi());
-//////////////////////////////////////////////////////////////////////////////
-        reco::TrackRef trackRefGl = (*myMuons)[i].globalTrack();
-        if (trackRefGl.isNonnull())
-        {
-          histoValidMuHitsSoft->Fill(trackRefGl->hitPattern().numberOfValidMuonHits());
-          histoValidMuGeMHitsSoft->Fill(trackRefGl->hitPattern().numberOfValidMuonGEMHits());
-          histoMuStaWithValidHitsSoft->Fill(trackRefGl->hitPattern().muonStationsWithValidHits());
-          histoGemStaWithValidHitsSoft->Fill(trackRefGl->hitPattern().gemStationsWithValidHits());
-        }
-        reco::TrackRef trackRefOut = (*myMuons)[i].outerTrack();
-        if (trackRefOut.isNonnull())
-        {
-          histoValidMuHitsOutSoft->Fill(trackRefOut->hitPattern().numberOfValidMuonHits());
-          histoValidMuGeMHitsOutSoft->Fill(trackRefOut->hitPattern().numberOfValidMuonGEMHits());
-          histoMuStaWithValidHitsOutSoft->Fill(trackRefOut->hitPattern().muonStationsWithValidHits());
-          histoGemStaWithValidHitsOutSoft->Fill(trackRefOut->hitPattern().gemStationsWithValidHits());
-        }
-       
-////////////////////////////////////////////////////////////////////////
-        if (debug)
-          std::cout << "I am Soft muon!" << std::endl;
-      }
-    }
 
       if (muon::isLooseMuon ((*myMuons)[i]))
       {
@@ -862,6 +823,7 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
         LooseMuonsEta->Fill((*myMuons)[i].eta());
         LooseMuonsPt->Fill((*myMuons)[i].pt());
         LooseMuonsPhi->Fill((*myMuons)[i].phi());
+        LooseMuons_matchedstation->Fill((*myMuons)[i].numberOfMatchedStations());
 /////////////////////////////////////////////////////////////////////////////////////
         reco::TrackRef trackRefGl = (*myMuons)[i].globalTrack();
         if (trackRefGl.isNonnull())
@@ -903,35 +865,17 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
   edm::LogVerbatim("MuonMCClassifAndAna") << "\n Global Muon association by global track"; //
   assoByHits->associateMuons(recSimColl_glb, simRecColl_glb, selGlbMuons, MuonAssociatorByHits::GlobalTk, allTPs,
       &iEvent, &iSetup); //
-//tracker muon
-  MuonAssociatorByHits::MuonToSimCollection recSimColl_trk;
-  MuonAssociatorByHits::SimToMuonCollection simRecColl_trk;
-  edm::LogVerbatim("MuonMCClassifAndAna") << "\n Tracker muon association by inner track "; //
-  assoByHits->associateMuons(recSimColl_trk, simRecColl_trk, selTrkMuons, MuonAssociatorByHits::InnerTk, allTPs,
-      &iEvent, &iSetup); //
 //standalone muon
   MuonAssociatorByHits::MuonToSimCollection recSimColl_sta;
   MuonAssociatorByHits::SimToMuonCollection simRecColl_sta;
   edm::LogVerbatim("MuonMCClassifAndAna") << "\n Standalone Muon association by outer track "; //
   assoByHits->associateMuons(recSimColl_sta, simRecColl_sta, selStaMuons, MuonAssociatorByHits::OuterTk, allTPs,
       &iEvent, &iSetup); //
-//good muon
-  MuonAssociatorByHits::MuonToSimCollection recSimColl_good;
-  MuonAssociatorByHits::SimToMuonCollection simRecColl_good;
-  edm::LogVerbatim("MuonMCClassifAndAna") << "\n Good Muon association by GlobalTk "; //
-  assoByHits->associateMuons(recSimColl_good, simRecColl_good, selGoodMuons, MuonAssociatorByHits::GlobalTk, allTPs,
-      &iEvent, &iSetup); //
 //tight muon asso by global track
   MuonAssociatorByHits::MuonToSimCollection recSimColl_tight;
   MuonAssociatorByHits::SimToMuonCollection simRecColl_tight;
   edm::LogVerbatim("MuonMCClassifAndAna") << "\n Tight Muon association by global track "; //
   assoByHits->associateMuons(recSimColl_tight, simRecColl_tight, selTightMuons, MuonAssociatorByHits::GlobalTk, allTPs,
-      &iEvent, &iSetup); //
-//Soft muon
-  MuonAssociatorByHits::MuonToSimCollection recSimColl_soft;
-  MuonAssociatorByHits::SimToMuonCollection simRecColl_soft;
-  edm::LogVerbatim("MuonMCClassifAndAna") << "\n Soft Muon association by inner track "; //
-  assoByHits->associateMuons(recSimColl_soft, simRecColl_soft, selSoftMuons, MuonAssociatorByHits::GlobalTk, allTPs,
       &iEvent, &iSetup); //
 //Loose
   MuonAssociatorByHits::MuonToSimCollection recSimColl_loose;
@@ -946,27 +890,18 @@ if (debug)
     std::cout << "=================================" << std::endl;
   edm::LogVerbatim("MuonMCClassifAndAna") << "\n There are " << nmu << " reco::Muons.";
   std::auto_ptr<reco::GenParticleCollection> secondariesforGlb;
-  std::auto_ptr<reco::GenParticleCollection> secondariesforTrk;
   std::auto_ptr<reco::GenParticleCollection> secondariesforSta;
-  std::auto_ptr<reco::GenParticleCollection> secondariesforGood;
   std::auto_ptr<reco::GenParticleCollection> secondariesforTight;
-  std::auto_ptr<reco::GenParticleCollection> secondariesforSoft;
   std::auto_ptr<reco::GenParticleCollection> secondariesforLoose;
   std::vector<int> muToPrimaryforGlb(nmu, -1), muToSecondaryforGlb(nmu, -1);
-  std::vector<int> muToPrimaryforTrk(nmu, -1), muToSecondaryforTrk(nmu, -1);
   std::vector<int> muToPrimaryforSta(nmu, -1), muToSecondaryforSta(nmu, -1);
-  std::vector<int> muToPrimaryforGood(nmu, -1), muToSecondaryforGood(nmu, -1);
   std::vector<int> muToPrimaryforTight(nmu, -1), muToSecondaryforTight(nmu, -1);
-  std::vector<int> muToPrimaryforSoft(nmu, -1), muToSecondaryforSoft(nmu, -1);
   std::vector<int> muToPrimaryforLoose(nmu, -1), muToSecondaryforLoose(nmu, -1);
   if (linkToGenParticles_)
   {
     secondariesforGlb.reset(new reco::GenParticleCollection());
-    secondariesforTrk.reset(new reco::GenParticleCollection());
     secondariesforSta.reset(new reco::GenParticleCollection());
-    secondariesforGood.reset(new reco::GenParticleCollection());
     secondariesforTight.reset(new reco::GenParticleCollection());
-    secondariesforSoft.reset(new reco::GenParticleCollection());
     secondariesforLoose.reset(new reco::GenParticleCollection());
   }
 //for Global MUONS
@@ -982,21 +917,9 @@ if (debug)
       muToPrimaryforGlb, muToSecondaryforGlb, genParticlesforGlb, glb_pch, glb_l, glb_h, glb_prm, glb_n, glb_gst,
       muPt_Glb_punch, muPt_Glb_lightflv, muPt_Glb_heavyflv, muPt_Glb_primary, muPt_Glb_noise, muPt_Glb_ghost,
       muEta_Glb_punch, muEta_Glb_lightflv, muEta_Glb_heavyflv, muEta_Glb_primary, muEta_Glb_noise, muEta_Glb_ghost,
-      muPhi_Glb_punch, muPhi_Glb_lightflv, muPhi_Glb_heavyflv, muPhi_Glb_primary, muPhi_Glb_noise, muPhi_Glb_ghost, 1);
-//for Tracker MUONS
-  std::vector<int> classiftr(nmu, 0), exttr(nmu, 0);
-  std::vector<int> hitsPdgIdtr(nmu, 0), momPdgIdtr(nmu, 0), gmomPdgIdtr(nmu, 0), momStatustr(nmu, 0);
-  std::vector<int> flavtr(nmu, 0), momFlavtr(nmu, 0), gmomFlavtr(nmu, 0), hmomFlavtr(nmu, 0);
-  std::vector<int> tpIdtr(nmu, -1);
-  std::vector<float> prodRhotr(nmu, 0.0), prodZtr(nmu, 0.0), momRhotr(nmu, 0.0), momZtr(nmu, 0.0);
-  std::vector<float> tpAssoQualitytr(nmu, -1);
-  myClassification(nmu, myMuons, selTrkMuons, recSimColl_trk, simRecColl_trk, 
-      classiftr, exttr, hitsPdgIdtr, momPdgIdtr, gmomPdgIdtr, momStatustr, flavtr, momFlavtr,
-      gmomFlavtr, hmomFlavtr, tpIdtr, prodRhotr, prodZtr, momRhotr, momZtr, tpAssoQualitytr, secondariesforTrk,
-      muToPrimaryforTrk, muToSecondaryforTrk, genParticlesforTrk, trk_pch, trk_l, trk_h, trk_prm, trk_n, trk_gst,
-      muPt_Trk_punch, muPt_Trk_lightflv, muPt_Trk_heavyflv, muPt_Trk_primary, muPt_Trk_noise, muPt_Trk_ghost,
-      muEta_Trk_punch, muEta_Trk_lightflv, muEta_Trk_heavyflv, muEta_Trk_primary, muEta_Trk_noise, muEta_Trk_ghost,
-      muPhi_Trk_punch, muPhi_Trk_lightflv, muPhi_Trk_heavyflv, muPhi_Trk_primary, muPhi_Trk_noise, muPhi_Trk_ghost, 2);
+      muPhi_Glb_punch, muPhi_Glb_lightflv, muPhi_Glb_heavyflv, muPhi_Glb_primary, muPhi_Glb_noise, muPhi_Glb_ghost,
+      muMStation_Glb_punch, muMStation_Glb_lightflv, muMStation_Glb_heavyflv, muMStation_Glb_primary,
+      muMStation_Glb_noise, muMStation_Glb_ghost, 1);
 //for STANDALONE MUONS
   std::vector<int> classifs(nmu, 0), exts(nmu, 0);
   std::vector<int> hitsPdgIds(nmu, 0), momPdgIds(nmu, 0), gmomPdgIds(nmu, 0), momStatuss(nmu, 0);
@@ -1010,22 +933,9 @@ if (debug)
       muToSecondaryforSta, genParticlesforSta, sta_pch, sta_l, sta_h, sta_prm, sta_n, sta_gst, muPt_Sta_punch,
       muPt_Sta_lightflv, muPt_Sta_heavyflv, muPt_Sta_primary, muPt_Sta_noise, muPt_Sta_ghost, muEta_Sta_punch,
       muEta_Sta_lightflv, muEta_Sta_heavyflv, muEta_Sta_primary, muEta_Sta_noise, muEta_Sta_ghost, muPhi_Sta_punch,
-      muPhi_Sta_lightflv, muPhi_Sta_heavyflv, muPhi_Sta_primary, muPhi_Sta_noise, muPhi_Sta_ghost, 3);
-//for GOOD MUONS
-  std::vector<int> classifgd(nmu, 0), extgd(nmu, 0);
-  std::vector<int> hitsPdgIdgd(nmu, 0), momPdgIdgd(nmu, 0), gmomPdgIdgd(nmu, 0), momStatusgd(nmu, 0);
-  std::vector<int> flavgd(nmu, 0), momFlavgd(nmu, 0), gmomFlavgd(nmu, 0), hmomFlavgd(nmu, 0);
-  std::vector<int> tpIdgd(nmu, -1);
-  std::vector<float> prodRhogd(nmu, 0.0), prodZgd(nmu, 0.0), momRhogd(nmu, 0.0), momZgd(nmu, 0.0);
-  std::vector<float> tpAssoQualitygd(nmu, -1);
-  myClassification(nmu, myMuons, selGoodMuons, recSimColl_good, simRecColl_good, 
-      classifgd, extgd, hitsPdgIdgd, momPdgIdgd, gmomPdgIdgd, momStatusgd, flavgd, momFlavgd,
-      gmomFlavgd, hmomFlavgd, tpIdgd, prodRhogd, prodZgd, momRhogd, momZgd, tpAssoQualitygd, secondariesforGood,
-      muToPrimaryforGood, muToSecondaryforGood, genParticlesforGood, good_pch, good_l, good_h, good_prm, good_n,
-      good_gst, muPt_Good_punch, muPt_Good_lightflv, muPt_Good_heavyflv, muPt_Good_primary, muPt_Good_noise,
-      muPt_Good_ghost, muEta_Good_punch, muEta_Good_lightflv, muEta_Good_heavyflv, muEta_Good_primary, muEta_Good_noise,
-      muEta_Good_ghost, muPhi_Good_punch, muPhi_Good_lightflv, muPhi_Good_heavyflv, muPhi_Good_primary,
-      muPhi_Good_noise, muPhi_Good_ghost, 4);
+      muPhi_Sta_lightflv, muPhi_Sta_heavyflv, muPhi_Sta_primary, muPhi_Sta_noise, muPhi_Sta_ghost, muMStation_Sta_punch, 
+      muMStation_Sta_lightflv, muMStation_Sta_heavyflv, muMStation_Sta_primary, muMStation_Sta_noise, 
+      muMStation_Sta_ghost, 2);
 //for TIGHT MUONS
   std::vector<int> classift(nmu, 0), extt(nmu, 0);
   std::vector<int> hitsPdgIdt(nmu, 0), momPdgIdt(nmu, 0), gmomPdgIdt(nmu, 0), momStatust(nmu, 0);
@@ -1040,22 +950,8 @@ if (debug)
       tight_gst, muPt_Tight_punch, muPt_Tight_lightflv, muPt_Tight_heavyflv, muPt_Tight_primary, muPt_Tight_noise,
       muPt_Tight_ghost, muEta_Tight_punch, muEta_Tight_lightflv, muEta_Tight_heavyflv, muEta_Tight_primary,
       muEta_Tight_noise, muEta_Tight_ghost, muPhi_Tight_punch, muPhi_Tight_lightflv, muPhi_Tight_heavyflv,
-      muPhi_Tight_primary, muPhi_Tight_noise, muPhi_Tight_ghost, 5);
-//for SOFT MUONS
-  std::vector<int> classifsf(nmu, 0), extsf(nmu, 0);
-  std::vector<int> hitsPdgIdsf(nmu, 0), momPdgIdsf(nmu, 0), gmomPdgIdsf(nmu, 0), momStatussf(nmu, 0);
-  std::vector<int> flavsf(nmu, 0), momFlavsf(nmu, 0), gmomFlavsf(nmu, 0), hmomFlavsf(nmu, 0);
-  std::vector<int> tpIdsf(nmu, -1);
-  std::vector<float> prodRhosf(nmu, 0.0), prodZsf(nmu, 0.0), momRhosf(nmu, 0.0), momZsf(nmu, 0.0);
-  std::vector<float> tpAssoQualitysf(nmu, -1);
-  myClassification(nmu, myMuons, selSoftMuons, recSimColl_soft, simRecColl_soft, 
-      classifsf, extsf, hitsPdgIdsf, momPdgIdsf, gmomPdgIdsf, momStatussf, flavsf, momFlavsf,
-      gmomFlavsf, hmomFlavsf, tpIdsf, prodRhosf, prodZsf, momRhosf, momZsf, tpAssoQualitysf, secondariesforSoft,
-      muToPrimaryforSoft, muToSecondaryforSoft, genParticlesforSoft, soft_pch, soft_l, soft_h, soft_prm, soft_n,
-      soft_gst, muPt_Soft_punch, muPt_Soft_lightflv, muPt_Soft_heavyflv, muPt_Soft_primary, muPt_Soft_noise,
-      muPt_Soft_ghost, muEta_Soft_punch, muEta_Soft_lightflv, muEta_Soft_heavyflv, muEta_Soft_primary, muEta_Soft_noise,
-      muEta_Soft_ghost, muPhi_Soft_punch, muPhi_Soft_lightflv, muPhi_Soft_heavyflv, muPhi_Soft_primary,
-      muPhi_Soft_noise, muPhi_Soft_ghost, 6);
+      muPhi_Tight_primary, muPhi_Tight_noise, muPhi_Tight_ghost, muMStation_Tight_punch, muMStation_Tight_lightflv, 
+      muMStation_Tight_heavyflv, muMStation_Tight_primary, muMStation_Tight_noise, muMStation_Tight_ghost, 3);
 //for LOOSe MUONS
   std::vector<int> classifls(nmu, 0), extls(nmu, 0);
   std::vector<int> hitsPdgIdls(nmu, 0), momPdgIdls(nmu, 0), gmomPdgIdls(nmu, 0), momStatusls(nmu, 0);
@@ -1070,7 +966,8 @@ if (debug)
       loose_gst, muPt_Loose_punch, muPt_Loose_lightflv, muPt_Loose_heavyflv, muPt_Loose_primary, muPt_Loose_noise,
       muPt_Loose_ghost, muEta_Loose_punch, muEta_Loose_lightflv, muEta_Loose_heavyflv, muEta_Loose_primary,
       muEta_Loose_noise, muEta_Loose_ghost, muPhi_Loose_punch, muPhi_Loose_lightflv, muPhi_Loose_heavyflv,
-      muPhi_Loose_primary, muPhi_Loose_noise, muPhi_Loose_ghost, 7);
+      muPhi_Loose_primary, muPhi_Loose_noise, muPhi_Loose_ghost, muMStation_Loose_punch, muMStation_Loose_lightflv,
+      muMStation_Loose_heavyflv, muMStation_Loose_primary, muMStation_Loose_noise, muMStation_Loose_ghost, 4);
 } //end Analyzer
 
 void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<reco::Muon> > myMuons_handle,
@@ -1086,7 +983,8 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
     int &binh, int &binpr, int &binn, int &bingst, TH1F *histoPt_p, TH1F *histoPt_l, TH1F *histoPt_h, TH1F *histoPt_pr,
     TH1F *histoPt_n, TH1F *histoPt_gst, TH1F *histoEta_p, TH1F *histoEta_l, TH1F *histoEta_h, TH1F *histoEta_pr,
     TH1F *histoEta_n, TH1F *histoEta_gst, TH1F *histoPhi_p, TH1F *histoPhi_l, TH1F *histoPhi_h, TH1F *histoPhi_pr,
-    TH1F *histoPhi_n, TH1F *histoPhi_gst,
+    TH1F *histoPhi_n, TH1F *histoPhi_gst, TH1F *histomatchedstation_p, TH1F *histomatchedstation_l, TH1F *histomatchedstation_h,
+    TH1F *histomatchedstation_pr, TH1F *histomatchedstation_n, TH1F *histomatchedstation_gst, 
     int myCase)
 {
   std::map<TrackingParticleRef, int> tpToSecondaries; // map from tp to (index+1) in output collection
@@ -1333,14 +1231,14 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
     //case == 1 global; case == 2 tracker; case == 3 standalone; case == 4 good; case == 5 tight; case == 6 soft; case == 7 loose
     reco::TrackRef trackref;
 
-    if (!(myCase == 1 || myCase == 3))  //all cases that are not global or standalone, e.g. tracker, good, tight, soft, loose
+    if (!(myCase == 1 || myCase == 2))  //all cases that are not global or standalone, e.g. tracker, good, tight, soft, loose
     {
       if ((*myMuons_handle)[i].muonBestTrack().isNonnull())
         trackref = (*myMuons_handle)[i].muonBestTrack();
       else
         continue;
     }
-    else if(myCase == 3)  //standalone case
+    else if(myCase == 2)  //standalone case
     {
       if ((*myMuons_handle)[i].outerTrack().isNonnull())
         trackref = (*myMuons_handle)[i].outerTrack();
@@ -1364,6 +1262,7 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
       histoPt_p->Fill(trackref->pt());
       histoEta_p->Fill(trackref->eta());
       histoPhi_p->Fill(trackref->phi());
+      histomatchedstation_p->Fill((*myMuons_handle)[i].numberOfMatchedStations());
     }
 // if(myExt[i] == 4 || myExt[i] == 5)
     if (myClassif[i] == 2)
@@ -1373,6 +1272,7 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
       histoPt_l->Fill(trackref->pt());
       histoEta_l->Fill(trackref->eta());
       histoPhi_l->Fill(trackref->phi());
+      histomatchedstation_l->Fill((*myMuons_handle)[i].numberOfMatchedStations());
     }
 //if(myExt[i] >=6 && myExt[i] <=9)
     if (myClassif[i] == 3)
@@ -1382,6 +1282,7 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
       histoPt_h->Fill(trackref->pt());
       histoEta_h->Fill(trackref->eta());
       histoPhi_h->Fill(trackref->phi());
+      histomatchedstation_h->Fill((*myMuons_handle)[i].numberOfMatchedStations());
     }
 // if(myExt[i] == 10)
     if (myClassif[i] == 4)
@@ -1391,6 +1292,7 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
       histoPt_pr->Fill(trackref->pt());
       histoEta_pr->Fill(trackref->eta());
       histoPhi_pr->Fill(trackref->phi());
+      histomatchedstation_pr->Fill((*myMuons_handle)[i].numberOfMatchedStations());
     }
 //if (myExt[i] == 2)
     if (myClassif[i] == 0)
@@ -1400,6 +1302,7 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
       histoPt_n->Fill(trackref->pt());
       histoEta_n->Fill(trackref->eta());
       histoPhi_n->Fill(trackref->phi());
+      histomatchedstation_n->Fill((*myMuons_handle)[i].numberOfMatchedStations());
     }
 //if(myExt[i] < 0 && fabs(myExt[i])<11)
     if (myClassif[i] < 0 && fabs(myClassif[i]) < 5)
@@ -1409,6 +1312,7 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
       histoPt_gst->Fill(trackref->pt());
       histoEta_gst->Fill(trackref->eta());
       histoPhi_gst->Fill(trackref->phi());
+      histomatchedstation_gst->Fill((*myMuons_handle)[i].numberOfMatchedStations());
     }
   } //ent loop over myMuons_handle size
  std::cout << "Event end !" << std::endl;
@@ -1625,6 +1529,14 @@ void MuonMCClassifAndAna::beginJob()
       > ("histoMuStaWithValidHitsOutLoose", "histoMuStaWithValidHitsOutLoose", 50, 0, 50);
   histoGemStaWithValidHitsOutLoose = fs->make < TH1F
       > ("histoGemStaWithValidHitsOutLoose", "histoGemStaWithValidHitsOutLoose", 50, 0, 50);
+
+///////////// for matched stations/////////////////////////////
+
+  GlobalMuons_matchedstation = fs->make < TH1F > ("GlobalMuons_matchedstation", "Matched stations for global muon collection", 20, 0., 20.);
+  StaMuons_matchedstation = fs->make < TH1F > ("StaMuons_matchedstation", "Matched stations for STA muon collection", 20, 0., 20.);
+  TightMuons_matchedstation = fs->make < TH1F > ("TightMuons_matchedstation", "Matched stations for tight muon collection", 20, 0., 20.);
+  LooseMuons_matchedstation = fs->make < TH1F > ("LooseMuons_matchedstation", "Matched stations for Loose muon collection", 20, 0., 20.);
+
 //test reco end
 ////////
   allMuonsPt = fs->make < TH1F > ("allMuonsPt", "p_{T} for All Selected Reco Muons", 1000, 0., 500.);
@@ -1806,6 +1718,42 @@ void MuonMCClassifAndAna::beginJob()
   muPhi_Loose_primary = fs->make < TH1F > ("muPhi_Loose_primary", "#varphi for Loose primary Muons", 70, -3.5, 3.5);
   muPhi_Loose_noise = fs->make < TH1F > ("muPhi_Loose_noise", "#varphi for Loose noise", 70, -3.5, 3.5);
   muPhi_Loose_ghost = fs->make < TH1F > ("muPhi_Loose_ghost", "#varphi for Loose ghosts", 70, -3.5, 3.5);
+////matched stations
+  muMStation_Glb_punch = fs->make < TH1F > ("muMStation_Glb_punch", "Matched stations for Global punch through Muons", 20, 0., 20.);
+  muMStation_Glb_lightflv = fs->make < TH1F
+      > ("muMStation_Glb_lightflv", "Matched stations for Global light flavour Muons", 20, 0., 20.); //
+  muMStation_Glb_heavyflv = fs->make < TH1F
+      > ("muMStation_Glb_heavyflv", "Matched stations for Global heavy flavour Muons", 20, 0., 20.); //
+  muMStation_Glb_primary = fs->make < TH1F > ("muMStation_Glb_primary", "Matched stations for Global primary Muons", 20, 0., 20.);
+  muMStation_Glb_noise = fs->make < TH1F > ("muMStation_Glb_noise", "Matched stations for Global noise", 20, 0., 20.);
+  muMStation_Glb_ghost = fs->make < TH1F > ("muMStation_Glb_ghost", "Matched stations for Global ghosts", 20, 0., 20.);
+  muMStation_Sta_punch = fs->make < TH1F > ("muMStation_Sta_punch", "Matched stations for Sta punch through Muons", 20, 0., 20.);
+  muMStation_Sta_lightflv = fs->make < TH1F
+      > ("muMStation_Sta_lightflv", "Matched stations for Sta light flavour Muons", 20, 0., 20.); //
+  muMStation_Sta_heavyflv = fs->make < TH1F
+      > ("muMStation_Sta_heavyflv", "Matched stations for Sta heavy flavour Muons", 20, 0., 20.); //
+  muMStation_Sta_primary = fs->make < TH1F > ("muMStation_Sta_primary", "Matched stations for Sta primary Muons", 20, 0., 20.);
+  muMStation_Sta_noise = fs->make < TH1F > ("muMStation_Sta_noise", "Matched stations for Sta noise", 20, 0., 20.);
+  muMStation_Sta_ghost = fs->make < TH1F > ("muMStation_Sta_ghost", "Matched stations for Sta ghosts", 20, 0., 20.);
+  muMStation_Tight_punch = fs->make < TH1F > ("muMStation_Tight_punch", "Matched stations for Tight punch through Muons", 20, 0., 20.);
+  muMStation_Tight_lightflv = fs->make < TH1F
+      > ("muMStation_Tight_lightflv", "Matched stations for Tight light flavour Muons", 20, 0., 20.); //
+  muMStation_Tight_heavyflv = fs->make < TH1F
+      > ("muMStation_Tight_heavyflv", "Matched stations for Tight heavy flavour Muons", 20, 0., 20.); //
+  muMStation_Tight_primary = fs->make < TH1F > ("muMStation_Tight_primary", "Matched stations for Tight primary Muons", 20, 0., 20.);
+  muMStation_Tight_noise = fs->make < TH1F > ("muMStation_Tight_noise", "Matched stations for Tight noise", 20, 0., 20.);
+  muMStation_Tight_ghost = fs->make < TH1F > ("muMStation_Tight_ghost", "Matched stations for Tight ghosts", 20, 0., 20.);
+  muMStation_Loose_punch = fs->make < TH1F > ("muMStation_Loose_punch", "Matched stations for Loose punch through Muons", 20, 0., 20.);
+  muMStation_Loose_lightflv = fs->make < TH1F
+      > ("muMStation_Loose_lightflv", "Matched stations for Loose light flavour Muons", 20, 0., 20.); //
+  muMStation_Loose_heavyflv = fs->make < TH1F
+      > ("muMStation_Loose_heavyflv", "Matched stations for Loose heavy flavour Muons", 20, 0., 20.); //
+  muMStation_Loose_primary = fs->make < TH1F > ("muMStation_Loose_primary", "Matched stations for Loose primary Muons", 20, 0., 20.);
+  muMStation_Loose_noise = fs->make < TH1F > ("muMStation_Loose_noise", "Matched stations for Loose noise", 20, 0., 20.);
+  muMStation_Loose_ghost = fs->make < TH1F > ("muMStation_Loose_ghost", "Matched stations for Loose ghosts", 20, 0., 20.);
+
+
+
 }
 void MuonMCClassifAndAna::endJob()
 {
