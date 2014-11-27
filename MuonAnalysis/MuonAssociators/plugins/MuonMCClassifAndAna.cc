@@ -172,6 +172,8 @@ private:
   TH1F *histoValidMuGeMHitsOutLoose;
   TH1F *histoMuStaWithValidHitsOutLoose;
   TH1F *histoGemStaWithValidHitsOutLoose;
+
+
 //test reco end
   TH1F *N_Muons;
   TH1F *N_Muons_norm;
@@ -181,6 +183,7 @@ private:
   TH1F *numb_SimPV;
   TH1F *Pt_TrakingParticle;
   TH1F *PtMuons_TrakingParticle;
+  TH1F *EtaMuons_TrakingParticle;
   TH1F *allMuonsPt;
   TH1F *allMuonsEta;
   TH1F *allMuonsPhi;
@@ -521,6 +524,9 @@ MuonMCClassifAndAna::~MuonMCClassifAndAna()
 //void MuonMCClassifAndAna::analyze(edm::Event& iEvent, const edm::EventSetup& iSetup)
 void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 {
+
+  std::cout << "New event start !" << std::endl;
+
   using namespace edm;
   using namespace std;
   using namespace reco;
@@ -595,6 +601,7 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
     if (abs(tp->pdgId()) == 13)
     {
       PtMuons_TrakingParticle->Fill(tp->pt());
+      EtaMuons_TrakingParticle->Fill(tp->eta());
     }
   }
 //////////////////////////////////////////////////////////////////
@@ -886,13 +893,15 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
     allTPs.push_back(TrackingParticleRef(trackingParticles, i));
     if (debug)
       std::cout << "In trackingParticles" << std::endl;
+
+
   }
 //create reco to sim and sim to reco associations
 //global muon asso by global track
   MuonAssociatorByHits::MuonToSimCollection recSimColl_glb;
   MuonAssociatorByHits::SimToMuonCollection simRecColl_glb;
   edm::LogVerbatim("MuonMCClassifAndAna") << "\n Global Muon association by global track"; //
-  assoByHits->associateMuons(recSimColl_glb, simRecColl_glb, selGlbMuons, MuonAssociatorByHits::OuterTk, allTPs,
+  assoByHits->associateMuons(recSimColl_glb, simRecColl_glb, selGlbMuons, MuonAssociatorByHits::GlobalTk, allTPs,
       &iEvent, &iSetup); //
 //tracker muon
   MuonAssociatorByHits::MuonToSimCollection recSimColl_trk;
@@ -916,7 +925,7 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
   MuonAssociatorByHits::MuonToSimCollection recSimColl_tight;
   MuonAssociatorByHits::SimToMuonCollection simRecColl_tight;
   edm::LogVerbatim("MuonMCClassifAndAna") << "\n Tight Muon association by global track "; //
-  assoByHits->associateMuons(recSimColl_tight, simRecColl_tight, selTightMuons, MuonAssociatorByHits::OuterTk, allTPs,
+  assoByHits->associateMuons(recSimColl_tight, simRecColl_tight, selTightMuons, MuonAssociatorByHits::GlobalTk, allTPs,
       &iEvent, &iSetup); //
 //Soft muon
   MuonAssociatorByHits::MuonToSimCollection recSimColl_soft;
@@ -928,7 +937,7 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
   MuonAssociatorByHits::MuonToSimCollection recSimColl_loose;
   MuonAssociatorByHits::SimToMuonCollection simRecColl_loose;
   edm::LogVerbatim("MuonMCClassifAndAna") << "\n Loose Muon association by inner track "; //
-  assoByHits->associateMuons(recSimColl_loose, simRecColl_loose, selLooseMuons, MuonAssociatorByHits::Segments, allTPs,
+  assoByHits->associateMuons(recSimColl_loose, simRecColl_loose, selLooseMuons, MuonAssociatorByHits::GlobalTk, allTPs,
       &iEvent, &iSetup); //
   
 if (debug)
@@ -1402,6 +1411,7 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
       histoPhi_gst->Fill(trackref->phi());
     }
   } //ent loop over myMuons_handle size
+ std::cout << "Event end !" << std::endl;
 }
 int MuonMCClassifAndAna::flavour(int pdgId) const
 {
@@ -1559,6 +1569,9 @@ void MuonMCClassifAndAna::beginJob()
   Pt_TrakingParticle = fs->make < TH1F > ("Pt_TrakingParticle", "p_{T} of Tracking Particles", 1000, 0., 500.);
   PtMuons_TrakingParticle = fs->make < TH1F
       > ("PtMuons_TrakingParticle", "p_{T} of muons from Tracking Particle collection", 1000, 0., 500.);
+  EtaMuons_TrakingParticle = fs->make < TH1F
+      > ("EtaMuons_TrakingParticle", "#eta of muons from Tracking Particle collection", 70, -3.5, 3.5);
+
 //test reco
   allrecoMuonsEta = fs->make < TH1F > ("allRecoMuonsEta", "#eta RecoMuons", 70, -3.5, 3.5);
   allrecoMuonsPt = fs->make < TH1F > ("allRecoMuonsPt", "p_{T} RecoMuons", 1000, 0., 500.);
