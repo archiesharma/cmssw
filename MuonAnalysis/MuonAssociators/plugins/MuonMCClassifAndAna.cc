@@ -561,6 +561,7 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
 {
 
   std::cout << "New event start !" << std::endl;
+   
 
   using namespace edm;
   using namespace std;
@@ -863,7 +864,7 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
   MuonAssociatorByHits::MuonToSimCollection recSimColl_glb;
   MuonAssociatorByHits::SimToMuonCollection simRecColl_glb;
   edm::LogVerbatim("MuonMCClassifAndAna") << "\n Global Muon association by global track"; //
-  assoByHits->associateMuons(recSimColl_glb, simRecColl_glb, selGlbMuons, MuonAssociatorByHits::GlobalTk, allTPs,
+  assoByHits->associateMuons(recSimColl_glb, simRecColl_glb, selGlbMuons, MuonAssociatorByHits::OuterTk, allTPs,
       &iEvent, &iSetup); //
 //standalone muon
   MuonAssociatorByHits::MuonToSimCollection recSimColl_sta;
@@ -875,13 +876,13 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
   MuonAssociatorByHits::MuonToSimCollection recSimColl_tight;
   MuonAssociatorByHits::SimToMuonCollection simRecColl_tight;
   edm::LogVerbatim("MuonMCClassifAndAna") << "\n Tight Muon association by global track "; //
-  assoByHits->associateMuons(recSimColl_tight, simRecColl_tight, selTightMuons, MuonAssociatorByHits::GlobalTk, allTPs,
+  assoByHits->associateMuons(recSimColl_tight, simRecColl_tight, selTightMuons, MuonAssociatorByHits::OuterTk, allTPs,
       &iEvent, &iSetup); //
 //Loose
   MuonAssociatorByHits::MuonToSimCollection recSimColl_loose;
   MuonAssociatorByHits::SimToMuonCollection simRecColl_loose;
   edm::LogVerbatim("MuonMCClassifAndAna") << "\n Loose Muon association by inner track "; //
-  assoByHits->associateMuons(recSimColl_loose, simRecColl_loose, selLooseMuons, MuonAssociatorByHits::GlobalTk, allTPs,
+  assoByHits->associateMuons(recSimColl_loose, simRecColl_loose, selLooseMuons, MuonAssociatorByHits::OuterTk, allTPs,
       &iEvent, &iSetup); //
   
 if (debug)
