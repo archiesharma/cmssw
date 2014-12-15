@@ -85,7 +85,23 @@ public:
       TH1F *histoPt_pr, TH1F *histoPt_n, TH1F *histoPt_gst, TH1F *histoEta_p, TH1F *histoEta_l, TH1F *histoEta_h,
       TH1F *histoEta_pr, TH1F *histoEta_n, TH1F *histoEta_gst, TH1F *histoPhi_p, TH1F *histoPhi_l, TH1F *histoPhi_h,
       TH1F *histoPhi_pr, TH1F *histoPhi_n, TH1F *histoPhi_gst, TH1F *histomatchedstation_p, TH1F *histomatchedstation_l,
-      TH1F *histomatchedstation_h, TH1F *histomatchedstation_pr, TH1F *histomatchedstation_n, TH1F *histomatchedstation_gst, int myCase);
+      TH1F *histomatchedstation_h, TH1F *histomatchedstation_pr, TH1F *histomatchedstation_n, TH1F *histomatchedstation_gst,
+      TH1F *histoMuonsOOT_p, TH1F *histoMuonsOOT_l, TH1F *histoMuonsOOT_h, TH1F *histoMuonsOOT_pr, TH1F *histoMuonsOOT_n,
+      TH1F *histoMuonsOOT_gst, TH1F *histoMuonsPtOOT_p, TH1F *histoMuonsPtOOT_l, TH1F *histoMuonsPtOOT_h, TH1F *histoMuonsPtOOT_pr,
+      TH1F *histoMuonsPtOOT_n, TH1F *histoMuonsPtOOT_gst, TH1F *histoMuonsEtaOOT_p, TH1F *histoMuonsEtaOOT_l, TH1F *histoMuonsEtaOOT_h, 
+      TH1F *histoMuonsEtaOOT_pr, TH1F *histoMuonsEtaOOT_n, TH1F *histoMuonsEtaOOT_gst, TH1F *histoMuonsValidHitsOOT_p,
+      TH1F *histoMuonsValidHitsOOT_l, TH1F *histoMuonsValidHitsOOT_h, TH1F *histoMuonsValidHitsOOT_pr, TH1F *histoMuonsValidHitsOOT_n,
+      TH1F *histoMuonsValidHitsOOT_gst, TH1F *histoMuonsValidGemHitsOOT_p, TH1F *histoMuonsValidGemHitsOOT_l,
+      TH1F *histoMuonsValidGemHitsOOT_h, TH1F *histoMuonsValidGemHitsOOT_pr, TH1F *histoMuonsValidGemHitsOOT_n,
+      TH1F *histoMuonsValidGemHitsOOT_gst,TH1F *histoMuonsInTime_p, TH1F *histoMuonsInTime_l, TH1F *histoMuonsInTime_h,
+      TH1F *histoMuonsInTime_pr, TH1F *histoMuonsInTime_n, TH1F *histoMuonsInTime_gst, TH1F *histoMuonsPtInTime_p,
+      TH1F *histoMuonsPtInTime_l, TH1F *histoMuonsPtInTime_h, TH1F *histoMuonsPtInTime_pr, TH1F *histoMuonsPtInTime_n, 
+      TH1F *histoMuonsPtInTime_gst, TH1F *histoMuonsEtaInTime_p, TH1F *histoMuonsEtaInTime_l, TH1F *histoMuonsEtaInTime_h, 
+      TH1F *histoMuonsEtaInTime_pr, TH1F *histoMuonsEtaInTime_n, TH1F *histoMuonsEtaInTime_gst, TH1F *histoMuonsValidHitsInTime_p,
+      TH1F *histoMuonsValidHitsInTime_l, TH1F *histoMuonsValidHitsInTime_h, TH1F *histoMuonsValidHitsInTime_pr,
+      TH1F *histoMuonsValidHitsInTime_n, TH1F *histoMuonsValidHitsInTime_gst, TH1F *histoMuonsValidGemHitsInTime_p,
+      TH1F *histoMuonsValidGemHitsInTime_l, TH1F *histoMuonsValidGemHitsInTime_h, TH1F *histoMuonsValidGemHitsInTime_pr,
+      TH1F *histoMuonsValidGemHitsInTime_n, TH1F *histoMuonsValidGemHitsInTime_gst, int myCase);
   static void fillDescriptions(edm::ConfigurationDescriptions& descriptions);
 private:
   virtual void beginJob() override;
@@ -179,6 +195,18 @@ private:
   TH1F *StaMuons_matchedstation;  
   TH1F *TightMuons_matchedstation; 
   TH1F *LooseMuons_matchedstation;
+
+/////// Plots for inTime and OOT/////////////////////////////////////////
+  TH1F *StaMuonsOOT;
+  TH1F *StaMuonsInTime; 
+  TH1F *StaMuonsPt_OOT;
+  TH1F *StaMuonsPt_InTime;
+  TH1F *StaMuonsEta_OOT;
+  TH1F *StaMuonsEta_InTime;
+  TH1F *StaMuonsValidHits_OOT;
+  TH1F *StaMuonsValidHits_InTime;
+  TH1F *StaMuonsValidGemHits_OOT;
+  TH1F *StaMuonsValidGemHits_InTime;
 
 //test reco end
   TH1F *N_Muons;
@@ -393,8 +421,299 @@ private:
   TH1F *muMStation_Loose_primary;
   TH1F *muMStation_Loose_noise;
   TH1F *muMStation_Loose_ghost;
+//
+  TH1F *muOOT_Glb_punch;
+  TH1F *muOOT_Glb_lightflv;
+  TH1F *muOOT_Glb_heavyflv;
+  TH1F *muOOT_Glb_primary;
+  TH1F *muOOT_Glb_noise;
+  TH1F *muOOT_Glb_ghost;
 
-/// The RECO objects
+  TH1F *muPtOOT_Glb_punch;
+  TH1F *muPtOOT_Glb_lightflv;
+  TH1F *muPtOOT_Glb_heavyflv;
+  TH1F *muPtOOT_Glb_primary;
+  TH1F *muPtOOT_Glb_noise;
+  TH1F *muPtOOT_Glb_ghost;
+
+  TH1F *muEtaOOT_Glb_punch;
+  TH1F *muEtaOOT_Glb_lightflv;
+  TH1F *muEtaOOT_Glb_heavyflv;
+  TH1F *muEtaOOT_Glb_primary;
+  TH1F *muEtaOOT_Glb_noise;
+  TH1F *muEtaOOT_Glb_ghost;
+ 
+  TH1F *muValidHitsOOT_Glb_punch;
+  TH1F *muValidHitsOOT_Glb_lightflv;
+  TH1F *muValidHitsOOT_Glb_heavyflv;
+  TH1F *muValidHitsOOT_Glb_primary;
+  TH1F *muValidHitsOOT_Glb_noise;
+  TH1F *muValidHitsOOT_Glb_ghost;
+
+  TH1F *muValidGemHitsOOT_Glb_punch;
+  TH1F *muValidGemHitsOOT_Glb_lightflv;
+  TH1F *muValidGemHitsOOT_Glb_heavyflv;
+  TH1F *muValidGemHitsOOT_Glb_primary;
+  TH1F *muValidGemHitsOOT_Glb_noise;
+  TH1F *muValidGemHitsOOT_Glb_ghost;  
+
+  TH1F *muInTime_Glb_punch;
+  TH1F *muInTime_Glb_lightflv;
+  TH1F *muInTime_Glb_heavyflv;
+  TH1F *muInTime_Glb_primary;
+  TH1F *muInTime_Glb_noise;
+  TH1F *muInTime_Glb_ghost;
+
+  TH1F *muPtInTime_Glb_punch;
+  TH1F *muPtInTime_Glb_lightflv;
+  TH1F *muPtInTime_Glb_heavyflv;
+  TH1F *muPtInTime_Glb_primary;
+  TH1F *muPtInTime_Glb_noise;
+  TH1F *muPtInTime_Glb_ghost;
+
+  TH1F *muEtaInTime_Glb_punch;
+  TH1F *muEtaInTime_Glb_lightflv;
+  TH1F *muEtaInTime_Glb_heavyflv;
+  TH1F *muEtaInTime_Glb_primary;
+  TH1F *muEtaInTime_Glb_noise;
+  TH1F *muEtaInTime_Glb_ghost;
+
+  TH1F *muValidHitsInTime_Glb_punch;
+  TH1F *muValidHitsInTime_Glb_lightflv;
+  TH1F *muValidHitsInTime_Glb_heavyflv;
+  TH1F *muValidHitsInTime_Glb_primary;
+  TH1F *muValidHitsInTime_Glb_noise;
+  TH1F *muValidHitsInTime_Glb_ghost;
+
+  TH1F *muValidGemHitsInTime_Glb_punch;
+  TH1F *muValidGemHitsInTime_Glb_lightflv;
+  TH1F *muValidGemHitsInTime_Glb_heavyflv;
+  TH1F *muValidGemHitsInTime_Glb_primary;
+  TH1F *muValidGemHitsInTime_Glb_noise;
+  TH1F *muValidGemHitsInTime_Glb_ghost;  
+
+//
+  TH1F *muOOT_Sta_punch;
+  TH1F *muOOT_Sta_lightflv;
+  TH1F *muOOT_Sta_heavyflv;
+  TH1F *muOOT_Sta_primary;
+  TH1F *muOOT_Sta_noise;
+  TH1F *muOOT_Sta_ghost;
+
+  TH1F *muPtOOT_Sta_punch;
+  TH1F *muPtOOT_Sta_lightflv;
+  TH1F *muPtOOT_Sta_heavyflv;
+  TH1F *muPtOOT_Sta_primary;
+  TH1F *muPtOOT_Sta_noise;
+  TH1F *muPtOOT_Sta_ghost;
+
+  TH1F *muEtaOOT_Sta_punch;
+  TH1F *muEtaOOT_Sta_lightflv;
+  TH1F *muEtaOOT_Sta_heavyflv;
+  TH1F *muEtaOOT_Sta_primary;
+  TH1F *muEtaOOT_Sta_noise;
+  TH1F *muEtaOOT_Sta_ghost;
+
+  TH1F *muValidHitsOOT_Sta_punch;
+  TH1F *muValidHitsOOT_Sta_lightflv;
+  TH1F *muValidHitsOOT_Sta_heavyflv;
+  TH1F *muValidHitsOOT_Sta_primary;
+  TH1F *muValidHitsOOT_Sta_noise;
+  TH1F *muValidHitsOOT_Sta_ghost;
+
+  TH1F *muValidGemHitsOOT_Sta_punch;
+  TH1F *muValidGemHitsOOT_Sta_lightflv;
+  TH1F *muValidGemHitsOOT_Sta_heavyflv;
+  TH1F *muValidGemHitsOOT_Sta_primary;
+  TH1F *muValidGemHitsOOT_Sta_noise;
+  TH1F *muValidGemHitsOOT_Sta_ghost;  
+
+  TH1F *muInTime_Sta_punch;
+  TH1F *muInTime_Sta_lightflv;
+  TH1F *muInTime_Sta_heavyflv;
+  TH1F *muInTime_Sta_primary;
+  TH1F *muInTime_Sta_noise;
+  TH1F *muInTime_Sta_ghost;
+
+  TH1F *muPtInTime_Sta_punch;
+  TH1F *muPtInTime_Sta_lightflv;
+  TH1F *muPtInTime_Sta_heavyflv;
+  TH1F *muPtInTime_Sta_primary;
+  TH1F *muPtInTime_Sta_noise;
+  TH1F *muPtInTime_Sta_ghost;
+
+  TH1F *muEtaInTime_Sta_punch;
+  TH1F *muEtaInTime_Sta_lightflv;
+  TH1F *muEtaInTime_Sta_heavyflv;
+  TH1F *muEtaInTime_Sta_primary;
+  TH1F *muEtaInTime_Sta_noise;
+  TH1F *muEtaInTime_Sta_ghost;
+
+  TH1F *muValidHitsInTime_Sta_punch;
+  TH1F *muValidHitsInTime_Sta_lightflv;
+  TH1F *muValidHitsInTime_Sta_heavyflv;
+  TH1F *muValidHitsInTime_Sta_primary;
+  TH1F *muValidHitsInTime_Sta_noise;
+  TH1F *muValidHitsInTime_Sta_ghost;
+
+  TH1F *muValidGemHitsInTime_Sta_punch;
+  TH1F *muValidGemHitsInTime_Sta_lightflv;
+  TH1F *muValidGemHitsInTime_Sta_heavyflv;
+  TH1F *muValidGemHitsInTime_Sta_primary;
+  TH1F *muValidGemHitsInTime_Sta_noise;
+  TH1F *muValidGemHitsInTime_Sta_ghost;  
+
+  
+  //
+  TH1F *muOOT_Tight_punch;
+  TH1F *muOOT_Tight_lightflv;
+  TH1F *muOOT_Tight_heavyflv;
+  TH1F *muOOT_Tight_primary;
+  TH1F *muOOT_Tight_noise;
+  TH1F *muOOT_Tight_ghost;
+  
+  TH1F *muPtOOT_Tight_punch;
+  TH1F *muPtOOT_Tight_lightflv;
+  TH1F *muPtOOT_Tight_heavyflv;
+  TH1F *muPtOOT_Tight_primary;
+  TH1F *muPtOOT_Tight_noise;
+  TH1F *muPtOOT_Tight_ghost;
+
+  TH1F *muEtaOOT_Tight_punch;
+  TH1F *muEtaOOT_Tight_lightflv;
+  TH1F *muEtaOOT_Tight_heavyflv;
+  TH1F *muEtaOOT_Tight_primary;
+  TH1F *muEtaOOT_Tight_noise;
+  TH1F *muEtaOOT_Tight_ghost;
+ 
+  TH1F *muValidHitsOOT_Tight_punch;
+  TH1F *muValidHitsOOT_Tight_lightflv;
+  TH1F *muValidHitsOOT_Tight_heavyflv;
+  TH1F *muValidHitsOOT_Tight_primary;
+  TH1F *muValidHitsOOT_Tight_noise;
+  TH1F *muValidHitsOOT_Tight_ghost;
+
+  TH1F *muValidGemHitsOOT_Tight_punch;
+  TH1F *muValidGemHitsOOT_Tight_lightflv;
+  TH1F *muValidGemHitsOOT_Tight_heavyflv;
+  TH1F *muValidGemHitsOOT_Tight_primary;
+  TH1F *muValidGemHitsOOT_Tight_noise;
+  TH1F *muValidGemHitsOOT_Tight_ghost;  
+
+  TH1F *muInTime_Tight_punch;
+  TH1F *muInTime_Tight_lightflv;
+  TH1F *muInTime_Tight_heavyflv;
+  TH1F *muInTime_Tight_primary;
+  TH1F *muInTime_Tight_noise;
+  TH1F *muInTime_Tight_ghost;
+
+  TH1F *muPtInTime_Tight_punch;
+  TH1F *muPtInTime_Tight_lightflv;
+  TH1F *muPtInTime_Tight_heavyflv;
+  TH1F *muPtInTime_Tight_primary;
+  TH1F *muPtInTime_Tight_noise;
+  TH1F *muPtInTime_Tight_ghost;
+
+  TH1F *muEtaInTime_Tight_punch;
+  TH1F *muEtaInTime_Tight_lightflv;
+  TH1F *muEtaInTime_Tight_heavyflv;
+  TH1F *muEtaInTime_Tight_primary;
+  TH1F *muEtaInTime_Tight_noise;
+  TH1F *muEtaInTime_Tight_ghost;
+
+  TH1F *muValidHitsInTime_Tight_punch;
+  TH1F *muValidHitsInTime_Tight_lightflv;
+  TH1F *muValidHitsInTime_Tight_heavyflv;
+  TH1F *muValidHitsInTime_Tight_primary;
+  TH1F *muValidHitsInTime_Tight_noise;
+  TH1F *muValidHitsInTime_Tight_ghost;
+
+  TH1F *muValidGemHitsInTime_Tight_punch;
+  TH1F *muValidGemHitsInTime_Tight_lightflv;
+  TH1F *muValidGemHitsInTime_Tight_heavyflv;
+  TH1F *muValidGemHitsInTime_Tight_primary;
+  TH1F *muValidGemHitsInTime_Tight_noise;
+  TH1F *muValidGemHitsInTime_Tight_ghost;  
+
+//
+
+  TH1F *muOOT_Loose_punch;
+  TH1F *muOOT_Loose_lightflv;
+  TH1F *muOOT_Loose_heavyflv;
+  TH1F *muOOT_Loose_primary;
+  TH1F *muOOT_Loose_noise;
+  TH1F *muOOT_Loose_ghost;
+
+  TH1F *muPtOOT_Loose_punch;
+  TH1F *muPtOOT_Loose_lightflv;
+  TH1F *muPtOOT_Loose_heavyflv;
+  TH1F *muPtOOT_Loose_primary;
+  TH1F *muPtOOT_Loose_noise;
+  TH1F *muPtOOT_Loose_ghost;
+
+  TH1F *muEtaOOT_Loose_punch;
+  TH1F *muEtaOOT_Loose_lightflv;
+  TH1F *muEtaOOT_Loose_heavyflv;
+  TH1F *muEtaOOT_Loose_primary;
+  TH1F *muEtaOOT_Loose_noise;
+  TH1F *muEtaOOT_Loose_ghost;
+
+  TH1F *muValidHitsOOT_Loose_punch;
+  TH1F *muValidHitsOOT_Loose_lightflv;
+  TH1F *muValidHitsOOT_Loose_heavyflv;
+  TH1F *muValidHitsOOT_Loose_primary;
+  TH1F *muValidHitsOOT_Loose_noise;
+  TH1F *muValidHitsOOT_Loose_ghost;
+
+  TH1F *muValidGemHitsOOT_Loose_punch;
+  TH1F *muValidGemHitsOOT_Loose_lightflv;
+  TH1F *muValidGemHitsOOT_Loose_heavyflv;
+  TH1F *muValidGemHitsOOT_Loose_primary;
+  TH1F *muValidGemHitsOOT_Loose_noise;
+  TH1F *muValidGemHitsOOT_Loose_ghost;  
+
+  TH1F *muInTime_Loose_punch;
+  TH1F *muInTime_Loose_lightflv;
+  TH1F *muInTime_Loose_heavyflv;
+  TH1F *muInTime_Loose_primary;
+  TH1F *muInTime_Loose_noise;
+  TH1F *muInTime_Loose_ghost;
+
+  TH1F *muPtInTime_Loose_punch;
+  TH1F *muPtInTime_Loose_lightflv;
+  TH1F *muPtInTime_Loose_heavyflv;
+  TH1F *muPtInTime_Loose_primary;
+  TH1F *muPtInTime_Loose_noise;
+  TH1F *muPtInTime_Loose_ghost;
+
+  TH1F *muEtaInTime_Loose_punch;
+  TH1F *muEtaInTime_Loose_lightflv;
+  TH1F *muEtaInTime_Loose_heavyflv;
+  TH1F *muEtaInTime_Loose_primary;
+  TH1F *muEtaInTime_Loose_noise;
+  TH1F *muEtaInTime_Loose_ghost;
+
+  TH1F *muValidHitsInTime_Loose_punch;
+  TH1F *muValidHitsInTime_Loose_lightflv;
+  TH1F *muValidHitsInTime_Loose_heavyflv;
+  TH1F *muValidHitsInTime_Loose_primary;
+  TH1F *muValidHitsInTime_Loose_noise;
+  TH1F *muValidHitsInTime_Loose_ghost;
+
+  TH1F *muValidGemHitsInTime_Loose_punch;
+  TH1F *muValidGemHitsInTime_Loose_lightflv;
+  TH1F *muValidGemHitsInTime_Loose_heavyflv;
+  TH1F *muValidGemHitsInTime_Loose_primary;
+  TH1F *muValidGemHitsInTime_Loose_noise;
+  TH1F *muValidGemHitsInTime_Loose_ghost;  
+
+//
+  TH1F *StaMuons_validhits;
+  TH1F *StaMuons_validhits_atZerotime;
+  TH1F *StaMuonsPt_NoValidhits;
+  TH1F *StaMuonsPt_NoValidhits_atZeroTime;
+  
+// The RECO objects
   edm::InputTag trackingParticles_;
   edm::InputTag muons_;
   bool linkToGenParticles_;
@@ -768,6 +1087,32 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
         StaMuonsPt->Fill(statrackref->pt());
         StaMuonsPhi->Fill(statrackref->phi());
         StaMuons_matchedstation->Fill((*myMuons)[i].numberOfMatchedStations());
+
+        StaMuons_validhits->Fill(statrackref->hitPattern().numberOfValidMuonHits());
+        if(statrackref->hitPattern().numberOfValidMuonHits() == 0)StaMuonsPt_NoValidhits->Fill(statrackref->pt());
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        if(fabs((*myMuons)[i].time().timeAtIpInOut) > 25+fabs((*myMuons)[i].time().timeAtIpInOutErr)) {
+        StaMuonsOOT->Fill((*myMuons)[i].time().timeAtIpInOut);
+        StaMuonsPt_OOT->Fill(statrackref->pt());
+        StaMuonsEta_OOT->Fill(statrackref->eta());
+        StaMuonsValidHits_OOT->Fill(statrackref->hitPattern().numberOfValidMuonHits());
+        StaMuonsValidGemHits_OOT->Fill(statrackref->hitPattern().numberOfValidMuonGEMHits());
+        }
+     
+        else{
+        StaMuonsInTime->Fill((*myMuons)[i].time().timeAtIpInOut);
+        StaMuonsPt_InTime->Fill(statrackref->pt());
+        StaMuonsEta_InTime->Fill(statrackref->eta());
+        StaMuonsValidHits_InTime->Fill(statrackref->hitPattern().numberOfValidMuonHits());
+        StaMuonsValidGemHits_InTime->Fill(statrackref->hitPattern().numberOfValidMuonGEMHits());
+        } 
+
+       if((*myMuons)[i].time().timeAtIpInOut == 0)  {
+        StaMuons_validhits_atZerotime->Fill(statrackref->hitPattern().numberOfValidMuonHits());
+        if(statrackref->hitPattern().numberOfValidMuonHits() == 0)StaMuonsPt_NoValidhits_atZeroTime->Fill(statrackref->pt());
+        } 
+
         if (debug)
           std::cout << "I am Standalone muon!" << std::endl;
       }
@@ -920,7 +1265,21 @@ if (debug)
       muEta_Glb_punch, muEta_Glb_lightflv, muEta_Glb_heavyflv, muEta_Glb_primary, muEta_Glb_noise, muEta_Glb_ghost,
       muPhi_Glb_punch, muPhi_Glb_lightflv, muPhi_Glb_heavyflv, muPhi_Glb_primary, muPhi_Glb_noise, muPhi_Glb_ghost,
       muMStation_Glb_punch, muMStation_Glb_lightflv, muMStation_Glb_heavyflv, muMStation_Glb_primary,
-      muMStation_Glb_noise, muMStation_Glb_ghost, 1);
+      muMStation_Glb_noise, muMStation_Glb_ghost, 
+      muOOT_Glb_punch, muOOT_Glb_lightflv, muOOT_Glb_heavyflv, muOOT_Glb_primary, muOOT_Glb_noise,
+      muOOT_Glb_ghost, muPtOOT_Glb_punch, muPtOOT_Glb_lightflv, muPtOOT_Glb_heavyflv, muPtOOT_Glb_primary, muPtOOT_Glb_noise,
+      muPtOOT_Glb_ghost, muEtaOOT_Glb_punch, muEtaOOT_Glb_lightflv, muEtaOOT_Glb_heavyflv, muEtaOOT_Glb_primary,
+      muEtaOOT_Glb_noise, muEtaOOT_Glb_ghost, muValidHitsOOT_Glb_punch, muValidHitsOOT_Glb_lightflv, muValidHitsOOT_Glb_heavyflv,
+      muValidHitsOOT_Glb_primary, muValidHitsOOT_Glb_noise, muValidHitsOOT_Glb_ghost, muValidGemHitsOOT_Glb_punch,
+      muValidGemHitsOOT_Glb_lightflv, muValidGemHitsOOT_Glb_heavyflv, muValidGemHitsOOT_Glb_primary, muValidGemHitsOOT_Glb_noise,
+      muValidGemHitsOOT_Glb_ghost, muInTime_Glb_punch, muInTime_Glb_lightflv, muInTime_Glb_heavyflv,                         
+      muInTime_Glb_primary, muInTime_Glb_noise, muInTime_Glb_ghost, muPtInTime_Glb_punch, muPtInTime_Glb_lightflv,                         
+      muPtInTime_Glb_heavyflv, muPtInTime_Glb_primary, muPtInTime_Glb_noise, muPtInTime_Glb_ghost, muEtaInTime_Glb_punch,                       
+      muEtaInTime_Glb_lightflv, muEtaInTime_Glb_heavyflv, muEtaInTime_Glb_primary, muEtaInTime_Glb_noise,              
+      muEtaInTime_Glb_ghost, muValidHitsInTime_Glb_punch, muValidHitsInTime_Glb_lightflv, muValidHitsInTime_Glb_heavyflv,
+      muValidHitsInTime_Glb_primary, muValidHitsInTime_Glb_noise, muValidHitsInTime_Glb_ghost, muValidGemHitsInTime_Glb_punch,
+      muValidGemHitsInTime_Glb_lightflv, muValidGemHitsInTime_Glb_heavyflv, muValidGemHitsInTime_Glb_primary,
+      muValidGemHitsInTime_Glb_noise, muValidGemHitsInTime_Glb_ghost, 1);
 //for STANDALONE MUONS
   std::vector<int> classifs(nmu, 0), exts(nmu, 0);
   std::vector<int> hitsPdgIds(nmu, 0), momPdgIds(nmu, 0), gmomPdgIds(nmu, 0), momStatuss(nmu, 0);
@@ -935,8 +1294,21 @@ if (debug)
       muPt_Sta_lightflv, muPt_Sta_heavyflv, muPt_Sta_primary, muPt_Sta_noise, muPt_Sta_ghost, muEta_Sta_punch,
       muEta_Sta_lightflv, muEta_Sta_heavyflv, muEta_Sta_primary, muEta_Sta_noise, muEta_Sta_ghost, muPhi_Sta_punch,
       muPhi_Sta_lightflv, muPhi_Sta_heavyflv, muPhi_Sta_primary, muPhi_Sta_noise, muPhi_Sta_ghost, muMStation_Sta_punch, 
-      muMStation_Sta_lightflv, muMStation_Sta_heavyflv, muMStation_Sta_primary, muMStation_Sta_noise, 
-      muMStation_Sta_ghost, 2);
+      muMStation_Sta_lightflv, muMStation_Sta_heavyflv, muMStation_Sta_primary, muMStation_Sta_noise, muMStation_Sta_ghost, 
+      muOOT_Sta_punch, muOOT_Sta_lightflv, muOOT_Sta_heavyflv, muOOT_Sta_primary, muOOT_Sta_noise,
+      muOOT_Sta_ghost, muPtOOT_Sta_punch, muPtOOT_Sta_lightflv, muPtOOT_Sta_heavyflv, muPtOOT_Sta_primary, muPtOOT_Sta_noise,
+      muPtOOT_Sta_ghost, muEtaOOT_Sta_punch, muEtaOOT_Sta_lightflv, muEtaOOT_Sta_heavyflv, muEtaOOT_Sta_primary,
+      muEtaOOT_Sta_noise, muEtaOOT_Sta_ghost, muValidHitsOOT_Sta_punch, muValidHitsOOT_Sta_lightflv, muValidHitsOOT_Sta_heavyflv, 
+      muValidHitsOOT_Sta_primary, muValidHitsOOT_Sta_noise, muValidHitsOOT_Sta_ghost, muValidGemHitsOOT_Sta_punch,
+      muValidGemHitsOOT_Sta_lightflv, muValidGemHitsOOT_Sta_heavyflv, muValidGemHitsOOT_Sta_primary, muValidGemHitsOOT_Sta_noise,
+      muValidGemHitsOOT_Sta_ghost, muInTime_Sta_punch, muInTime_Sta_lightflv, muInTime_Sta_heavyflv,                         
+      muInTime_Sta_primary, muInTime_Sta_noise, muInTime_Sta_ghost, muPtInTime_Sta_punch, muPtInTime_Sta_lightflv,                         
+      muPtInTime_Sta_heavyflv, muPtInTime_Sta_primary, muPtInTime_Sta_noise, muPtInTime_Sta_ghost, muEtaInTime_Sta_punch,                       
+      muEtaInTime_Sta_lightflv, muEtaInTime_Sta_heavyflv, muEtaInTime_Sta_primary, muEtaInTime_Sta_noise,   
+      muEtaInTime_Sta_ghost, muValidHitsInTime_Sta_punch, muValidHitsInTime_Sta_lightflv, muValidHitsInTime_Sta_heavyflv,
+      muValidHitsInTime_Sta_primary, muValidHitsInTime_Sta_noise, muValidHitsInTime_Sta_ghost, muValidGemHitsInTime_Sta_punch,
+      muValidGemHitsInTime_Sta_lightflv, muValidGemHitsInTime_Sta_heavyflv, muValidGemHitsInTime_Sta_primary, 
+      muValidGemHitsInTime_Sta_noise, muValidGemHitsInTime_Sta_ghost, 2);
 //for TIGHT MUONS
   std::vector<int> classift(nmu, 0), extt(nmu, 0);
   std::vector<int> hitsPdgIdt(nmu, 0), momPdgIdt(nmu, 0), gmomPdgIdt(nmu, 0), momStatust(nmu, 0);
@@ -952,7 +1324,21 @@ if (debug)
       muPt_Tight_ghost, muEta_Tight_punch, muEta_Tight_lightflv, muEta_Tight_heavyflv, muEta_Tight_primary,
       muEta_Tight_noise, muEta_Tight_ghost, muPhi_Tight_punch, muPhi_Tight_lightflv, muPhi_Tight_heavyflv,
       muPhi_Tight_primary, muPhi_Tight_noise, muPhi_Tight_ghost, muMStation_Tight_punch, muMStation_Tight_lightflv, 
-      muMStation_Tight_heavyflv, muMStation_Tight_primary, muMStation_Tight_noise, muMStation_Tight_ghost, 3);
+      muMStation_Tight_heavyflv, muMStation_Tight_primary, muMStation_Tight_noise, muMStation_Tight_ghost,
+      muOOT_Tight_punch, muOOT_Tight_lightflv, muOOT_Tight_heavyflv, muOOT_Tight_primary, muOOT_Tight_noise, muOOT_Tight_ghost,
+      muPtOOT_Tight_punch, muPtOOT_Tight_lightflv, muPtOOT_Tight_heavyflv, muPtOOT_Tight_primary, muPtOOT_Tight_noise, muPtOOT_Tight_ghost, 
+      muEtaOOT_Tight_punch, muEtaOOT_Tight_lightflv, muEtaOOT_Tight_heavyflv, muEtaOOT_Tight_primary, muEtaOOT_Tight_noise,
+      muEtaOOT_Tight_ghost, muValidHitsOOT_Tight_punch, muValidHitsOOT_Tight_lightflv, muValidHitsOOT_Tight_heavyflv, 
+      muValidHitsOOT_Tight_primary, muValidHitsOOT_Tight_noise, muValidHitsOOT_Tight_ghost, muValidGemHitsOOT_Tight_punch, 
+      muValidGemHitsOOT_Tight_lightflv, muValidGemHitsOOT_Tight_heavyflv, muValidGemHitsOOT_Tight_primary, muValidGemHitsOOT_Tight_noise, 
+      muValidGemHitsOOT_Tight_ghost, muInTime_Tight_punch, muInTime_Tight_lightflv, muInTime_Tight_heavyflv, muInTime_Tight_primary, 
+      muInTime_Tight_noise, muInTime_Tight_ghost, muPtInTime_Tight_punch, muPtInTime_Tight_lightflv, muPtInTime_Tight_heavyflv,
+      muPtInTime_Tight_primary, muPtInTime_Tight_noise, muPtInTime_Tight_ghost, muEtaInTime_Tight_punch, muEtaInTime_Tight_lightflv, 
+      muEtaInTime_Tight_heavyflv, muEtaInTime_Tight_primary, muEtaInTime_Tight_noise, muEtaInTime_Tight_ghost, muValidHitsInTime_Tight_punch,
+      muValidHitsInTime_Tight_lightflv, muValidHitsInTime_Tight_heavyflv, muValidHitsInTime_Tight_primary, muValidHitsInTime_Tight_noise, 
+      muValidHitsInTime_Tight_ghost, muValidGemHitsInTime_Tight_punch, muValidGemHitsInTime_Tight_lightflv,
+      muValidGemHitsInTime_Tight_heavyflv, muValidGemHitsInTime_Tight_primary, muValidGemHitsInTime_Tight_noise,
+      muValidGemHitsInTime_Tight_ghost, 3);
 //for LOOSe MUONS
   std::vector<int> classifls(nmu, 0), extls(nmu, 0);
   std::vector<int> hitsPdgIdls(nmu, 0), momPdgIdls(nmu, 0), gmomPdgIdls(nmu, 0), momStatusls(nmu, 0);
@@ -968,7 +1354,21 @@ if (debug)
       muPt_Loose_ghost, muEta_Loose_punch, muEta_Loose_lightflv, muEta_Loose_heavyflv, muEta_Loose_primary,
       muEta_Loose_noise, muEta_Loose_ghost, muPhi_Loose_punch, muPhi_Loose_lightflv, muPhi_Loose_heavyflv,
       muPhi_Loose_primary, muPhi_Loose_noise, muPhi_Loose_ghost, muMStation_Loose_punch, muMStation_Loose_lightflv,
-      muMStation_Loose_heavyflv, muMStation_Loose_primary, muMStation_Loose_noise, muMStation_Loose_ghost, 4);
+      muMStation_Loose_heavyflv, muMStation_Loose_primary, muMStation_Loose_noise, muMStation_Loose_ghost,
+      muOOT_Loose_punch, muOOT_Loose_lightflv, muOOT_Loose_heavyflv, muOOT_Loose_primary, muOOT_Loose_noise,
+      muOOT_Loose_ghost, muPtOOT_Loose_punch, muPtOOT_Loose_lightflv, muPtOOT_Loose_heavyflv, muPtOOT_Loose_primary, muPtOOT_Loose_noise,
+      muPtOOT_Loose_ghost, muEtaOOT_Loose_punch, muEtaOOT_Loose_lightflv, muEtaOOT_Loose_heavyflv, muEtaOOT_Loose_primary,
+      muEtaOOT_Loose_noise, muEtaOOT_Loose_ghost, muValidHitsOOT_Loose_punch, muValidHitsOOT_Loose_lightflv, muValidHitsOOT_Loose_heavyflv,
+      muValidHitsOOT_Loose_primary, muValidHitsOOT_Loose_noise, muValidHitsOOT_Loose_ghost, muValidGemHitsOOT_Loose_punch, 
+      muValidGemHitsOOT_Loose_lightflv, muValidGemHitsOOT_Loose_heavyflv, muValidGemHitsOOT_Loose_primary, muValidGemHitsOOT_Loose_noise,
+      muValidGemHitsOOT_Loose_ghost, muInTime_Loose_punch, muInTime_Loose_lightflv, muInTime_Loose_heavyflv, 
+      muInTime_Loose_primary, muInTime_Loose_noise, muInTime_Loose_ghost, muPtInTime_Loose_punch, muPtInTime_Loose_lightflv, 
+      muPtInTime_Loose_heavyflv, muPtInTime_Loose_primary, muPtInTime_Loose_noise, muPtInTime_Loose_ghost, muEtaInTime_Loose_punch,
+      muEtaInTime_Loose_lightflv, muEtaInTime_Loose_heavyflv, muEtaInTime_Loose_primary, muEtaInTime_Loose_noise,
+      muEtaInTime_Loose_ghost, muValidHitsInTime_Loose_punch, muValidHitsInTime_Loose_lightflv, muValidHitsInTime_Loose_heavyflv, 
+      muValidHitsInTime_Loose_primary, muValidHitsInTime_Loose_noise, muValidHitsInTime_Loose_ghost, muValidGemHitsInTime_Loose_punch,
+      muValidGemHitsInTime_Loose_lightflv, muValidGemHitsInTime_Loose_heavyflv, muValidGemHitsInTime_Loose_primary,
+      muValidGemHitsInTime_Loose_noise, muValidGemHitsInTime_Loose_ghost, 4);
 } //end Analyzer
 
 void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<reco::Muon> > myMuons_handle,
@@ -985,14 +1385,31 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
     TH1F *histoPt_n, TH1F *histoPt_gst, TH1F *histoEta_p, TH1F *histoEta_l, TH1F *histoEta_h, TH1F *histoEta_pr,
     TH1F *histoEta_n, TH1F *histoEta_gst, TH1F *histoPhi_p, TH1F *histoPhi_l, TH1F *histoPhi_h, TH1F *histoPhi_pr,
     TH1F *histoPhi_n, TH1F *histoPhi_gst, TH1F *histomatchedstation_p, TH1F *histomatchedstation_l, TH1F *histomatchedstation_h,
-    TH1F *histomatchedstation_pr, TH1F *histomatchedstation_n, TH1F *histomatchedstation_gst, 
-    int myCase)
+    TH1F *histomatchedstation_pr, TH1F *histomatchedstation_n, TH1F *histomatchedstation_gst,
+    TH1F *histoMuonsOOT_p, TH1F *histoMuonsOOT_l, TH1F *histoMuonsOOT_h, TH1F *histoMuonsOOT_pr, TH1F *histoMuonsOOT_n, 
+    TH1F *histoMuonsOOT_gst, TH1F *histoMuonsPtOOT_p, TH1F *histoMuonsPtOOT_l, TH1F *histoMuonsPtOOT_h, TH1F *histoMuonsPtOOT_pr, 
+    TH1F *histoMuonsPtOOT_n, TH1F *histoMuonsPtOOT_gst, TH1F *histoMuonsEtaOOT_p, TH1F *histoMuonsEtaOOT_l, TH1F *histoMuonsEtaOOT_h, 
+    TH1F *histoMuonsEtaOOT_pr, TH1F *histoMuonsEtaOOT_n, TH1F *histoMuonsEtaOOT_gst, TH1F *histoMuonsValidHitsOOT_p,
+    TH1F *histoMuonsValidHitsOOT_l, TH1F *histoMuonsValidHitsOOT_h, TH1F *histoMuonsValidHitsOOT_pr, TH1F *histoMuonsValidHitsOOT_n,
+    TH1F *histoMuonsValidHitsOOT_gst, TH1F *histoMuonsValidGemHitsOOT_p, TH1F *histoMuonsValidGemHitsOOT_l, 
+    TH1F *histoMuonsValidGemHitsOOT_h, TH1F *histoMuonsValidGemHitsOOT_pr, TH1F *histoMuonsValidGemHitsOOT_n, 
+    TH1F *histoMuonsValidGemHitsOOT_gst, TH1F *histoMuonsInTime_p, TH1F *histoMuonsInTime_l,
+    TH1F *histoMuonsInTime_h, TH1F *histoMuonsInTime_pr, TH1F *histoMuonsInTime_n, TH1F *histoMuonsInTime_gst, TH1F *histoMuonsPtInTime_p, 
+    TH1F *histoMuonsPtInTime_l, TH1F *histoMuonsPtInTime_h, TH1F *histoMuonsPtInTime_pr, TH1F *histoMuonsPtInTime_n,
+    TH1F *histoMuonsPtInTime_gst, TH1F *histoMuonsEtaInTime_p, TH1F *histoMuonsEtaInTime_l, TH1F *histoMuonsEtaInTime_h,
+    TH1F *histoMuonsEtaInTime_pr, TH1F *histoMuonsEtaInTime_n, TH1F *histoMuonsEtaInTime_gst, TH1F *histoMuonsValidHitsInTime_p,
+    TH1F *histoMuonsValidHitsInTime_l, TH1F *histoMuonsValidHitsInTime_h, TH1F *histoMuonsValidHitsInTime_pr, 
+    TH1F *histoMuonsValidHitsInTime_n, TH1F *histoMuonsValidHitsInTime_gst, TH1F *histoMuonsValidGemHitsInTime_p,
+    TH1F *histoMuonsValidGemHitsInTime_l, TH1F *histoMuonsValidGemHitsInTime_h, TH1F *histoMuonsValidGemHitsInTime_pr, 
+    TH1F *histoMuonsValidGemHitsInTime_n, TH1F *histoMuonsValidGemHitsInTime_gst, int myCase)
+
 {
   std::map<TrackingParticleRef, int> tpToSecondaries; // map from tp to (index+1) in output collection
   typedef MuonAssociatorByHits::MuonToSimCollection::const_iterator r2s_it;
   typedef MuonAssociatorByHits::SimToMuonCollection::const_iterator s2r_it;
   for (size_t i = 0; i < myNmu; ++i) //loop over reco::muons
   {
+
     edm::LogVerbatim("MuonMCClassifAndAna") << "\n reco::Muons # " << i;
     edm::RefToBase < reco::Muon > mu = myMuons_handle->refAt(i);
     if (std::find(selMuons.begin(), selMuons.end(), mu) == selMuons.end()) //if muon is not from a given type or ID - fail and go further, e.g. it might be tracker but not global and if we check for globals the value will be -99
@@ -1264,6 +1681,23 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
       histoEta_p->Fill(trackref->eta());
       histoPhi_p->Fill(trackref->phi());
       histomatchedstation_p->Fill((*myMuons_handle)[i].numberOfMatchedStations());
+
+     if(fabs((*myMuons_handle)[i].time().timeAtIpInOut) > 25+fabs((*myMuons_handle)[i].time().timeAtIpInOutErr)) {
+        histoMuonsOOT_p->Fill((*myMuons_handle)[i].time().timeAtIpInOut);
+        histoMuonsPtOOT_p->Fill(trackref->pt());
+        histoMuonsEtaOOT_p->Fill(trackref->eta());
+        histoMuonsValidHitsOOT_p->Fill(trackref->hitPattern().numberOfValidMuonHits());
+        histoMuonsValidGemHitsOOT_p->Fill(trackref->hitPattern().numberOfValidMuonGEMHits()); 
+        }
+
+    else{
+        histoMuonsInTime_p->Fill((*myMuons_handle)[i].time().timeAtIpInOut);
+        histoMuonsPtInTime_p->Fill(trackref->pt());
+        histoMuonsEtaInTime_p->Fill(trackref->eta());
+        histoMuonsValidHitsInTime_p->Fill(trackref->hitPattern().numberOfValidMuonHits());
+        histoMuonsValidGemHitsInTime_p->Fill(trackref->hitPattern().numberOfValidMuonGEMHits());
+        }
+
     }
 // if(myExt[i] == 4 || myExt[i] == 5)
     if (myClassif[i] == 2)
@@ -1274,6 +1708,24 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
       histoEta_l->Fill(trackref->eta());
       histoPhi_l->Fill(trackref->phi());
       histomatchedstation_l->Fill((*myMuons_handle)[i].numberOfMatchedStations());
+
+      if(fabs((*myMuons_handle)[i].time().timeAtIpInOut) > 25+fabs((*myMuons_handle)[i].time().timeAtIpInOutErr)) {
+        histoMuonsOOT_l->Fill((*myMuons_handle)[i].time().timeAtIpInOut);
+        histoMuonsPtOOT_l->Fill(trackref->pt());
+        histoMuonsEtaOOT_l->Fill(trackref->eta());
+        histoMuonsValidHitsOOT_l->Fill(trackref->hitPattern().numberOfValidMuonHits());
+        histoMuonsValidGemHitsOOT_l->Fill(trackref->hitPattern().numberOfValidMuonGEMHits());
+        }
+
+    else{
+        histoMuonsInTime_l->Fill((*myMuons_handle)[i].time().timeAtIpInOut);
+        histoMuonsPtInTime_l->Fill(trackref->pt());
+        histoMuonsEtaInTime_l->Fill(trackref->eta());
+        histoMuonsValidHitsInTime_l->Fill(trackref->hitPattern().numberOfValidMuonHits());
+        histoMuonsValidGemHitsInTime_l->Fill(trackref->hitPattern().numberOfValidMuonGEMHits());
+
+        }
+
     }
 //if(myExt[i] >=6 && myExt[i] <=9)
     if (myClassif[i] == 3)
@@ -1284,6 +1736,25 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
       histoEta_h->Fill(trackref->eta());
       histoPhi_h->Fill(trackref->phi());
       histomatchedstation_h->Fill((*myMuons_handle)[i].numberOfMatchedStations());
+
+     if(fabs((*myMuons_handle)[i].time().timeAtIpInOut) > 25+fabs((*myMuons_handle)[i].time().timeAtIpInOutErr)) {
+        histoMuonsOOT_h->Fill((*myMuons_handle)[i].time().timeAtIpInOut);
+        histoMuonsPtOOT_h->Fill(trackref->pt());
+        histoMuonsEtaOOT_h->Fill(trackref->eta());
+        histoMuonsValidHitsOOT_h->Fill(trackref->hitPattern().numberOfValidMuonHits());
+        histoMuonsValidGemHitsOOT_h->Fill(trackref->hitPattern().numberOfValidMuonGEMHits());
+
+        }
+
+    else{
+        histoMuonsInTime_h->Fill((*myMuons_handle)[i].time().timeAtIpInOut);
+        histoMuonsPtInTime_h->Fill(trackref->pt());
+        histoMuonsEtaInTime_h->Fill(trackref->eta());
+        histoMuonsValidHitsInTime_h->Fill(trackref->hitPattern().numberOfValidMuonHits());
+        histoMuonsValidGemHitsInTime_h->Fill(trackref->hitPattern().numberOfValidMuonGEMHits());
+
+        }
+
     }
 // if(myExt[i] == 10)
     if (myClassif[i] == 4)
@@ -1294,6 +1765,25 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
       histoEta_pr->Fill(trackref->eta());
       histoPhi_pr->Fill(trackref->phi());
       histomatchedstation_pr->Fill((*myMuons_handle)[i].numberOfMatchedStations());
+
+     if(fabs((*myMuons_handle)[i].time().timeAtIpInOut) > 25+fabs((*myMuons_handle)[i].time().timeAtIpInOutErr)) {
+        histoMuonsOOT_pr->Fill((*myMuons_handle)[i].time().timeAtIpInOut);
+        histoMuonsPtOOT_pr->Fill(trackref->pt());
+        histoMuonsEtaOOT_pr->Fill(trackref->eta());
+        histoMuonsValidHitsOOT_pr->Fill(trackref->hitPattern().numberOfValidMuonHits());
+        histoMuonsValidGemHitsOOT_pr->Fill(trackref->hitPattern().numberOfValidMuonGEMHits());
+
+        }
+
+    else{
+        histoMuonsInTime_pr->Fill((*myMuons_handle)[i].time().timeAtIpInOut);
+        histoMuonsPtInTime_pr->Fill(trackref->pt());
+        histoMuonsEtaInTime_pr->Fill(trackref->eta());
+        histoMuonsValidHitsInTime_pr->Fill(trackref->hitPattern().numberOfValidMuonHits());
+        histoMuonsValidGemHitsInTime_pr->Fill(trackref->hitPattern().numberOfValidMuonGEMHits());
+
+        }
+
     }
 //if (myExt[i] == 2)
     if (myClassif[i] == 0)
@@ -1304,6 +1794,26 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
       histoEta_n->Fill(trackref->eta());
       histoPhi_n->Fill(trackref->phi());
       histomatchedstation_n->Fill((*myMuons_handle)[i].numberOfMatchedStations());
+   
+    if(fabs((*myMuons_handle)[i].time().timeAtIpInOut) > 25+fabs((*myMuons_handle)[i].time().timeAtIpInOutErr)) {
+        histoMuonsOOT_n->Fill((*myMuons_handle)[i].time().timeAtIpInOut);
+        histoMuonsPtOOT_n->Fill(trackref->pt());
+        histoMuonsEtaOOT_n->Fill(trackref->eta());
+        histoMuonsValidHitsOOT_n->Fill(trackref->hitPattern().numberOfValidMuonHits());
+        histoMuonsValidGemHitsOOT_n->Fill(trackref->hitPattern().numberOfValidMuonGEMHits());
+
+        }
+
+    else{
+        histoMuonsInTime_n->Fill((*myMuons_handle)[i].time().timeAtIpInOut);
+        histoMuonsPtInTime_n->Fill(trackref->pt());
+        histoMuonsEtaInTime_n->Fill(trackref->eta());
+        histoMuonsValidHitsInTime_n->Fill(trackref->hitPattern().numberOfValidMuonHits());
+        histoMuonsValidGemHitsInTime_n->Fill(trackref->hitPattern().numberOfValidMuonGEMHits());
+
+        }
+
+
     }
 //if(myExt[i] < 0 && fabs(myExt[i])<11)
     if (myClassif[i] < 0 && fabs(myClassif[i]) < 5)
@@ -1314,6 +1824,27 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
       histoEta_gst->Fill(trackref->eta());
       histoPhi_gst->Fill(trackref->phi());
       histomatchedstation_gst->Fill((*myMuons_handle)[i].numberOfMatchedStations());
+    
+     if(fabs((*myMuons_handle)[i].time().timeAtIpInOut) > 25+fabs((*myMuons_handle)[i].time().timeAtIpInOutErr)) {
+        histoMuonsOOT_gst->Fill((*myMuons_handle)[i].time().timeAtIpInOut);
+        histoMuonsPtOOT_gst->Fill(trackref->pt());
+        histoMuonsEtaOOT_gst->Fill(trackref->eta());
+        histoMuonsValidHitsOOT_gst->Fill(trackref->hitPattern().numberOfValidMuonHits());
+        histoMuonsValidGemHitsOOT_gst->Fill(trackref->hitPattern().numberOfValidMuonGEMHits());
+
+        }
+
+    else{
+        histoMuonsInTime_gst->Fill((*myMuons_handle)[i].time().timeAtIpInOut);
+        histoMuonsPtInTime_gst->Fill(trackref->pt());
+        histoMuonsEtaInTime_gst->Fill(trackref->eta());
+        histoMuonsValidHitsInTime_gst->Fill(trackref->hitPattern().numberOfValidMuonHits());
+        histoMuonsValidGemHitsInTime_gst->Fill(trackref->hitPattern().numberOfValidMuonGEMHits());
+
+        }
+
+
+
     }
   } //ent loop over myMuons_handle size
  std::cout << "Event end !" << std::endl;
@@ -1538,6 +2069,27 @@ void MuonMCClassifAndAna::beginJob()
   TightMuons_matchedstation = fs->make < TH1F > ("TightMuons_matchedstation", "Matched stations for tight muon collection", 20, 0., 20.);
   LooseMuons_matchedstation = fs->make < TH1F > ("LooseMuons_matchedstation", "Matched stations for Loose muon collection", 20, 0., 20.);
 
+/////////////// Plots for InTime and OOT /////////////////////
+
+  StaMuonsOOT = fs->make < TH1F > ("StaMuonsOOT", "OOT for Standalone muons", 400, -200.,200);
+  StaMuonsInTime = fs->make < TH1F > ("StaMuonsInTime", "In Time for Standalone muons", 400, -200.,200);
+  StaMuonsPt_OOT = fs->make < TH1F > ("StaMuonsPt_OOT", "Pt for OOT Standalone muons", 1000, 0.,500);
+  StaMuonsPt_InTime = fs->make < TH1F > ("StaMuonsPt_InTime", "Pt for in time Standalone muons", 1000, 0.,500);
+  StaMuonsEta_OOT = fs->make < TH1F > ("StaMuonsEta_OOT", "Eta for OOT Standalone muons", 70, -3.5,3.5);
+  StaMuonsEta_InTime = fs->make < TH1F > ("StaMuonsEta_InTime", "Eta for in time Standalone muons", 70, -3.5,3.5);
+
+ StaMuonsValidHits_OOT = fs->make < TH1F > ("StaMuonsValidHits_OOT", "Valid Hits for OOT Standalone muons", 50, 0, 50);
+ StaMuonsValidHits_InTime = fs->make < TH1F > ("StaMuonsValidHits_InTime", "Valid Hits for In Time Standalone muons", 50, 0, 50); 
+ StaMuonsValidGemHits_OOT = fs->make < TH1F > ("StaMuonsValidGemHits_OOT", "Valid Gem Hits for OOT Standalone muons", 50, 0, 50);
+ StaMuonsValidGemHits_InTime = fs->make < TH1F > ("StaMuonsValidGemHits_InTime", "Valid Gem Hits for In Time Standalone muons", 50, 0, 50);
+
+///////// Plots for valid hits and Invalid hits /////////////////////////////
+
+  StaMuons_validhits = fs->make < TH1F > ("StaMuons_validhits", "valid hits of STA muons", 50, 0, 50);
+  StaMuons_validhits_atZerotime = fs->make < TH1F > ("StaMuons_validhits_atZerotime", "valid hits of STA muons at zero time", 50, 0, 50);
+  StaMuonsPt_NoValidhits = fs->make < TH1F > ("StaMuonsPt_NoValidhits", "pt of STA muons with zero valid hits", 1000, 0., 500.);
+  StaMuonsPt_NoValidhits_atZeroTime = fs->make < TH1F > ("StaMuonsPt_NoValidhits_atZeroTime", "pt of STA muons with zero valid hits at zero time", 1000, 0., 500.);
+
 //test reco end
 ////////
   allMuonsPt = fs->make < TH1F > ("allMuonsPt", "p_{T} for All Selected Reco Muons", 1000, 0., 500.);
@@ -1753,8 +2305,292 @@ void MuonMCClassifAndAna::beginJob()
   muMStation_Loose_noise = fs->make < TH1F > ("muMStation_Loose_noise", "Matched stations for Loose noise", 20, 0., 20.);
   muMStation_Loose_ghost = fs->make < TH1F > ("muMStation_Loose_ghost", "Matched stations for Loose ghosts", 20, 0., 20.);
 
+  muOOT_Glb_punch = fs->make < TH1F > ("muOOT_Glb_punch", "OOT for global muons from punch through", 400, -200.,200);
+  muOOT_Glb_lightflv = fs->make < TH1F > ("muOOT_Glb_lightflv", "OOT for global muons from light flavour muons", 400, -200.,200);
+  muOOT_Glb_heavyflv = fs->make < TH1F > ("muOOT_Glb_heavyflv", "OOT for global muons from heavy flavour muons", 400, -200.,200);
+  muOOT_Glb_primary = fs->make < TH1F > ("muOOT_Glb_primary", "OOT for global muons from primary", 400, -200.,200);
+  muOOT_Glb_noise = fs->make < TH1F > ("muOOT_Glb_noise", "OOT for global muons from noise", 400, -200.,200);
+  muOOT_Glb_ghost = fs->make < TH1F > ("muOOT_Glb_ghost", "OOT for global muons from ghosts", 400, -200.,200);
 
+  muPtOOT_Glb_punch = fs->make < TH1F > ("muPtOOT_Glb_punch", "Pt of OOT for global muons from punch through", 1000, 0., 500.);
+  muPtOOT_Glb_lightflv = fs->make < TH1F > ("muPtOOT_Glb_lightflv", "Pt of OOT for global muons from light flavour muons", 1000, 0., 500.);
+  muPtOOT_Glb_heavyflv = fs->make < TH1F > ("muPtOOT_Glb_heavyflv", "Pt of OOT for global muons from heavy flavour muons", 1000, 0., 500.);
+  muPtOOT_Glb_primary = fs->make < TH1F > ("muPtOOT_Glb_primary", "Pt of OOT for global muons from primary", 1000, 0., 500.);
+  muPtOOT_Glb_noise = fs->make < TH1F > ("muPtOOT_Glb_noise", "Pt of OOT for global muons from noise", 1000, 0., 500.);
+  muPtOOT_Glb_ghost = fs->make < TH1F > ("muPtOOT_Glb_ghost", "Pt of OOT for global muons from ghosts", 1000, 0., 500.);
 
+  muEtaOOT_Glb_punch = fs->make < TH1F > ("muEtaOOT_Glb_punch", "Eta of OOT for global muons from punch through", 70, -3.5, 3.5);
+  muEtaOOT_Glb_lightflv = fs->make < TH1F > ("muEtaOOT_Glb_lightflv", "Eta of OOT for global muons from light flavour muons", 70, -3.5, 3.5);
+  muEtaOOT_Glb_heavyflv = fs->make < TH1F > ("muEtaOOT_Glb_heavyflv", "Eta of OOT for global muons from heavy flavour muons", 70, -3.5, 3.5);
+  muEtaOOT_Glb_primary = fs->make < TH1F > ("muEtaOOT_Glb_primary", "Eta of OOT for global muons from primary", 70, -3.5, 3.5);
+  muEtaOOT_Glb_noise = fs->make < TH1F > ("muEtaOOT_Glb_noise", "Eta of OOT for global muons from noise", 70, -3.5, 3.5);
+  muEtaOOT_Glb_ghost = fs->make < TH1F > ("muEtaOOT_Glb_ghost", "Eta of OOT for global muons from ghosts", 70, -3.5, 3.5);
+
+  muValidHitsOOT_Glb_punch = fs->make < TH1F > ("muValidHitsOOT_Glb_punch", "Valid Hits of OOT for Glb  muons from punch through", 50, 0, 50);
+  muValidHitsOOT_Glb_lightflv = fs->make < TH1F > ("muValidHitsOOT_Glb_lightflv", "Valid Hits of OOT for Glb  muons from light flavour muons", 50, 0, 50 );
+  muValidHitsOOT_Glb_heavyflv = fs->make < TH1F > ("muValidHitsOOT_Glb_heavyflv", "Valid Hits of OOT for Glb  muons from heavy flavour muons", 50, 0, 50);
+  muValidHitsOOT_Glb_primary = fs->make < TH1F > ("muValidHitsOOT_Glb_primary", "Valid Hits of OOT for Glb  muons from primary", 50, 0, 50);
+  muValidHitsOOT_Glb_noise = fs->make < TH1F > ("muValidHitsOOT_Glb_noise", "Valid Hits of OOT for Glb  muons from noise", 50, 0, 50);
+  muValidHitsOOT_Glb_ghost = fs->make < TH1F > ("muValidHitsOOT_Glb_ghost", "Valid Hits of OOT for Glb  muons from ghosts", 50, 0, 50);
+
+  muValidGemHitsOOT_Glb_punch = fs->make < TH1F > ("muValidGemHitsOOT_Glb_punch", "Valid Gem Hits of OOT for Glb  muons from punch through", 50, 0, 50);
+  muValidGemHitsOOT_Glb_lightflv = fs->make < TH1F > ("muValidGemHitsOOT_Glb_lightflv", "Valid Gem Hits of OOT for Glb  muons from light flavour muons", 50, 0, 50 );
+  muValidGemHitsOOT_Glb_heavyflv = fs->make < TH1F > ("muValidGemHitsOOT_Glb_heavyflv", "Valid Gem Hits of OOT for Glb  muons from heavy flavour muons", 50, 0, 50);
+  muValidGemHitsOOT_Glb_primary = fs->make < TH1F > ("muValidGemHitsOOT_Glb_primary", "Valid Gem Hits of OOT for Glb  muons from primary", 50, 0, 50);
+  muValidGemHitsOOT_Glb_noise = fs->make < TH1F > ("muValidGemHitsOOT_Glb_noise", "Valid Gem Hits of OOT for Glb  muons from noise", 50, 0, 50);
+  muValidGemHitsOOT_Glb_ghost = fs->make < TH1F > ("muValidGemHitsOOT_Glb_ghost", "Valid Gem Hits of OOT for Glb  muons from ghosts", 50, 0, 50);
+ 
+  muInTime_Glb_punch = fs->make < TH1F > ("muInTime_Glb_punch", "In Time for global muons from punch through", 400, -200.,200);
+  muInTime_Glb_lightflv = fs->make < TH1F > ("muInTime_Glb_lightflv", "In Time for global muons from light flavour muons", 400, -200.,200);
+  muInTime_Glb_heavyflv = fs->make < TH1F > ("muInTime_Glb_heavyflv", "In Time for global muons from heavy flavour muons", 400, -200.,200);
+  muInTime_Glb_primary = fs->make < TH1F > ("muInTime_Glb_primary", "In Time for global muons from primary", 400, -200.,200);
+  muInTime_Glb_noise = fs->make < TH1F > ("muInTime_Glb_noise", "In Time for global muons from noise", 400, -200.,200);
+  muInTime_Glb_ghost = fs->make < TH1F > ("muInTime_Glb_ghost", "In Time for global muons from ghosts", 400, -200.,200);
+
+  muPtInTime_Glb_punch = fs->make < TH1F > ("muPtInTime_Glb_punch", "Pt of In Time for global muons from punch through", 1000, 0., 500.);
+  muPtInTime_Glb_lightflv = fs->make < TH1F > ("muPtInTime_Glb_lightflv", "Pt of In Time for global muons from light flavour muons", 1000, 0., 500.);
+  muPtInTime_Glb_heavyflv = fs->make < TH1F > ("muPtInTime_Glb_heavyflv", "Pt of In Time for global muons from heavy flavour muons", 1000, 0., 500.);
+  muPtInTime_Glb_primary = fs->make < TH1F > ("muPtInTime_Glb_primary", "Pt of In Time for global muons from primary", 1000, 0., 500.);
+  muPtInTime_Glb_noise = fs->make < TH1F > ("muPtInTime_Glb_noise", "Pt of In Time for global muons from noise", 1000, 0., 500.);
+  muPtInTime_Glb_ghost = fs->make < TH1F > ("muPtInTime_Glb_ghost", "Pt of In Time for global muons from ghosts", 1000, 0., 500.);
+
+  muEtaInTime_Glb_punch = fs->make < TH1F > ("muEtaInTime_Glb_punch", "Eta of In Time for global muons from punch through", 70, -3.5, 3.5);
+  muEtaInTime_Glb_lightflv = fs->make < TH1F > ("muEtaInTime_Glb_lightflv", "Eta of In Time for global muons from light flavour muons", 70, -3.5, 3.5);
+  muEtaInTime_Glb_heavyflv = fs->make < TH1F > ("muEtaInTime_Glb_heavyflv", "Eta of In Time for global muons from heavy flavour muons", 70, -3.5, 3.5);
+  muEtaInTime_Glb_primary = fs->make < TH1F > ("muEtaInTme_Glb_primary", "Eta of In Time for global muons from primary", 70, -3.5, 3.5);
+  muEtaInTime_Glb_noise = fs->make < TH1F > ("muEtaInTime_Glb_noise", "Eta of In Time for global muons from noise", 70, -3.5, 3.5);
+  muEtaInTime_Glb_ghost = fs->make < TH1F > ("muEtaInTime_Glb_ghost", "Eta of In Time for global muons from ghosts", 70, -3.5, 3.5);
+
+  muValidHitsInTime_Glb_punch = fs->make < TH1F > ("muValidHitsInTime_Glb_punch", "Valid Hits of In Time for Glb  muons from punch through", 50, 0, 50);
+  muValidHitsInTime_Glb_lightflv = fs->make < TH1F > ("muValidHitsInTime_Glb_lightflv", "Valid Hits of In Time for Glb  muons from light flavour muons", 50, 0, 50 );
+  muValidHitsInTime_Glb_heavyflv = fs->make < TH1F > ("muValidHitsInTime_Glb_heavyflv", "Valid Hits of In Time for Glb  muons from heavy flavour muons", 50, 0, 50);
+  muValidHitsInTime_Glb_primary = fs->make < TH1F > ("muValidHitsInTime_Glb_primary", "Valid Hits of In Time for Glb  muons from primary", 50, 0, 50);
+  muValidHitsInTime_Glb_noise = fs->make < TH1F > ("muValidHitsInTime_Glb_noise", "Valid Hits of In Time for Glb  muons from noise", 50, 0, 50);
+  muValidHitsInTime_Glb_ghost = fs->make < TH1F > ("muValidHitsInTime_Glb_ghost", "Valid Hits of In Time for Glb  muons from ghosts", 50, 0, 50);
+
+  muValidGemHitsInTime_Glb_punch = fs->make < TH1F > ("muValidGemHitsInTime_Glb_punch", "Valid Gem Hits of In Time for Glb  muons from punch through", 50, 0, 50);
+  muValidGemHitsInTime_Glb_lightflv = fs->make < TH1F > ("muValidGemHitsInTime_Glb_lightflv", "Valid Gem Hits of In Time for Glb  muons from light flavour muons", 50, 0, 50 );
+  muValidGemHitsInTime_Glb_heavyflv = fs->make < TH1F > ("muValidGemHitsInTime_Glb_heavyflv", "Valid Gem Hits of In Time for Glb  muons from heavy flavour muons", 50, 0, 50);
+  muValidGemHitsInTime_Glb_primary = fs->make < TH1F > ("muValidGemHitsInTime_Glb_primary", "Valid Gem Hits of In Time for Glb  muons from primary", 50, 0, 50);
+  muValidGemHitsInTime_Glb_noise = fs->make < TH1F > ("muValidGemHitsInTime_Glb_noise", "Valid Gem Hits of In Time for Glb  muons from noise", 50, 0, 50);
+  muValidGemHitsInTime_Glb_ghost = fs->make < TH1F > ("muValidGemHitsInTime_Glb_ghost", "Valid Gem Hits of In Time for Glb  muons from ghosts", 50, 0, 50);
+
+////////////////////
+
+  muOOT_Sta_punch = fs->make < TH1F > ("muOOT_Sta_punch", "OOT for Sta  muons from punch through", 400, -200.,200);
+  muOOT_Sta_lightflv = fs->make < TH1F > ("muOOT_Sta_lightflv", "OOT for Sta  muons from light flavour muons", 400, -200.,200);
+  muOOT_Sta_heavyflv = fs->make < TH1F > ("muOOT_Sta_heavyflv", "OOT for Sta  muons from heavy flavour muons", 400, -200.,200);
+  muOOT_Sta_primary = fs->make < TH1F > ("muOOT_Sta_primary", "OOT for Sta  muons from primary", 400, -200.,200);
+  muOOT_Sta_noise = fs->make < TH1F > ("muOOT_Sta_noise", "OOT for Sta  muons from noise", 400, -200.,200);
+  muOOT_Sta_ghost = fs->make < TH1F > ("muOOT_Sta_ghost", "OOT for Sta  muons from ghosts", 400, -200.,200);
+
+  muPtOOT_Sta_punch = fs->make < TH1F > ("muPtOOT_Sta_punch", "Pt of OOT for Sta  muons from punch through", 1000, 0., 500.);
+  muPtOOT_Sta_lightflv = fs->make < TH1F > ("muPtOOT_Sta_lightflv", "Pt of OOT for Sta  muons from light flavour muons", 1000, 0., 500.);
+  muPtOOT_Sta_heavyflv = fs->make < TH1F > ("muPtOOT_Sta_heavyflv", "Pt of OOT for Sta  muons from heavy flavour muons", 1000, 0., 500.);
+  muPtOOT_Sta_primary = fs->make < TH1F > ("muPtOOT_Sta_primary", "Pt of OOT for Sta  muons from primary", 1000, 0., 500.);
+  muPtOOT_Sta_noise = fs->make < TH1F > ("muPtOOT_Sta_noise", "Pt of OOT for Sta  muons from noise", 1000, 0., 500.);
+  muPtOOT_Sta_ghost = fs->make < TH1F > ("muPtOOT_Sta_ghost", "Pt of OOT for Sta  muons from ghosts", 1000, 0., 500.);
+
+  muEtaOOT_Sta_punch = fs->make < TH1F > ("muEtaOOT_Sta_punch", "Eta of OOT for Sta  muons from punch through", 70, -3.5, 3.5);
+  muEtaOOT_Sta_lightflv = fs->make < TH1F > ("muEtaOOT_Sta_lightflv", "Eta of OOT for Sta  muons from light flavour muons", 70, -3.5, 3.5);
+  muEtaOOT_Sta_heavyflv = fs->make < TH1F > ("muEtaOOT_Sta_heavyflv", "Eta of OOT for Sta  muons from heavy flavour muons", 70, -3.5, 3.5);
+  muEtaOOT_Sta_primary = fs->make < TH1F > ("muEtaOOT_Sta_primary", "Eta of OOT for Sta  muons from primary", 70, -3.5, 3.5);
+  muEtaOOT_Sta_noise = fs->make < TH1F > ("muEtaOOT_Sta_noise", "Eta of OOT for Sta  muons from noise", 70, -3.5, 3.5);
+  muEtaOOT_Sta_ghost = fs->make < TH1F > ("muEtaOOT_Sta_ghost", "Eta of OOT for Sta  muons from ghosts", 70, -3.5, 3.5);
+
+  muValidHitsOOT_Sta_punch = fs->make < TH1F > ("muValidHitsOOT_Sta_punch", "Valid Hits of OOT for Sta  muons from punch through", 50, 0, 50);
+  muValidHitsOOT_Sta_lightflv = fs->make < TH1F > ("muValidHitsOOT_Sta_lightflv", "Valid Hits of OOT for Sta  muons from light flavour muons", 50, 0, 50 );
+  muValidHitsOOT_Sta_heavyflv = fs->make < TH1F > ("muValidHitsOOT_Sta_heavyflv", "Valid Hits of OOT for Sta  muons from heavy flavour muons", 50, 0, 50);
+  muValidHitsOOT_Sta_primary = fs->make < TH1F > ("muValidHitsOOT_Sta_primary", "Valid Hits of OOT for Sta  muons from primary", 50, 0, 50);
+  muValidHitsOOT_Sta_noise = fs->make < TH1F > ("muValidHitsOOT_Sta_noise", "Valid Hits of OOT for Sta  muons from noise", 50, 0, 50);
+  muValidHitsOOT_Sta_ghost = fs->make < TH1F > ("muValidHitsOOT_Sta_ghost", "Valid Hits of OOT for Sta  muons from ghosts", 50, 0, 50);
+
+  muValidGemHitsOOT_Sta_punch = fs->make < TH1F > ("muValidGemHitsOOT_Sta_punch", "Valid Gem Hits of OOT for Sta  muons from punch through", 50, 0, 50);
+  muValidGemHitsOOT_Sta_lightflv = fs->make < TH1F > ("muValidGemHitsOOT_Sta_lightflv", "Valid Gem Hits of OOT for Sta  muons from light flavour muons", 50, 0, 50 );
+  muValidGemHitsOOT_Sta_heavyflv = fs->make < TH1F > ("muValidGemHitsOOT_Sta_heavyflv", "Valid Gem Hits of OOT for Sta  muons from heavy flavour muons", 50, 0, 50);
+  muValidGemHitsOOT_Sta_primary = fs->make < TH1F > ("muValidGemHitsOOT_Sta_primary", "Valid Gem Hits of OOT for Sta  muons from primary", 50, 0, 50);
+  muValidGemHitsOOT_Sta_noise = fs->make < TH1F > ("muValidGemHitsOOT_Sta_noise", "Valid Gem Hits of OOT for Sta  muons from noise", 50, 0, 50);
+  muValidGemHitsOOT_Sta_ghost = fs->make < TH1F > ("muValidGemHitsOOT_Sta_ghost", "Valid Gem Hits of OOT for Sta  muons from ghosts", 50, 0, 50);
+ 
+  muInTime_Sta_punch = fs->make < TH1F > ("muInTime_Sta_punch", "In Time for Sta  muons from punch through", 400, -200.,200);
+  muInTime_Sta_lightflv = fs->make < TH1F > ("muInTime_Sta_lightflv", "In Time for Sta  muons from light flavour muons", 400, -200.,200);
+  muInTime_Sta_heavyflv = fs->make < TH1F > ("muInTime_Sta_heavyflv", "In Time for Sta  muons from heavy flavour muons", 400, -200.,200);
+  muInTime_Sta_primary = fs->make < TH1F > ("muInTime_Sta_primary", "In Time for Sta  muons from primary", 400, -200.,200);
+  muInTime_Sta_noise = fs->make < TH1F > ("muInTime_Sta_noise", "In Time for Sta  muons from noise", 400, -200.,200);
+  muInTime_Sta_ghost = fs->make < TH1F > ("muInTime_Sta_ghost", "In Time for Sta  muons from ghosts", 400, -200.,200);
+
+  muPtInTime_Sta_punch = fs->make < TH1F > ("muPtInTime_Sta_punch", "Pt of In Time for Sta  muons from punch through", 1000, 0., 500.);
+  muPtInTime_Sta_lightflv = fs->make < TH1F > ("muPtInTime_Sta_lightflv", "Pt of In Time for Sta  muons from light flavour muons", 1000, 0., 500.);
+  muPtInTime_Sta_heavyflv = fs->make < TH1F > ("muPtInTime_Sta_heavyflv", "Pt of In Time for Sta  muons from heavy flavour muons", 1000, 0., 500.);
+  muPtInTime_Sta_primary = fs->make < TH1F > ("muPtInTime_Sta_primary", "Pt of In Time for Sta  muons from primary", 1000, 0., 500.);
+  muPtInTime_Sta_noise = fs->make < TH1F > ("muPtInTime_Sta_noise", "Pt of In Time for Sta  muons from noise", 1000, 0., 500.);
+  muPtInTime_Sta_ghost = fs->make < TH1F > ("muPtInTime_Sta_ghost", "Pt of In Time for Sta muons from ghosts", 1000, 0., 500.);
+
+  muEtaInTime_Sta_punch = fs->make < TH1F > ("muEtaInTime_Sta_punch", "Eta of In Time for Sta  muons from punch through", 70, -3.5, 3.5);
+  muEtaInTime_Sta_lightflv = fs->make < TH1F > ("muEtaInTime_Sta_lightflv", "Eta of In Time for Sta  muons from light flavour muons", 70, -3.5, 3.5);
+  muEtaInTime_Sta_heavyflv = fs->make < TH1F > ("muEtaInTime_Sta_heavyflv", "Eta of In Time for Sta  muons from heavy flavour muons", 70, -3.5, 3.5);
+  muEtaInTime_Sta_primary = fs->make < TH1F > ("muEtaInTme_Sta_primary", "Eta of In Time for Sta  muons from primary", 70, -3.5, 3.5);
+  muEtaInTime_Sta_noise = fs->make < TH1F > ("muEtaInTime_Sta_noise", "Eta of In Time for Sta  muons from noise", 70, -3.5, 3.5);
+  muEtaInTime_Sta_ghost = fs->make < TH1F > ("muEtaInTime_Sta_ghost", "Eta of In Time for Sta  muons from ghosts", 70, -3.5, 3.5);
+
+  muValidHitsInTime_Sta_punch = fs->make < TH1F > ("muValidHitsInTime_Sta_punch", "Valid Hits of In Time for Sta  muons from punch through", 50, 0, 50);
+  muValidHitsInTime_Sta_lightflv = fs->make < TH1F > ("muValidHitsInTime_Sta_lightflv", "Valid Hits of In Time for Sta  muons from light flavour muons", 50, 0, 50 );
+  muValidHitsInTime_Sta_heavyflv = fs->make < TH1F > ("muValidHitsInTime_Sta_heavyflv", "Valid Hits of In Time for Sta  muons from heavy flavour muons", 50, 0, 50);
+  muValidHitsInTime_Sta_primary = fs->make < TH1F > ("muValidHitsInTime_Sta_primary", "Valid Hits of In Time for Sta  muons from primary", 50, 0, 50);
+  muValidHitsInTime_Sta_noise = fs->make < TH1F > ("muValidHitsInTime_Sta_noise", "Valid Hits of In Time for Sta  muons from noise", 50, 0, 50);
+  muValidHitsInTime_Sta_ghost = fs->make < TH1F > ("muValidHitsInTime_Sta_ghost", "Valid Hits of In Time for Sta  muons from ghosts", 50, 0, 50);
+
+  muValidGemHitsInTime_Sta_punch = fs->make < TH1F > ("muValidGemHitsInTime_Sta_punch", "Valid Gem Hits of In Time for Sta  muons from punch through", 50, 0, 50);
+  muValidGemHitsInTime_Sta_lightflv = fs->make < TH1F > ("muValidGemHitsInTime_Sta_lightflv", "Valid Gem Hits of In Time for Sta  muons from light flavour muons", 50, 0, 50 );
+  muValidGemHitsInTime_Sta_heavyflv = fs->make < TH1F > ("muValidGemHitsInTime_Sta_heavyflv", "Valid Gem Hits of In Time for Sta  muons from heavy flavour muons", 50, 0, 50);
+  muValidGemHitsInTime_Sta_primary = fs->make < TH1F > ("muValidGemHitsInTime_Sta_primary", "Valid Gem Hits of In Time for Sta  muons from primary", 50, 0, 50);
+  muValidGemHitsInTime_Sta_noise = fs->make < TH1F > ("muValidGemHitsInTime_Sta_noise", "Valid Gem Hits of In Time for Sta  muons from noise", 50, 0, 50);
+  muValidGemHitsInTime_Sta_ghost = fs->make < TH1F > ("muValidGemHitsInTime_Sta_ghost", "Valid Gem Hits of In Time for Sta  muons from ghosts", 50, 0, 50);
+
+///////////////////////////////////////////////////////
+
+  muOOT_Tight_punch = fs->make < TH1F > ("muOOT_Tight_punch", "OOT for tight  muons from punch through", 400, -200.,200);
+  muOOT_Tight_lightflv = fs->make < TH1F > ("muOOT_Tight_lightflv", "OOT for tight  muons from light flavour muons", 400, -200.,200);
+  muOOT_Tight_heavyflv = fs->make < TH1F > ("muOOT_Tight_heavyflv", "OOT for tight  muons from heavy flavour muons", 400, -200.,200);
+  muOOT_Tight_primary = fs->make < TH1F > ("muOOT_Tight_primary", "OOT for tight  muons from primary", 400, -200.,200);
+  muOOT_Tight_noise = fs->make < TH1F > ("muOOT_Tight_noise", "OOT for tight  muons from noise", 400, -200.,200);
+  muOOT_Tight_ghost = fs->make < TH1F > ("muOOT_Tight_ghost", "OOT for tight  muons from ghosts", 400, -200.,200);
+
+  muPtOOT_Tight_punch = fs->make < TH1F > ("muPtOOT_Tight_punch", "Pt of OOT for tight  muons from punch through", 1000, 0., 500.);
+  muPtOOT_Tight_lightflv = fs->make < TH1F > ("muPtOOT_Tight_lightflv", "Pt of OOT for tight  muons from light flavour muons", 1000, 0., 500.);
+  muPtOOT_Tight_heavyflv = fs->make < TH1F > ("muPtOOT_Tight_heavyflv", "Pt of OOT for tight  muons from heavy flavour muons", 1000, 0., 500.);
+  muPtOOT_Tight_primary = fs->make < TH1F > ("muPtOOT_Tight_primary", "Pt of OOT for tight  muons from primary", 1000, 0., 500.);
+  muPtOOT_Tight_noise = fs->make < TH1F > ("muPtOOT_Tight_noise", "Pt of OOT for tight  muons from noise", 1000, 0., 500.);
+  muPtOOT_Tight_ghost = fs->make < TH1F > ("muPtOOT_Tight_ghost", "Pt of OOT for tight  muons from ghosts", 1000, 0., 500.);
+
+  muEtaOOT_Tight_punch = fs->make < TH1F > ("muEtaOOT_Tight_punch", "Eta of OOT for tight  muons from punch through", 70, -3.5, 3.5);
+  muEtaOOT_Tight_lightflv = fs->make < TH1F > ("muEtaOOT_Tight_lightflv", "Eta of OOT for tight  muons from light flavour muons", 70, -3.5, 3.5);
+  muEtaOOT_Tight_heavyflv = fs->make < TH1F > ("muEtaOOT_Tight_heavyflv", "Eta of OOT for tight  muons from heavy flavour muons", 70, -3.5, 3.5);
+  muEtaOOT_Tight_primary = fs->make < TH1F > ("muEtaOOT_Tight_primary", "Eta of OOT for tight  muons from primary", 70, -3.5, 3.5);
+  muEtaOOT_Tight_noise = fs->make < TH1F > ("muEtaOOT_Tight_noise", "Eta of OOT for tight  muons from noise", 70, -3.5, 3.5);
+  muEtaOOT_Tight_ghost = fs->make < TH1F > ("muEtaOOT_Tight_ghost", "Eta of OOT for tight  muons from ghosts", 70, -3.5, 3.5);
+
+  muValidHitsOOT_Tight_punch = fs->make < TH1F > ("muValidHitsOOT_Tight_punch", "Valid Hits of OOT for tight  muons from punch through", 50, 0, 50);
+  muValidHitsOOT_Tight_lightflv = fs->make < TH1F > ("muValidHitsOOT_Tight_lightflv", "Valid Hits of OOT for tight  muons from light flavour muons", 50, 0, 50 );
+  muValidHitsOOT_Tight_heavyflv = fs->make < TH1F > ("muValidHitsOOT_Tight_heavyflv", "Valid Hits of OOT for tight  muons from heavy flavour muons", 50, 0, 50);
+  muValidHitsOOT_Tight_primary = fs->make < TH1F > ("muValidHitsOOT_Tight_primary", "Valid Hits of OOT for tight  muons from primary", 50, 0, 50);
+  muValidHitsOOT_Tight_noise = fs->make < TH1F > ("muValidHitsOOT_Tight_noise", "Valid Hits of OOT for tight  muons from noise", 50, 0, 50);
+  muValidHitsOOT_Tight_ghost = fs->make < TH1F > ("muValidHitsOOT_Tight_ghost", "Valid Hits of OOT for tight  muons from ghosts", 50, 0, 50);
+
+  muValidGemHitsOOT_Tight_punch = fs->make < TH1F > ("muValidGemHitsOOT_Tight_punch", "Valid Gem Hits of OOT for tight  muons from punch through", 50, 0, 50);
+  muValidGemHitsOOT_Tight_lightflv = fs->make < TH1F > ("muValidGemHitsOOT_Tight_lightflv", "Valid Gem Hits of OOT for tight  muons from light flavour muons", 50, 0, 50 );
+  muValidGemHitsOOT_Tight_heavyflv = fs->make < TH1F > ("muValidGemHitsOOT_Tight_heavyflv", "Valid Gem Hits of OOT for tight  muons from heavy flavour muons", 50, 0, 50);
+  muValidGemHitsOOT_Tight_primary = fs->make < TH1F > ("muValidGemHitsOOT_Tight_primary", "Valid Gem Hits of OOT for tight  muons from primary", 50, 0, 50);
+  muValidGemHitsOOT_Tight_noise = fs->make < TH1F > ("muValidGemHitsOOT_Tight_noise", "Valid Gem Hits of OOT for tight  muons from noise", 50, 0, 50);
+  muValidGemHitsOOT_Tight_ghost = fs->make < TH1F > ("muValidGemHitsOOT_Tight_ghost", "Valid Gem Hits of OOT for tight  muons from ghosts", 50, 0, 50);
+
+  muInTime_Tight_punch = fs->make < TH1F > ("muInTime_Tight_punch", "In Timefor tight  muons from punch through", 400, -200.,200);
+  muInTime_Tight_lightflv = fs->make < TH1F > ("muInTime_Tight_lightflv", "In Timefor tight  muons from light flavour muons", 400, -200.,200);
+  muInTime_Tight_heavyflv = fs->make < TH1F > ("muInTime_Tight_heavyflv", "In Timefor tight  muons from heavy flavour muons", 400, -200.,200);
+  muInTime_Tight_primary = fs->make < TH1F > ("muInTime_Tight_primary", "In Timefor tight  muons from primary", 400, -200.,200);
+  muInTime_Tight_noise = fs->make < TH1F > ("muInTime_Tight_noise", "In Timefor tight  muons from noise", 400, -200.,200);
+  muInTime_Tight_ghost = fs->make < TH1F > ("muInTime_Tight_ghost", "In Timefor tight  muons from ghosts", 400, -200.,200);
+
+  muPtInTime_Tight_punch = fs->make < TH1F > ("muPtInTime_Tight_punch", "Pt of In Timefor tight  muons from punch through", 1000, 0., 500.);
+  muPtInTime_Tight_lightflv = fs->make < TH1F > ("muPtInTime_Tight_lightflv", "Pt of In Timefor tight  muons from light flavour muons", 1000, 0., 500.);
+  muPtInTime_Tight_heavyflv = fs->make < TH1F > ("muPtInTime_Tight_heavyflv", "Pt of In Timefor tight  muons from heavy flavour muons", 1000, 0., 500.);
+  muPtInTime_Tight_primary = fs->make < TH1F > ("muPtInTime_Tight_primary", "Pt of In Timefor tight  muons from primary", 1000, 0., 500.);
+  muPtInTime_Tight_noise = fs->make < TH1F > ("muPtInTime_Tight_noise", "Pt of In Timefor tight  muons from noise", 1000, 0., 500.);
+  muPtInTime_Tight_ghost = fs->make < TH1F > ("muPtInTime_Tight_ghost", "Pt of In Timefor tight muons from ghosts", 1000, 0., 500.);
+
+  muEtaInTime_Tight_punch = fs->make < TH1F > ("muEtaInTime_Tight_punch", "Eta of In Timefor tight  muons from punch through", 70, -3.5, 3.5);
+  muEtaInTime_Tight_lightflv = fs->make < TH1F > ("muEtaInTime_Tight_lightflv", "Eta of In Timefor tight  muons from light flavour muons", 70, -3.5, 3.5);
+  muEtaInTime_Tight_heavyflv = fs->make < TH1F > ("muEtaInTime_Tight_heavyflv", "Eta of In Timefor tight  muons from heavy flavour muons", 70, -3.5, 3.5);
+  muEtaInTime_Tight_primary = fs->make < TH1F > ("muEtaInTme_Tight_primary", "Eta of In Timefor tight  muons from primary", 70, -3.5, 3.5);
+  muEtaInTime_Tight_noise = fs->make < TH1F > ("muEtaInTime_Tight_noise", "Eta of In Timefor tight  muons from noise", 70, -3.5, 3.5);
+  muEtaInTime_Tight_ghost = fs->make < TH1F > ("muEtaInTime_Tight_ghost", "Eta of In Timefor tight  muons from ghosts", 70, -3.5, 3.5);
+
+  muValidHitsInTime_Tight_punch = fs->make < TH1F > ("muValidHitsInTime_Tight_punch", "Valid Hits of In Time for tight  muons from punch through", 50, 0, 50);
+  muValidHitsInTime_Tight_lightflv = fs->make < TH1F > ("muValidHitsInTime_Tight_lightflv", "Valid Hits of In Time for tight  muons from light flavour muons", 50, 0, 50 );
+  muValidHitsInTime_Tight_heavyflv = fs->make < TH1F > ("muValidHitsInTime_Tight_heavyflv", "Valid Hits of In Time for tight  muons from heavy flavour muons", 50, 0, 50);
+  muValidHitsInTime_Tight_primary = fs->make < TH1F > ("muValidHitsInTime_Tight_primary", "Valid Hits of In Time for tight  muons from primary", 50, 0, 50);
+  muValidHitsInTime_Tight_noise = fs->make < TH1F > ("muValidHitsInTime_Tight_noise", "Valid Hits of In Time for tight  muons from noise", 50, 0, 50);
+  muValidHitsInTime_Tight_ghost = fs->make < TH1F > ("muValidHitsInTime_Tight_ghost", "Valid Hits of In Time for tight  muons from ghosts", 50, 0, 50);
+
+  muValidGemHitsInTime_Tight_punch = fs->make < TH1F > ("muValidGemHitsInTime_Tight_punch", "Valid Gem Hits of In Time for tight  muons from punch through", 50, 0, 50);
+  muValidGemHitsInTime_Tight_lightflv = fs->make < TH1F > ("muValidGemHitsInTime_Tight_lightflv", "Valid Gem Hits of In Time for tight  muons from light flavour muons", 50, 0, 50 );
+  muValidGemHitsInTime_Tight_heavyflv = fs->make < TH1F > ("muValidGemHitsInTime_Tight_heavyflv", "Valid Gem Hits of In Time for tight  muons from heavy flavour muons", 50, 0, 50);
+  muValidGemHitsInTime_Tight_primary = fs->make < TH1F > ("muValidGemHitsInTime_Tight_primary", "Valid Gem Hits of In Time for tight  muons from primary", 50, 0, 50);
+  muValidGemHitsInTime_Tight_noise = fs->make < TH1F > ("muValidGemHitsInTime_Tight_noise", "Valid Gem Hits of In Time for tight  muons from noise", 50, 0, 50);
+  muValidGemHitsInTime_Tight_ghost = fs->make < TH1F > ("muValidGemHitsInTime_Tight_ghost", "Valid Gem Hits of In Time for tight  muons from ghosts", 50, 0, 50);
+
+///////////////////////////////////////////////////////////////////77
+
+ 
+  muOOT_Loose_punch = fs->make < TH1F > ("muOOT_Loose_punch", "OOT for loose muons from punch through", 400, -200.,200);
+  muOOT_Loose_lightflv = fs->make < TH1F > ("muOOT_Loose_lightflv", "OOT for loose muons from light flavour muons", 400, -200.,200);
+  muOOT_Loose_heavyflv = fs->make < TH1F > ("muOOT_Loose_heavyflv", "OOT for loose  muons from heavy flavour muons", 400, -200.,200);
+  muOOT_Loose_primary = fs->make < TH1F > ("muOOT_Loose_primary", "OOT for loose muons from primary", 400, -200.,200);
+  muOOT_Loose_noise = fs->make < TH1F > ("muOOT_Loose_noise", "OOT for loose muons from noise", 400, -200.,200);
+  muOOT_Loose_ghost = fs->make < TH1F > ("muOOT_Loose_ghost", "OOT for loose muons from ghosts", 400, -200.,200);
+
+  muPtOOT_Loose_punch = fs->make < TH1F > ("muPtOOT_Loose_punch", "Pt of OOT for loose  muons from punch through", 1000, 0., 500.);
+  muPtOOT_Loose_lightflv = fs->make < TH1F > ("muPtOOT_Loose_lightflv", "Pt of OOT for loose  muons from light flavour muons", 1000, 0., 500.);
+  muPtOOT_Loose_heavyflv = fs->make < TH1F > ("muPtOOT_Loose_heavyflv", "Pt of OOT for loose  muons from heavy flavour muons", 1000, 0., 500.);
+  muPtOOT_Loose_primary = fs->make < TH1F > ("muPtOOT_Loose_primary", "Pt of OOT for loose  muons from primary", 1000, 0., 500.);
+  muPtOOT_Loose_noise = fs->make < TH1F > ("muPtOOT_Loose_noise", "Pt of OOT for loose  muons from noise", 1000, 0., 500.);
+  muPtOOT_Loose_ghost = fs->make < TH1F > ("muPtOOT_Loose_ghost", "Pt of OOT for loose  muons from ghosts", 1000, 0., 500.);
+
+  muEtaOOT_Loose_punch = fs->make < TH1F > ("muEtaOOT_Loose_punch", "Eta of OOT for loose  muons from punch through", 70, -3.5, 3.5);
+  muEtaOOT_Loose_lightflv = fs->make < TH1F > ("muEtaOOT_Loose_lightflv", "Eta of OOT for loose  muons from light flavour muons", 70, -3.5, 3.5);
+  muEtaOOT_Loose_heavyflv = fs->make < TH1F > ("muEtaOOT_Loose_heavyflv", "Eta of OOT for loose  muons from heavy flavour muons", 70, -3.5, 3.5);
+  muEtaOOT_Loose_primary = fs->make < TH1F > ("muEtaOOT_Loose_primary", "Eta of OOT for loose  muons from primary", 70, -3.5, 3.5);
+  muEtaOOT_Loose_noise = fs->make < TH1F > ("muEtaOOT_Loose_noise", "Eta of OOT for loose  muons from noise", 70, -3.5, 3.5);
+  muEtaOOT_Loose_ghost = fs->make < TH1F > ("muEtaOOT_Loose_ghost", "Eta of OOT for loose  muons from ghosts", 70, -3.5, 3.5);
+
+  muValidHitsOOT_Loose_punch = fs->make < TH1F > ("muValidHitsOOT_Loose_punch", "Valid Hits of OOT for loose  muons from punch through", 50, 0, 50);
+  muValidHitsOOT_Loose_lightflv = fs->make < TH1F > ("muValidHitsOOT_Loose_lightflv", "Valid Hits of OOT for loose  muons from light flavour muons", 50, 0, 50 );
+  muValidHitsOOT_Loose_heavyflv = fs->make < TH1F > ("muValidHitsOOT_Loose_heavyflv", "Valid Hits of OOT for loose  muons from heavy flavour muons", 50, 0, 50);
+  muValidHitsOOT_Loose_primary = fs->make < TH1F > ("muValidHitsOOT_Loose_primary", "Valid Hits of OOT for loose  muons from primary", 50, 0, 50);
+  muValidHitsOOT_Loose_noise = fs->make < TH1F > ("muValidHitsOOT_Loose_noise", "Valid Hits of OOT for loose  muons from noise", 50, 0, 50);
+  muValidHitsOOT_Loose_ghost = fs->make < TH1F > ("muValidHitsOOT_Loose_ghost", "Valid Hits of OOT for loose  muons from ghosts", 50, 0, 50);
+
+  muValidGemHitsOOT_Loose_punch = fs->make < TH1F > ("muValidGemHitsOOT_Loose_punch", "Valid Gem Hits of OOT for loose  muons from punch through", 50, 0, 50);
+  muValidGemHitsOOT_Loose_lightflv = fs->make < TH1F > ("muValidGemHitsOOT_Loose_lightflv", "Valid Gem Hits of OOT for loose  muons from light flavour muons", 50, 0, 50 );
+  muValidGemHitsOOT_Loose_heavyflv = fs->make < TH1F > ("muValidGemHitsOOT_Loose_heavyflv", "Valid Gem Hits of OOT for loose  muons from heavy flavour muons", 50, 0, 50);
+  muValidGemHitsOOT_Loose_primary = fs->make < TH1F > ("muValidGemHitsOOT_Loose_primary", "Valid Gem Hits of OOT for loose  muons from primary", 50, 0, 50);
+  muValidGemHitsOOT_Loose_noise = fs->make < TH1F > ("muValidGemHitsOOT_Loose_noise", "Valid Gem Hits of OOT for loose  muons from noise", 50, 0, 50);
+  muValidGemHitsOOT_Loose_ghost = fs->make < TH1F > ("muValidGemHitsOOT_Loose_ghost", "Valid Gem Hits of OOT for loose  muons from ghosts", 50, 0, 50);
+
+  muInTime_Loose_punch = fs->make < TH1F > ("muInTime_Loose_punch", "In Time for loose  muons from punch through", 400, -200.,200);
+  muInTime_Loose_lightflv = fs->make < TH1F > ("muInTime_Loose_lightflv", "In Time for loose  muons from light flavour muons", 400, -200.,200);
+  muInTime_Loose_heavyflv = fs->make < TH1F > ("muInTime_Loose_heavyflv", "In Time for loose  muons from heavy flavour muons", 400, -200.,200);
+  muInTime_Loose_primary = fs->make < TH1F > ("muInTime_Loose_primary", "In Time for loose  muons from primary", 400, -200.,200);
+  muInTime_Loose_noise = fs->make < TH1F > ("muInTime_Loose_noise", "In Time for loose  muons from noise", 400, -200.,200);
+  muInTime_Loose_ghost = fs->make < TH1F > ("muInTime_Loose_ghost", "In Time for loose  muons from ghosts", 400, -200.,200);
+
+  muPtInTime_Loose_punch = fs->make < TH1F > ("muPtInTime_Loose_punch", "Pt of In Time for loose  muons from punch through", 1000, 0., 500.);
+  muPtInTime_Loose_lightflv = fs->make < TH1F > ("muPtInTime_Loose_lightflv", "Pt of In Time for loose  muons from light flavour muons", 1000, 0., 500.);
+  muPtInTime_Loose_heavyflv = fs->make < TH1F > ("muPtInTime_Loose_heavyflv", "Pt of In Time for loose  muons from heavy flavour muons", 1000, 0., 500.);
+  muPtInTime_Loose_primary = fs->make < TH1F > ("muPtInTime_Loose_primary", "Pt of In Time for loose  muons from primary", 1000, 0., 500.);
+  muPtInTime_Loose_noise = fs->make < TH1F > ("muPtInTime_Loose_noise", "Pt of In Time for loose  muons from noise", 1000, 0., 500.);
+  muPtInTime_Loose_ghost = fs->make < TH1F > ("muPtInTime_Loose_ghost", "Pt of In Time for loose muons from ghosts", 1000, 0., 500.);
+
+  muEtaInTime_Loose_punch = fs->make < TH1F > ("muEtaInTime_Loose_punch", "Eta of In Time for loose  muons from punch through", 70, -3.5, 3.5);
+  muEtaInTime_Loose_lightflv = fs->make < TH1F > ("muEtaInTime_Loose_lightflv", "Eta of In Time for loose  muons from light flavour muons", 70, -3.5, 3.5);
+  muEtaInTime_Loose_heavyflv = fs->make < TH1F > ("muEtaInTime_Loose_heavyflv", "Eta of In Time for loose  muons from heavy flavour muons", 70, -3.5, 3.5);
+  muEtaInTime_Loose_primary = fs->make < TH1F > ("muEtaInTme_Loose_primary", "Eta of In Time for loose  muons from primary", 70, -3.5, 3.5);
+  muEtaInTime_Loose_noise = fs->make < TH1F > ("muEtaInTime_Loose_noise", "Eta of In Time for loose  muons from noise", 70, -3.5, 3.5);
+  muEtaInTime_Loose_ghost = fs->make < TH1F > ("muEtaInTime_Loose_ghost", "Eta of In Time for loose  muons from ghosts", 70, -3.5, 3.5);
+
+  muValidHitsInTime_Loose_punch = fs->make < TH1F > ("muValidHitsInTime_Loose_punch", "Valid Hits of In Time for loose  muons from punch through", 50, 0, 50);
+  muValidHitsInTime_Loose_lightflv = fs->make < TH1F > ("muValidHitsInTime_Loose_lightflv", "Valid Hits of In Time for loose  muons from light flavour muons", 50, 0, 50 );
+  muValidHitsInTime_Loose_heavyflv = fs->make < TH1F > ("muValidHitsInTime_Loose_heavyflv", "Valid Hits of In Time for loose  muons from heavy flavour muons", 50, 0, 50);
+  muValidHitsInTime_Loose_primary = fs->make < TH1F > ("muValidHitsInTime_Loose_primary", "Valid Hits of In Time for loose  muons from primary", 50, 0, 50);
+  muValidHitsInTime_Loose_noise = fs->make < TH1F > ("muValidHitsInTime_Loose_noise", "Valid Hits of In Time for loose  muons from noise", 50, 0, 50);
+  muValidHitsInTime_Loose_ghost = fs->make < TH1F > ("muValidHitsInTime_Loose_ghost", "Valid Hits of In Time for loose  muons from ghosts", 50, 0, 50);
+
+  muValidGemHitsInTime_Loose_punch = fs->make < TH1F > ("muValidGemHitsInTime_Loose_punch", "Valid Gem Hits of In Time for loose  muons from punch through", 50, 0, 50);
+  muValidGemHitsInTime_Loose_lightflv = fs->make < TH1F > ("muValidGemHitsInTime_Loose_lightflv", "Valid Gem Hits of In Time for loose  muons from light flavour muons", 50, 0, 50 );
+  muValidGemHitsInTime_Loose_heavyflv = fs->make < TH1F > ("muValidGemHitsInTime_Loose_heavyflv", "Valid Gem Hits of In Time for loose  muons from heavy flavour muons", 50, 0, 50);
+  muValidGemHitsInTime_Loose_primary = fs->make < TH1F > ("muValidGemHitsInTime_Loose_primary", "Valid Gem Hits of In Time for loose  muons from primary", 50, 0, 50);
+  muValidGemHitsInTime_Loose_noise = fs->make < TH1F > ("muValidGemHitsInTime_Loose_noise", "Valid Gem Hits of In Time for loose  muons from noise", 50, 0, 50);
+  muValidGemHitsInTime_Loose_ghost = fs->make < TH1F > ("muValidGemHitsInTime_Loose_ghost", "Valid Gem Hits of In Time for loose  muons from ghosts", 50, 0, 50);
 }
 void MuonMCClassifAndAna::endJob()
 {
