@@ -1056,7 +1056,7 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
       if ((*myMuons)[i].globalTrack().isNonnull()) glbtrackref = (*myMuons)[i].globalTrack();
      
       if (glbtrackref->pt() > muonPtCut_ && fabs(glbtrackref->eta()) >= muonMinEtaCut_
-        && fabs(glbtrackref->eta()) <= muonMaxEtaCut_)
+        && fabs(glbtrackref->eta()) <= muonMaxEtaCut_ && (glbtrackref->hitPattern().numberOfValidMuonHits()) > 0)
        {
    
         selGlbMuons.push_back(rmu);
@@ -1077,7 +1077,7 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
       if ((*myMuons)[i].outerTrack().isNonnull()) statrackref = (*myMuons)[i].outerTrack();
 
       if (statrackref->pt() > muonPtCut_ && fabs(statrackref->eta()) >= muonMinEtaCut_
-        && fabs(statrackref->eta()) <= muonMaxEtaCut_)
+        && fabs(statrackref->eta()) <= muonMaxEtaCut_ && (statrackref->hitPattern().numberOfValidMuonHits()) > 0)
        {
 
         selStaMuons.push_back(rmu);
