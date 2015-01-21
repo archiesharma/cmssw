@@ -81,7 +81,9 @@ public:
       std::vector<float> &myMomZ, std::vector<float> &myTpAssoQuality,
       std::auto_ptr<reco::GenParticleCollection> &secondaries, std::vector<int> &muToPrimary,
       std::vector<int> &muToSecondary, edm::Handle<reco::GenParticleCollection> &genParticles, int &binp, int &binl,
-      int &binh, int &binpr, int &binn, int &bingst, TH1F *histoPt_p, TH1F *histoPt_l, TH1F *histoPt_h,
+      int &binh, int &binpr, int &binn, int &bingst, int &binOOTp, int &binOOTl,
+      int &binOOTh, int &binOOTpr, int &binOOTn, int &binOOTgst, 
+      TH1F *histoPt_p, TH1F *histoPt_l, TH1F *histoPt_h,
       TH1F *histoPt_pr, TH1F *histoPt_n, TH1F *histoPt_gst, TH1F *histoEta_p, TH1F *histoEta_l, TH1F *histoEta_h,
       TH1F *histoEta_pr, TH1F *histoEta_n, TH1F *histoEta_gst, TH1F *histoPhi_p, TH1F *histoPhi_l, TH1F *histoPhi_h,
       TH1F *histoPhi_pr, TH1F *histoPhi_n, TH1F *histoPhi_gst, TH1F *histomatchedstation_p, TH1F *histomatchedstation_l,
@@ -117,6 +119,12 @@ private:
   int glb_prm;
   int glb_n;
   int glb_gst;
+  int glbOOT_pch;
+  int glbOOT_l;
+  int glbOOT_h;
+  int glbOOT_prm;
+  int glbOOT_n;
+  int glbOOT_gst;
   int trk_pch;
   int trk_l;
   int trk_h;
@@ -129,6 +137,12 @@ private:
   int sta_prm;
   int sta_n;
   int sta_gst;
+  int staOOT_pch;
+  int staOOT_l;
+  int staOOT_h;
+  int staOOT_prm;
+  int staOOT_n;
+  int staOOT_gst;
   int good_pch;
   int good_l;
   int good_h;
@@ -141,6 +155,12 @@ private:
   int tight_prm;
   int tight_n;
   int tight_gst;
+  int tightOOT_pch;
+  int tightOOT_l;
+  int tightOOT_h;
+  int tightOOT_prm;
+  int tightOOT_n;
+  int tightOOT_gst;
   int soft_pch;
   int soft_l;
   int soft_h;
@@ -153,6 +173,13 @@ private:
   int loose_prm;
   int loose_n;
   int loose_gst;
+  int looseOOT_pch;
+  int looseOOT_l;
+  int looseOOT_h;
+  int looseOOT_prm;
+  int looseOOT_n;
+  int looseOOT_gst;
+
 //test reco
   TH1F *allrecoMuonsEta;
   TH1F *allrecoMuonsPt;
@@ -189,6 +216,10 @@ private:
   TH1F *histoValidMuGeMHitsOutLoose;
   TH1F *histoMuStaWithValidHitsOutLoose;
   TH1F *histoGemStaWithValidHitsOutLoose;
+
+////////////////////////////////////////////////////////////////////
+  TH2F *myMomPdgIdVsPt;
+  TH2F *myGmomPdgIdVsPt;
 
 //////////// plots for matched stations///////////////////////////////////
   TH1F *GlobalMuons_matchedstation;
@@ -712,6 +743,18 @@ private:
   TH1F *StaMuons_validhits_atZerotime;
   TH1F *StaMuonsPt_NoValidhits;
   TH1F *StaMuonsPt_NoValidhits_atZeroTime;
+
+// Muon Time and direction
+  TH1F *STAMuonsTimeDirection;
+  TH1F *STAMuonsTimeInOutdirOutIn;
+  TH1F *STAMuonsTimeOutIndirOutIn;
+  TH1F *STAMuonsTimeInOutdirInOut;
+  TH1F *STAMuonsTimeOutIndirInOut;
+  TH1F *STAMuonsTimeInOutUndef;
+  TH1F *STAMuonsTimeOutInUndef;
+  TH1F *STAMuonsTimeOutIn;
+  TH1F *STAMuonsTimeInOut;
+
   
 // The RECO objects
   edm::InputTag trackingParticles_;
@@ -871,6 +914,13 @@ MuonMCClassifAndAna::MuonMCClassifAndAna(const edm::ParameterSet &iConfig) :
   loose_prm = 55;
   loose_n = 56;
   loose_gst = 57;
+  staOOT_pch = 71;
+  staOOT_l = 72;
+  staOOT_h = 73;
+  staOOT_prm = 74;
+  staOOT_n = 75;
+  staOOT_gst = 76;
+
 }
 MuonMCClassifAndAna::~MuonMCClassifAndAna()
 {
@@ -1093,6 +1143,7 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         if(fabs((*myMuons)[i].time().timeAtIpInOut) > 25+fabs((*myMuons)[i].time().timeAtIpInOutErr)) {
+        N_Muons->Fill(70);
         StaMuonsOOT->Fill((*myMuons)[i].time().timeAtIpInOut);
         StaMuonsPt_OOT->Fill(statrackref->pt());
         StaMuonsEta_OOT->Fill(statrackref->eta());
@@ -1111,7 +1162,37 @@ void MuonMCClassifAndAna::analyze(const edm::Event& iEvent, const edm::EventSetu
        if((*myMuons)[i].time().timeAtIpInOut == 0)  {
         StaMuons_validhits_atZerotime->Fill(statrackref->hitPattern().numberOfValidMuonHits());
         if(statrackref->hitPattern().numberOfValidMuonHits() == 0)StaMuonsPt_NoValidhits_atZeroTime->Fill(statrackref->pt());
-        } 
+        }
+
+         if ((*myMuons)[i].time().direction() > 0)
+          { 
+             STAMuonsTimeDirection->Fill(1);
+             STAMuonsTimeInOutdirInOut->Fill((*myMuons)[i].time().timeAtIpInOut);
+             STAMuonsTimeOutIndirInOut->Fill((*myMuons)[i].time().timeAtIpOutIn);
+
+         }
+
+         else if ((*myMuons)[i].time().direction() < 0)
+         {
+             STAMuonsTimeDirection->Fill(-1);
+             STAMuonsTimeInOutdirOutIn->Fill((*myMuons)[i].time().timeAtIpInOut);
+             STAMuonsTimeOutIndirOutIn->Fill((*myMuons)[i].time().timeAtIpOutIn);
+
+         }
+
+         else if ((*myMuons)[i].time().direction() == 0)
+            {
+
+          STAMuonsTimeDirection->Fill(0);
+          STAMuonsTimeInOutUndef->Fill((*myMuons)[i].time().timeAtIpInOut);
+          STAMuonsTimeOutInUndef->Fill((*myMuons)[i].time().timeAtIpOutIn);
+
+         }
+        else
+         std::cout << "no direction estimation for muon" << std::endl; 
+
+        STAMuonsTimeInOut->Fill((*myMuons)[i].time().timeAtIpInOut);
+        STAMuonsTimeOutIn->Fill((*myMuons)[i].time().timeAtIpOutIn);
 
         if (debug)
           std::cout << "I am Standalone muon!" << std::endl;
@@ -1261,7 +1342,8 @@ if (debug)
       classifgl, extgl, hitsPdgIdgl, momPdgIdgl, gmomPdgIdgl, momStatusgl, flavgl, momFlavgl,
       gmomFlavgl, hmomFlavgl, tpIdgl, prodRhogl, prodZgl, momRhogl, momZgl, tpAssoQualitygl, secondariesforGlb,
       muToPrimaryforGlb, muToSecondaryforGlb, genParticlesforGlb, glb_pch, glb_l, glb_h, glb_prm, glb_n, glb_gst,
-      muPt_Glb_punch, muPt_Glb_lightflv, muPt_Glb_heavyflv, muPt_Glb_primary, muPt_Glb_noise, muPt_Glb_ghost,
+      glbOOT_pch, glbOOT_l, glbOOT_h, glbOOT_prm, glbOOT_n, glbOOT_gst, muPt_Glb_punch, muPt_Glb_lightflv,
+      muPt_Glb_heavyflv, muPt_Glb_primary, muPt_Glb_noise, muPt_Glb_ghost,
       muEta_Glb_punch, muEta_Glb_lightflv, muEta_Glb_heavyflv, muEta_Glb_primary, muEta_Glb_noise, muEta_Glb_ghost,
       muPhi_Glb_punch, muPhi_Glb_lightflv, muPhi_Glb_heavyflv, muPhi_Glb_primary, muPhi_Glb_noise, muPhi_Glb_ghost,
       muMStation_Glb_punch, muMStation_Glb_lightflv, muMStation_Glb_heavyflv, muMStation_Glb_primary,
@@ -1290,7 +1372,8 @@ if (debug)
   myClassification(nmu, myMuons, selStaMuons, recSimColl_sta, simRecColl_sta, 
       classifs, exts, hitsPdgIds, momPdgIds, gmomPdgIds, momStatuss, flavs, momFlavs, gmomFlavs,
       hmomFlavs, tpIds, prodRhos, prodZs, momRhos, momZs, tpAssoQualitys, secondariesforSta, muToPrimaryforSta,
-      muToSecondaryforSta, genParticlesforSta, sta_pch, sta_l, sta_h, sta_prm, sta_n, sta_gst, muPt_Sta_punch,
+      muToSecondaryforSta, genParticlesforSta, sta_pch, sta_l, sta_h, sta_prm, sta_n, sta_gst, 
+      staOOT_pch, staOOT_l, staOOT_h, staOOT_prm, staOOT_n, staOOT_gst, muPt_Sta_punch,
       muPt_Sta_lightflv, muPt_Sta_heavyflv, muPt_Sta_primary, muPt_Sta_noise, muPt_Sta_ghost, muEta_Sta_punch,
       muEta_Sta_lightflv, muEta_Sta_heavyflv, muEta_Sta_primary, muEta_Sta_noise, muEta_Sta_ghost, muPhi_Sta_punch,
       muPhi_Sta_lightflv, muPhi_Sta_heavyflv, muPhi_Sta_primary, muPhi_Sta_noise, muPhi_Sta_ghost, muMStation_Sta_punch, 
@@ -1320,7 +1403,8 @@ if (debug)
       classift, extt, hitsPdgIdt, momPdgIdt, gmomPdgIdt, momStatust, flavt, momFlavt,
       gmomFlavt, hmomFlavt, tpIdt, prodRhot, prodZt, momRhot, momZt, tpAssoQualityt, secondariesforTight,
       muToPrimaryforTight, muToSecondaryforTight, genParticlesforTight, tight_pch, tight_l, tight_h, tight_prm, tight_n,
-      tight_gst, muPt_Tight_punch, muPt_Tight_lightflv, muPt_Tight_heavyflv, muPt_Tight_primary, muPt_Tight_noise,
+      tight_gst, tightOOT_pch, tightOOT_l, tightOOT_h, tightOOT_prm, tightOOT_n,
+      tightOOT_gst, muPt_Tight_punch, muPt_Tight_lightflv, muPt_Tight_heavyflv, muPt_Tight_primary, muPt_Tight_noise,
       muPt_Tight_ghost, muEta_Tight_punch, muEta_Tight_lightflv, muEta_Tight_heavyflv, muEta_Tight_primary,
       muEta_Tight_noise, muEta_Tight_ghost, muPhi_Tight_punch, muPhi_Tight_lightflv, muPhi_Tight_heavyflv,
       muPhi_Tight_primary, muPhi_Tight_noise, muPhi_Tight_ghost, muMStation_Tight_punch, muMStation_Tight_lightflv, 
@@ -1350,7 +1434,8 @@ if (debug)
       classifls, extls, hitsPdgIdls, momPdgIdls, gmomPdgIdls, momStatusls, flavs, momFlavls,
       gmomFlavls, hmomFlavls, tpIdls, prodRhosl, prodZls, momRhols, momZls, tpAssoQualityls, secondariesforLoose,
       muToPrimaryforLoose, muToSecondaryforLoose, genParticlesforLoose, loose_pch, loose_l, loose_h, loose_prm, loose_n,
-      loose_gst, muPt_Loose_punch, muPt_Loose_lightflv, muPt_Loose_heavyflv, muPt_Loose_primary, muPt_Loose_noise,
+      loose_gst, looseOOT_pch, looseOOT_l, looseOOT_h, looseOOT_prm, looseOOT_n,
+      looseOOT_gst, muPt_Loose_punch, muPt_Loose_lightflv, muPt_Loose_heavyflv, muPt_Loose_primary, muPt_Loose_noise,
       muPt_Loose_ghost, muEta_Loose_punch, muEta_Loose_lightflv, muEta_Loose_heavyflv, muEta_Loose_primary,
       muEta_Loose_noise, muEta_Loose_ghost, muPhi_Loose_punch, muPhi_Loose_lightflv, muPhi_Loose_heavyflv,
       muPhi_Loose_primary, muPhi_Loose_noise, muPhi_Loose_ghost, muMStation_Loose_punch, muMStation_Loose_lightflv,
@@ -1381,7 +1466,8 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
     std::vector<float> &myMomRho, std::vector<float> &myMomZ, std::vector<float> &myTpAssoQuality,
     std::auto_ptr<reco::GenParticleCollection> &secondaries, std::vector<int> &muToPrimary,
     std::vector<int> &muToSecondary, edm::Handle<reco::GenParticleCollection> &genParticles, int &binp, int &binl,
-    int &binh, int &binpr, int &binn, int &bingst, TH1F *histoPt_p, TH1F *histoPt_l, TH1F *histoPt_h, TH1F *histoPt_pr,
+    int &binh, int &binpr, int &binn, int &bingst, int &binOOTp, int &binOOTl, 
+    int &binOOTh, int &binOOTpr, int &binOOTn, int &binOOTgst, TH1F *histoPt_p, TH1F *histoPt_l, TH1F *histoPt_h, TH1F *histoPt_pr,
     TH1F *histoPt_n, TH1F *histoPt_gst, TH1F *histoEta_p, TH1F *histoEta_l, TH1F *histoEta_h, TH1F *histoEta_pr,
     TH1F *histoEta_n, TH1F *histoEta_gst, TH1F *histoPhi_p, TH1F *histoPhi_l, TH1F *histoPhi_h, TH1F *histoPhi_pr,
     TH1F *histoPhi_n, TH1F *histoPhi_gst, TH1F *histomatchedstation_p, TH1F *histomatchedstation_l, TH1F *histomatchedstation_h,
@@ -1542,6 +1628,11 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
       } // Muon is in SIM Only
       myMomFlav[i] = flavour(myMomPdgId[i]);
       myGmomFlav[i] = flavour(myGmomPdgId[i]);
+
+//pdgId vs pt 
+    // myMomPdgIdVsPt->Fill(tp->pt(),myMomPdgId);
+    // myGmomPdgIdVsPt->Fill(tp->pt(),myGmomPdgId);
+
 // Check first IF this is a muon at all
       if (abs(tp->pdgId()) != 13)
       {
@@ -1683,6 +1774,7 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
       histomatchedstation_p->Fill((*myMuons_handle)[i].numberOfMatchedStations());
 
      if(fabs((*myMuons_handle)[i].time().timeAtIpInOut) > 25+fabs((*myMuons_handle)[i].time().timeAtIpInOutErr)) {
+        N_Muons->Fill(binOOTp);
         histoMuonsOOT_p->Fill((*myMuons_handle)[i].time().timeAtIpInOut);
         histoMuonsPtOOT_p->Fill(trackref->pt());
         histoMuonsEtaOOT_p->Fill(trackref->eta());
@@ -1710,6 +1802,7 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
       histomatchedstation_l->Fill((*myMuons_handle)[i].numberOfMatchedStations());
 
       if(fabs((*myMuons_handle)[i].time().timeAtIpInOut) > 25+fabs((*myMuons_handle)[i].time().timeAtIpInOutErr)) {
+        N_Muons->Fill(binOOTl);
         histoMuonsOOT_l->Fill((*myMuons_handle)[i].time().timeAtIpInOut);
         histoMuonsPtOOT_l->Fill(trackref->pt());
         histoMuonsEtaOOT_l->Fill(trackref->eta());
@@ -1738,6 +1831,7 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
       histomatchedstation_h->Fill((*myMuons_handle)[i].numberOfMatchedStations());
 
      if(fabs((*myMuons_handle)[i].time().timeAtIpInOut) > 25+fabs((*myMuons_handle)[i].time().timeAtIpInOutErr)) {
+        N_Muons->Fill(binOOTh);
         histoMuonsOOT_h->Fill((*myMuons_handle)[i].time().timeAtIpInOut);
         histoMuonsPtOOT_h->Fill(trackref->pt());
         histoMuonsEtaOOT_h->Fill(trackref->eta());
@@ -1767,6 +1861,7 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
       histomatchedstation_pr->Fill((*myMuons_handle)[i].numberOfMatchedStations());
 
      if(fabs((*myMuons_handle)[i].time().timeAtIpInOut) > 25+fabs((*myMuons_handle)[i].time().timeAtIpInOutErr)) {
+        N_Muons->Fill(binOOTpr);
         histoMuonsOOT_pr->Fill((*myMuons_handle)[i].time().timeAtIpInOut);
         histoMuonsPtOOT_pr->Fill(trackref->pt());
         histoMuonsEtaOOT_pr->Fill(trackref->eta());
@@ -1796,6 +1891,7 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
       histomatchedstation_n->Fill((*myMuons_handle)[i].numberOfMatchedStations());
    
     if(fabs((*myMuons_handle)[i].time().timeAtIpInOut) > 25+fabs((*myMuons_handle)[i].time().timeAtIpInOutErr)) {
+        N_Muons->Fill(binOOTn);
         histoMuonsOOT_n->Fill((*myMuons_handle)[i].time().timeAtIpInOut);
         histoMuonsPtOOT_n->Fill(trackref->pt());
         histoMuonsEtaOOT_n->Fill(trackref->eta());
@@ -1826,6 +1922,7 @@ void MuonMCClassifAndAna::myClassification(size_t myNmu, edm::Handle<edm::View<r
       histomatchedstation_gst->Fill((*myMuons_handle)[i].numberOfMatchedStations());
     
      if(fabs((*myMuons_handle)[i].time().timeAtIpInOut) > 25+fabs((*myMuons_handle)[i].time().timeAtIpInOutErr)) {
+        N_Muons->Fill(binOOTgst);
         histoMuonsOOT_gst->Fill((*myMuons_handle)[i].time().timeAtIpInOut);
         histoMuonsPtOOT_gst->Fill(trackref->pt());
         histoMuonsEtaOOT_gst->Fill(trackref->eta());
@@ -1888,7 +1985,7 @@ int MuonMCClassifAndAna::convertAndPush(const TrackingParticle &tp, reco::GenPar
 void MuonMCClassifAndAna::beginJob()
 {
   edm::Service < TFileService > fs;
-  N_Muons = fs->make < TH1F > ("N_muons", "Muon collections", 70, 0, 70);
+  N_Muons = fs->make < TH1F > ("N_muons", "Muon collections", 80, 0, 80);
   N_Muons->GetXaxis()->SetBinLabel(2, "All sel muons");
   N_Muons->GetXaxis()->SetBinLabel(4, "Glb muons");
   N_Muons->GetXaxis()->SetBinLabel(5, "Glb mu from punch");
@@ -1942,6 +2039,14 @@ void MuonMCClassifAndAna::beginJob()
   N_Muons->GetXaxis()->SetBinLabel(61, "total muon evts");
   N_Muons->GetXaxis()->SetBinLabel(63, "number of PV");
   N_Muons->GetXaxis()->SetBinLabel(65, "total muons");
+  N_Muons->GetXaxis()->SetBinLabel(71, "Sta OOT muons");
+  N_Muons->GetXaxis()->SetBinLabel(72, "Sta OOT mu from punch");
+  N_Muons->GetXaxis()->SetBinLabel(73, "Sta OOT mu from light/decay");
+  N_Muons->GetXaxis()->SetBinLabel(74, "Sta OOT mu from heavy flv");
+  N_Muons->GetXaxis()->SetBinLabel(75, "Sta OOT mu from primary");
+  N_Muons->GetXaxis()->SetBinLabel(76, "Sta OOT mu from noise");
+  N_Muons->GetXaxis()->SetBinLabel(77, "Sta OOT mu from ghost");
+
 ////////////////////
   N_Muons_norm = fs->make < TH1F > ("N_Muons_norm", "Muon collections Normalized to the #muons", 70, 0, 70);
   N_Muons_norm->GetXaxis()->SetBinLabel(2, "All sel muons");
@@ -2062,6 +2167,11 @@ void MuonMCClassifAndAna::beginJob()
   histoGemStaWithValidHitsOutLoose = fs->make < TH1F
       > ("histoGemStaWithValidHitsOutLoose", "histoGemStaWithValidHitsOutLoose", 50, 0, 50);
 
+/////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    myMomPdgIdVsPt = fs->make < TH2F > ("myMomPdgIdVsPt", "Pdg id of mother vs. pt", 1000, 0.,500., 10000, 0., 10000.);
+    myGmomPdgIdVsPt = fs->make < TH2F > ("myGmomPdgIdVsPt", "Pdg id of grandmother vs. pt", 1000, 0.,500., 10000, 0., 10000.);
+
 ///////////// for matched stations/////////////////////////////
 
   GlobalMuons_matchedstation = fs->make < TH1F > ("GlobalMuons_matchedstation", "Matched stations for global muon collection", 20, 0., 20.);
@@ -2071,8 +2181,8 @@ void MuonMCClassifAndAna::beginJob()
 
 /////////////// Plots for InTime and OOT /////////////////////
 
-  StaMuonsOOT = fs->make < TH1F > ("StaMuonsOOT", "OOT for Standalone muons", 400, -200.,200);
-  StaMuonsInTime = fs->make < TH1F > ("StaMuonsInTime", "In Time for Standalone muons", 400, -200.,200);
+  StaMuonsOOT = fs->make < TH1F > ("StaMuonsOOT", "OOT for Standalone muons", 2000, -100.,100);
+  StaMuonsInTime = fs->make < TH1F > ("StaMuonsInTime", "In Time for Standalone muons", 2000, -100.,100);
   StaMuonsPt_OOT = fs->make < TH1F > ("StaMuonsPt_OOT", "Pt for OOT Standalone muons", 1000, 0.,500);
   StaMuonsPt_InTime = fs->make < TH1F > ("StaMuonsPt_InTime", "Pt for in time Standalone muons", 1000, 0.,500);
   StaMuonsEta_OOT = fs->make < TH1F > ("StaMuonsEta_OOT", "Eta for OOT Standalone muons", 70, -3.5,3.5);
@@ -2082,6 +2192,20 @@ void MuonMCClassifAndAna::beginJob()
  StaMuonsValidHits_InTime = fs->make < TH1F > ("StaMuonsValidHits_InTime", "Valid Hits for In Time Standalone muons", 50, 0, 50); 
  StaMuonsValidGemHits_OOT = fs->make < TH1F > ("StaMuonsValidGemHits_OOT", "Valid Gem Hits for OOT Standalone muons", 50, 0, 50);
  StaMuonsValidGemHits_InTime = fs->make < TH1F > ("StaMuonsValidGemHits_InTime", "Valid Gem Hits for In Time Standalone muons", 50, 0, 50);
+
+ STAMuonsTimeDirection = fs->make < TH1F > ("STAMuonsTimeDirection", "STA Muon directions", 10, -5, 5);
+ STAMuonsTimeInOutdirOutIn = fs->make < TH1F > ("STAMuonsTimeInOutdirOutIn", "In Out time for STA muons with Out In direction", 2000, -100.,100);
+ STAMuonsTimeOutIndirOutIn = fs->make < TH1F > ("STAMuonsTimeOutIndirOutIn", "Out In time for STA muons with Out In direction", 2000, -100.,100);
+
+  STAMuonsTimeInOutdirInOut = fs->make < TH1F > ("STAMuonsTimeInOutdirInOut", "In Out time for STA muons with In Out direction", 2000, -100.,100);
+  STAMuonsTimeOutIndirInOut = fs->make < TH1F > ("STAMuonsTimeOutIndirInOut", "Out In time for STA muons with In Out direction", 2000, -100.,100);
+
+ STAMuonsTimeInOutUndef = fs->make < TH1F > ("STAMuonsTimeInOutUndef", "In Out time for STA muons with undefined direction", 2000, -100.,100);
+ STAMuonsTimeOutInUndef = fs->make < TH1F > ("STAMuonsTimeOutInUndef", "Out In time for STA muons with undefined direction", 2000, -100.,100);
+
+
+ STAMuonsTimeInOut = fs->make < TH1F > ("STAMuonsTimeInOut", "In Out time for all STA muons", 2000, -100.,100);
+ STAMuonsTimeOutIn = fs->make < TH1F > ("STAMuonsTimeOutIn", "Out In time for all STA muons", 2000, -100.,100);
 
 ///////// Plots for valid hits and Invalid hits /////////////////////////////
 
