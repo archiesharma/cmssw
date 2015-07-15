@@ -15,6 +15,17 @@ muonTPSet = cms.PSet(
     chargedOnly = cms.bool(True)
 )
 
+muonGPSet = cms.PSet(
+    lipGP = cms.double(30.0),
+    chargedOnlyGP = cms.bool(True),
+    pdgIdGP = cms.vint32(13, -13),
+    minRapidityGP = cms.double(-2.5),
+    ptMinGP = cms.double(0.9),
+    maxRapidityGP = cms.double(2.5),
+    tipGP = cms.double(3.5),
+    statusGP = cms.int32(1)
+)
+
 #muonTP = cms.EDFilter("TrackingParticleSelector",
 #    muonTPSet
 #)

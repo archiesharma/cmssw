@@ -27,7 +27,10 @@
 #include <iostream>
 
 
-CSCRecHitDBuilder::CSCRecHitDBuilder( const edm::ParameterSet& ps ) : geom_(0) {
+CSCRecHitDBuilder::CSCRecHitDBuilder( const edm::ParameterSet& ps ): 
+  geom_(0),
+  stationToUse_(ps.getUntrackedParameter<int>("stationToUse",1))
+{
   
   // Receives ParameterSet percolated down from EDProducer	
 
@@ -137,6 +140,8 @@ void CSCRecHitDBuilder::build( const CSCStripDigiCollection* stripdc, const CSCW
     }
 
     CSCDetId compId = sDetId;
+    int station = (int) sDetId.station();
+    int ring = (int) sDetId.ring();
     CSCWireDigiCollection::Range rwired = wiredc->get( sDetId );
     // Skip if no wire digis in this layer
     // But for ME11, real wire digis are labelled as belonging to ME1b, so that's where ME1a must look
@@ -193,8 +198,41 @@ void CSCRecHitDBuilder::build( const CSCStripDigiCollection* stripdc, const CSCW
 
             bool isInFiducial = make2DHits_->isHitInFiducial( layer, rechit );
             if ( isInFiducial ) {
-              hitsInLayer.push_back( rechit );
-              hits_in_layer++;
+
+    		switch(stationToUse_){
+
+		        // case 0  :: all detectors in
+		        // case 1  :: ME1/1 switched off
+                        // case 2  :: ME2/1 switched off
+		        // case 3  :: ME3/1 switched off       
+		        // case 4  :: ME4/1 switched off       
+		        // default :: all detectors in
+              		case 0:
+				hitsInLayer.push_back( rechit );
+              			hits_in_layer++;
+				break;
+              		case 1: if(!(station == 1 && (ring == 1 || ring == 4))){
+				hitsInLayer.push_back( rechit );
+              			hits_in_layer++;}
+				break;
+              		case 2: if(station != 2 || ring != 1){
+				hitsInLayer.push_back( rechit );
+              			hits_in_layer++;}
+				break;
+              		case 3: if(station != 3 || ring != 1){
+				hitsInLayer.push_back( rechit );
+              			hits_in_layer++;}
+				break;
+              		case 4: if(station != 4 || ring != 1){
+				hitsInLayer.push_back( rechit );
+              			hits_in_layer++;}
+				break;
+              		default:
+				hitsInLayer.push_back( rechit );
+              			hits_in_layer++;
+				break;
+
+		}
             }
           }
         }
