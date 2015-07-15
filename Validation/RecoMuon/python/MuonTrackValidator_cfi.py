@@ -2,12 +2,11 @@ import FWCore.ParameterSet.Config as cms
 
 from SimTracker.TrackAssociation.LhcParametersDefinerForTP_cfi import *
 from SimTracker.TrackAssociation.CosmicParametersDefinerForTP_cfi import *
-from Validation.RecoMuon.selectors_cff import *
 
 muonTrackValidator = cms.EDAnalyzer("MuonTrackValidator",
     # input TrackingParticle collections
-    label_tp_effic = cms.InputTag("genParticles"),
-    label_tp_fake = cms.InputTag("genParticles"),
+    label_tp_effic = cms.InputTag("mix","MergedTrackTruth"),
+    label_tp_fake = cms.InputTag("mix","MergedTrackTruth"),
     # input reco::Track collection
     label = cms.VInputTag(cms.InputTag("globalMuons")),
     # switches to be set according to the input Track collection to properly count SimHits
@@ -16,7 +15,6 @@ muonTrackValidator = cms.EDAnalyzer("MuonTrackValidator",
     #
     useGsf=cms.bool(False),
     beamSpot = cms.InputTag("offlineBeamSpot"),
-    vertexSrc = cms.InputTag("selectedVertices"),
     # set true if you do not want that MTV launch an exception
     # if the track collection is missing (e.g. HLT):
     ignoremissingtrackcollection=cms.untracked.bool(False),
@@ -34,21 +32,12 @@ muonTrackValidator = cms.EDAnalyzer("MuonTrackValidator",
     lipTP = cms.double(30.0),
     # collision like tracks
     parametersDefiner = cms.string('LhcParametersDefinerForTP'),
-    # selection of GP for evaluation of efficiency
-    lipGP = cms.double(30.0),
-    chargedOnlyGP = cms.bool(True),
-    pdgIdGP = cms.vint32(13, -13),
-    minRapidityGP = cms.double(-2.4),
-    ptMinGP = cms.double(0.9),
-    maxRapidityGP = cms.double(2.4),
-    tipGP = cms.double(3.5),
-    statusGP = cms.int32(1),
     # cosmics tracks
     # parametersDefiner = cms.string('CosmicParametersDefinerForTP'), 
     #
     # if *not* uses associators, the TP-RecoTrack maps has to be specified 
-    UseAssociators = cms.bool(True),
-    useGEMs = cms.bool(True),
+    UseAssociators = cms.bool(False),
+    useGEMs = cms.bool(False),
     associators = cms.vstring('a_MuonAssociator'),
     associatormap = cms.InputTag("tpToMuonTrackAssociation"),
     #
@@ -62,10 +51,10 @@ muonTrackValidator = cms.EDAnalyzer("MuonTrackValidator",
     dirName = cms.string('Muons/RecoMuonV/MultiTrack/'),
     #
     # Parameters for plots                                    
-    useFabsEta = cms.bool(True),
-    min = cms.double(0),
+    useFabsEta = cms.bool(False),
+    min = cms.double(-2.5),
     max = cms.double(2.5),
-    nint = cms.int32(25),
+    nint = cms.int32(50),
     #
     ptRes_nbin = cms.int32(100),                                   
     ptRes_rangeMin = cms.double(-0.3),
@@ -89,14 +78,10 @@ muonTrackValidator = cms.EDAnalyzer("MuonTrackValidator",
     dzRes_nbin = cms.int32(150),                                   
     dzRes_rangeMin = cms.double(-0.05),
     dzRes_rangeMax = cms.double(0.05),
-    #                               
-    minVtx = cms.double(0),                            
-    maxVtx = cms.double(200),
-    nintVtx = cms.int32(20),
     # 
-    minpT = cms.double(0),
-    maxpT = cms.double(2500),
-    nintpT = cms.int32(500),
+    minpT = cms.double(0.1),
+    maxpT = cms.double(1500),
+    nintpT = cms.int32(40),
     useLogPt=cms.untracked.bool(False),
     useInvPt = cms.bool(False),
     #                               

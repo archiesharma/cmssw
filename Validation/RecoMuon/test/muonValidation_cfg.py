@@ -7,27 +7,41 @@ readFiles = cms.untracked.vstring()
 secFiles = cms.untracked.vstring()
 process.source = cms.Source ("PoolSource",fileNames = readFiles, secondaryFileNames = secFiles)
 readFiles.extend( (
-       '/store/user/calabria/DYToMuMu_M-20_TuneZ2star_14TeV-pythia6-tauola/calabria_DYToMuMu_AODSIM_CMSSW_6_2_0_SLHC12_2023Scenario_Case1_4/314265c4c851b22933fa9c86eb7294b1/step3_1000_3_8Gu.root',
-       '/store/user/calabria/DYToMuMu_M-20_TuneZ2star_14TeV-pythia6-tauola/calabria_DYToMuMu_AODSIM_CMSSW_6_2_0_SLHC12_2023Scenario_Case1_4/314265c4c851b22933fa9c86eb7294b1/step3_1001_3_Emn.root',
-       '/store/user/calabria/DYToMuMu_M-20_TuneZ2star_14TeV-pythia6-tauola/calabria_DYToMuMu_AODSIM_CMSSW_6_2_0_SLHC12_2023Scenario_Case1_4/314265c4c851b22933fa9c86eb7294b1/step3_1002_2_d8r.root',
-       '/store/user/calabria/DYToMuMu_M-20_TuneZ2star_14TeV-pythia6-tauola/calabria_DYToMuMu_AODSIM_CMSSW_6_2_0_SLHC12_2023Scenario_Case1_4/314265c4c851b22933fa9c86eb7294b1/step3_1003_1_6sG.root',
-       '/store/user/calabria/DYToMuMu_M-20_TuneZ2star_14TeV-pythia6-tauola/calabria_DYToMuMu_AODSIM_CMSSW_6_2_0_SLHC12_2023Scenario_Case1_4/314265c4c851b22933fa9c86eb7294b1/step3_1005_2_ODk.root',
-       '/store/user/calabria/DYToMuMu_M-20_TuneZ2star_14TeV-pythia6-tauola/calabria_DYToMuMu_AODSIM_CMSSW_6_2_0_SLHC12_2023Scenario_Case1_4/314265c4c851b22933fa9c86eb7294b1/step3_1006_2_BLd.root',
-       '/store/user/calabria/DYToMuMu_M-20_TuneZ2star_14TeV-pythia6-tauola/calabria_DYToMuMu_AODSIM_CMSSW_6_2_0_SLHC12_2023Scenario_Case1_4/314265c4c851b22933fa9c86eb7294b1/step3_1007_4_HGF.root',
-       '/store/user/calabria/DYToMuMu_M-20_TuneZ2star_14TeV-pythia6-tauola/calabria_DYToMuMu_AODSIM_CMSSW_6_2_0_SLHC12_2023Scenario_Case1_4/314265c4c851b22933fa9c86eb7294b1/step3_1008_1_Xds.root',
-       '/store/user/calabria/DYToMuMu_M-20_TuneZ2star_14TeV-pythia6-tauola/calabria_DYToMuMu_AODSIM_CMSSW_6_2_0_SLHC12_2023Scenario_Case1_4/314265c4c851b22933fa9c86eb7294b1/step3_1009_3_FKR.root',
+    '/store/relval/CMSSW_2_2_0/RelValSingleMuPt10/GEN-SIM-RECO/IDEAL_V9_v1/0000/10C12A24-74B9-DD11-85B2-001617DBCF6A.root',
+    '/store/relval/CMSSW_2_2_0/RelValSingleMuPt10/GEN-SIM-RECO/IDEAL_V9_v1/0000/3A14ADED-B4B9-DD11-8F0B-001617E30D40.root' ,
     ))
 secFiles.extend((
-
+    '/store/relval/CMSSW_2_2_0/RelValSingleMuPt10/GEN-SIM-DIGI-RAW-HLTDEBUG/IDEAL_V9_v1/0000/526D7CD6-68B9-DD11-886D-001617DBD224.root',
+    '/store/relval/CMSSW_2_2_0/RelValSingleMuPt10/GEN-SIM-DIGI-RAW-HLTDEBUG/IDEAL_V9_v1/0000/A2C70EEE-B4B9-DD11-8170-001617DBD316.root',
+    '/store/relval/CMSSW_2_2_0/RelValSingleMuPt10/GEN-SIM-DIGI-RAW-HLTDEBUG/IDEAL_V9_v1/0000/D437AC21-6FB9-DD11-BEA1-001617E30CC8.root' 
     ))
 
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1000) )
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 
 process.out = cms.OutputModule("PoolOutputModule",
     outputCommands = cms.untracked.vstring('drop *', "keep *_MEtoEDMConverter_*_"+processName),
     fileName = cms.untracked.string('validationEDM.root')
 )
 process.outpath = cms.EndPath(process.out)
+
+process.load("FWCore.MessageLogger.MessageLogger_cfi")
+process.MessageLogger.categories = ['TrackAssociator', 'TrackValidator']
+process.MessageLogger.debugModules = ['*']
+process.MessageLogger.cout = cms.untracked.PSet(
+    threshold = cms.untracked.string('DEBUG'),
+    default = cms.untracked.PSet(
+        limit = cms.untracked.int32(0)
+    ),
+    TrackAssociator = cms.untracked.PSet(
+        limit = cms.untracked.int32(0)
+    ),
+    TrackValidator = cms.untracked.PSet(
+        limit = cms.untracked.int32(-1)
+    )
+)
+process.MessageLogger.cerr = cms.untracked.PSet(
+    placeholder = cms.untracked.bool(True)
+)
 
 process.load('Configuration/StandardSequences/RawToDigi_cff')
 process.raw2digi_step = cms.Path(process.RawToDigi)
@@ -38,15 +52,10 @@ process.load("DQMServices.Components.MEtoEDMConverter_cfi")
 process.MEtoEDMConverter_step = cms.Path(process.MEtoEDMConverter)
 
 process.load("Configuration.StandardSequences.Services_cff")
-process.load('Configuration.Geometry.GeometryExtended2023MuonReco_cff')
-process.load('Configuration.Geometry.GeometryExtended2023Muon_cff')
-#process.load('Configuration.Geometry.GeometryExtended2019Reco_cff')
-#process.load('Configuration.Geometry.GeometryExtended2019_cff')
-process.load('Configuration.StandardSequences.MagneticField_38T_cff')
-process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
-from Configuration.AlCa.GlobalTag import GlobalTag
-process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:upgradePLS3', '')
-#process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:upgrade2019', '')
+process.load("Configuration.StandardSequences.Geometry_cff")
+process.load("Configuration.StandardSequences.MagneticField_cff")
+process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_cff")
+process.GlobalTag.globaltag = "IDEAL_V9::All"
 
 #---- Validation stuffs ----#
 ## Default validation modules
@@ -54,11 +63,11 @@ process.load("Configuration.StandardSequences.Validation_cff")
 process.validation_step = cms.Path(process.validation)
 ## Load muon validation modules
 #process.recoMuonVMuAssoc.outputFileName = 'validationME.root'
-process.muonValidation_step = cms.Path(process.recoMuonValidation)
+process.muonValidation_step = cms.Path(cms.SequencePlaceholder("mix")+process.recoMuonValidation)
 
 process.schedule = cms.Schedule(
-    #process.raw2digi_step,
-    #process.validation_step,
+    process.raw2digi_step,
+#    process.validation_step,
     process.muonValidation_step,
     process.MEtoEDMConverter_step,process.outpath)
 
