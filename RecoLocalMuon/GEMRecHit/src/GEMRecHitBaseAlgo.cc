@@ -19,9 +19,7 @@
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
 
 
-GEMRecHitBaseAlgo::GEMRecHitBaseAlgo(const edm::ParameterSet& config):
-  stationToUse_(config.getUntrackedParameter<int>("stationToUse",3))
-{
+GEMRecHitBaseAlgo::GEMRecHitBaseAlgo(const edm::ParameterSet& config) {
   //  theSync = GEMTTrigSyncFactory::get()->create(config.getParameter<string>("tTrigMode"),
   //config.getParameter<ParameterSet>("tTrigModeConfig"));
 }
@@ -57,23 +55,8 @@ edm::OwnVector<GEMRecHit> GEMRecHitBaseAlgo::reconstruct(const GEMEtaPartition& 
     int clusterSize=cl->clusterSize(); 
     GEMRecHit*  recHit = new GEMRecHit(gemId,cl->bx(),firstClustStrip,clusterSize,point,tmpErr);
 
-    int station = (int) gemId.station();
-    switch(stationToUse_){
 
-	case 0: if(station != 1 && station != 2 && station != 3) result.push_back(recHit); //NO GEM
-		break;
-	case 1: if(station != 2 && station != 3) result.push_back(recHit); // NO GE2/1
-		break;
-	case 2: if(station != 1) result.push_back(recHit); // NO GE1/1
-		break;
-	case 3: result.push_back(recHit); // GE1/1 + GE2/1
-		break;
-	default: result.push_back(recHit); // GE1/1 + GE2/1
-		break;
-
-    }
-
-    //result.push_back(recHit);
+    result.push_back(recHit);
   }
   return result;
 }
