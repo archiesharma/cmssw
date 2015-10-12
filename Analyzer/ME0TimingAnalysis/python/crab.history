@@ -1,0 +1,60 @@
+151007_112104: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151007_112329: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151007_112447: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151007_112634: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151007_112825: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151007_113040: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151007_113138: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -status -c CMSSW_620_Patch3_SLHC26_ME0Timing_50ps
+151007_113259: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -getoutput -c CMSSW_620_Patch3_SLHC26_ME0Timing_50ps
+151007_113453: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -getoutput -c CMSSW_620_Patch3_SLHC26_ME0Timing_50ps
+151007_113525: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -status -c CMSSW_620_Patch3_SLHC26_ME0Timing_50ps
+151007_113628: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -status -c CMSSW_620_Patch3_SLHC26_ME0Timing_100ps
+151007_113652: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -status -c CMSSW_620_Patch3_SLHC26_ME0Timing_500ps
+151007_114118: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -status -c CMSSW_620_Patch3_SLHC26_ME0Timing_50ps
+151007_114148: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -getoutput -c CMSSW_620_Patch3_SLHC26_ME0Timing_50ps
+151007_114256: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -resubmit 1-2,13 -c CMSSW_620_Patch3_SLHC26_ME0Timing_50ps
+151007_114500: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151007_115011: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -status -c CMSSW_620_Patch3_SLHC26_ME0Timing_50ps
+151007_120457: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -status -c CMSSW_620_Patch3_SLHC26_ME0Timing_50ps
+151007_121408: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -status -c CMSSW_620_Patch3_SLHC26_ME0Timing_50ps
+151007_122225: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -status -c CMSSW_620_Patch3_SLHC26_ME0Timing_100ps
+151007_122257: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -status -c CMSSW_620_Patch3_SLHC26_ME0Timing_500ps
+151007_122510: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -getoutput -c CMSSW_620_Patch3_SLHC26_ME0Timing_500ps
+151007_160021: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151007_160233: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151007_160427: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151007_160611: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151007_160727: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151007_160959: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151007_162450: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151007_162839: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151007_163108: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151007_163354: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151007_163606: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151007_163734: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151007_184221: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -status -c CMSSW_620_Patch3_SLHC26_ME0Timing_1ns
+151007_184737: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -getoutput -c CMSSW_620_Patch3_SLHC26_ME0Timing_1ns
+151007_184827: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -status -c CMSSW_620_Patch3_SLHC26_ME0Timing_5ns
+151007_184905: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -status -c CMSSW_620_Patch3_SLHC26_ME0Timing_50ps_newplots
+151007_184928: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -getoutput -c CMSSW_620_Patch3_SLHC26_ME0Timing_50ps_newplots
+151007_185824: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -status -c CMSSW_620_Patch3_SLHC26_ME0Timing_100ps_newplots
+151007_185855: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -getoutput -c CMSSW_620_Patch3_SLHC26_ME0Timing_100ps_newplots
+151007_190050: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -status -c CMSSW_620_Patch3_SLHC26_ME0Timing_300ps_newplots
+151007_190127: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -getoutput -c CMSSW_620_Patch3_SLHC26_ME0Timing_300ps_newplots
+151007_190354: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -status -c CMSSW_620_Patch3_SLHC26_ME0Timing_500ps_newplots
+151007_190418: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -getoutput -c CMSSW_620_Patch3_SLHC26_ME0Timing_500ps_newplots
+151007_190618: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -status -c CMSSW_620_Patch3_SLHC26_ME0Timing_1000ps_newplots
+151007_190652: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -getoutput -c CMSSW_620_Patch3_SLHC26_ME0Timing_1000ps_newplots
+151007_190951: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -status -c CMSSW_620_Patch3_SLHC26_ME0Timing_5000ps_newplots
+151007_191030: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -getoutput -c CMSSW_620_Patch3_SLHC26_ME0Timing_5000ps_newplots
+151009_171319: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151009_171602: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151009_171802: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151011_015112: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -status -c CMSSW_620_Patch3_SLHC26_ME0Timing_5000ps_newplots
+151011_015222: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -getoutput -c CMSSW_620_Patch3_SLHC26_ME0Timing_5000ps_newplots
+151011_015435: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -status -c CMSSW_620_Patch3_SLHC26_ME0Timing_1000ps_newplots
+151011_015501: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -getoutput -c CMSSW_620_Patch3_SLHC26_ME0Timing_1000ps_newplots
+151011_015636: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -status -c CMSSW_620_Patch3_SLHC26_ME0Timing_100ps_newplots
+151011_015658: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -getoutput -c CMSSW_620_Patch3_SLHC26_ME0Timing_100ps_newplots
+151012_183531: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
+151012_184012: /cvmfs/cms.cern.ch/crab/CRAB_2_11_1_patch1/python/crab.py -create -submit
