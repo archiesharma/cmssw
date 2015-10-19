@@ -32,7 +32,7 @@ Implementation:
 #include "FWCore/Framework/interface/MakerMacros.h"
 
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
-#include "RecoMuon/MuonIdentification/interface/ME0MuonSelector.h"
+//#include "RecoMuon/MuonIdentification/interface/ME0MuonSelector.h"
 #include <DataFormats/MuonReco/interface/ME0Muon.h>
 #include <DataFormats/MuonReco/interface/ME0MuonCollection.h>
 #include "DataFormats/Candidate/interface/Candidate.h"
@@ -45,7 +45,7 @@ Implementation:
 #include "Geometry/GEMGeometry/interface/ME0EtaPartition.h"
 #include "Geometry/Records/interface/MuonGeometryRecord.h"
 #include "DataFormats/MuonDetId/interface/ME0DetId.h"
-
+#include "RecoMuon/MuonIdentification/plugins/ME0MuonSelector.cc"
 //
 // class declaration
 //
@@ -76,6 +76,7 @@ class ME0TimingAnalysis : public edm::EDAnalyzer {
 		TH1F *SignalMuonTime, *BGMuonTime;
 		TH1F *hFillZMassInWindow,*hFillZMassOutWindow;
 		TH1F *hFillPUMuonPt, *hFillGenMuEta, *hFillGenMuPt, *hFillPUMuonPtInWindow, *hFillPUMuonPtOutWindow;
+                TH1F *hFillPUMuonEta, *hFillGenMuinME0Eta, *hFillGenMuinME0Pt, *hFillPUMuonEtaInWindow, *hFillPUMuonEtaOutWindow; 
                 TH1F *hFillPUMuonPt_rebin, *hFillPUMuonPtInWindow_rebin, *hFillPUMuonPtOutWindow_rebin;
 };
 
@@ -190,11 +191,11 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
 
 		for(unsigned int t = 0; t < OurMuons->size() ; t++) {
                     
-                   if (!muon::isGoodMuon(me0geom, OurMuons->at(t), muon::Loose)) continue;
+                   if (!muon::isGoodMuon(me0geom, OurMuons->at(t), muon::Tight)) continue;
 
 			if(int(t) == tmpindex) continue;
                       
-                        std::cout << "ME0 muon eta " << OurMuons->at(t).eta() << std::endl;
+                        //std::cout << "ME0 muon eta " << OurMuons->at(t).eta() << std::endl;
 			double dr = reco::deltaR(genparticles->at(indexmu.at(j)).eta(), genparticles->at(indexmu.at(j)).phi(),OurMuons->at(t).eta(),OurMuons->at(t).phi());
 			if(dr < DRtmp) {
 				DRtmp = dr;
@@ -240,12 +241,22 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
 	}
 
 	for (unsigned int t = 0; t < OurMuons->size() ; t++){
-               hFillAllRecoEta->Fill(OurMuons->at(t).eta());       
+              if (!muon::isGoodMuon(me0geom, OurMuons->at(t), muon::Tight)) continue;
+ 
+              hFillAllRecoEta->Fill(OurMuons->at(t).eta());       
 	       hFillAllRecoPt->Fill(OurMuons->at(t).pt());	
                     if(MatchedMuon(me0muons, int(t))) {
 			if(indexmu.size() > 1) {
-                          hFillGenMuEta->Fill(genparticles->at(indexmu.at(0)).eta());
+                          hFillGenMuEta->Fill(fabs(genparticles->at(indexmu.at(0)).eta()));
                           hFillGenMuPt->Fill(genparticles->at(indexmu.at(0)).pt());
+                           std::cout << "eta of matched muon " << genparticles->at(indexmu.at(0)).eta() << std::endl;
+
+                          if(fabs(genparticles->at(indexmu.at(0)).eta()) > 2. && fabs(genparticles->at(indexmu.at(0)).eta()) < 3.){
+                           hFillGenMuinME0Eta->Fill(fabs(genparticles->at(indexmu.at(0)).eta()));
+                           hFillGenMuinME0Pt->Fill(genparticles->at(indexmu.at(0)).pt());
+                           std::cout << "eta of matched ME0 muon " << genparticles->at(indexmu.at(0)).eta() << std::endl;
+                          }                         
+                   
 				genmuon1.SetPtEtaPhiM(genparticles->at(indexmu.at(0)).pt(), genparticles->at(indexmu.at(0)).eta(),genparticles->at(indexmu.at(0)).phi(),genparticles->at(indexmu.at(0)).mass());
 
 				genmuon2.SetPtEtaPhiM(genparticles->at(indexmu.at(1)).pt(), genparticles->at(indexmu.at(1)).eta(),genparticles->at(indexmu.at(1)).phi(),genparticles->at(indexmu.at(1)).mass());
@@ -256,16 +267,19 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
 		} else {	
 			hFillPUMuontime->Fill(OurMuons->at(t).me0segment().time());
                         hFillPUMuonPt->Fill(OurMuons->at(t).pt()); 
+                        hFillPUMuonEta->Fill(fabs(OurMuons->at(t).eta()));
                         hFillPUMuonPt_rebin->Fill(OurMuons->at(t).pt());
 			hFillPUMuontimeErr->Fill(OurMuons->at(t).me0segment().timeErr());
 			BGMuonTime->Fill(OurMuons->at(t).me0segment().time(),OurMuons->at(t).me0segment().timeErr()); 
                      	if(OurMuons->at(t).me0segment().time() >= 5.5 && OurMuons->at(t).me0segment().time() <= 30.5){
                      	 hFillPUMuonPtInWindow->Fill(OurMuons->at(t).pt());
                          hFillPUMuonPtInWindow_rebin->Fill(OurMuons->at(t).pt());
+                         hFillPUMuonEtaInWindow->Fill(fabs(OurMuons->at(t).eta()));
                      	}
                 		else{
                                   hFillPUMuonPtOutWindow->Fill(OurMuons->at(t).pt());
                                   hFillPUMuonPtOutWindow_rebin->Fill(OurMuons->at(t).pt());
+                                  hFillPUMuonEtaOutWindow->Fill(fabs(OurMuons->at(t).eta())); 
                 		  }
 		}	
 	} 	
@@ -305,9 +319,12 @@ ME0TimingAnalysis::beginJob()
         hFillRecoPt = fs->make<TH1F>("hFillRecoPt","hFillRecoPt",500,0,300);
         hFillAllRecoEta = fs->make<TH1F>("hFillAllRecoEta","hFillRecoEta",500,-5,5);
         hFillAllRecoPt = fs->make<TH1F>("hFillAllRecoPt","hFillRecoPt",500,0,300);
-        hFillGenMuEta = fs->make<TH1F>("hFillGenMuEta","hFillGenMuEta",500,-5,5);
+        hFillGenMuEta = fs->make<TH1F>("hFillGenMuEta","hFillGenMuEta",250,0,5);
         hFillGenMuPt = fs->make<TH1F>("hFillGenMuPt","hFillGenMuPt",500,0,300);
 	hFillZGenMass = fs->make<TH1F>("hFillZGenMass","hFillZGenMass",500,0,250);    
+
+        hFillGenMuinME0Eta = fs->make<TH1F>("hFillGenMuinME0Eta","hFillGenMuinME0Eta",250,0,5);
+        hFillGenMuinME0Pt = fs->make<TH1F>("hFillGenMuinME0Pt","hFillGenMuinME0Pt",500,0,300);
 
 	hFillZMassInWindow = fs->make<TH1F>("hFillZMassInWindow","hFillZMassInWindow",500,0,250);
 	hFillZMassOutWindow = fs->make<TH1F>("hFillZMassOutWindow","hFillZMassOutWindow",500,0,250);
@@ -315,10 +332,15 @@ ME0TimingAnalysis::beginJob()
         hFillPUMuonPtInWindow = fs->make<TH1F>("hFillPUMuonPtInWindow","hFillPUMuonPtInWindow",500,0,300);
         hFillPUMuonPtOutWindow = fs->make<TH1F>("hFillPUMuonPtOutWindow","hFillPUMuonPtOutWindow",500,0,300);
 
-        Float_t bins[] = {0,1,3,5,10,20,40,60};
-        hFillPUMuonPt_rebin = fs->make<TH1F>("hFillPUMuonPt_rebin","hFillPUMuonPt_rebin",7,bins);
-        hFillPUMuonPtInWindow_rebin = fs->make<TH1F>("hFillPUMuonPtInWindow_rebin","hFillPUMuonPtInWindow_rebin",7,bins);
-        hFillPUMuonPtOutWindow_rebin = fs->make<TH1F>("hFillPUMuonPtOutWindow_rebin","hFillPUMuonPtOutWindow_rebin",7,bins);
+        hFillPUMuonEta = fs->make<TH1F>("hFillPUMuonEta","hFillPUMuonEta",250,0,5);
+        hFillPUMuonEtaInWindow = fs->make<TH1F>("hFillPUMuonEtaInWindow","hFillPUMuonEtaInWindow",250,0,5);
+        hFillPUMuonEtaOutWindow = fs->make<TH1F>("hFillPUMuonEtaOutWindow","hFillPUMuonEtaOutWindow",250,0,5);
+
+        //Float_t bins[] = {0,1,3,5,10,20,40,60};
+        Float_t bins[] = {0,5,10,20,40,70};
+        hFillPUMuonPt_rebin = fs->make<TH1F>("hFillPUMuonPt_rebin","hFillPUMuonPt_rebin",5,bins);
+        hFillPUMuonPtInWindow_rebin = fs->make<TH1F>("hFillPUMuonPtInWindow_rebin","hFillPUMuonPtInWindow_rebin",5,bins);
+        hFillPUMuonPtOutWindow_rebin = fs->make<TH1F>("hFillPUMuonPtOutWindow_rebin","hFillPUMuonPtOutWindow_rebin",5,bins);
 
 }
 
