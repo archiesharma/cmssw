@@ -78,6 +78,7 @@ class ME0TimingAnalysis : public edm::EDAnalyzer {
 		TH1F *hFillPUMuonPt, *hFillGenMuEta, *hFillGenMuPt, *hFillPUMuonPtInWindow, *hFillPUMuonPtOutWindow;
                 TH1F *hFillPUMuonEta, *hFillGenMuinME0Eta, *hFillGenMuinME0Pt, *hFillPUMuonEtaInWindow, *hFillPUMuonEtaOutWindow; 
                 TH1F *hFillPUMuonPt_rebin, *hFillPUMuonPtInWindow_rebin, *hFillPUMuonPtOutWindow_rebin;
+                TH1F *hFillGenMuEta_allEta, *hFillGenMuPt_allEta, *hFillGenMuEta_me0Eta, *hFillGenMuPt_me0Eta;
 };
 
 //
@@ -161,13 +162,17 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
         std::cout << "size of all muon vector " << indexmu.size() << std::endl;
         
 	for(unsigned int j =0 ; j < indexmu.size(); j++){
-                std::cout << "eta of all muon vector " << genparticles->at(indexmu.at(j)).eta() << std::endl;
-        	if(fabs(genparticles->at(indexmu.at(j)).eta()) > 2. && fabs(genparticles->at(indexmu.at(j)).eta()) < 3.) {indexme0mu.push_back(j);}
+               hFillGenMuEta_allEta->Fill(fabs(genparticles->at(indexmu.at(j)).eta()));
+               hFillGenMuPt_allEta->Fill(genparticles->at(indexmu.at(j)).pt());
+                std::cout << "eta of gen muon in whole range " << genparticles->at(indexmu.at(j)).eta() << std::endl;
+        	if(fabs(genparticles->at(indexmu.at(j)).eta()) > 2. && fabs(genparticles->at(indexmu.at(j)).eta()) < 3.) {
+
+                  std::cout << "me0 muon eta " << genparticles->at(indexmu.at(j)).eta() << "at j " << j << std::endl;
+                 indexme0mu.push_back(indexmu.at(j));
+                 }
 
 	}
         std::cout << "size of ME0 muon vector " << indexme0mu.size() << std::endl;
-	if(indexme0mu.size() == 0) return;
-	if(indexmu.size() != 2) return;
 
 
 	//if(reco::deltaR(genparticles->at(indexmu.at(0)).eta(), genparticles->at(indexmu.at(0)).phi(),genparticles->at(indexmu.at(1)).eta(), genparticles->at(indexmu.at(1)).phi()) < 0.25) return;
@@ -179,19 +184,31 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
 	   } 
 	   */
 
+          for(unsigned int n =0 ; n < indexme0mu.size(); n++){
+            hFillGenMuEta_me0Eta->Fill(fabs(genparticles->at(indexme0mu.at(n)).eta()));
+            hFillGenMuPt_me0Eta->Fill(genparticles->at(indexme0mu.at(n)).pt());
+            std::cout << "eta of gen muon in me0 range " << genparticles->at(indexme0mu.at(n)).eta() << std::endl;
+
+        }           
+
+        if(indexme0mu.size() == 0) return;
+        if(indexmu.size() != 2) return;
+
 	//double DRtmp = 0.25;
 	std::cout << "size of all muon vector " << indexmu.size() << std::endl;
 	std::vector<bool> IsMatched;
 	std::vector<int> me0muons;
+        std::vector<int> assGenMuons;
 	me0muons.clear(); 
-	tmpindex = -1; 
+        assGenMuons.clear();
+	//tmpindex = -1; 
 	for( unsigned int j = 0;  j < indexmu.size(); j++) {
 
 		double DRtmp = 0.25;  
-
+                tmpindex = -1;
 		for(unsigned int t = 0; t < OurMuons->size() ; t++) {
                     
-                   if (!muon::isGoodMuon(me0geom, OurMuons->at(t), muon::Tight)) continue;
+                  //if (!muon::isGoodMuon(me0geom, OurMuons->at(t), muon::Tight)) continue;
 
 			if(int(t) == tmpindex) continue;
                       
@@ -201,12 +218,21 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
 				DRtmp = dr;
 				tmpindex = t;
 			}
+                 //std::cout << "minimum dR " << dr << std::endl;
+                 //std::cout << "eta of matched me0 muon inside dr loop " << OurMuons->at(t).eta() << std::endl;
 		}   /////////////////////////////////////////
-		me0muons.push_back(tmpindex); 
+		if(tmpindex != -1) me0muons.push_back(tmpindex); 
+           if(tmpindex != -1) {
+           assGenMuons.push_back(indexmu.at(j)); 
+           std::cout << "eta of matched gen muon inside dr loop " << genparticles->at(indexmu.at(j)).eta() << std::endl;}
 	}
 
     std::cout << "size of reco ME0 muon vector " << me0muons.size() << std::endl;
+    std::cout << "size of ass gen muon vector " << assGenMuons.size() << std::endl;
 	/// again filling
+
+  if(me0muons.size() > 0 && me0muons.at(0) != -1){std::cout << "eta of first matched me0 reco muon " << OurMuons->at(me0muons.at(0)).eta() << std::endl;}
+  if(me0muons.size() > 1 && me0muons.at(1) != -1){std::cout << "eta of second matched me0 reco muon " << OurMuons->at(me0muons.at(1)).eta() << std::endl;}
 
 	if(me0muons.size() > 0 && me0muons.at(0) != -1) {hFillSignalMuontime->Fill(OurMuons->at(me0muons.at(0)).me0segment().time()); hFillSignalMuontimeErr->Fill(OurMuons->at(me0muons.at(0)).me0segment().timeErr()); SignalMuonTime->Fill(OurMuons->at(me0muons.at(0)).me0segment().time(), OurMuons->at(me0muons.at(0)).me0segment().timeErr()); }
 
@@ -221,7 +247,8 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
               if(me0muons.at(j) == -1) continue;
 		hFillRecoEta->Fill(OurMuons->at(me0muons.at(j)).eta());
                 hFillRecoPt->Fill(OurMuons->at(me0muons.at(j)).pt());
-              
+         
+                  std::cout << "eta of matched reco me0 muon " << OurMuons->at(me0muons.at(j)).eta() << std::endl;     
            		for( unsigned int ji = j+1; ji < me0muons.size(); ji++) { 
                           if(me0muons.at(ji) == -1) continue;
 			//              hFillZMass->Fill((OurMuons->at(me0muons.at(j)).p()+ OurMuons->at(me0muons.at(ji)).p()).M());            
@@ -240,22 +267,24 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
 		}
 	}
 
+        for( unsigned int k = 0;  k < assGenMuons.size(); k++) {
+ 
+          std::cout << "eta of matched gen muons with me0 " << genparticles->at(assGenMuons.at(k)).eta() << std::endl;
+            hFillGenMuEta->Fill(fabs(genparticles->at(assGenMuons.at(k)).eta()));
+            hFillGenMuPt->Fill(genparticles->at(assGenMuons.at(k)).pt());
+
+ 
+         }
+
+
 	for (unsigned int t = 0; t < OurMuons->size() ; t++){
-              if (!muon::isGoodMuon(me0geom, OurMuons->at(t), muon::Tight)) continue;
+         // if (!muon::isGoodMuon(me0geom, OurMuons->at(t), muon::Tight)) continue;
  
               hFillAllRecoEta->Fill(OurMuons->at(t).eta());       
 	       hFillAllRecoPt->Fill(OurMuons->at(t).pt());	
                     if(MatchedMuon(me0muons, int(t))) {
+                       std::cout << "eta of matched reco me0 muon from matched function " << OurMuons->at(t).eta() << std::endl;
 			if(indexmu.size() > 1) {
-                          hFillGenMuEta->Fill(fabs(genparticles->at(indexmu.at(0)).eta()));
-                          hFillGenMuPt->Fill(genparticles->at(indexmu.at(0)).pt());
-                           std::cout << "eta of matched muon " << genparticles->at(indexmu.at(0)).eta() << std::endl;
-
-                          if(fabs(genparticles->at(indexmu.at(0)).eta()) > 2. && fabs(genparticles->at(indexmu.at(0)).eta()) < 3.){
-                           hFillGenMuinME0Eta->Fill(fabs(genparticles->at(indexmu.at(0)).eta()));
-                           hFillGenMuinME0Pt->Fill(genparticles->at(indexmu.at(0)).pt());
-                           std::cout << "eta of matched ME0 muon " << genparticles->at(indexmu.at(0)).eta() << std::endl;
-                          }                         
                    
 				genmuon1.SetPtEtaPhiM(genparticles->at(indexmu.at(0)).pt(), genparticles->at(indexmu.at(0)).eta(),genparticles->at(indexmu.at(0)).phi(),genparticles->at(indexmu.at(0)).mass());
 
@@ -322,6 +351,12 @@ ME0TimingAnalysis::beginJob()
         hFillGenMuEta = fs->make<TH1F>("hFillGenMuEta","hFillGenMuEta",250,0,5);
         hFillGenMuPt = fs->make<TH1F>("hFillGenMuPt","hFillGenMuPt",500,0,300);
 	hFillZGenMass = fs->make<TH1F>("hFillZGenMass","hFillZGenMass",500,0,250);    
+
+        hFillGenMuEta_allEta = fs->make<TH1F>("hFillGenMuEta_allEta","hFillGenMuEta_allEta",250,0,5);
+        hFillGenMuPt_allEta = fs->make<TH1F>("hFillGenMuPt_allEta","hFillGenMuPt_allEta",500,0,300);
+ 
+        hFillGenMuEta_me0Eta = fs->make<TH1F>("hFillGenMuEta_me0Eta","hFillGenMuEta_meoEta",250,0,5);
+        hFillGenMuPt_me0Eta = fs->make<TH1F>("hFillGenMuPt_me0Eta","hFillGenMuPt_me0Eta",500,0,300);
 
         hFillGenMuinME0Eta = fs->make<TH1F>("hFillGenMuinME0Eta","hFillGenMuinME0Eta",250,0,5);
         hFillGenMuinME0Pt = fs->make<TH1F>("hFillGenMuinME0Pt","hFillGenMuinME0Pt",500,0,300);
