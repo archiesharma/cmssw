@@ -137,13 +137,13 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
 	vector<unsigned int> indexmu;
 	indexmu.clear();
 
-	vector<unsigned int> indexme0mu;                     
-	indexme0mu.clear();
+	//vector<unsigned int> indexme0mu;                     
+	//indexme0mu.clear();
 	//============ gen particle collection  =============//
 
 	for(unsigned int i = 0; i < genparticles->size();i++) {
 
-		if(fabs(genparticles->at(i).eta())  < 3.) {
+		if(fabs(genparticles->at(i).eta())  > 2. && fabs(genparticles->at(i).eta()) < 3. && genparticles->at(i).pt() > 5.) {
 			if(abs(genparticles->at(i).pdgId()) == 13 && genparticles->at(i).status() == 1 && genparticles->at(i).numberOfMothers() > 0) { 
 				if(fabs(genparticles->at(i).mother()->pdgId()) == 23) {
 					indexmu.push_back(i); }
@@ -164,34 +164,29 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
 	for(unsigned int j =0 ; j < indexmu.size(); j++){
                hFillGenMuEta_allEta->Fill(fabs(genparticles->at(indexmu.at(j)).eta()));
                hFillGenMuPt_allEta->Fill(genparticles->at(indexmu.at(j)).pt());
-                std::cout << "eta of gen muon in whole range " << genparticles->at(indexmu.at(j)).eta() << std::endl;
-        	if(fabs(genparticles->at(indexmu.at(j)).eta()) > 2. && fabs(genparticles->at(indexmu.at(j)).eta()) < 3.) {
+                std::cout << "eta of selected  gen muon " << genparticles->at(indexmu.at(j)).eta() << std::endl;
+               /*	
+               if(fabs(genparticles->at(indexmu.at(j)).eta()) > 2. && fabs(genparticles->at(indexmu.at(j)).eta()) < 3.) {
 
                   std::cout << "me0 muon eta " << genparticles->at(indexmu.at(j)).eta() << "at j " << j << std::endl;
                  indexme0mu.push_back(indexmu.at(j));
                  }
-
+               */
 	}
-        std::cout << "size of ME0 muon vector " << indexme0mu.size() << std::endl;
+        //std::cout << "size of ME0 muon vector " << indexme0mu.size() << std::endl;
 
 
-	//if(reco::deltaR(genparticles->at(indexmu.at(0)).eta(), genparticles->at(indexmu.at(0)).phi(),genparticles->at(indexmu.at(1)).eta(), genparticles->at(indexmu.at(1)).phi()) < 0.25) return;
-	/*
-	   for( unsigned int j = 0;  j < indexmu.size(); j++) {
-	   for( unsigned int k = j+1;  k < indexmu.size(); k++) {
-	   if()
-	   }  
-	   } 
-	   */
-
+/*
           for(unsigned int n =0 ; n < indexme0mu.size(); n++){
             hFillGenMuEta_me0Eta->Fill(fabs(genparticles->at(indexme0mu.at(n)).eta()));
             hFillGenMuPt_me0Eta->Fill(genparticles->at(indexme0mu.at(n)).pt());
             std::cout << "eta of gen muon in me0 range " << genparticles->at(indexme0mu.at(n)).eta() << std::endl;
 
         }           
+*/
 
-        if(indexme0mu.size() == 0) return;
+
+        //if(indexme0mu.size() == 0) return;
         if(indexmu.size() != 2) return;
 
 	//double DRtmp = 0.25;
@@ -207,9 +202,10 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
 		double DRtmp = 0.25;  
                 tmpindex = -1;
 		for(unsigned int t = 0; t < OurMuons->size() ; t++) {
-                    
-                  //if (!muon::isGoodMuon(me0geom, OurMuons->at(t), muon::Tight)) continue;
-
+         
+                    if (!muon::isGoodMuon(me0geom, OurMuons->at(t), muon::Tight)) continue;
+                    if(OurMuons->at(t).pt() < 5.) continue;
+        
 			if(int(t) == tmpindex) continue;
                       
                         //std::cout << "ME0 muon eta " << OurMuons->at(t).eta() << std::endl;
@@ -278,8 +274,9 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
 
 
 	for (unsigned int t = 0; t < OurMuons->size() ; t++){
-         // if (!muon::isGoodMuon(me0geom, OurMuons->at(t), muon::Tight)) continue;
- 
+          if (!muon::isGoodMuon(me0geom, OurMuons->at(t), muon::Tight)) continue;
+          if(OurMuons->at(t).pt() < 5.) continue;
+             
               hFillAllRecoEta->Fill(OurMuons->at(t).eta());       
 	       hFillAllRecoPt->Fill(OurMuons->at(t).pt());	
                     if(MatchedMuon(me0muons, int(t))) {
