@@ -99,6 +99,13 @@ def customize_random_GEMDigi(process):
     )
     return process
 
+# Add simMuonGEMDigis with Timing to the list of modules served by RandomNumberGeneratorService
+def customize_random_GEMDigiwithTiming(process):
+    process.RandomNumberGeneratorService.simMuonGEMDigiswithTiming = cms.PSet(
+        initialSeed = cms.untracked.uint32(1234567),
+        engineName = cms.untracked.string('HepJamesRandom')
+    )
+    return process
 
 # Add simMuonME0Digis to the list of modules served by RandomNumberGeneratorService
 def customize_random_ME0Digi(process):
@@ -120,17 +127,24 @@ def load_ME0_digitizers(process):
     process.load('SimMuon.GEMDigitizer.muonME0DigisPreReco_cfi')
     return process
 
+## load the digitizer and pad producer
+def load_GEM_digitizersWithTiming(process):
+    process.load('SimMuon.GEMDigitizer.muonGEMDigisPreReco_cfi')
+    return process
 
 # customize the full digitization sequence pdigi by adding GEMs
 def customize_digi_addGEM(process):
     process = load_GEM_digitizers(process)
+    process = load_GEM_digitizersWithTiming(process)
     process = customize_random_GEMDigi(process)
+    process = customize_random_GEMDigiwithTiming(process)
     process = customize_mix_addGEM(process)
     process.muonDigi = cms.Sequence(
         process.simMuonCSCDigis +
         process.simMuonDTDigis +
         process.simMuonRPCDigis +
         process.simMuonGEMDigis +
+        process.simMuonGEMDigiswithTiming +
         process.simMuonGEMCSCPadDigis
     )
     process.doAllDigi = cms.Sequence(
@@ -150,13 +164,16 @@ def customize_digi_addGEM(process):
 # customize the digitization sequence pdigi to only digitize DT+CSC+RPC+GEM
 def customize_digi_addGEM_muon_only(process):
     process = load_GEM_digitizers(process)
+    process = load_GEM_digitizersWithTiming(process)
     process = customize_random_GEMDigi(process)
+    process = customize_random_GEMDigiwithTiming(process)
     process = customize_mix_addGEM_muon_only(process)
     process.muonDigi = cms.Sequence(
         process.simMuonCSCDigis +
         process.simMuonDTDigis +
         process.simMuonRPCDigis +
         process.simMuonGEMDigis +
+        process.simMuonGEMDigiswithTiming +
         process.simMuonGEMCSCPadDigis
     )
     process.pdigi = cms.Sequence(
@@ -171,12 +188,15 @@ def customize_digi_addGEM_muon_only(process):
 # customize the digitization sequence pdigi to only digitize GEM
 def customize_digi_addGEM_gem_only(process):
     process = load_GEM_digitizers(process)
+    process = load_GEM_digitizersWithTiming(process)
     process = customize_random_GEMDigi(process)
+    process = customize_random_GEMDigiwithTiming(process)  
     process = customize_mix_addGEM_muon_only(process)
     process.pdigi = cms.Sequence(
         cms.SequencePlaceholder("randomEngineStateProducer")*
         cms.SequencePlaceholder("mix")*
         process.simMuonGEMDigis*
+        process.simMuonGEMDigiswithTiming*
         process.simMuonGEMCSCPadDigis
     )
     process = append_GEMDigi_event(process)
@@ -186,8 +206,10 @@ def customize_digi_addGEM_gem_only(process):
 # customize the full digitization sequence pdigi by adding GEMs
 def customize_digi_addGEM_addME0(process):
     process = load_GEM_digitizers(process)
+    process = load_GEM_digitizersWithTiming(process)
     process = load_ME0_digitizers(process)
     process = customize_random_GEMDigi(process)
+    process = customize_random_GEMDigiwithTiming(process)
     process = customize_random_ME0Digi(process)
     process = customize_mix_addGEM(process)
     process = customize_mix_addME0(process)
@@ -196,6 +218,7 @@ def customize_digi_addGEM_addME0(process):
         process.simMuonDTDigis +
         process.simMuonRPCDigis +
         process.simMuonGEMDigis +
+        process.simMuonGEMDigiswithTiming +
         process.simMuonGEMCSCPadDigis +
         process.simMuonME0Digis
     )
@@ -216,8 +239,10 @@ def customize_digi_addGEM_addME0(process):
 # customize the digitization sequence pdigi to only digitize DT+CSC+RPC+GEM
 def customize_digi_addGEM_addME0_muon_only(process):
     process = load_GEM_digitizers(process)
+    process = load_GEM_digitizersWithTiming(process)
     process = load_ME0_digitizers(process)
     process = customize_random_GEMDigi(process)
+    process = customize_random_GEMDigiwithTiming(process)
     process = customize_random_ME0Digi(process)
     process = customize_mix_addGEM_addME0_muon_only(process)
     process.muonDigi = cms.Sequence(
@@ -225,6 +250,7 @@ def customize_digi_addGEM_addME0_muon_only(process):
         process.simMuonDTDigis +
         process.simMuonRPCDigis +
         process.simMuonGEMDigis +
+        process.simMuonGEMDigiswithTiming +
         process.simMuonGEMCSCPadDigis +
         process.simMuonME0Digis
     )
@@ -240,17 +266,20 @@ def customize_digi_addGEM_addME0_muon_only(process):
 # customize the digitization sequence pdigi to only digitize GEM
 def customize_digi_addGEM_addME0_gem_only(process):
     process = load_GEM_digitizers(process)
+    process = load_GEM_digitizersWithTiming(process)
     process = load_ME0_digitizers(process)
     process = customize_random_GEMDigi(process)
+    process = customize_random_GEMDigiwithTiming(process)
     process = customize_random_ME0Digi(process)
     process = customize_mix_addGEM_addME0_muon_only(process)
     process.pdigi = cms.Sequence(
         cms.SequencePlaceholder("randomEngineStateProducer")*
         cms.SequencePlaceholder("mix")*
         process.simMuonGEMDigis*
+        process.simMuonGEMDigiswithTiming +
         process.simMuonGEMCSCPadDigis*
         process.simMuonME0Digis
-    )
+      )
     process = append_GEMDigi_event(process)
     return process
 
@@ -262,6 +291,7 @@ def append_GEMDigi_event(process):
         b=a+'output'
         if hasattr(process,b):
             getattr(process,b).outputCommands.append('keep *_simMuonGEMDigis_*_*')
+            getattr(process,b).outputCommands.append('keep *_simMuonGEMDigiswithTiming_*_*')
             getattr(process,b).outputCommands.append('keep *_simMuonGEMCSCPadDigis_*_*')
             getattr(process,b).outputCommands.append('keep *_simMuonME0Digis_*_*')
     return process
