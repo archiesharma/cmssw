@@ -1,6 +1,6 @@
 import FWCore.ParameterSet.Config as cms
 
-process = cms.Process("GEMDIGI")
+process = cms.Process("NewGEMDIGI")
 
 process.load('Configuration.StandardSequences.Services_cff')
 process.load('FWCore.MessageService.MessageLogger_cfi')
@@ -18,7 +18,7 @@ from Configuration.AlCa.GlobalTag import GlobalTag
 process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:upgradePLS3', '')
 
 process.maxEvents = cms.untracked.PSet(
-    input = cms.untracked.int32(100)
+    input = cms.untracked.int32(-1)
 )
 
 process.options = cms.untracked.PSet(
@@ -31,14 +31,18 @@ process = customize_digi_addGEM_muon_only(process)
 
 process.source = cms.Source("PoolSource",
     fileNames = cms.untracked.vstring(
-        'file:out_sim.root'
+#        'file:out_sim.root'
+         '/store/user/piet/ME0Segment_Time/DYToMuMu_M-20_TuneZ2star_14TeV-pythia6-tauola/DYToMuMu_M-20_TuneZ2star_14TeV-pythia6-tauola_HGCALGS_PU140_100ps_1p5ns_v2_RECO/151021_081029/0000/out_reco_1.root'
+
     )
 )
 
 process.output = cms.OutputModule("PoolOutputModule",
     fileName = cms.untracked.string(
         'file:out_digi.root'
+
     ),
+
     outputCommands = cms.untracked.vstring(
         'keep  *_*_*_*',
         #'drop CastorDataFramesSorted_simCastorDigis_*_GEMDIGI'
