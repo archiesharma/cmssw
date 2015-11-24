@@ -3,6 +3,7 @@
 #include "SimMuon/GEMDigitizer/interface/GEMDigiModelFactory.h"
 #include "SimMuon/GEMDigitizer/interface/ME0DigiModelFactory.h"
 #include "SimMuon/GEMDigitizer/interface/ME0DigiPreRecoModelFactory.h"
+#include "SimMuon/GEMDigitizer/interface/GEMDigiPreRecoModelFactory.h"
 
 
 #include "SimMuon/GEMDigitizer/interface/GEMDigiProducer.h"
@@ -29,8 +30,17 @@ DEFINE_EDM_PLUGIN(ME0DigiModelFactory, ME0SimpleModel, "ME0SimpleModel");
 #include "SimMuon/GEMDigitizer/interface/ME0DigiPreRecoProducer.h"
 DEFINE_FWK_MODULE(ME0DigiPreRecoProducer);
 
+#include "SimMuon/GEMDigitizer/interface/GEMDigiPreRecoProducer.h"
+DEFINE_FWK_MODULE(GEMDigiPreRecoProducer);
+
 #include "SimMuon/GEMDigitizer/interface/ME0PreRecoNoSmearModel.h"
 DEFINE_EDM_PLUGIN(ME0DigiPreRecoModelFactory, ME0PreRecoNoSmearModel, "ME0PreRecoNoSmearModel");
 
+#include "SimMuon/GEMDigitizer/interface/GEMPreRecoNoSmearModel.h"
+DEFINE_EDM_PLUGIN(GEMDigiPreRecoModelFactory, GEMPreRecoNoSmearModel, "GEMPreRecoNoSmearModel");
+
 #include "SimMuon/GEMDigitizer/interface/ME0PreRecoGaussianModel.h"
 DEFINE_EDM_PLUGIN(ME0DigiPreRecoModelFactory, ME0PreRecoGaussianModel, "ME0PreRecoGaussianModel");
+
+#include "SimMuon/GEMDigitizer/interface/GEMPreRecoGaussianModel.h"
+DEFINE_EDM_PLUGIN(GEMDigiPreRecoModelFactory, GEMPreRecoGaussianModel, "GEMPreRecoGaussianModel");
