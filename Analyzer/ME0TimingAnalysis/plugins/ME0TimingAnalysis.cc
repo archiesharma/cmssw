@@ -11,7 +11,7 @@ Implementation:
 [Notes on implementation]
 */
 //
-// Original Author:  kaur amandeepkalsi
+// Original Author: Archie Sharma 
 //         Created:  Tue, 22 Sep 2015 14:16:56 GMT
 // $Id$
 //
@@ -66,6 +66,7 @@ class ME0TimingAnalysis : public edm::EDAnalyzer {
 		virtual void endJob() override;
 		// ----------member data ---------------------------
 		int tmpindex;
+                int matchindex; 
 		bool MatchedMuon(vector<int> me0muons, int recomuon) ;
 		edm::Service<TFileService> fs;
     
@@ -75,6 +76,7 @@ class ME0TimingAnalysis : public edm::EDAnalyzer {
         double etaMin_;
         double etaMax_;
         double dr_;
+        double dr1_;
         double ptMin_;
         double ptMinGen_;
         double timeMin_;
@@ -112,6 +114,7 @@ ME0TimingAnalysis::ME0TimingAnalysis(const edm::ParameterSet& iConfig):
   etaMin_(iConfig.getParameter<double>("etaMin")),
   etaMax_(iConfig.getParameter<double>("etaMax")),
   dr_(iConfig.getParameter<double>("dr")),
+  dr1_(iConfig.getParameter<double>("dr1")),
   ptMin_(iConfig.getParameter<double>("ptMin")),
   ptMinGen_(iConfig.getParameter<double>("ptMinGen")),
   timeMin_(iConfig.getParameter<double>("timeMin")),
@@ -140,7 +143,7 @@ ME0TimingAnalysis::~ME0TimingAnalysis()
 ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 {
 
-   std::cout << " New event started =======>" << std::endl;
+   std::cout << "<===== New event started =======>" << std::endl;
     evts++;
     hFillEvents->Fill(evts);
 	using namespace edm;
@@ -199,7 +202,7 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
             
         }
 		
-	}//close for
+	}//close for gen particle loop
 
     std::cout << "size of all muon vector " << indexmu.size() << std::endl;
         
@@ -235,8 +238,8 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
     
     if(isOneMuinME0 == true){
         
-        std::cout<<" ---------------------- case one mu in me0, one mu out ---------------------- "<<std::endl;
-	    double DRmintmp = dr_;
+        std::cout<<" <---------------------- case one mu in me0, one mu out ----------------------> "<<std::endl;
+	    double DRmintmp = dr1_;
         
 	    for ( std::vector<reco::Muon>::const_iterator mu = muons->begin(); mu != muons->end(); ++mu, ++kk){
             
@@ -270,9 +273,10 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
     }
 
 	//double DRtmp = dr_;
-	std::cout << "size of all muon vector " << indexmu.size() << std::endl;
+	
 	std::vector<bool> IsMatched;
 	std::vector<int> me0muons;
+        std::vector<int> me0muonsall;
         std::vector<int> assGenMuons;
 	me0muons.clear(); 
         assGenMuons.clear();
@@ -280,13 +284,17 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
     
 	for( unsigned int j = 0;  j < indexme0mu.size(); j++) {
 
+         std::cout << "inside gen particle loop " << std::endl;
+
         std::cout << "gen ME0 muon eta " << genparticles->at(indexme0mu.at(j)).eta() << "  gen ME0 muon pt " << genparticles->at(indexme0mu.at(j)).pt() << "  gen ME0 muon phi " << genparticles->at(indexme0mu.at(j)).phi() <<  std::endl;
 
            tmpindex = -1;
-        
+           matchindex = -1;
          bool allme0mu = false;
          double dr = 0.0;
+         double pTRes = 0.0;
          double DRtmp = dr_;
+         double tmpPTRes = 10;
  	for(unsigned int t = 0; t < OurMuons->size(); t++) {
      
                
@@ -320,19 +328,39 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
 			if(dr < DRtmp) {
                 
                              std::cout << " dr is less then DRtemp" << dr << std::endl;
-                             DRtmp = dr;
+                            // DRtmp = dr;
 		             tmpindex = t;
+                             if(tmpindex != -1) me0muonsall.push_back(tmpindex);                                                       
                 
 			}
-            
-             std::cout << "minimum dR " << DRtmp << std::endl;
+
+                 
+             //std::cout << "minimum dR " << DRtmp << std::endl;
             //std::cout << "eta of matched me0 muon inside dr loop " << OurMuons->at(t).eta() << std::endl;
             
 		}   /////////////////////////////////////////
-        
-        if(tmpindex != -1) {
+           
+           std::cout << "size of matched me0 muon vector " << me0muonsall.size() << std::endl;
+           for( unsigned int d = 0;  d < me0muonsall.size(); d++) {
+
+              if(int(d) == matchindex) continue;
+              double ptrec_meoMuons = OurMuons->at(me0muonsall.at(d)).pt();               
+              double ptsim_me0Muons = genparticles->at(indexme0mu.at(j)).pt();   
+              pTRes = (ptsim_me0Muons - ptrec_meoMuons)/ptsim_me0Muons ;
+              std::cout << "pt Resolution " << pTRes << std::endl;
+              if (pTRes < tmpPTRes){
+                 
+                  tmpPTRes = pTRes;
+                  matchindex = d; 
+                  }
+
+              std::cout << "Min. pt Resolution " << pTRes << "  for me0 index " << matchindex <<std::endl;
+             }
+          
+           std::cout << "final pt Resolution " << pTRes << "  for me0 index " << matchindex << std::endl;
+           if(matchindex != -1) {
             
-            me0muons.push_back(tmpindex);
+            me0muons.push_back(matchindex);
             assGenMuons.push_back(indexme0mu.at(j));
             //std::cout << "eta of matched gen muon inside dr loop " << genparticles->at(indexme0mu.at(j)).eta() << std::endl;
         
