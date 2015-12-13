@@ -278,6 +278,7 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
 	std::vector<int> me0muons;
         std::vector<int> me0muonsall;
         std::vector<int> assGenMuons;
+        me0muonsall.clear();
 	me0muons.clear(); 
         assGenMuons.clear();
        
@@ -319,7 +320,7 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
         
             if(int(t) == tmpindex) continue;
                       
-            std::cout << "reco ME0 muon eta " << OurMuons->at(t).eta() << "  reco ME0 muon pt " << OurMuons->at(t).pt() << "  reco ME0 muon phi " << OurMuons->at(t).phi() <<  std::endl;
+          //  std::cout << "reco ME0 muon eta " << OurMuons->at(t).eta() << "  reco ME0 muon pt " << OurMuons->at(t).pt() << "  reco ME0 muon phi " << OurMuons->at(t).phi() <<  std::endl;
             
 		 dr = reco::deltaR(genparticles->at(indexme0mu.at(j)).eta(), genparticles->at(indexme0mu.at(j)).phi(),OurMuons->at(t).eta(),OurMuons->at(t).phi());
            
@@ -327,7 +328,7 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
  
 			if(dr < DRtmp) {
                 
-                             std::cout << " dr is less then DRtemp" << dr << std::endl;
+                            // std::cout << " dr is less then DRtemp" << dr << std::endl;
                             // DRtmp = dr;
 		             tmpindex = t;
                              if(tmpindex != -1) me0muonsall.push_back(tmpindex);                                                       
@@ -347,7 +348,7 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
               double ptrec_meoMuons = OurMuons->at(me0muonsall.at(d)).pt();               
               double ptsim_me0Muons = genparticles->at(indexme0mu.at(j)).pt();   
               pTRes = (ptsim_me0Muons - ptrec_meoMuons)/ptsim_me0Muons ;
-              std::cout << "pt Resolution " << pTRes << std::endl;
+             // std::cout << "pt Resolution " << pTRes << " sim pt for pt Resolution " << ptsim_me0Muons << " rec pt for pt Resolution " << ptrec_meoMuons << std::endl;
               if (pTRes < tmpPTRes){
                  
                   tmpPTRes = pTRes;
@@ -357,12 +358,12 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
               std::cout << "Min. pt Resolution " << pTRes << "  for me0 index " << matchindex <<std::endl;
              }
           
-           std::cout << "final pt Resolution " << pTRes << "  for me0 index " << matchindex << std::endl;
+           //std::cout << "final pt Resolution " << pTRes << "  for me0 index " << matchindex << std::endl;
            if(matchindex != -1) {
             
-            me0muons.push_back(matchindex);
+            me0muons.push_back(me0muonsall.at(matchindex));
             assGenMuons.push_back(indexme0mu.at(j));
-            //std::cout << "eta of matched gen muon inside dr loop " << genparticles->at(indexme0mu.at(j)).eta() << std::endl;
+         //   std::cout << "eta of me0muons vector " << OurMuons->at(me0muons.at(matchindex)).eta() << " pt of me0muons vector " << OurMuons->at(me0muons.at(matchindex)).pt() << " phi of me0muons vector " << OurMuons->at(me0muons.at(matchindex)).phi() << " index of  me0muons vector " << matchindex <<  std::endl;
         
         }
         
@@ -384,7 +385,7 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
 
     if(me0muons.size() > 0 && me0muons.at(0) != -1){
       
-        std::cout << "eta of first matched me0 reco muon " << OurMuons->at(me0muons.at(0)).eta() << std::endl;
+        std::cout << "eta of first matched me0 reco muon " << OurMuons->at(me0muons.at(0)).eta() << " pt of first matched me0 reco muon " << OurMuons->at(me0muons.at(0)).pt() <<" phi of first matched me0 reco muon " << OurMuons->at(me0muons.at(0)).phi() <<std::endl;
         hFillSignalMuontime->Fill(OurMuons->at(me0muons.at(0)).me0segment().time());
         hFillSignalMuontimeErr->Fill(OurMuons->at(me0muons.at(0)).me0segment().timeErr());
         SignalMuonTime->Fill(OurMuons->at(me0muons.at(0)).me0segment().time(), OurMuons->at(me0muons.at(0)).me0segment().timeErr());
