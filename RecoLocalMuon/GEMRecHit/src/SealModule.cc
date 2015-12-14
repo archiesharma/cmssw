@@ -2,14 +2,20 @@
 
 #include "FWCore/Framework/interface/MakerMacros.h"
 #include "RecoLocalMuon/GEMRecHit/interface/GEMRecHitAlgoFactory.h"
+#include "RecoLocalMuon/GEMRecHit/interface/GEMRecHitAlgoFactoryPreReco.h"
 #include "RecoLocalMuon/GEMRecHit/interface/ME0RecHitAlgoFactory.h"
 
 #include "RecoLocalMuon/GEMRecHit/src/GEMRecHitProducer.h"
 DEFINE_FWK_MODULE(GEMRecHitProducer);
 
+#include "RecoLocalMuon/GEMRecHit/src/GEMRecHitProducerPreReco.h"
+DEFINE_FWK_MODULE(GEMRecHitProducerPreReco);
+
 #include "RecoLocalMuon/GEMRecHit/src/GEMRecHitStandardAlgo.h"
 DEFINE_EDM_PLUGIN (GEMRecHitAlgoFactory, GEMRecHitStandardAlgo, "GEMRecHitStandardAlgo");
 
+#include "RecoLocalMuon/GEMRecHit/src/GEMRecHitStandardAlgoPreReco.h"
+DEFINE_EDM_PLUGIN (GEMRecHitAlgoFactoryPreReco, GEMRecHitStandardAlgoPreReco, "GEMRecHitStandardAlgoPreReco");
 
 #include "RecoLocalMuon/GEMRecHit/src/ME0RecHitProducer.h"
 DEFINE_FWK_MODULE(ME0RecHitProducer);

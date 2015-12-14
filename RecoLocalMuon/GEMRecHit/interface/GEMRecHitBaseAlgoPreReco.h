@@ -1,7 +1,7 @@
-#ifndef RecoLocalMuon_GEMRecHitBaseAlgo_H
-#define RecoLocalMuon_GEMRecHitBaseAlgo_H
+#ifndef RecoLocalMuon_GEMRecHitBaseAlgoPreReco_H
+#define RecoLocalMuon_GEMRecHitBaseAlgoPreReco_H
 
-/** \class GEMRecHitBaseAlgo
+/** \class GEMRecHitBaseAlgoPreReco
  *  Abstract algorithmic class to compute Rec Hit
  *  form a GEM digi
  *
@@ -15,14 +15,13 @@
 #include "DataFormats/GeometrySurface/interface/LocalError.h"
 #include "DataFormats/GeometryVector/interface/GlobalPoint.h"
 #include "DataFormats/GEMDigi/interface/GEMDigiCollection.h"
+#include "DataFormats/GEMDigi/interface/GEMDigiPreRecoCollection.h"
 #include "DataFormats/GEMRecHit/interface/GEMRecHit.h"
 #include "DataFormats/Common/interface/OwnVector.h"
 
 #include "RecoLocalMuon/GEMRecHit/src/GEMEtaPartitionMask.h"
 #include "RecoLocalMuon/GEMRecHit/src/GEMMaskReClusterizer.h"
 
-class GEMCluster;
-class GEMEtaPartition;
 class GEMDetId;
 
 namespace edm {
@@ -31,37 +30,30 @@ namespace edm {
 }
 
 
-class GEMRecHitBaseAlgo {
+class GEMRecHitBaseAlgoPreReco {
 
  public:
   
   /// Constructor
-  GEMRecHitBaseAlgo(const edm::ParameterSet& config);
+  GEMRecHitBaseAlgoPreReco(const edm::ParameterSet& config);
 
   /// Destructor
-  virtual ~GEMRecHitBaseAlgo();  
+  virtual ~GEMRecHitBaseAlgoPreReco();  
 
   /// Pass the Event Setup to the algo at each event
   virtual void setES(const edm::EventSetup& setup) = 0;
 
   /// Build all hits in the range associated to the gemId, at the 1st step.
-  virtual edm::OwnVector<GEMRecHit> reconstruct(const GEMEtaPartition& roll,
-						const GEMDetId& gemId,
-						const GEMDigiCollection::Range& digiRange,
-                                                const EtaPartitionMask& mask);
+  virtual edm::OwnVector<GEMRecHit> reconstruct(const GEMDetId& gemId,
+						const GEMDigiPreRecoCollection::Range& digiRange );
 
 
   /// standard local recHit computation
-  virtual bool compute(const GEMEtaPartition& roll,
-                       const GEMCluster& cl,
+
+  virtual bool compute(const GEMDigiPreReco& digi,
                        LocalPoint& Point,
-                       LocalError& error) const = 0;
-
-
-  /// local recHit computation accounting for track direction and 
-  /// absolute position
-  virtual bool compute(const GEMEtaPartition& roll,
-		       const GEMCluster& cl,
+                       LocalError& error) const = 0; 
+  virtual bool compute(const GEMDigiPreReco& digi,
                        const float& angle,
                        const GlobalPoint& globPos, 
                        LocalPoint& Point,

@@ -28,24 +28,28 @@ class GEMRecHit : public RecHit2DLocalPos {
   /// resolution (the cell resolution) for the coordinate being measured
   /// and 0 for the two other coordinates
   GEMRecHit(const GEMDetId& gemId,
-	    int bx,
+	    int bx,            
 	    const LocalPoint& pos);
   
 
   /// Constructor from a local position and error, gemId and bx.
   GEMRecHit(const GEMDetId& gemId,
-	    int bx,
+	    int bx,           
 	    const LocalPoint& pos,
 	    const LocalError& err);
   
 
   /// Constructor from a local position and error, gemId, bx, frist strip of cluster and cluster size.
   GEMRecHit(const GEMDetId& gemId,
-	    int bx,
+	    int bx,           
 	    int firstStrip,
 	    int clustSize,
 	    const LocalPoint& pos,
 	    const LocalError& err);
+
+
+  GEMRecHit(const GEMDetId& gemId,
+            float tof);
   
   /// Destructor
   virtual ~GEMRecHit();
@@ -104,6 +108,10 @@ class GEMRecHit : public RecHit2DLocalPos {
     return theBx;
   }
 
+  float tof() const {
+    return theTOF;
+  }
+
   int firstClusterStrip() const {
     return theFirstStrip;
   }
@@ -118,6 +126,7 @@ class GEMRecHit : public RecHit2DLocalPos {
  private:
   GEMDetId theGEMId;
   int theBx;
+  float theTOF;
   int theFirstStrip;
   int theClusterSize;
   // Position and error in the Local Ref. Frame of the GEMLayer
