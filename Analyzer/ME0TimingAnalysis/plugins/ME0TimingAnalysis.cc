@@ -66,7 +66,8 @@ class ME0TimingAnalysis : public edm::EDAnalyzer {
 		virtual void endJob() override;
 		// ----------member data ---------------------------
 		int tmpindex;
-                int matchindex; 
+                int matchindex;
+                int finalindex; 
 		bool MatchedMuon(vector<int> me0muons, int recomuon) ;
 		edm::Service<TFileService> fs;
     
@@ -277,10 +278,12 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
 	std::vector<bool> IsMatched;
 	std::vector<int> me0muons;
         std::vector<int> me0muonsall;
+        std::vector<int> me0muonspTRes;
         std::vector<int> assGenMuons;
         me0muonsall.clear();
 	me0muons.clear(); 
         assGenMuons.clear();
+        me0muonspTRes.clear();
        
     
 	for( unsigned int j = 0;  j < indexme0mu.size(); j++) {
@@ -291,11 +294,14 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
 
            tmpindex = -1;
            matchindex = -1;
+           finalindex = -1;
          bool allme0mu = false;
          double dr = 0.0;
+         double dR = 0.0;
          double pTRes = 0.0;
          double DRtmp = dr_;
-         double tmpPTRes = 10;
+         double dRtmp = dr_;
+         double tmpPTRes = 0.1;
  	for(unsigned int t = 0; t < OurMuons->size(); t++) {
      
                
@@ -320,7 +326,7 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
         
             if(int(t) == tmpindex) continue;
                       
-          //  std::cout << "reco ME0 muon eta " << OurMuons->at(t).eta() << "  reco ME0 muon pt " << OurMuons->at(t).pt() << "  reco ME0 muon phi " << OurMuons->at(t).phi() <<  std::endl;
+            std::cout << "reco ME0 muon eta " << OurMuons->at(t).eta() << "  reco ME0 muon pt " << OurMuons->at(t).pt() << "  reco ME0 muon phi " << OurMuons->at(t).phi() <<  std::endl;
             
 		 dr = reco::deltaR(genparticles->at(indexme0mu.at(j)).eta(), genparticles->at(indexme0mu.at(j)).phi(),OurMuons->at(t).eta(),OurMuons->at(t).phi());
            
@@ -348,20 +354,36 @@ ME0TimingAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
               double ptrec_meoMuons = OurMuons->at(me0muonsall.at(d)).pt();               
               double ptsim_me0Muons = genparticles->at(indexme0mu.at(j)).pt();   
               pTRes = (ptsim_me0Muons - ptrec_meoMuons)/ptsim_me0Muons ;
-             // std::cout << "pt Resolution " << pTRes << " sim pt for pt Resolution " << ptsim_me0Muons << " rec pt for pt Resolution " << ptrec_meoMuons << std::endl;
-              if (pTRes < tmpPTRes){
+            //  std::cout << "pt Resolution " << pTRes << " sim pt for pt Resolution " << ptsim_me0Muons << " rec pt for pt Resolution " << ptrec_meoMuons << std::endl;
+              if (abs(pTRes) < tmpPTRes){
                  
-                  tmpPTRes = pTRes;
-                  matchindex = d; 
+                  //tmpPTRes = pTRes;
+                  matchindex = d;
+                  if(matchindex != -1) me0muonspTRes.push_back(me0muonsall.at(matchindex)); 
                   }
 
-              std::cout << "Min. pt Resolution " << pTRes << "  for me0 index " << matchindex <<std::endl;
+          //    std::cout << "Min. pt Resolution " << pTRes << "  for me0 index " << matchindex <<std::endl;
              }
           
+           std::cout << "size of matched pT Res me0 muon vector " << me0muonspTRes.size() << std::endl;
+         //  if(me0muonspTRes.size() > 0 && me0muonspTRes.at(0) != -1) std::cout << "pt of matched pT Res me0 muon vector " << OurMuons->at(me0muonspTRes.at(0)).pt() << std::endl; 
+         for( unsigned int gk = 0;  gk < me0muonspTRes.size(); gk++) {
+             
+              if(int(gk) == finalindex) continue;
+              dR = reco::deltaR(genparticles->at(indexme0mu.at(j)).eta(), genparticles->at(indexme0mu.at(j)).phi(),OurMuons->at(me0muonspTRes.at(gk)).eta(),OurMuons->at(me0muonspTRes.at(gk)).phi()); 
+       //       std::cout << "dR after pt Resolution " << dR << " sim pt after matching for pt Resolution " << genparticles->at(indexme0mu.at(j)).pt() << " rec pt after matching for pt Resolution " << OurMuons->at(me0muonspTRes.at(gk)).pt() << std::endl; 	 
+                   if(dR < dRtmp) {
+	
+        	    // std::cout << " dR is less then DRtemp" << dR << std::endl;
+                     dRtmp = dR;
+                     finalindex = gk;
+                     }
+	
+        	 }
            //std::cout << "final pt Resolution " << pTRes << "  for me0 index " << matchindex << std::endl;
-           if(matchindex != -1) {
+           if(finalindex != -1) {
             
-            me0muons.push_back(me0muonsall.at(matchindex));
+            me0muons.push_back(me0muonspTRes.at(finalindex));
             assGenMuons.push_back(indexme0mu.at(j));
          //   std::cout << "eta of me0muons vector " << OurMuons->at(me0muons.at(matchindex)).eta() << " pt of me0muons vector " << OurMuons->at(me0muons.at(matchindex)).pt() << " phi of me0muons vector " << OurMuons->at(me0muons.at(matchindex)).phi() << " index of  me0muons vector " << matchindex <<  std::endl;
         
