@@ -1,8 +1,8 @@
 import FWCore.ParameterSet.Config as cms
 
-gemSegments = cms.EDProducer("GEMSegmentProducer",
+gemSegments = cms.EDProducer("GEMPreSegmentProducer",
     gemRecHitLabel = cms.InputTag("gemRecHits"),
-    gemRecHitPreRecoLabel = cms.InputTag("gemRecHitsPreReco"),
+    gemRecHitPreRecoLabel = cms.InputTag("gemRecHits"),
     algo_name = cms.string("GEMSegAlgoPV"),                             
     algo_pset = cms.PSet(
         GEMDebug = cms.untracked.bool(True),
@@ -13,9 +13,9 @@ gemSegments = cms.EDProducer("GEMSegmentProducer",
         preClusteringUseChaining = cms.bool(True), # True ==> use Chaining() , False ==> use Clustering() Fnct
         dPhiChainBoxMax = cms.double(.02),         # Chain Hit dPhi
         dEtaChainBoxMax = cms.double(.05),         # Chain Hit dEta
-        dTimeChainBoxMax = cms.double(1.0),       # time (ns) to fly through 6cm thick GEMs for different time resolutions  
+        dTimeChainBoxMax = cms.double(30.0),       # time (ns) to fly through 6cm thick GEMs for different time resolutions  
         maxRecHitsInCluster = cms.int32(4),        # Does 4 make sense here?
         clusterOnlySameBXRecHits = cms.bool(True), # only working for (preClustering && preClusteringUseChaining)
     ),
-    useGE21Short = cms.bool(True),
+    useGE21Short = cms.bool(False),
 )
