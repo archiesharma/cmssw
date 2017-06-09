@@ -95,7 +95,7 @@ class GEMSegmentStudies : public edm::one::EDAnalyzer<edm::one::SharedResources>
 
 		static void fillDescriptions(edm::ConfigurationDescriptions& descriptions);
 
-                std::set<GEMDigiSimLink> findGEMDigiSimLink(uint32_t gemDetId, int strip, int bx) const;
+                std::set<GEMDigiSimLink> findGEMDigiSimLink(const edm::Event& iEvent, uint32_t gemDetId, int strip, int bx) const;
 
 	private:
 		virtual void beginJob() override;
@@ -126,6 +126,11 @@ class GEMSegmentStudies : public edm::one::EDAnalyzer<edm::one::SharedResources>
 
                 TH1F *gem_matchedsimsegment_eta, *gem_matchedsimsegment_pt, *gem_matchedsimsegment_phi;
                 TH1F *gem_matchedsegment_eta, *gem_matchedsegment_pt, *gem_matchedsegment_phi;
+
+                //edm::Handle < edm::DetSetVector<GEMDigiSimLink> > theSimlinkDigis;
+                //iEvent.getByToken(gemDigiSimLinkToken_, theSimlinkDigis);
+
+ 
 };
 
 //
@@ -195,7 +200,7 @@ GEMSegmentStudies::~GEMSegmentStudies()
 void GEMSegmentStudies::initEvent(const edm::Event& iEvent, const edm::EventSetup& iSetup)
   {
 
-      edm::Handle < edm::DetSetVector<GEMDigiSimLink> > theSimlinkDigis;
+   //   edm::Handle < edm::DetSetVector<GEMDigiSimLink> > theSimlinkDigis;
       iEvent.getByToken(gemDigiSimLinkToken_, theSimlinkDigis);  
    
  }
@@ -232,25 +237,33 @@ GEMSegmentStudies::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
         MapTypeSim myMap;
         MapTypeSeg myMapSeg;
 
+
+        std::cout<<"number of sim tracks => "<<SimTk->size()<<std::endl;
+        std::cout<<"number of sim hits => "<<theSimHits->size()<<std::endl;
+
 	edm::SimTrackContainer::const_iterator simTrack;
 	for (simTrack = SimTk->begin(); simTrack != SimTk->end(); ++simTrack){
-
+                std::cout<<"  sim tracks "<<std::endl;
 	//	edm::PSimHitContainer GEMSimHits;
                 edm::PSimHitContainer selectedGEMSimHits;
 
 		if (std::abs(simTrack->type()) != 13) continue;
 		int count = 0;
 
+                std::cout<<" muon sim tracks "<<std::endl;
 		for (edm::PSimHitContainer::const_iterator itHit = theSimHits->begin(); itHit != theSimHits->end(); ++itHit){
 
-			int particleType_sh = itHit->particleType();
+
+                        std::cout<<" sim hits => "<<std::endl;
+                        int particleType_sh = itHit->particleType();
 			// int evtId_sh = itHit->eventId().event();
 			int bx_sh = itHit->eventId().bunchCrossing();
 			// int procType_sh = itHit->processType();
 			if(!(abs(particleType_sh) == 13 && bx_sh == 0)) continue;
 
+                        std::cout<<" muon sim hits => "<<std::endl;
 			if(isSimMatched(simTrack, itHit)){
-
+                         std::cout<<" muon sim hits found with matching sim track => "<<std::endl;   
 				++count;
 				selectedGEMSimHits.push_back(*itHit);;
 
@@ -259,6 +272,7 @@ GEMSegmentStudies::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
 
 		}//End loop SHs
 		if(selectedGEMSimHits.size() >= 2) {
+                   std::cout<<" selected gem sim hit found => "<<std::endl;
                    countST++;
                    //selectedGEMSimHits.push_back(GEMSimHits);
                    myMap.insert(MapTypeSim::value_type(simTrack,selectedGEMSimHits));
@@ -288,7 +302,7 @@ GEMSegmentStudies::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
 
                         std::cout<<"in the loop over digi strips ::"<<std::endl;
 
-                        std::set<GEMDigiSimLink> links = findGEMDigiSimLink(gemDetId.rawId(),i,bx);
+                        std::set<GEMDigiSimLink> links = findGEMDigiSimLink(iEvent,gemDetId.rawId(),i,bx);
 
                         if (links.empty()) edm::LogInfo("GEMSegmentStudies")
                         <<"*** WARNING in GEMSegmentStudies::associateRecHit, GEMRecHit "<<*rh<<", strip "<<i<<" has no associated GEMDigiSimLink !"<<std::endl;
@@ -300,6 +314,7 @@ GEMSegmentStudies::analyze(const edm::Event& iEvent, const edm::EventSetup& iSet
                                    int bx_matched = itlink->getBx();
                                    int particletype_matched = itlink->getParticleType();
                                    if(!(abs(particletype_matched) == 13 && bx_matched == 0 )) continue;
+                                   segInNum++;
 			           theGEMRecHits.push_back(*itlink); 
 			           myMapSeg.insert(MapTypeSeg::value_type(gems,theGEMRecHits));
           }
@@ -422,19 +437,22 @@ int num_sh_matched;
 #endif
 }
 
-std::set<GEMDigiSimLink>  GEMSegmentStudies::findGEMDigiSimLink(uint32_t gemDetId, int strip, int bx) const {
+std::set<GEMDigiSimLink>  GEMSegmentStudies::findGEMDigiSimLink(const edm::Event& iEvent, uint32_t gemDetId, int strip, int bx) const {
 
-   std::cout<<"in the loop of gem segment ::"<<std::endl; 
+   //std::cout<<"in the loop of gem segment ::"<<std::endl; 
    std::set<GEMDigiSimLink> links;
+
+      edm::Handle < edm::DetSetVector<GEMDigiSimLink> > theSimlinkDigis;
+      iEvent.getByToken(gemDigiSimLinkToken_, theSimlinkDigis);  
 
    std::cout<<"digi sim link Iter ::"<<theSimlinkDigis->size()<<std::endl;
 
      for (edm::DetSetVector<GEMDigiSimLink>::const_iterator itlink = theSimlinkDigis->begin(); itlink != theSimlinkDigis->end(); itlink++){
 
-       std::cout<<"in the loop of digi sim link  ::"<<std::endl;
+       //std::cout<<"in the loop of digi sim link  ::"<<std::endl;
        for(edm::DetSet<GEMDigiSimLink>::const_iterator digi_iter=itlink->data.begin();digi_iter != itlink->data.end();++digi_iter){
 
-       std::cout<<"in the loop of the data of digi sim link  ::"<<std::endl;
+       //std::cout<<"in the loop of the data of digi sim link  ::"<<std::endl;
 
        uint32_t detid = digi_iter->getDetUnitId();
        int str = digi_iter->getStrip();
