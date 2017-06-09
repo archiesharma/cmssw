@@ -91,7 +91,7 @@ class GEMSegmentStudies : public edm::one::EDAnalyzer<edm::one::SharedResources>
 		explicit GEMSegmentStudies(const edm::ParameterSet&);
                 ~GEMSegmentStudies();
                 
-                  
+                GEMSegmentStudies(const edm::Event& iEvent, const edm::EventSetup& iSetup);                               
 
 		static void fillDescriptions(edm::ConfigurationDescriptions& descriptions);
 
@@ -179,6 +179,10 @@ GEMSegmentStudies::GEMSegmentStudies(const edm::ParameterSet& iConfig)
 
 }
 
+GEMSegmentStudies::GEMSegmentStudies(const edm::Event& iEvent, const edm::EventSetup& iSetup)
+{
+  initEvent(iEvent,iSetup);
+}
 
 GEMSegmentStudies::~GEMSegmentStudies()
 {
