@@ -231,23 +231,27 @@ gemDigiInput_(consumes<GEMDigiCollection>(cfg.getParameter<edm::InputTag>("digiI
   grRatePerRoll_sta2->SetTitle("GEM Rate vs Roll Radius for Station2 - BKG model");
   
 
-  float bins1[] = {130.2, 141.5, 152.8, 166.3, 179.7, 195.8, 211.9, 231.3, 250.8};
+  float bins1[] = {130.2, 141.5, 152.9, 166.4, 179.9, 196.0, 212.2, 231.6, 251.1};
   int binnum1 = sizeof(bins1)/sizeof(float) - 1;
 
   hglobalR_Sta1_long = fs->make <TH1F> ("hglobalR_Sta1_long", "Rate from long chambers in station 1; Radius [cm]; Entries", binnum1, bins1);
 
-  float bins2[] = {130.2, 140.4, 150.6, 162.6, 174.5, 188.6, 202.6, 219.2, 235.8};
+  float bins2[] = {130.2, 140.4, 150.7, 162.7, 174.7, 188.8, 202.9, 219.6, 236.3};
   int binnum2 = sizeof(bins2)/sizeof(float) - 1;
 
   hglobalR_Sta1_short = fs->make <TH1F> ("hglobalR_Sta1_short", "Rate from short chambers in station 1; Radius [cm]; Entries", binnum2, bins2);
  
 
-  float bins3[] = {136.5, 158.1, 183.2, 204.8, 229.9, 251.4, 276.6, 298.1, 319.7};
+  //float bins3[] = {136.5, 158.1, 183.2, 204.8, 229.9, 251.4, 276.6, 298.1, 319.7};
+  //float bins3[] = {136.5, 156.1, 175.6, 179.2, 198.7, 218.2, 221.8, 245.4, 269.0, 272.5, 296.1, 319.7};
+  float bins3[] = {136.5, 158.1, 179.7, 183.2, 204.8, 226.3, 229.9, 251.4, 273.0, 276.6, 298.1, 319.7}; 
   int binnum3 = sizeof(bins3)/sizeof(float) - 1;
 
   hglobalR_Sta2_lay1 = fs->make <TH1F> ("hglobalR_Sta2_lay1", "Rate from layer 1 chambers in station 2; Radius [cm]; Entries", binnum3, bins3);
 
-  float bins4[] = {136.5, 156.1, 179.1, 198.7, 221.8, 245.4, 272.5, 296.1, 319.7};
+  //float bins4[] = {136.5, 156.1, 179.1, 198.7, 221.8, 245.4, 272.5, 296.1, 319.7};
+   // float bins4[] = {136.5, 158.1, 179.7, 183.2, 204.8, 226.3, 229.9, 251.4, 273.0, 276.6, 298.1, 319.7};
+  float bins4[] = {136.5, 156.1, 175.6, 179.2, 198.7, 218.2, 221.8, 245.4, 269.0, 272.5, 296.1, 319.7};
   int binnum4 = sizeof(bins4)/sizeof(float) - 1;
 
   hglobalR_Sta2_lay2 = fs->make <TH1F> ("hglobalR_Sta2_lay2", "Rate from layer 2 chambers in station 2; Radius [cm]; Entries", binnum4, bins4);
