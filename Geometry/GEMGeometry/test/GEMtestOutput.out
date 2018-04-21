@@ -1,0 +1,685 @@
+======================== Opening output file
+GEMGeometryAnalyzer: Analyzer...
+start --------------------------------------------------------------------------------------------------------
+ Geometry node for GEMGeom is  0x7fce057d8910
+ detTypes       	80
+ GeomDetUnit       	80
+ GeomDet           	95
+ GeomDetUnit DetIds	80
+ eta partitions 	80
+ chambers       	10
+ super chambers  	5
+ rings  		4
+ stations  		4
+ regions  		2
+ total number of strips	30720
+ total number of pads  	15360
+GEMGeometryAnalyzer: Begin iteration over geometry...
+iter --------------------------------------------------------------------------------------------------------
+GEMGeometryAnalyzerBegin GEMGeometry structure TEST
+  GEMRegion -1 has 2 stations.
+    GEMStation GE-1/1 has 1 rings.
+      GEMRing -1 1 1 has 5 super chambers.
+        GEMSuperChamber 1, GEMDetId = 671095552,  Re -1 Ri 1 St 1 La 0 Ch 28 Ro 0  has 2 chambers.
+          GEMChamber 1, GEMDetId = 671111936,  Re -1 Ri 1 St 1 La 1 Ch 28 Ro 0  has 8 eta partitions.
+            GEMEtaPartition 1, GEMDetId = 671177472,  Re -1 Ri 1 St 1 La 1 Ch 28 Ro 1 
+    		Type: GHA101
+    		Dimensions[cm]: b = 41.1402, B = 44.5858, h  = 19.405
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-3.07499e-14, -251.1, -565.369), top(eta,phi) = (-1.55079, 271)
+    		center(x,y,z)[cm] = (-2.95617e-14, -241.398, -565.369), center(eta,phi) = (-1.58692, 271)
+    		bottom(x,y,z)[cm] = (-2.83735e-14, -231.695, -565.369), bottom(eta,phi) = (-1.62477, 271)
+    		pitch (top,center,bottom) = (0.116109, 0.111622, 0.107136), dEta = 0.0739734, dPhi = 349.853
+            GEMEtaPartition 2, GEMDetId = 671243008,  Re -1 Ri 1 St 1 La 1 Ch 28 Ro 2 
+    		Type: GHA102
+    		Dimensions[cm]: b = 37.6857, B = 41.1313, h  = 19.405
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-2.83674e-14, -231.645, -565.369), top(eta,phi) = (-1.62497, 271)
+    		center(x,y,z)[cm] = (-2.71792e-14, -221.943, -565.369), center(eta,phi) = (-1.66468, 271)
+    		bottom(x,y,z)[cm] = (-2.59911e-14, -212.24, -565.369), bottom(eta,phi) = (-1.70641, 271)
+    		pitch (top,center,bottom) = (0.107113, 0.102626, 0.09814), dEta = 0.081443, dPhi = 349.853
+            GEMEtaPartition 3, GEMDetId = 671308544,  Re -1 Ri 1 St 1 La 1 Ch 28 Ro 3 
+    		Type: GHA103
+    		Dimensions[cm]: b = 34.8169, B = 37.6769, h  = 16.107
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-2.59849e-14, -212.19, -565.369), top(eta,phi) = (-1.70663, 271)
+    		center(x,y,z)[cm] = (-2.49987e-14, -204.137, -565.369), center(eta,phi) = (-1.74294, 271)
+    		bottom(x,y,z)[cm] = (-2.40125e-14, -196.083, -565.369), bottom(eta,phi) = (-1.78089, 271)
+    		pitch (top,center,bottom) = (0.0981168, 0.0943929, 0.090669), dEta = 0.0742551, dPhi = 349.853
+            GEMEtaPartition 4, GEMDetId = 671374080,  Re -1 Ri 1 St 1 La 1 Ch 28 Ro 4 
+    		Type: GHA104
+    		Dimensions[cm]: b = 31.948, B = 34.808, h  = 16.107
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-2.40063e-14, -196.033, -565.369), top(eta,phi) = (-1.78113, 271)
+    		center(x,y,z)[cm] = (-2.30201e-14, -187.98, -565.369), center(eta,phi) = (-1.82085, 271)
+    		bottom(x,y,z)[cm] = (-2.20339e-14, -179.926, -565.369), bottom(eta,phi) = (-1.86249, 271)
+    		pitch (top,center,bottom) = (0.0906458, 0.0869219, 0.083198), dEta = 0.0813613, dPhi = 349.853
+            GEMEtaPartition 5, GEMDetId = 671439616,  Re -1 Ri 1 St 1 La 1 Ch 28 Ro 5 
+    		Type: GHA105
+    		Dimensions[cm]: b = 29.5499, B = 31.9391, h  = 13.456
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-2.20277e-14, -179.876, -565.369), top(eta,phi) = (-1.86275, 271)
+    		center(x,y,z)[cm] = (-2.12038e-14, -173.148, -565.369), center(eta,phi) = (-1.89914, 271)
+    		bottom(x,y,z)[cm] = (-2.03799e-14, -166.42, -565.369), bottom(eta,phi) = (-1.9371, 271)
+    		pitch (top,center,bottom) = (0.0831748, 0.0800638, 0.0769528), dEta = 0.0743464, dPhi = 349.853
+            GEMEtaPartition 6, GEMDetId = 671505152,  Re -1 Ri 1 St 1 La 1 Ch 28 Ro 6 
+    		Type: GHA106
+    		Dimensions[cm]: b = 27.1517, B = 29.541, h  = 13.456
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-2.03738e-14, -166.37, -565.369), top(eta,phi) = (-1.93739, 271)
+    		center(x,y,z)[cm] = (-1.95499e-14, -159.642, -565.369), center(eta,phi) = (-1.97705, 271)
+    		bottom(x,y,z)[cm] = (-1.8726e-14, -152.914, -565.369), bottom(eta,phi) = (-2.01855, 271)
+    		pitch (top,center,bottom) = (0.0769296, 0.0738186, 0.0707076), dEta = 0.0811671, dPhi = 349.853
+            GEMEtaPartition 7, GEMDetId = 671570688,  Re -1 Ri 1 St 1 La 1 Ch 28 Ro 7 
+    		Type: GHA107
+    		Dimensions[cm]: b = 25.1351, B = 27.1428, h  = 11.307
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-1.87198e-14, -152.864, -565.369), top(eta,phi) = (-2.01887, 271)
+    		center(x,y,z)[cm] = (-1.80275e-14, -147.211, -565.369), center(eta,phi) = (-2.05529, 271)
+    		bottom(x,y,z)[cm] = (-1.73352e-14, -141.557, -565.369), bottom(eta,phi) = (-2.09324, 271)
+    		pitch (top,center,bottom) = (0.0706845, 0.0680703, 0.0654561), dEta = 0.0743678, dPhi = 349.853
+            GEMEtaPartition 8, GEMDetId = 671636224,  Re -1 Ri 1 St 1 La 1 Ch 28 Ro 8 
+    		Type: GHA108
+    		Dimensions[cm]: b = 23.1186, B = 25.1263, h  = 11.307
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-1.73291e-14, -141.507, -565.369), top(eta,phi) = (-2.09358, 271)
+    		center(x,y,z)[cm] = (-1.66367e-14, -135.854, -565.369), center(eta,phi) = (-2.13318, 271)
+    		bottom(x,y,z)[cm] = (-1.59444e-14, -130.2, -565.369), bottom(eta,phi) = (-2.17456, 271)
+    		pitch (top,center,bottom) = (0.065433, 0.0628188, 0.0602046), dEta = 0.0809739, dPhi = 349.853
+          GEMChamber 2, GEMDetId = 671128320,  Re -1 Ri 1 St 1 La 2 Ch 28 Ro 0  has 8 eta partitions.
+            GEMEtaPartition 1, GEMDetId = 671193856,  Re -1 Ri 1 St 1 La 2 Ch 28 Ro 1 
+    		Type: GHA101
+    		Dimensions[cm]: b = 41.1402, B = 44.5858, h  = 19.405
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-3.07499e-14, -251.1, -569.209), top(eta,phi) = (-1.55698, 271)
+    		center(x,y,z)[cm] = (-2.95617e-14, -241.398, -569.209), center(eta,phi) = (-1.59315, 271)
+    		bottom(x,y,z)[cm] = (-2.83735e-14, -231.695, -569.209), bottom(eta,phi) = (-1.63103, 271)
+    		pitch (top,center,bottom) = (0.116109, 0.111622, 0.107136), dEta = 0.0740503, dPhi = 349.853
+            GEMEtaPartition 2, GEMDetId = 671259392,  Re -1 Ri 1 St 1 La 2 Ch 28 Ro 2 
+    		Type: GHA102
+    		Dimensions[cm]: b = 37.6857, B = 41.1313, h  = 19.405
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-2.83674e-14, -231.645, -569.209), top(eta,phi) = (-1.63123, 271)
+    		center(x,y,z)[cm] = (-2.71792e-14, -221.943, -569.209), center(eta,phi) = (-1.67098, 271)
+    		bottom(x,y,z)[cm] = (-2.59911e-14, -212.24, -569.209), bottom(eta,phi) = (-1.71275, 271)
+    		pitch (top,center,bottom) = (0.107113, 0.102626, 0.09814), dEta = 0.0815159, dPhi = 349.853
+            GEMEtaPartition 3, GEMDetId = 671324928,  Re -1 Ri 1 St 1 La 2 Ch 28 Ro 3 
+    		Type: GHA103
+    		Dimensions[cm]: b = 34.8169, B = 37.6769, h  = 16.107
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-2.59849e-14, -212.19, -569.209), top(eta,phi) = (-1.71297, 271)
+    		center(x,y,z)[cm] = (-2.49987e-14, -204.137, -569.209), center(eta,phi) = (-1.74931, 271)
+    		bottom(x,y,z)[cm] = (-2.40125e-14, -196.083, -569.209), bottom(eta,phi) = (-1.78728, 271)
+    		pitch (top,center,bottom) = (0.0981168, 0.0943929, 0.090669), dEta = 0.0743126, dPhi = 349.853
+            GEMEtaPartition 4, GEMDetId = 671390464,  Re -1 Ri 1 St 1 La 2 Ch 28 Ro 4 
+    		Type: GHA104
+    		Dimensions[cm]: b = 31.948, B = 34.808, h  = 16.107
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-2.40063e-14, -196.033, -569.209), top(eta,phi) = (-1.78752, 271)
+    		center(x,y,z)[cm] = (-2.30201e-14, -187.98, -569.209), center(eta,phi) = (-1.82727, 271)
+    		bottom(x,y,z)[cm] = (-2.20339e-14, -179.926, -569.209), bottom(eta,phi) = (-1.86894, 271)
+    		pitch (top,center,bottom) = (0.0906458, 0.0869219, 0.083198), dEta = 0.0814157, dPhi = 349.853
+            GEMEtaPartition 5, GEMDetId = 671456000,  Re -1 Ri 1 St 1 La 2 Ch 28 Ro 5 
+    		Type: GHA105
+    		Dimensions[cm]: b = 29.5499, B = 31.9391, h  = 13.456
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-2.20277e-14, -179.876, -569.209), top(eta,phi) = (-1.86921, 271)
+    		center(x,y,z)[cm] = (-2.12038e-14, -173.148, -569.209), center(eta,phi) = (-1.90562, 271)
+    		bottom(x,y,z)[cm] = (-2.03799e-14, -166.42, -569.209), bottom(eta,phi) = (-1.94359, 271)
+    		pitch (top,center,bottom) = (0.0831748, 0.0800638, 0.0769528), dEta = 0.0743895, dPhi = 349.853
+            GEMEtaPartition 6, GEMDetId = 671521536,  Re -1 Ri 1 St 1 La 2 Ch 28 Ro 6 
+    		Type: GHA106
+    		Dimensions[cm]: b = 27.1517, B = 29.541, h  = 13.456
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-2.03738e-14, -166.37, -569.209), top(eta,phi) = (-1.94388, 271)
+    		center(x,y,z)[cm] = (-1.95499e-14, -159.642, -569.209), center(eta,phi) = (-1.98357, 271)
+    		bottom(x,y,z)[cm] = (-1.8726e-14, -152.914, -569.209), bottom(eta,phi) = (-2.02509, 271)
+    		pitch (top,center,bottom) = (0.0769296, 0.0738186, 0.0707076), dEta = 0.0812072, dPhi = 349.853
+            GEMEtaPartition 7, GEMDetId = 671587072,  Re -1 Ri 1 St 1 La 2 Ch 28 Ro 7 
+    		Type: GHA107
+    		Dimensions[cm]: b = 25.1351, B = 27.1428, h  = 11.307
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-1.87198e-14, -152.864, -569.209), top(eta,phi) = (-2.02541, 271)
+    		center(x,y,z)[cm] = (-1.80275e-14, -147.211, -569.209), center(eta,phi) = (-2.06185, 271)
+    		bottom(x,y,z)[cm] = (-1.73352e-14, -141.557, -569.209), bottom(eta,phi) = (-2.09981, 271)
+    		pitch (top,center,bottom) = (0.0706845, 0.0680703, 0.0654561), dEta = 0.0743997, dPhi = 349.853
+            GEMEtaPartition 8, GEMDetId = 671652608,  Re -1 Ri 1 St 1 La 2 Ch 28 Ro 8 
+    		Type: GHA108
+    		Dimensions[cm]: b = 23.1186, B = 25.1263, h  = 11.307
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-1.73291e-14, -141.507, -569.209), top(eta,phi) = (-2.10015, 271)
+    		center(x,y,z)[cm] = (-1.66367e-14, -135.854, -569.209), center(eta,phi) = (-2.13976, 271)
+    		bottom(x,y,z)[cm] = (-1.59444e-14, -130.2, -569.209), bottom(eta,phi) = (-2.18115, 271)
+    		pitch (top,center,bottom) = (0.065433, 0.0628188, 0.0602046), dEta = 0.0810037, dPhi = 349.853
+        GEMSuperChamber 2, GEMDetId = 671096064,  Re -1 Ri 1 St 1 La 0 Ch 30 Ro 0  has 2 chambers.
+          GEMChamber 1, GEMDetId = 671112448,  Re -1 Ri 1 St 1 La 1 Ch 30 Ro 0  has 8 eta partitions.
+            GEMEtaPartition 1, GEMDetId = 671177984,  Re -1 Ri 1 St 1 La 1 Ch 30 Ro 1 
+    		Type: GHA101
+    		Dimensions[cm]: b = 41.1402, B = 44.5858, h  = 19.405
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (85.8813, -235.957, -565.369), top(eta,phi) = (-1.55079, 290)
+    		center(x,y,z)[cm] = (82.5629, -226.84, -565.369), center(eta,phi) = (-1.58692, 290)
+    		bottom(x,y,z)[cm] = (79.2444, -217.722, -565.369), bottom(eta,phi) = (-1.62477, 290)
+    		pitch (top,center,bottom) = (0.116109, 0.111622, 0.107136), dEta = 0.0739734, dPhi = 349.853
+            GEMEtaPartition 2, GEMDetId = 671243520,  Re -1 Ri 1 St 1 La 1 Ch 30 Ro 2 
+    		Type: GHA102
+    		Dimensions[cm]: b = 37.6857, B = 41.1313, h  = 19.405
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (79.2273, -217.675, -565.369), top(eta,phi) = (-1.62497, 290)
+    		center(x,y,z)[cm] = (75.9089, -208.558, -565.369), center(eta,phi) = (-1.66468, 290)
+    		bottom(x,y,z)[cm] = (72.5904, -199.44, -565.369), bottom(eta,phi) = (-1.70641, 290)
+    		pitch (top,center,bottom) = (0.107113, 0.102626, 0.09814), dEta = 0.081443, dPhi = 349.853
+            GEMEtaPartition 3, GEMDetId = 671309056,  Re -1 Ri 1 St 1 La 1 Ch 30 Ro 3 
+    		Type: GHA103
+    		Dimensions[cm]: b = 34.8169, B = 37.6769, h  = 16.107
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (72.5733, -199.393, -565.369), top(eta,phi) = (-1.70663, 290)
+    		center(x,y,z)[cm] = (69.8188, -191.826, -565.369), center(eta,phi) = (-1.74294, 290)
+    		bottom(x,y,z)[cm] = (67.0644, -184.258, -565.369), bottom(eta,phi) = (-1.78089, 290)
+    		pitch (top,center,bottom) = (0.0981168, 0.0943929, 0.090669), dEta = 0.0742551, dPhi = 349.853
+            GEMEtaPartition 4, GEMDetId = 671374592,  Re -1 Ri 1 St 1 La 1 Ch 30 Ro 4 
+    		Type: GHA104
+    		Dimensions[cm]: b = 31.948, B = 34.808, h  = 16.107
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (67.0473, -184.211, -565.369), top(eta,phi) = (-1.78113, 290)
+    		center(x,y,z)[cm] = (64.2928, -176.643, -565.369), center(eta,phi) = (-1.82085, 290)
+    		bottom(x,y,z)[cm] = (61.5384, -169.075, -565.369), bottom(eta,phi) = (-1.86249, 290)
+    		pitch (top,center,bottom) = (0.0906458, 0.0869219, 0.083198), dEta = 0.0813613, dPhi = 349.853
+            GEMEtaPartition 5, GEMDetId = 671440128,  Re -1 Ri 1 St 1 La 1 Ch 30 Ro 5 
+    		Type: GHA105
+    		Dimensions[cm]: b = 29.5499, B = 31.9391, h  = 13.456
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (61.5213, -169.028, -565.369), top(eta,phi) = (-1.86275, 290)
+    		center(x,y,z)[cm] = (59.2201, -162.706, -565.369), center(eta,phi) = (-1.89914, 290)
+    		bottom(x,y,z)[cm] = (56.919, -156.384, -565.369), bottom(eta,phi) = (-1.9371, 290)
+    		pitch (top,center,bottom) = (0.0831748, 0.0800638, 0.0769528), dEta = 0.0743464, dPhi = 349.853
+            GEMEtaPartition 6, GEMDetId = 671505664,  Re -1 Ri 1 St 1 La 1 Ch 30 Ro 6 
+    		Type: GHA106
+    		Dimensions[cm]: b = 27.1517, B = 29.541, h  = 13.456
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (56.9019, -156.337, -565.369), top(eta,phi) = (-1.93739, 290)
+    		center(x,y,z)[cm] = (54.6008, -150.015, -565.369), center(eta,phi) = (-1.97705, 290)
+    		bottom(x,y,z)[cm] = (52.2997, -143.692, -565.369), bottom(eta,phi) = (-2.01855, 290)
+    		pitch (top,center,bottom) = (0.0769296, 0.0738186, 0.0707076), dEta = 0.081167, dPhi = 349.853
+            GEMEtaPartition 7, GEMDetId = 671571200,  Re -1 Ri 1 St 1 La 1 Ch 30 Ro 7 
+    		Type: GHA107
+    		Dimensions[cm]: b = 25.1351, B = 27.1428, h  = 11.307
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (52.2826, -143.645, -565.369), top(eta,phi) = (-2.01887, 290)
+    		center(x,y,z)[cm] = (50.349, -138.333, -565.369), center(eta,phi) = (-2.05529, 290)
+    		bottom(x,y,z)[cm] = (48.4154, -133.02, -565.369), bottom(eta,phi) = (-2.09324, 290)
+    		pitch (top,center,bottom) = (0.0706845, 0.0680703, 0.0654561), dEta = 0.0743678, dPhi = 349.853
+            GEMEtaPartition 8, GEMDetId = 671636736,  Re -1 Ri 1 St 1 La 1 Ch 30 Ro 8 
+    		Type: GHA108
+    		Dimensions[cm]: b = 23.1186, B = 25.1263, h  = 11.307
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (48.3983, -132.973, -565.369), top(eta,phi) = (-2.09358, 290)
+    		center(x,y,z)[cm] = (46.4647, -127.661, -565.369), center(eta,phi) = (-2.13318, 290)
+    		bottom(x,y,z)[cm] = (44.5311, -122.348, -565.369), bottom(eta,phi) = (-2.17456, 290)
+    		pitch (top,center,bottom) = (0.065433, 0.0628188, 0.0602046), dEta = 0.0809739, dPhi = 349.853
+          GEMChamber 2, GEMDetId = 671128832,  Re -1 Ri 1 St 1 La 2 Ch 30 Ro 0  has 8 eta partitions.
+            GEMEtaPartition 1, GEMDetId = 671194368,  Re -1 Ri 1 St 1 La 2 Ch 30 Ro 1 
+    		Type: GHA101
+    		Dimensions[cm]: b = 41.1402, B = 44.5858, h  = 19.405
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (85.8813, -235.957, -569.209), top(eta,phi) = (-1.55698, 290)
+    		center(x,y,z)[cm] = (82.5629, -226.84, -569.209), center(eta,phi) = (-1.59315, 290)
+    		bottom(x,y,z)[cm] = (79.2444, -217.722, -569.209), bottom(eta,phi) = (-1.63103, 290)
+    		pitch (top,center,bottom) = (0.116109, 0.111622, 0.107136), dEta = 0.0740503, dPhi = 349.853
+            GEMEtaPartition 2, GEMDetId = 671259904,  Re -1 Ri 1 St 1 La 2 Ch 30 Ro 2 
+    		Type: GHA102
+    		Dimensions[cm]: b = 37.6857, B = 41.1313, h  = 19.405
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (79.2273, -217.675, -569.209), top(eta,phi) = (-1.63123, 290)
+    		center(x,y,z)[cm] = (75.9089, -208.558, -569.209), center(eta,phi) = (-1.67098, 290)
+    		bottom(x,y,z)[cm] = (72.5904, -199.44, -569.209), bottom(eta,phi) = (-1.71275, 290)
+    		pitch (top,center,bottom) = (0.107113, 0.102626, 0.09814), dEta = 0.0815159, dPhi = 349.853
+            GEMEtaPartition 3, GEMDetId = 671325440,  Re -1 Ri 1 St 1 La 2 Ch 30 Ro 3 
+    		Type: GHA103
+    		Dimensions[cm]: b = 34.8169, B = 37.6769, h  = 16.107
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (72.5733, -199.393, -569.209), top(eta,phi) = (-1.71297, 290)
+    		center(x,y,z)[cm] = (69.8188, -191.826, -569.209), center(eta,phi) = (-1.74931, 290)
+    		bottom(x,y,z)[cm] = (67.0644, -184.258, -569.209), bottom(eta,phi) = (-1.78728, 290)
+    		pitch (top,center,bottom) = (0.0981168, 0.0943929, 0.090669), dEta = 0.0743126, dPhi = 349.853
+            GEMEtaPartition 4, GEMDetId = 671390976,  Re -1 Ri 1 St 1 La 2 Ch 30 Ro 4 
+    		Type: GHA104
+    		Dimensions[cm]: b = 31.948, B = 34.808, h  = 16.107
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (67.0473, -184.211, -569.209), top(eta,phi) = (-1.78752, 290)
+    		center(x,y,z)[cm] = (64.2928, -176.643, -569.209), center(eta,phi) = (-1.82727, 290)
+    		bottom(x,y,z)[cm] = (61.5384, -169.075, -569.209), bottom(eta,phi) = (-1.86894, 290)
+    		pitch (top,center,bottom) = (0.0906458, 0.0869219, 0.083198), dEta = 0.0814157, dPhi = 349.853
+            GEMEtaPartition 5, GEMDetId = 671456512,  Re -1 Ri 1 St 1 La 2 Ch 30 Ro 5 
+    		Type: GHA105
+    		Dimensions[cm]: b = 29.5499, B = 31.9391, h  = 13.456
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (61.5213, -169.028, -569.209), top(eta,phi) = (-1.86921, 290)
+    		center(x,y,z)[cm] = (59.2201, -162.706, -569.209), center(eta,phi) = (-1.90562, 290)
+    		bottom(x,y,z)[cm] = (56.919, -156.384, -569.209), bottom(eta,phi) = (-1.94359, 290)
+    		pitch (top,center,bottom) = (0.0831748, 0.0800638, 0.0769528), dEta = 0.0743895, dPhi = 349.853
+            GEMEtaPartition 6, GEMDetId = 671522048,  Re -1 Ri 1 St 1 La 2 Ch 30 Ro 6 
+    		Type: GHA106
+    		Dimensions[cm]: b = 27.1517, B = 29.541, h  = 13.456
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (56.9019, -156.337, -569.209), top(eta,phi) = (-1.94388, 290)
+    		center(x,y,z)[cm] = (54.6008, -150.015, -569.209), center(eta,phi) = (-1.98357, 290)
+    		bottom(x,y,z)[cm] = (52.2997, -143.692, -569.209), bottom(eta,phi) = (-2.02509, 290)
+    		pitch (top,center,bottom) = (0.0769296, 0.0738186, 0.0707076), dEta = 0.0812073, dPhi = 349.853
+            GEMEtaPartition 7, GEMDetId = 671587584,  Re -1 Ri 1 St 1 La 2 Ch 30 Ro 7 
+    		Type: GHA107
+    		Dimensions[cm]: b = 25.1351, B = 27.1428, h  = 11.307
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (52.2826, -143.645, -569.209), top(eta,phi) = (-2.02541, 290)
+    		center(x,y,z)[cm] = (50.349, -138.333, -569.209), center(eta,phi) = (-2.06185, 290)
+    		bottom(x,y,z)[cm] = (48.4154, -133.02, -569.209), bottom(eta,phi) = (-2.09981, 290)
+    		pitch (top,center,bottom) = (0.0706845, 0.0680703, 0.0654561), dEta = 0.0743997, dPhi = 349.853
+            GEMEtaPartition 8, GEMDetId = 671653120,  Re -1 Ri 1 St 1 La 2 Ch 30 Ro 8 
+    		Type: GHA108
+    		Dimensions[cm]: b = 23.1186, B = 25.1263, h  = 11.307
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (48.3983, -132.973, -569.209), top(eta,phi) = (-2.10015, 290)
+    		center(x,y,z)[cm] = (46.4647, -127.661, -569.209), center(eta,phi) = (-2.13976, 290)
+    		bottom(x,y,z)[cm] = (44.5311, -122.348, -569.209), bottom(eta,phi) = (-2.18115, 290)
+    		pitch (top,center,bottom) = (0.065433, 0.0628188, 0.0602046), dEta = 0.0810037, dPhi = 349.853
+        GEMSuperChamber 3, GEMDetId = 671095296,  Re -1 Ri 1 St 1 La 0 Ch 27 Ro 0  has 2 chambers.
+          GEMChamber 1, GEMDetId = 671111680,  Re -1 Ri 1 St 1 La 1 Ch 27 Ro 0  has 8 eta partitions.
+            GEMEtaPartition 1, GEMDetId = 671177216,  Re -1 Ri 1 St 1 La 1 Ch 27 Ro 1 
+    		Type: GHA111
+    		Dimensions[cm]: b = 39.0006, B = 41.9579, h  = 16.655
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-41.0331, -232.71, -567.971), top(eta,phi) = (-1.61082, 260)
+    		center(x,y,z)[cm] = (-39.587, -224.509, -567.971), center(eta,phi) = (-1.64403, 260)
+    		bottom(x,y,z)[cm] = (-38.141, -216.308, -567.971), bottom(eta,phi) = (-1.67865, 260)
+    		pitch (top,center,bottom) = (0.109265, 0.105415, 0.101564), dEta = 0.0678327, dPhi = 10.1469
+            GEMEtaPartition 2, GEMDetId = 671242752,  Re -1 Ri 1 St 1 La 1 Ch 27 Ro 2 
+    		Type: GHA112
+    		Dimensions[cm]: b = 36.0344, B = 38.9917, h  = 16.655
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-38.1323, -216.259, -567.971), top(eta,phi) = (-1.67887, 260)
+    		center(x,y,z)[cm] = (-36.6862, -208.058, -567.971), center(eta,phi) = (-1.71501, 260)
+    		bottom(x,y,z)[cm] = (-35.2402, -199.857, -567.971), bottom(eta,phi) = (-1.7528, 260)
+    		pitch (top,center,bottom) = (0.101541, 0.0976903, 0.0938396), dEta = 0.0739292, dPhi = 10.1469
+            GEMEtaPartition 3, GEMDetId = 671308288,  Re -1 Ri 1 St 1 La 1 Ch 27 Ro 3 
+    		Type: GHA113
+    		Dimensions[cm]: b = 33.5296, B = 36.0255, h  = 14.057
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-35.2315, -199.808, -567.971), top(eta,phi) = (-1.75303, 260)
+    		center(x,y,z)[cm] = (-34.011, -192.886, -567.971), center(eta,phi) = (-1.78629, 260)
+    		bottom(x,y,z)[cm] = (-32.7905, -185.964, -567.971), bottom(eta,phi) = (-1.82091, 260)
+    		pitch (top,center,bottom) = (0.0938165, 0.0905665, 0.0873166), dEta = 0.0678803, dPhi = 10.1469
+            GEMEtaPartition 4, GEMDetId = 671373824,  Re -1 Ri 1 St 1 La 1 Ch 27 Ro 4 
+    		Type: GHA114
+    		Dimensions[cm]: b = 31.0247, B = 33.5207, h  = 14.057
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-32.7818, -185.915, -567.971), top(eta,phi) = (-1.82116, 260)
+    		center(x,y,z)[cm] = (-31.5614, -178.993, -567.971), center(eta,phi) = (-1.85723, 260)
+    		bottom(x,y,z)[cm] = (-30.3409, -172.072, -567.971), bottom(eta,phi) = (-1.89486, 260)
+    		pitch (top,center,bottom) = (0.0872934, 0.0840435, 0.0807935), dEta = 0.0736998, dPhi = 10.1469
+            GEMEtaPartition 5, GEMDetId = 671439360,  Re -1 Ri 1 St 1 La 1 Ch 27 Ro 5 
+    		Type: GHA115
+    		Dimensions[cm]: b = 28.8927, B = 31.0158, h  = 11.957
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-30.3322, -172.022, -567.971), top(eta,phi) = (-1.89513, 260)
+    		center(x,y,z)[cm] = (-29.294, -166.135, -567.971), center(eta,phi) = (-1.92847, 260)
+    		bottom(x,y,z)[cm] = (-28.2559, -160.247, -567.971), bottom(eta,phi) = (-1.96311, 260)
+    		pitch (top,center,bottom) = (0.0807704, 0.0780059, 0.0752414), dEta = 0.0679746, dPhi = 10.1469
+            GEMEtaPartition 6, GEMDetId = 671504896,  Re -1 Ri 1 St 1 La 1 Ch 27 Ro 6 
+    		Type: GHA116
+    		Dimensions[cm]: b = 26.7607, B = 28.8838, h  = 11.957
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-28.2472, -160.198, -567.971), top(eta,phi) = (-1.9634, 260)
+    		center(x,y,z)[cm] = (-27.209, -154.31, -567.971), center(eta,phi) = (-1.99945, 260)
+    		bottom(x,y,z)[cm] = (-26.1709, -148.422, -567.971), bottom(eta,phi) = (-2.037, 260)
+    		pitch (top,center,bottom) = (0.0752183, 0.0724538, 0.0696894), dEta = 0.073599, dPhi = 10.1469
+            GEMEtaPartition 7, GEMDetId = 671570432,  Re -1 Ri 1 St 1 La 1 Ch 27 Ro 7 
+    		Type: GHA117
+    		Dimensions[cm]: b = 24.9396, B = 26.7518, h  = 10.206
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-26.1622, -148.373, -567.971), top(eta,phi) = (-2.03732, 260)
+    		center(x,y,z)[cm] = (-25.2761, -143.348, -567.971), center(eta,phi) = (-2.07066, 260)
+    		bottom(x,y,z)[cm] = (-24.3899, -138.322, -567.971), bottom(eta,phi) = (-2.10527, 260)
+    		pitch (top,center,bottom) = (0.0696663, 0.0673066, 0.064947), dEta = 0.0679498, dPhi = 10.1469
+            GEMEtaPartition 8, GEMDetId = 671635968,  Re -1 Ri 1 St 1 La 1 Ch 27 Ro 8 
+    		Type: GHA118
+    		Dimensions[cm]: b = 23.1186, B = 24.9308, h  = 10.206
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-24.3813, -138.273, -567.971), top(eta,phi) = (-2.10562, 260)
+    		center(x,y,z)[cm] = (-23.4951, -133.248, -567.971), center(eta,phi) = (-2.14159, 260)
+    		bottom(x,y,z)[cm] = (-22.609, -128.222, -567.971), bottom(eta,phi) = (-2.17903, 260)
+    		pitch (top,center,bottom) = (0.0649239, 0.0625643, 0.0602046), dEta = 0.0734131, dPhi = 10.1469
+          GEMChamber 2, GEMDetId = 671128064,  Re -1 Ri 1 St 1 La 2 Ch 27 Ro 0  has 8 eta partitions.
+            GEMEtaPartition 1, GEMDetId = 671193600,  Re -1 Ri 1 St 1 La 2 Ch 27 Ro 1 
+    		Type: GHA111
+    		Dimensions[cm]: b = 39.0006, B = 41.9579, h  = 16.655
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-41.0331, -232.71, -571.811), top(eta,phi) = (-1.61705, 260)
+    		center(x,y,z)[cm] = (-39.587, -224.509, -571.811), center(eta,phi) = (-1.65029, 260)
+    		bottom(x,y,z)[cm] = (-38.141, -216.308, -571.811), bottom(eta,phi) = (-1.68494, 260)
+    		pitch (top,center,bottom) = (0.109265, 0.105415, 0.101564), dEta = 0.0678957, dPhi = 10.1469
+            GEMEtaPartition 2, GEMDetId = 671259136,  Re -1 Ri 1 St 1 La 2 Ch 27 Ro 2 
+    		Type: GHA112
+    		Dimensions[cm]: b = 36.0344, B = 38.9917, h  = 16.655
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-38.1323, -216.259, -571.811), top(eta,phi) = (-1.68515, 260)
+    		center(x,y,z)[cm] = (-36.6862, -208.058, -571.811), center(eta,phi) = (-1.72133, 260)
+    		bottom(x,y,z)[cm] = (-35.2402, -199.857, -571.811), bottom(eta,phi) = (-1.75914, 260)
+    		pitch (top,center,bottom) = (0.101541, 0.0976903, 0.0938396), dEta = 0.0739893, dPhi = 10.1469
+            GEMEtaPartition 3, GEMDetId = 671324672,  Re -1 Ri 1 St 1 La 2 Ch 27 Ro 3 
+    		Type: GHA113
+    		Dimensions[cm]: b = 33.5296, B = 36.0255, h  = 14.057
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-35.2315, -199.808, -571.811), top(eta,phi) = (-1.75938, 260)
+    		center(x,y,z)[cm] = (-34.011, -192.886, -571.811), center(eta,phi) = (-1.79267, 260)
+    		bottom(x,y,z)[cm] = (-32.7905, -185.964, -571.811), bottom(eta,phi) = (-1.8273, 260)
+    		pitch (top,center,bottom) = (0.0938165, 0.0905665, 0.0873166), dEta = 0.0679286, dPhi = 10.1469
+            GEMEtaPartition 4, GEMDetId = 671390208,  Re -1 Ri 1 St 1 La 2 Ch 27 Ro 4 
+    		Type: GHA114
+    		Dimensions[cm]: b = 31.0247, B = 33.5207, h  = 14.057
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-32.7818, -185.915, -571.811), top(eta,phi) = (-1.82756, 260)
+    		center(x,y,z)[cm] = (-31.5614, -178.993, -571.811), center(eta,phi) = (-1.86365, 260)
+    		bottom(x,y,z)[cm] = (-30.3409, -172.072, -571.811), bottom(eta,phi) = (-1.9013, 260)
+    		pitch (top,center,bottom) = (0.0872934, 0.0840435, 0.0807935), dEta = 0.0737456, dPhi = 10.1469
+            GEMEtaPartition 5, GEMDetId = 671455744,  Re -1 Ri 1 St 1 La 2 Ch 27 Ro 5 
+    		Type: GHA115
+    		Dimensions[cm]: b = 28.8927, B = 31.0158, h  = 11.957
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-30.3322, -172.022, -571.811), top(eta,phi) = (-1.90158, 260)
+    		center(x,y,z)[cm] = (-29.294, -166.135, -571.811), center(eta,phi) = (-1.93493, 260)
+    		bottom(x,y,z)[cm] = (-28.2559, -160.247, -571.811), bottom(eta,phi) = (-1.96959, 260)
+    		pitch (top,center,bottom) = (0.0807704, 0.0780059, 0.0752414), dEta = 0.0680115, dPhi = 10.1469
+            GEMEtaPartition 6, GEMDetId = 671521280,  Re -1 Ri 1 St 1 La 2 Ch 27 Ro 6 
+    		Type: GHA116
+    		Dimensions[cm]: b = 26.7607, B = 28.8838, h  = 11.957
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-28.2472, -160.198, -571.811), top(eta,phi) = (-1.96988, 260)
+    		center(x,y,z)[cm] = (-27.209, -154.31, -571.811), center(eta,phi) = (-2.00595, 260)
+    		bottom(x,y,z)[cm] = (-26.1709, -148.422, -571.811), bottom(eta,phi) = (-2.04352, 260)
+    		pitch (top,center,bottom) = (0.0752183, 0.0724538, 0.0696894), dEta = 0.0736338, dPhi = 10.1469
+            GEMEtaPartition 7, GEMDetId = 671586816,  Re -1 Ri 1 St 1 La 2 Ch 27 Ro 7 
+    		Type: GHA117
+    		Dimensions[cm]: b = 24.9396, B = 26.7518, h  = 10.206
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-26.1622, -148.373, -571.811), top(eta,phi) = (-2.04384, 260)
+    		center(x,y,z)[cm] = (-25.2761, -143.348, -571.811), center(eta,phi) = (-2.07719, 260)
+    		bottom(x,y,z)[cm] = (-24.3899, -138.322, -571.811), bottom(eta,phi) = (-2.11181, 260)
+    		pitch (top,center,bottom) = (0.0696663, 0.0673066, 0.064947), dEta = 0.0679777, dPhi = 10.1469
+            GEMEtaPartition 8, GEMDetId = 671652352,  Re -1 Ri 1 St 1 La 2 Ch 27 Ro 8 
+    		Type: GHA118
+    		Dimensions[cm]: b = 23.1186, B = 24.9308, h  = 10.206
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (-24.3813, -138.273, -571.811), top(eta,phi) = (-2.11216, 260)
+    		center(x,y,z)[cm] = (-23.4951, -133.248, -571.811), center(eta,phi) = (-2.14815, 260)
+    		bottom(x,y,z)[cm] = (-22.609, -128.222, -571.811), bottom(eta,phi) = (-2.1856, 260)
+    		pitch (top,center,bottom) = (0.0649239, 0.0625643, 0.0602046), dEta = 0.0734396, dPhi = 10.1469
+        GEMSuperChamber 4, GEMDetId = 671095808,  Re -1 Ri 1 St 1 La 0 Ch 29 Ro 0  has 2 chambers.
+          GEMChamber 1, GEMDetId = 671112192,  Re -1 Ri 1 St 1 La 1 Ch 29 Ro 0  has 8 eta partitions.
+            GEMEtaPartition 1, GEMDetId = 671177728,  Re -1 Ri 1 St 1 La 1 Ch 29 Ro 1 
+    		Type: GHA111
+    		Dimensions[cm]: b = 39.0006, B = 41.9579, h  = 16.655
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (41.0331, -232.71, -567.971), top(eta,phi) = (-1.61082, 280)
+    		center(x,y,z)[cm] = (39.587, -224.509, -567.971), center(eta,phi) = (-1.64403, 280)
+    		bottom(x,y,z)[cm] = (38.141, -216.308, -567.971), bottom(eta,phi) = (-1.67865, 280)
+    		pitch (top,center,bottom) = (0.109265, 0.105415, 0.101564), dEta = 0.0678327, dPhi = 10.1469
+            GEMEtaPartition 2, GEMDetId = 671243264,  Re -1 Ri 1 St 1 La 1 Ch 29 Ro 2 
+    		Type: GHA112
+    		Dimensions[cm]: b = 36.0344, B = 38.9917, h  = 16.655
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (38.1323, -216.259, -567.971), top(eta,phi) = (-1.67887, 280)
+    		center(x,y,z)[cm] = (36.6862, -208.058, -567.971), center(eta,phi) = (-1.71501, 280)
+    		bottom(x,y,z)[cm] = (35.2402, -199.857, -567.971), bottom(eta,phi) = (-1.7528, 280)
+    		pitch (top,center,bottom) = (0.101541, 0.0976903, 0.0938396), dEta = 0.0739292, dPhi = 10.1469
+            GEMEtaPartition 3, GEMDetId = 671308800,  Re -1 Ri 1 St 1 La 1 Ch 29 Ro 3 
+    		Type: GHA113
+    		Dimensions[cm]: b = 33.5296, B = 36.0255, h  = 14.057
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (35.2315, -199.808, -567.971), top(eta,phi) = (-1.75303, 280)
+    		center(x,y,z)[cm] = (34.011, -192.886, -567.971), center(eta,phi) = (-1.78629, 280)
+    		bottom(x,y,z)[cm] = (32.7905, -185.964, -567.971), bottom(eta,phi) = (-1.82091, 280)
+    		pitch (top,center,bottom) = (0.0938165, 0.0905665, 0.0873166), dEta = 0.0678803, dPhi = 10.1469
+            GEMEtaPartition 4, GEMDetId = 671374336,  Re -1 Ri 1 St 1 La 1 Ch 29 Ro 4 
+    		Type: GHA114
+    		Dimensions[cm]: b = 31.0247, B = 33.5207, h  = 14.057
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (32.7818, -185.915, -567.971), top(eta,phi) = (-1.82116, 280)
+    		center(x,y,z)[cm] = (31.5614, -178.993, -567.971), center(eta,phi) = (-1.85723, 280)
+    		bottom(x,y,z)[cm] = (30.3409, -172.072, -567.971), bottom(eta,phi) = (-1.89486, 280)
+    		pitch (top,center,bottom) = (0.0872934, 0.0840435, 0.0807935), dEta = 0.0736998, dPhi = 10.1469
+            GEMEtaPartition 5, GEMDetId = 671439872,  Re -1 Ri 1 St 1 La 1 Ch 29 Ro 5 
+    		Type: GHA115
+    		Dimensions[cm]: b = 28.8927, B = 31.0158, h  = 11.957
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (30.3322, -172.022, -567.971), top(eta,phi) = (-1.89513, 280)
+    		center(x,y,z)[cm] = (29.294, -166.135, -567.971), center(eta,phi) = (-1.92847, 280)
+    		bottom(x,y,z)[cm] = (28.2559, -160.247, -567.971), bottom(eta,phi) = (-1.96311, 280)
+    		pitch (top,center,bottom) = (0.0807704, 0.0780059, 0.0752414), dEta = 0.0679746, dPhi = 10.1469
+            GEMEtaPartition 6, GEMDetId = 671505408,  Re -1 Ri 1 St 1 La 1 Ch 29 Ro 6 
+    		Type: GHA116
+    		Dimensions[cm]: b = 26.7607, B = 28.8838, h  = 11.957
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (28.2472, -160.198, -567.971), top(eta,phi) = (-1.9634, 280)
+    		center(x,y,z)[cm] = (27.209, -154.31, -567.971), center(eta,phi) = (-1.99945, 280)
+    		bottom(x,y,z)[cm] = (26.1709, -148.422, -567.971), bottom(eta,phi) = (-2.037, 280)
+    		pitch (top,center,bottom) = (0.0752183, 0.0724538, 0.0696894), dEta = 0.073599, dPhi = 10.1469
+            GEMEtaPartition 7, GEMDetId = 671570944,  Re -1 Ri 1 St 1 La 1 Ch 29 Ro 7 
+    		Type: GHA117
+    		Dimensions[cm]: b = 24.9396, B = 26.7518, h  = 10.206
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (26.1622, -148.373, -567.971), top(eta,phi) = (-2.03732, 280)
+    		center(x,y,z)[cm] = (25.2761, -143.348, -567.971), center(eta,phi) = (-2.07066, 280)
+    		bottom(x,y,z)[cm] = (24.3899, -138.322, -567.971), bottom(eta,phi) = (-2.10527, 280)
+    		pitch (top,center,bottom) = (0.0696663, 0.0673066, 0.064947), dEta = 0.0679498, dPhi = 10.1469
+            GEMEtaPartition 8, GEMDetId = 671636480,  Re -1 Ri 1 St 1 La 1 Ch 29 Ro 8 
+    		Type: GHA118
+    		Dimensions[cm]: b = 23.1186, B = 24.9308, h  = 10.206
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (24.3813, -138.273, -567.971), top(eta,phi) = (-2.10562, 280)
+    		center(x,y,z)[cm] = (23.4951, -133.248, -567.971), center(eta,phi) = (-2.14159, 280)
+    		bottom(x,y,z)[cm] = (22.609, -128.222, -567.971), bottom(eta,phi) = (-2.17903, 280)
+    		pitch (top,center,bottom) = (0.0649239, 0.0625643, 0.0602046), dEta = 0.0734131, dPhi = 10.1469
+          GEMChamber 2, GEMDetId = 671128576,  Re -1 Ri 1 St 1 La 2 Ch 29 Ro 0  has 8 eta partitions.
+            GEMEtaPartition 1, GEMDetId = 671194112,  Re -1 Ri 1 St 1 La 2 Ch 29 Ro 1 
+    		Type: GHA111
+    		Dimensions[cm]: b = 39.0006, B = 41.9579, h  = 16.655
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (41.0331, -232.71, -571.811), top(eta,phi) = (-1.61705, 280)
+    		center(x,y,z)[cm] = (39.587, -224.509, -571.811), center(eta,phi) = (-1.65029, 280)
+    		bottom(x,y,z)[cm] = (38.141, -216.308, -571.811), bottom(eta,phi) = (-1.68494, 280)
+    		pitch (top,center,bottom) = (0.109265, 0.105415, 0.101564), dEta = 0.0678957, dPhi = 10.1469
+            GEMEtaPartition 2, GEMDetId = 671259648,  Re -1 Ri 1 St 1 La 2 Ch 29 Ro 2 
+    		Type: GHA112
+    		Dimensions[cm]: b = 36.0344, B = 38.9917, h  = 16.655
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (38.1323, -216.259, -571.811), top(eta,phi) = (-1.68515, 280)
+    		center(x,y,z)[cm] = (36.6862, -208.058, -571.811), center(eta,phi) = (-1.72133, 280)
+    		bottom(x,y,z)[cm] = (35.2402, -199.857, -571.811), bottom(eta,phi) = (-1.75914, 280)
+    		pitch (top,center,bottom) = (0.101541, 0.0976903, 0.0938396), dEta = 0.0739893, dPhi = 10.1469
+            GEMEtaPartition 3, GEMDetId = 671325184,  Re -1 Ri 1 St 1 La 2 Ch 29 Ro 3 
+    		Type: GHA113
+    		Dimensions[cm]: b = 33.5296, B = 36.0255, h  = 14.057
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (35.2315, -199.808, -571.811), top(eta,phi) = (-1.75938, 280)
+    		center(x,y,z)[cm] = (34.011, -192.886, -571.811), center(eta,phi) = (-1.79267, 280)
+    		bottom(x,y,z)[cm] = (32.7905, -185.964, -571.811), bottom(eta,phi) = (-1.8273, 280)
+    		pitch (top,center,bottom) = (0.0938165, 0.0905665, 0.0873166), dEta = 0.0679286, dPhi = 10.1469
+            GEMEtaPartition 4, GEMDetId = 671390720,  Re -1 Ri 1 St 1 La 2 Ch 29 Ro 4 
+    		Type: GHA114
+    		Dimensions[cm]: b = 31.0247, B = 33.5207, h  = 14.057
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (32.7818, -185.915, -571.811), top(eta,phi) = (-1.82756, 280)
+    		center(x,y,z)[cm] = (31.5614, -178.993, -571.811), center(eta,phi) = (-1.86365, 280)
+    		bottom(x,y,z)[cm] = (30.3409, -172.072, -571.811), bottom(eta,phi) = (-1.9013, 280)
+    		pitch (top,center,bottom) = (0.0872934, 0.0840435, 0.0807935), dEta = 0.0737456, dPhi = 10.1469
+            GEMEtaPartition 5, GEMDetId = 671456256,  Re -1 Ri 1 St 1 La 2 Ch 29 Ro 5 
+    		Type: GHA115
+    		Dimensions[cm]: b = 28.8927, B = 31.0158, h  = 11.957
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (30.3322, -172.022, -571.811), top(eta,phi) = (-1.90158, 280)
+    		center(x,y,z)[cm] = (29.294, -166.135, -571.811), center(eta,phi) = (-1.93493, 280)
+    		bottom(x,y,z)[cm] = (28.2559, -160.247, -571.811), bottom(eta,phi) = (-1.96959, 280)
+    		pitch (top,center,bottom) = (0.0807704, 0.0780059, 0.0752414), dEta = 0.0680115, dPhi = 10.1469
+            GEMEtaPartition 6, GEMDetId = 671521792,  Re -1 Ri 1 St 1 La 2 Ch 29 Ro 6 
+    		Type: GHA116
+    		Dimensions[cm]: b = 26.7607, B = 28.8838, h  = 11.957
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (28.2472, -160.198, -571.811), top(eta,phi) = (-1.96988, 280)
+    		center(x,y,z)[cm] = (27.209, -154.31, -571.811), center(eta,phi) = (-2.00595, 280)
+    		bottom(x,y,z)[cm] = (26.1709, -148.422, -571.811), bottom(eta,phi) = (-2.04352, 280)
+    		pitch (top,center,bottom) = (0.0752183, 0.0724538, 0.0696894), dEta = 0.0736338, dPhi = 10.1469
+            GEMEtaPartition 7, GEMDetId = 671587328,  Re -1 Ri 1 St 1 La 2 Ch 29 Ro 7 
+    		Type: GHA117
+    		Dimensions[cm]: b = 24.9396, B = 26.7518, h  = 10.206
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (26.1622, -148.373, -571.811), top(eta,phi) = (-2.04384, 280)
+    		center(x,y,z)[cm] = (25.2761, -143.348, -571.811), center(eta,phi) = (-2.07719, 280)
+    		bottom(x,y,z)[cm] = (24.3899, -138.322, -571.811), bottom(eta,phi) = (-2.11181, 280)
+    		pitch (top,center,bottom) = (0.0696663, 0.0673066, 0.064947), dEta = 0.0679777, dPhi = 10.1469
+            GEMEtaPartition 8, GEMDetId = 671652864,  Re -1 Ri 1 St 1 La 2 Ch 29 Ro 8 
+    		Type: GHA118
+    		Dimensions[cm]: b = 23.1186, B = 24.9308, h  = 10.206
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (24.3813, -138.273, -571.811), top(eta,phi) = (-2.11216, 280)
+    		center(x,y,z)[cm] = (23.4951, -133.248, -571.811), center(eta,phi) = (-2.14815, 280)
+    		bottom(x,y,z)[cm] = (22.609, -128.222, -571.811), bottom(eta,phi) = (-2.1856, 280)
+    		pitch (top,center,bottom) = (0.0649239, 0.0625643, 0.0602046), dEta = 0.0734396, dPhi = 10.1469
+        GEMSuperChamber 5, GEMDetId = 671088640,  Re -1 Ri 1 St 1 La 0 Ch 1 Ro 0  has 2 chambers.
+          GEMChamber 1, GEMDetId = 671105024,  Re -1 Ri 1 St 1 La 1 Ch 1 Ro 0  has 8 eta partitions.
+            GEMEtaPartition 1, GEMDetId = 671170560,  Re -1 Ri 1 St 1 La 1 Ch 1 Ro 1 
+    		Type: GHA111
+    		Dimensions[cm]: b = 39.0006, B = 41.9579, h  = 16.655
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (236.3, 1.79725e-13, -567.971), top(eta,phi) = (-1.61082, 0)
+    		center(x,y,z)[cm] = (227.973, 1.80745e-13, -567.971), center(eta,phi) = (-1.64403, 0)
+    		bottom(x,y,z)[cm] = (219.645, 1.81764e-13, -567.971), bottom(eta,phi) = (-1.67865, 0)
+    		pitch (top,center,bottom) = (0.109265, 0.105415, 0.101564), dEta = 0.0678326, dPhi = 10.1469
+            GEMEtaPartition 2, GEMDetId = 671236096,  Re -1 Ri 1 St 1 La 1 Ch 1 Ro 2 
+    		Type: GHA112
+    		Dimensions[cm]: b = 36.0344, B = 38.9917, h  = 16.655
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (219.595, 1.81771e-13, -567.971), top(eta,phi) = (-1.67887, 0)
+    		center(x,y,z)[cm] = (211.268, 1.8279e-13, -567.971), center(eta,phi) = (-1.71501, 0)
+    		bottom(x,y,z)[cm] = (202.94, 1.8381e-13, -567.971), bottom(eta,phi) = (-1.7528, 0)
+    		pitch (top,center,bottom) = (0.101541, 0.0976903, 0.0938396), dEta = 0.0739292, dPhi = 10.1469
+            GEMEtaPartition 3, GEMDetId = 671301632,  Re -1 Ri 1 St 1 La 1 Ch 1 Ro 3 
+    		Type: GHA113
+    		Dimensions[cm]: b = 33.5296, B = 36.0255, h  = 14.057
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (202.89, 1.83816e-13, -567.971), top(eta,phi) = (-1.75303, 0)
+    		center(x,y,z)[cm] = (195.862, 1.84677e-13, -567.971), center(eta,phi) = (-1.78629, 0)
+    		bottom(x,y,z)[cm] = (188.833, 1.85538e-13, -567.971), bottom(eta,phi) = (-1.82091, 0)
+    		pitch (top,center,bottom) = (0.0938165, 0.0905665, 0.0873166), dEta = 0.0678803, dPhi = 10.1469
+            GEMEtaPartition 4, GEMDetId = 671367168,  Re -1 Ri 1 St 1 La 1 Ch 1 Ro 4 
+    		Type: GHA114
+    		Dimensions[cm]: b = 31.0247, B = 33.5207, h  = 14.057
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (188.783, 1.85544e-13, -567.971), top(eta,phi) = (-1.82116, 0)
+    		center(x,y,z)[cm] = (181.755, 1.86405e-13, -567.971), center(eta,phi) = (-1.85723, 0)
+    		bottom(x,y,z)[cm] = (174.726, 1.87265e-13, -567.971), bottom(eta,phi) = (-1.89486, 0)
+    		pitch (top,center,bottom) = (0.0872934, 0.0840435, 0.0807935), dEta = 0.0736998, dPhi = 10.1469
+            GEMEtaPartition 5, GEMDetId = 671432704,  Re -1 Ri 1 St 1 La 1 Ch 1 Ro 5 
+    		Type: GHA115
+    		Dimensions[cm]: b = 28.8927, B = 31.0158, h  = 11.957
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (174.676, 1.87271e-13, -567.971), top(eta,phi) = (-1.89513, 0)
+    		center(x,y,z)[cm] = (168.698, 1.88004e-13, -567.971), center(eta,phi) = (-1.92847, 0)
+    		bottom(x,y,z)[cm] = (162.719, 1.88736e-13, -567.971), bottom(eta,phi) = (-1.96311, 0)
+    		pitch (top,center,bottom) = (0.0807704, 0.0780059, 0.0752414), dEta = 0.0679746, dPhi = 10.1469
+            GEMEtaPartition 6, GEMDetId = 671498240,  Re -1 Ri 1 St 1 La 1 Ch 1 Ro 6 
+    		Type: GHA116
+    		Dimensions[cm]: b = 26.7607, B = 28.8838, h  = 11.957
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (162.669, 1.88742e-13, -567.971), top(eta,phi) = (-1.9634, 0)
+    		center(x,y,z)[cm] = (156.691, 1.89474e-13, -567.971), center(eta,phi) = (-1.99945, 0)
+    		bottom(x,y,z)[cm] = (150.712, 1.90206e-13, -567.971), bottom(eta,phi) = (-2.037, 0)
+    		pitch (top,center,bottom) = (0.0752183, 0.0724538, 0.0696894), dEta = 0.0735989, dPhi = 10.1469
+            GEMEtaPartition 7, GEMDetId = 671563776,  Re -1 Ri 1 St 1 La 1 Ch 1 Ro 7 
+    		Type: GHA117
+    		Dimensions[cm]: b = 24.9396, B = 26.7518, h  = 10.206
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (150.662, 1.90212e-13, -567.971), top(eta,phi) = (-2.03732, 0)
+    		center(x,y,z)[cm] = (145.559, 1.90837e-13, -567.971), center(eta,phi) = (-2.07067, 0)
+    		bottom(x,y,z)[cm] = (140.456, 1.91462e-13, -567.971), bottom(eta,phi) = (-2.10527, 0)
+    		pitch (top,center,bottom) = (0.0696663, 0.0673066, 0.064947), dEta = 0.0679498, dPhi = 10.1469
+            GEMEtaPartition 8, GEMDetId = 671629312,  Re -1 Ri 1 St 1 La 1 Ch 1 Ro 8 
+    		Type: GHA118
+    		Dimensions[cm]: b = 23.1186, B = 24.9308, h  = 10.206
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (140.406, 1.91468e-13, -567.971), top(eta,phi) = (-2.10562, 0)
+    		center(x,y,z)[cm] = (135.303, 1.92093e-13, -567.971), center(eta,phi) = (-2.14159, 0)
+    		bottom(x,y,z)[cm] = (130.2, 1.92718e-13, -567.971), bottom(eta,phi) = (-2.17903, 0)
+    		pitch (top,center,bottom) = (0.0649239, 0.0625643, 0.0602046), dEta = 0.0734131, dPhi = 10.1469
+          GEMChamber 2, GEMDetId = 671121408,  Re -1 Ri 1 St 1 La 2 Ch 1 Ro 0  has 8 eta partitions.
+            GEMEtaPartition 1, GEMDetId = 671186944,  Re -1 Ri 1 St 1 La 2 Ch 1 Ro 1 
+    		Type: GHA111
+    		Dimensions[cm]: b = 39.0006, B = 41.9579, h  = 16.655
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (236.3, 1.81136e-13, -571.811), top(eta,phi) = (-1.61705, 0)
+    		center(x,y,z)[cm] = (227.973, 1.82155e-13, -571.811), center(eta,phi) = (-1.65029, 0)
+    		bottom(x,y,z)[cm] = (219.645, 1.83175e-13, -571.811), bottom(eta,phi) = (-1.68494, 0)
+    		pitch (top,center,bottom) = (0.109265, 0.105415, 0.101564), dEta = 0.0678957, dPhi = 10.1469
+            GEMEtaPartition 2, GEMDetId = 671252480,  Re -1 Ri 1 St 1 La 2 Ch 1 Ro 2 
+    		Type: GHA112
+    		Dimensions[cm]: b = 36.0344, B = 38.9917, h  = 16.655
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (219.595, 1.83181e-13, -571.811), top(eta,phi) = (-1.68515, 0)
+    		center(x,y,z)[cm] = (211.268, 1.84201e-13, -571.811), center(eta,phi) = (-1.72133, 0)
+    		bottom(x,y,z)[cm] = (202.94, 1.85221e-13, -571.811), bottom(eta,phi) = (-1.75914, 0)
+    		pitch (top,center,bottom) = (0.101541, 0.0976903, 0.0938396), dEta = 0.0739893, dPhi = 10.1469
+            GEMEtaPartition 3, GEMDetId = 671318016,  Re -1 Ri 1 St 1 La 2 Ch 1 Ro 3 
+    		Type: GHA113
+    		Dimensions[cm]: b = 33.5296, B = 36.0255, h  = 14.057
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (202.89, 1.85227e-13, -571.811), top(eta,phi) = (-1.75938, 0)
+    		center(x,y,z)[cm] = (195.862, 1.86088e-13, -571.811), center(eta,phi) = (-1.79267, 0)
+    		bottom(x,y,z)[cm] = (188.833, 1.86948e-13, -571.811), bottom(eta,phi) = (-1.8273, 0)
+    		pitch (top,center,bottom) = (0.0938165, 0.0905665, 0.0873166), dEta = 0.0679287, dPhi = 10.1469
+            GEMEtaPartition 4, GEMDetId = 671383552,  Re -1 Ri 1 St 1 La 2 Ch 1 Ro 4 
+    		Type: GHA114
+    		Dimensions[cm]: b = 31.0247, B = 33.5207, h  = 14.057
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (188.783, 1.86955e-13, -571.811), top(eta,phi) = (-1.82756, 0)
+    		center(x,y,z)[cm] = (181.755, 1.87815e-13, -571.811), center(eta,phi) = (-1.86365, 0)
+    		bottom(x,y,z)[cm] = (174.726, 1.88676e-13, -571.811), bottom(eta,phi) = (-1.9013, 0)
+    		pitch (top,center,bottom) = (0.0872934, 0.0840435, 0.0807935), dEta = 0.0737456, dPhi = 10.1469
+            GEMEtaPartition 5, GEMDetId = 671449088,  Re -1 Ri 1 St 1 La 2 Ch 1 Ro 5 
+    		Type: GHA115
+    		Dimensions[cm]: b = 28.8927, B = 31.0158, h  = 11.957
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (174.676, 1.88682e-13, -571.811), top(eta,phi) = (-1.90158, 0)
+    		center(x,y,z)[cm] = (168.698, 1.89414e-13, -571.811), center(eta,phi) = (-1.93493, 0)
+    		bottom(x,y,z)[cm] = (162.719, 1.90146e-13, -571.811), bottom(eta,phi) = (-1.96959, 0)
+    		pitch (top,center,bottom) = (0.0807704, 0.0780059, 0.0752414), dEta = 0.0680115, dPhi = 10.1469
+            GEMEtaPartition 6, GEMDetId = 671514624,  Re -1 Ri 1 St 1 La 2 Ch 1 Ro 6 
+    		Type: GHA116
+    		Dimensions[cm]: b = 26.7607, B = 28.8838, h  = 11.957
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (162.669, 1.90153e-13, -571.811), top(eta,phi) = (-1.96988, 0)
+    		center(x,y,z)[cm] = (156.691, 1.90885e-13, -571.811), center(eta,phi) = (-2.00595, 0)
+    		bottom(x,y,z)[cm] = (150.712, 1.91617e-13, -571.811), bottom(eta,phi) = (-2.04352, 0)
+    		pitch (top,center,bottom) = (0.0752183, 0.0724538, 0.0696894), dEta = 0.0736337, dPhi = 10.1469
+            GEMEtaPartition 7, GEMDetId = 671580160,  Re -1 Ri 1 St 1 La 2 Ch 1 Ro 7 
+    		Type: GHA117
+    		Dimensions[cm]: b = 24.9396, B = 26.7518, h  = 10.206
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (150.662, 1.91623e-13, -571.811), top(eta,phi) = (-2.04384, 0)
+    		center(x,y,z)[cm] = (145.559, 1.92248e-13, -571.811), center(eta,phi) = (-2.07719, 0)
+    		bottom(x,y,z)[cm] = (140.456, 1.92873e-13, -571.811), bottom(eta,phi) = (-2.11181, 0)
+    		pitch (top,center,bottom) = (0.0696663, 0.0673066, 0.064947), dEta = 0.0679777, dPhi = 10.1469
+            GEMEtaPartition 8, GEMDetId = 671645696,  Re -1 Ri 1 St 1 La 2 Ch 1 Ro 8 
+    		Type: GHA118
+    		Dimensions[cm]: b = 23.1186, B = 24.9308, h  = 10.206
+    		nStrips = 384, nPads =  192
+    		top(x,y,z)[cm] = (140.406, 1.92879e-13, -571.811), top(eta,phi) = (-2.11216, 0)
+    		center(x,y,z)[cm] = (135.303, 1.93504e-13, -571.811), center(eta,phi) = (-2.14815, 0)
+    		bottom(x,y,z)[cm] = (130.2, 1.94129e-13, -571.811), bottom(eta,phi) = (-2.1856, 0)
+    		pitch (top,center,bottom) = (0.0649239, 0.0625643, 0.0602046), dEta = 0.0734396, dPhi = 10.1469
+    GEMStation GE-2/1 has 1 rings.
+      GEMRing -1 2 1 has 0 super chambers.
+  GEMRegion 1 has 2 stations.
+    GEMStation GE1/1 has 1 rings.
+      GEMRing 1 1 1 has 0 super chambers.
+    GEMStation GE2/1 has 1 rings.
+      GEMRing 1 2 1 has 0 super chambers.
+-------------------------------------------------------------------------------------------------------- end
