@@ -38,14 +38,16 @@ class DQMGenericClient : public DQMEDHarvester
     none = 0,
     efficiency,
     fakerate,
-    simpleratio
+    simpleratio,
+    yield
   };
 
   struct EfficOption
   {
     std::string name, title;
-    std::string numerator, denominator;
+    std::string numerator, denominator, events;
     EfficType type;
+
     bool isProfile;
   };
 
@@ -83,8 +85,10 @@ class DQMGenericClient : public DQMEDHarvester
                          const std::string& efficMEName, 
                          const std::string& efficMETitle,
                          const std::string& recoMEName, 
-                         const std::string& simMEName, 
+                         const std::string& simMEName,
+                         const std::string& evtMEName,
                          const EfficType type=EfficType::efficiency,
+
                          const bool makeProfile = false);
   void computeResolution(DQMStore::IBooker& ibooker,
 			 DQMStore::IGetter& igetter,
@@ -112,7 +116,7 @@ class DQMGenericClient : public DQMEDHarvester
                       const std::string& startDir,
                       const std::string& cdName);
 
-  void limitedFit(MonitorElement * srcME, MonitorElement * meanME, MonitorElement * sigmaME);
+  void limitedFit(MonitorElement * srcME, MonitorElement * meanME, MonitorElement * sigmaME, MonitorElement * rmsME);
 
  private:
   unsigned int verbose_;
@@ -133,7 +137,8 @@ class DQMGenericClient : public DQMEDHarvester
   std::vector<CDOption> cdOptions_;
   std::vector<NoFlowOption> noFlowOptions_;
 
-  void generic_eff (TH1 * denom, TH1 * numer, MonitorElement * efficiencyHist, const EfficType type=EfficType::efficiency);
+  void generic_eff (TH1 * denom, TH1 * numer, MonitorElement * efficiencyHist, const EfficType type=EfficType::efficiency, const int numEvts=1);
+
 
   void findAllSubdirectories (DQMStore::IBooker& ibooker,
 			      DQMStore::IGetter& igetter,

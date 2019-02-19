@@ -13,7 +13,8 @@ trackingParticlesSelection = cms.PSet(
     ptMinTP = cms.double(0.1),
     ptMaxTP = cms.double(1e100),
     maxRapidityTP = cms.double(5.0),
-    tipTP = cms.double(1000)
+    tipTP = cms.double(1000),
+    useAbsEta = cms.bool(False)
 )
 
 trackingParticles.select = cms.PSet(trackingParticlesSelection)

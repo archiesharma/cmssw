@@ -163,9 +163,7 @@ globalValidationHGCal = cms.Sequence(hgcalValidation)
 globalValidationOuterTracker = cms.Sequence(OuterTrackerSourceV)
 
 globalPrevalidationMuons = cms.Sequence(
-      gemSimValid
-    + me0SimValid
-    + validSimHit
+    validSimHit
     + muondtdigianalyzer
     + cscDigiValidation
     + validationMuonRPCDigis
@@ -197,3 +195,4 @@ from Configuration.Eras.Modifier_phase2_muon_cff import phase2_muon
 phase2_muon.toReplaceWith( globalValidation, _phase2_globalValidation )
 from Configuration.Eras.Modifier_pp_on_AA_2018_cff import pp_on_AA_2018
 pp_on_AA_2018.toReplaceWith(globalValidation, globalValidation.copyAndExclude([pfTauRunDQMValidation]))
+

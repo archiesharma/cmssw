@@ -35,7 +35,7 @@ void GEMRecHitTrackMatch::bookHistograms(DQMStore::IBooker& ibooker, edm::Run co
     
   ibooker.setCurrentFolder("MuonGEMRecHitsV/GEMRecHitsTask");
   edm::LogInfo("GEMRecHitTrackMatch")<<"ibooker set current folder\n";
-    
+
   const float PI=TMath::Pi();
 
   using namespace GEMDetLabel;

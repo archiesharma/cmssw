@@ -43,13 +43,14 @@ namespace {
                     param.getParameter<double>("ptMaxTP"),
                     param.getParameter<double>("minRapidityTP"),
                     param.getParameter<double>("maxRapidityTP"),
+                    param.getParameter<bool>("useAbsEta"),
                     param.getParameter<double>("tipTP"),
                     param.getParameter<double>("lipTP"),
                     param.getParameter<int>("minHitTP"),
                     param.getParameter<bool>("signalOnlyTP"),
                     param.getParameter<bool>("intimeOnlyTP"),
                     param.getParameter<bool>("chargedOnlyTP"),
-		    param.getParameter<bool>("stableOnlyTP"),
+                    param.getParameter<bool>("stableOnlyTP"),
                     param.getParameter<std::vector<int> >("pdgIdTP")
                 );
   }

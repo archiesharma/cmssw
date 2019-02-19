@@ -12,7 +12,8 @@ TrackingParticleSelectionForEfficiency = cms.PSet(
     ptMinTP = cms.double(0.005),
     ptMaxTP = cms.double(1e100),
     maxRapidityTP = cms.double(2.5),
-    tipTP = cms.double(60)
+    tipTP = cms.double(60),
+    useAbsEta = cms.bool(False)
 )
 
 def _modifyForPhase1(pset):

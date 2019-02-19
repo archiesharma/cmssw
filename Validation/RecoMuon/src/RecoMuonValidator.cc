@@ -521,6 +521,7 @@ RecoMuonValidator::RecoMuonValidator(const edm::ParameterSet& pset):
                                          tpset.getParameter<double>("ptMax"),
                                          tpset.getParameter<double>("minRapidity"),
                                          tpset.getParameter<double>("maxRapidity"),
+                                         tpset.getParameter<bool>("useAbsEta"), 
                                          tpset.getParameter<double>("tip"),
                                          tpset.getParameter<double>("lip"),
                                          tpset.getParameter<int>("minHit"),

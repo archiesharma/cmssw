@@ -10,7 +10,7 @@ gemStripValidation = DQMEDAnalyzer('GEMStripDigiValidation',
   # st1 xmin xmax, st2 xmin xmax, st1 ymin ymax, st2 ymin ymax
   RangeGlobalZR = cms.untracked.vdouble(564,574,792,802,110,290,120,390), 
   nBinGlobalXY = cms.untracked.int32(360),
-  detailPlot = cms.bool(False), 
+  detailPlot = cms.bool(True),
 )
 gemPadValidation = DQMEDAnalyzer('GEMPadDigiValidation',
   outputFile = cms.string(''),
@@ -19,7 +19,7 @@ gemPadValidation = DQMEDAnalyzer('GEMPadDigiValidation',
   nBinGlobalZR = cms.untracked.vdouble(200,200,150,250), 
   RangeGlobalZR = cms.untracked.vdouble(564,574,792,802,110,290,120,390), 
   nBinGlobalXY = cms.untracked.int32(360), 
-  detailPlot = cms.bool(False), 
+  detailPlot = cms.bool(True),
 )
 gemCoPadValidation = DQMEDAnalyzer('GEMCoPadDigiValidation',
   outputFile = cms.string(''),
@@ -28,7 +28,7 @@ gemCoPadValidation = DQMEDAnalyzer('GEMCoPadDigiValidation',
   nBinGlobalZR = cms.untracked.vdouble(200,200,150,250), 
   RangeGlobalZR = cms.untracked.vdouble(564,574,792,802,110,290,120,390), 
   nBinGlobalXY = cms.untracked.int32(360), 
-  detailPlot = cms.bool(False), 
+  detailPlot = cms.bool(True),
   minBXGEM = cms.int32(-1),
   maxBXGEM = cms.int32(1),
 )
@@ -49,11 +49,11 @@ gemDigiTrackValidation = DQMEDAnalyzer('GEMDigiTrackMatch',
   gemMinPt = cms.untracked.double(5.0),
   gemMinEta = cms.untracked.double(1.55),
   gemMaxEta = cms.untracked.double(2.45),
-  detailPlot = cms.bool(False), 
+  detailPlot = cms.bool(True), 
 )
 
-gemGeometryChecker = DQMEDAnalyzer('GEMCheckGeometry',
-  detailPlot = cms.bool(False), 
+gemGeometryChecker = cms.EDAnalyzer('GEMCheckGeometry',
+  detailPlot = cms.bool(True),
 )
 
 gemDigiValidation = cms.Sequence( gemStripValidation+gemPadValidation+gemCoPadValidation+gemDigiTrackValidation+gemGeometryChecker)

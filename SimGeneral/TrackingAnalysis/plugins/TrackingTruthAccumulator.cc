@@ -258,6 +258,7 @@ TrackingTruthAccumulator::TrackingTruthAccumulator( const edm::ParameterSet & co
 				param.getParameter<double>( "ptMaxTP" ),
 				param.getParameter<double>( "minRapidityTP" ),
 				param.getParameter<double>( "maxRapidityTP" ),
+                param.getParameter<bool>( "useAbsEta" ),
 				param.getParameter<double>( "tipTP" ),
 				param.getParameter<double>( "lipTP" ),
 				param.getParameter<int>( "minHitTP" ),

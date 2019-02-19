@@ -50,12 +50,8 @@ namespace {
 }
 
 MultiTrackValidator::MultiTrackValidator(const edm::ParameterSet& pset):
-  associators(pset.getUntrackedParameter< std::vector<edm::InputTag> >("associators")),
-  label(pset.getParameter< std::vector<edm::InputTag> >("label")),
-  parametersDefiner(pset.getParameter<std::string>("parametersDefiner")),
+  MultiTrackValidatorBase(pset,consumesCollector()),
   parametersDefinerIsCosmic_(parametersDefiner == "CosmicParametersDefinerForTP"),
-  ignoremissingtkcollection_(pset.getUntrackedParameter<bool>("ignoremissingtrackcollection",false)),
-  useAssociators_(pset.getParameter< bool >("UseAssociators")),
   calculateDrSingleCollection_(pset.getUntrackedParameter<bool>("calculateDrSingleCollection")),
   doPlotsOnlyForTruePV_(pset.getUntrackedParameter<bool>("doPlotsOnlyForTruePV")),
   doSummaryPlots_(pset.getUntrackedParameter<bool>("doSummaryPlots")),
@@ -68,58 +64,12 @@ MultiTrackValidator::MultiTrackValidator(const edm::ParameterSet& pset):
   doMVAPlots_(pset.getUntrackedParameter<bool>("doMVAPlots")),
   simPVMaxZ_(pset.getUntrackedParameter<double>("simPVMaxZ"))
 {
-  if(label.empty()) {
-    // Disable prefetching of everything if there are no track collections
-    return;
-  }
-
-  const edm::InputTag& label_tp_effic_tag = pset.getParameter< edm::InputTag >("label_tp_effic");
-  const edm::InputTag& label_tp_fake_tag = pset.getParameter< edm::InputTag >("label_tp_fake");
-
-  if(pset.getParameter<bool>("label_tp_effic_refvector")) {
-    label_tp_effic_refvector = consumes<TrackingParticleRefVector>(label_tp_effic_tag);
-  }
-  else {
-    label_tp_effic = consumes<TrackingParticleCollection>(label_tp_effic_tag);
-  }
-  if(pset.getParameter<bool>("label_tp_fake_refvector")) {
-    label_tp_fake_refvector = consumes<TrackingParticleRefVector>(label_tp_fake_tag);
-  }
-  else {
-    label_tp_fake = consumes<TrackingParticleCollection>(label_tp_fake_tag);
-  }
-  label_pileupinfo = consumes<std::vector<PileupSummaryInfo> >(pset.getParameter< edm::InputTag >("label_pileupinfo"));
-  for(const auto& tag: pset.getParameter<std::vector<edm::InputTag>>("sim")) {
-    simHitTokens_.push_back(consumes<std::vector<PSimHit>>(tag));
-  }
-
-  std::vector<edm::InputTag> doResolutionPlotsForLabels = pset.getParameter<std::vector<edm::InputTag> >("doResolutionPlotsForLabels");
-  doResolutionPlots_.reserve(label.size());
-  for (auto& itag : label) {
-    labelToken.push_back(consumes<edm::View<reco::Track> >(itag));
-    const bool doResol = doResolutionPlotsForLabels.empty() || (std::find(cbegin(doResolutionPlotsForLabels), cend(doResolutionPlotsForLabels), itag) != cend(doResolutionPlotsForLabels));
-    doResolutionPlots_.push_back(doResol);
-  }
-  { // check for duplicates
-    auto labelTmp = edm::vector_transform(label, [&](const edm::InputTag& tag) { return tag.label(); });
-    std::sort(begin(labelTmp), end(labelTmp));
-    std::string empty;
-    const std::string* prev = &empty;
-    for(const std::string& l: labelTmp) {
-      if(l == *prev) {
-        throw cms::Exception("Configuration") << "Duplicate InputTag in labels: " << l;
-      }
-      prev = &l;
-    }
-  }
-
-  edm::InputTag beamSpotTag = pset.getParameter<edm::InputTag>("beamSpot");
-  bsSrc = consumes<reco::BeamSpot>(beamSpotTag);
-
   ParameterSet psetForHistoProducerAlgo = pset.getParameter<ParameterSet>("histoProducerAlgoBlock");
-  histoProducerAlgo_ = std::make_unique<MTVHistoProducerAlgoForTracker>(psetForHistoProducerAlgo, doSeedPlots_);
+  edm::InputTag beamSpotTag = pset.getParameter<edm::InputTag>("beamSpot");
+  histoProducerAlgo_ = std::make_unique<MTVHistoProducerAlgoForTracker>(psetForHistoProducerAlgo, beamSpotTag, doSeedPlots_, consumesCollector());
 
   dirName_ = pset.getParameter<std::string>("dirName");
+  UseAssociators = pset.getParameter< bool >("UseAssociators");
 
   tpNLayersToken_ = consumes<edm::ValueMap<unsigned int> >(pset.getParameter<edm::InputTag>("label_tp_nlayers"));
   tpNPixelLayersToken_ = consumes<edm::ValueMap<unsigned int> >(pset.getParameter<edm::InputTag>("label_tp_npixellayers"));
@@ -153,9 +103,9 @@ MultiTrackValidator::MultiTrackValidator(const edm::ParameterSet& pset):
   }
 
   tpSelector = TrackingParticleSelector(pset.getParameter<double>("ptMinTP"),
-                                        pset.getParameter<double>("ptMaxTP"),
 					pset.getParameter<double>("minRapidityTP"),
 					pset.getParameter<double>("maxRapidityTP"),
+                    pset.getParameter<bool>("useAbsEta"),
 					pset.getParameter<double>("tipTP"),
 					pset.getParameter<double>("lipTP"),
 					pset.getParameter<int>("minHitTP"),
@@ -177,9 +127,9 @@ MultiTrackValidator::MultiTrackValidator(const edm::ParameterSet& pset):
 
   ParameterSet psetVsPhi = psetForHistoProducerAlgo.getParameter<ParameterSet>("TpSelectorForEfficiencyVsPhi");
   dRtpSelector = TrackingParticleSelector(psetVsPhi.getParameter<double>("ptMin"),
-                                          psetVsPhi.getParameter<double>("ptMax"),
 					  psetVsPhi.getParameter<double>("minRapidity"),
 					  psetVsPhi.getParameter<double>("maxRapidity"),
+                      psetVsPhi.getParameter<bool>("useAbsEta"),
 					  psetVsPhi.getParameter<double>("tip"),
 					  psetVsPhi.getParameter<double>("lip"),
 					  psetVsPhi.getParameter<int>("minHit"),
@@ -189,7 +139,20 @@ MultiTrackValidator::MultiTrackValidator(const edm::ParameterSet& pset):
 					  psetVsPhi.getParameter<bool>("stableOnly"),
 					  psetVsPhi.getParameter<std::vector<int> >("pdgId"));
 
-  dRTrackSelector = MTVHistoProducerAlgoForTracker::makeRecoTrackSelectorFromTPSelectorParameters(psetVsPhi);
+  dRtpSelectorNoPtCut = TrackingParticleSelector(0.0,
+                                                 psetVsPhi.getParameter<double>("minRapidity"),
+                                                 psetVsPhi.getParameter<double>("maxRapidity"),
+                                                 psetVsPhi.getParameter<bool>("useAbsEta"),
+                                                 psetVsPhi.getParameter<double>("tip"),
+                                                 psetVsPhi.getParameter<double>("lip"),
+                                                 psetVsPhi.getParameter<int>("minHit"),
+                                                 psetVsPhi.getParameter<bool>("signalOnly"),
+                                                 psetVsPhi.getParameter<bool>("intimeOnly"),
+                                                 psetVsPhi.getParameter<bool>("chargedOnly"),
+                                                 psetVsPhi.getParameter<bool>("stableOnly"),
+                                                 psetVsPhi.getParameter<std::vector<int> >("pdgId"));
+
+  dRTrackSelector = MTVHistoProducerAlgoForTracker::makeRecoTrackSelectorFromTPSelectorParameters(psetVsPhi, beamSpotTag, consumesCollector());
 
   useGsf = pset.getParameter<bool>("useGsf");
 
@@ -199,7 +162,7 @@ MultiTrackValidator::MultiTrackValidator(const edm::ParameterSet& pset):
     labelTokenForDrCalculation = consumes<edm::View<reco::Track> >(pset.getParameter<edm::InputTag>("trackCollectionForDrCalculation"));
   }
 
-  if(useAssociators_) {
+  if(UseAssociators) {
     for (auto const& src: associators) {
       associatorTokens.push_back(consumes<reco::TrackToTrackingParticleAssociator>(src));
     }
@@ -215,21 +178,17 @@ MultiTrackValidator::MultiTrackValidator(const edm::ParameterSet& pset):
 MultiTrackValidator::~MultiTrackValidator() {}
 
 
-void MultiTrackValidator::bookHistograms(DQMStore::ConcurrentBooker& ibook, edm::Run const&, edm::EventSetup const& setup, Histograms& histograms) const {
-  if(label.empty()) {
-    // Disable histogram booking if there are no track collections
-    return;
-  }
+void MultiTrackValidator::bookHistograms(DQMStore::IBooker& ibook, edm::Run const&, edm::EventSetup const& setup) {
 
   const auto minColl = -0.5;
   const auto maxColl = label.size()-0.5;
   const auto nintColl = label.size();
 
-  auto binLabels = [&](ConcurrentMonitorElement me) {
+  auto binLabels = [&](MonitorElement *me) {
+    TH1 *h = me->getTH1();
     for(size_t i=0; i<label.size(); ++i) {
-      me.setBinLabel(i+1, label[i].label());
+      h->GetXaxis()->SetBinLabel(i+1, label[i].label().c_str());
     }
-    me.disableAlphanumeric();
     return me;
   };
 
@@ -238,7 +197,7 @@ void MultiTrackValidator::bookHistograms(DQMStore::ConcurrentBooker& ibook, edm:
     ibook.cd();
     ibook.setCurrentFolder(dirName_ + "simulation");
 
-    histoProducerAlgo_->bookSimHistos(ibook, histograms.histoProducerAlgo);
+    histoProducerAlgo_->bookSimHistos(ibook);
 
     ibook.cd();
     ibook.setCurrentFolder(dirName_);
@@ -251,14 +210,18 @@ void MultiTrackValidator::bookHistograms(DQMStore::ConcurrentBooker& ibook, edm:
 
     if(doSummaryPlots_) {
       if(doSimTrackPlots_) {
-        histograms.h_assoc_coll.push_back(binLabels( ibook.book1D("num_assoc(simToReco)_coll", "N of associated (simToReco) tracks vs track collection", nintColl, minColl, maxColl) ));
-        histograms.h_simul_coll.push_back(binLabels( ibook.book1D("num_simul_coll", "N of simulated tracks vs track collection", nintColl, minColl, maxColl) ));
+        h_assoc_coll.push_back(binLabels( ibook.book1D("num_assoc(simToReco)_coll", "N of associated (simToReco) tracks vs track collection", nintColl, minColl, maxColl) ));
+        h_simul_coll.push_back(binLabels( ibook.book1D("num_simul_coll", "N of simulated tracks vs track collection", nintColl, minColl, maxColl) ));
+
+        h_assoc_coll_allPt.push_back(binLabels( ibook.book1D("num_assoc(simToReco)_coll_allPt", "N of associated (simToReco) tracks vs track collection", nintColl, minColl, maxColl) ));
+        h_simul_coll_allPt.push_back(binLabels( ibook.book1D("num_simul_coll_allPt", "N of simulated tracks vs track collection", nintColl, minColl, maxColl) ));
+
       }
       if(doRecoTrackPlots_) {
-        histograms.h_reco_coll.push_back(binLabels( ibook.book1D("num_reco_coll", "N of reco track vs track collection", nintColl, minColl, maxColl) ));
-        histograms.h_assoc2_coll.push_back(binLabels( ibook.book1D("num_assoc(recoToSim)_coll", "N of associated (recoToSim) tracks vs track collection", nintColl, minColl, maxColl) ));
-        histograms.h_looper_coll.push_back(binLabels( ibook.book1D("num_duplicate_coll", "N of associated (recoToSim) looper tracks vs track collection", nintColl, minColl, maxColl) ));
-        histograms.h_pileup_coll.push_back(binLabels( ibook.book1D("num_pileup_coll", "N of associated (recoToSim) pileup tracks vs track collection", nintColl, minColl, maxColl) ));
+        h_reco_coll.push_back(binLabels( ibook.book1D("num_reco_coll", "N of reco track vs track collection", nintColl, minColl, maxColl) ));
+        h_assoc2_coll.push_back(binLabels( ibook.book1D("num_assoc(recoToSim)_coll", "N of associated (recoToSim) tracks vs track collection", nintColl, minColl, maxColl) ));
+        h_looper_coll.push_back(binLabels( ibook.book1D("num_duplicate_coll", "N of associated (recoToSim) looper tracks vs track collection", nintColl, minColl, maxColl) ));
+        h_pileup_coll.push_back(binLabels( ibook.book1D("num_pileup_coll", "N of associated (recoToSim) pileup tracks vs track collection", nintColl, minColl, maxColl) ));
       }
     }
 
@@ -266,11 +229,11 @@ void MultiTrackValidator::bookHistograms(DQMStore::ConcurrentBooker& ibook, edm:
       ibook.cd();
       InputTag algo = label[www];
       string dirName=dirName_;
-      if (!algo.process().empty())
+      if (algo.process()!="")
         dirName+=algo.process()+"_";
-      if(!algo.label().empty())
+      if(algo.label()!="")
         dirName+=algo.label()+"_";
-      if(!algo.instance().empty())
+      if(algo.instance()!="")
         dirName+=algo.instance()+"_";
       if (dirName.find("Tracks")<dirName.length()){
         dirName.replace(dirName.find("Tracks"),6,"");
@@ -282,25 +245,23 @@ void MultiTrackValidator::bookHistograms(DQMStore::ConcurrentBooker& ibook, edm:
       dirName+=assoc;
       std::replace(dirName.begin(), dirName.end(), ':', '_');
 
-      ibook.setCurrentFolder(dirName);
-
-      const bool doResolutionPlots = doResolutionPlots_[www];
+      ibook.setCurrentFolder(dirName.c_str());
 
       if(doSimTrackPlots_) {
-        histoProducerAlgo_->bookSimTrackHistos(ibook, histograms.histoProducerAlgo, doResolutionPlots);
-        if(doPVAssociationPlots_) histoProducerAlgo_->bookSimTrackPVAssociationHistos(ibook, histograms.histoProducerAlgo);
+        histoProducerAlgo_->bookSimTrackHistos(ibook);
+        if(doPVAssociationPlots_) histoProducerAlgo_->bookSimTrackPVAssociationHistos(ibook);
       }
 
       //Booking histograms concerning with reconstructed tracks
       if(doRecoTrackPlots_) {
-        histoProducerAlgo_->bookRecoHistos(ibook, histograms.histoProducerAlgo, doResolutionPlots);
-        if (dodEdxPlots_) histoProducerAlgo_->bookRecodEdxHistos(ibook, histograms.histoProducerAlgo);
-        if (doPVAssociationPlots_) histoProducerAlgo_->bookRecoPVAssociationHistos(ibook, histograms.histoProducerAlgo);
-        if (doMVAPlots_) histoProducerAlgo_->bookMVAHistos(ibook, histograms.histoProducerAlgo, mvaQualityCollectionTokens_[www].size());
+        histoProducerAlgo_->bookRecoHistos(ibook);
+        if (dodEdxPlots_) histoProducerAlgo_->bookRecodEdxHistos(ibook);
+        if (doPVAssociationPlots_) histoProducerAlgo_->bookRecoPVAssociationHistos(ibook);
+        if (doMVAPlots_) histoProducerAlgo_->bookMVAHistos(ibook, mvaQualityCollectionTokens_[www].size());
       }
 
       if(doSeedPlots_) {
-        histoProducerAlgo_->bookSeedHistos(ibook, histograms.histoProducerAlgo);
+        histoProducerAlgo_->bookSeedHistos(ibook);
       }
     }//end loop www
   }// end loop ww
@@ -370,8 +331,7 @@ const reco::Vertex::Point *MultiTrackValidator::getRecoPVPosition(const edm::Eve
   return nullptr;
 }
 
-void MultiTrackValidator::tpParametersAndSelection(const Histograms& histograms,
-                                                   const TrackingParticleRefVector& tPCeff,
+void MultiTrackValidator::tpParametersAndSelection(const TrackingParticleRefVector& tPCeff,
                                                    const ParametersDefinerForTP& parametersDefinerTP,
                                                    const edm::Event& event, const edm::EventSetup& setup,
                                                    const reco::BeamSpot& bs,
@@ -387,7 +347,7 @@ void MultiTrackValidator::tpParametersAndSelection(const Histograms& histograms,
       TrackingParticle::Vector momentum = parametersDefinerTP.momentum(event,setup,tpr);
       TrackingParticle::Point vertex = parametersDefinerTP.vertex(event,setup,tpr);
       if(doSimPlots_) {
-        histoProducerAlgo_->fill_generic_simTrack_histos(histograms.histoProducerAlgo, momentum, vertex, tpr->eventId().bunchCrossing());
+        histoProducerAlgo_->fill_generic_simTrack_histos(momentum, vertex, tpr->eventId().bunchCrossing());
       }
       if(tpr->eventId().bunchCrossing() == 0)
         ++nIntimeTPs;
@@ -408,7 +368,7 @@ void MultiTrackValidator::tpParametersAndSelection(const Histograms& histograms,
       // (as it was before)? The latter would require another instance
       // of tpSelector with intimeOnly=False.
       if(doSimPlots_) {
-        histoProducerAlgo_->fill_generic_simTrack_histos(histograms.histoProducerAlgo, tp.momentum(), tp.vertex(), tp.eventId().bunchCrossing());
+        histoProducerAlgo_->fill_generic_simTrack_histos(tp.momentum(), tp.vertex(), tp.eventId().bunchCrossing());
       }
       if(tp.eventId().bunchCrossing() == 0)
         ++nIntimeTPs;
@@ -423,7 +383,7 @@ void MultiTrackValidator::tpParametersAndSelection(const Histograms& histograms,
     }
   }
   if(doSimPlots_) {
-    histoProducerAlgo_->fill_simTrackBased_histos(histograms.histoProducerAlgo, nIntimeTPs);
+    histoProducerAlgo_->fill_simTrackBased_histos(nIntimeTPs);
   }
 }
 
@@ -489,12 +449,7 @@ void MultiTrackValidator::trackDR(const edm::View<reco::Track>& trackCollection,
 }
 
 
-void MultiTrackValidator::dqmAnalyze(const edm::Event& event, const edm::EventSetup& setup, const Histograms& histograms) const {
-  if(label.empty()) {
-    // Disable if there are no track collections
-    return;
-  }
-
+void MultiTrackValidator::analyze(const edm::Event& event, const edm::EventSetup& setup){
   using namespace reco;
 
   LogDebug("TrackValidator") << "\n====================================================" << "\n"
@@ -560,6 +515,8 @@ void MultiTrackValidator::dqmAnalyze(const edm::Event& event, const edm::EventSe
     parametersDefinerTP->initEvent(simHitsTPAssoc);
     cosmictpSelector.initEvent(simHitsTPAssoc);
   }
+  dRTrackSelector->init(event, setup);
+  histoProducerAlgo_->init(event, setup);
 
   // Find the sim PV and tak its position
   edm::Handle<TrackingVertexCollection> htv;
@@ -631,7 +588,7 @@ void MultiTrackValidator::dqmAnalyze(const edm::Event& event, const edm::EventSe
   // for "efficiency" TPs.
   std::vector<size_t> selected_tPCeff;
   std::vector<std::tuple<TrackingParticle::Vector, TrackingParticle::Point>> momVert_tPCeff;
-  tpParametersAndSelection(histograms, tPCeff, *parametersDefinerTP, event, setup, bs, momVert_tPCeff, selected_tPCeff);
+  tpParametersAndSelection(tPCeff, *parametersDefinerTP, event, setup, bs, momVert_tPCeff, selected_tPCeff);
 
   //calculate dR for TPs
   declareDynArray(float, tPCeff.size(), dR_tPCeff);
@@ -665,7 +622,7 @@ void MultiTrackValidator::dqmAnalyze(const edm::Event& event, const edm::EventSe
     reco::SimToRecoCollection const * simRecCollPFull=nullptr;
     reco::RecoToSimCollection const * recSimCollP=nullptr;
     reco::RecoToSimCollection recSimCollL;
-    if(!useAssociators_) {
+    if(!UseAssociators) {
       Handle<reco::SimToRecoCollection > simtorecoCollectionH;
       event.getByToken(associatormapStRs[ww], simtorecoCollectionH);
       simRecCollPFull = simtorecoCollectionH.product();
@@ -696,7 +653,7 @@ void MultiTrackValidator::dqmAnalyze(const edm::Event& event, const edm::EventSe
       LogTrace("TrackValidator") << "Analyzing "
                                  << label[www] << " with "
                                  << associators[ww] <<"\n";
-      if(useAssociators_){
+      if(UseAssociators){
         edm::Handle<reco::TrackToTrackingParticleAssociator> theAssociator;
         event.getByToken(associatorTokens[ww], theAssociator);
 
@@ -708,7 +665,7 @@ void MultiTrackValidator::dqmAnalyze(const edm::Event& event, const edm::EventSe
 
 
 	LogTrace("TrackValidator") << "Calling associateRecoToSim method" << "\n";
-        recSimCollL = theAssociator->associateRecoToSim(trackRefs, tPCfake);
+        recSimCollL = std::move(theAssociator->associateRecoToSim(trackRefs, tPCfake));
         recSimCollP = &recSimCollL;
 	LogTrace("TrackValidator") << "Calling associateSimToReco method" << "\n";
         // It is necessary to do the association wrt. fake TPs,
@@ -717,7 +674,7 @@ void MultiTrackValidator::dqmAnalyze(const edm::Event& event, const edm::EventSe
         // be a subset of the set of fake TPs, for efficiency
         // histograms it doesn't matter if the association contains
         // associations of TPs not in the set of efficiency TPs.
-        simRecCollL = theAssociator->associateSimToReco(trackRefs, tPCfake);
+        simRecCollL = std::move(theAssociator->associateSimToReco(trackRefs, tPCfake));
         simRecCollP = &simRecCollL;
       }
       else{
@@ -817,19 +774,15 @@ void MultiTrackValidator::dqmAnalyze(const edm::Event& event, const edm::EventSe
 	// ##############################################
 	// fill RecoAssociated SimTracks' histograms
 	// ##############################################
-	const reco::Track *matchedTrackPointer = nullptr;
-	const reco::Track *matchedSecondTrackPointer = nullptr;
+	const reco::Track* matchedTrackPointer=0;
         unsigned int selectsLoose = mvaCollections.size();
         unsigned int selectsHP = mvaCollections.size();
 	if(simRecColl.find(tpr) != simRecColl.end()){
 	  auto const & rt = simRecColl[tpr];
-	  if (!rt.empty()) {
+	  if (rt.size()!=0) {
 	    ats++; //This counter counts the number of simTracks that have a recoTrack associated
 	    // isRecoMatched = true; // UNUSED
 	    matchedTrackPointer = rt.begin()->first.get();
-	    if(rt.size() >= 2) {
-	      matchedSecondTrackPointer = (rt.begin()+1)->first.get();
-	    }
 	    LogTrace("TrackValidator") << "TrackingParticle #" << st
                                        << " with pt=" << sqrt(momentumTP.perp2())
                                        << " associated with quality:" << rt.begin()->second <<"\n";
@@ -877,18 +830,20 @@ void MultiTrackValidator::dqmAnalyze(const edm::Event& event, const edm::EventSe
         int nSimLayers = nLayers_tPCeff[tpr];
         int nSimPixelLayers = nPixelLayers_tPCeff[tpr];
         int nSimStripMonoAndStereoLayers = nStripMonoAndStereoLayers_tPCeff[tpr];
-        histoProducerAlgo_->fill_recoAssociated_simTrack_histos(histograms.histoProducerAlgo,w,tp,momentumTP,vertexTP,dxySim,dzSim,dxyPVSim,dzPVSim,nSimHits,nSimLayers,nSimPixelLayers,nSimStripMonoAndStereoLayers,matchedTrackPointer,puinfo.getPU_NumInteractions(), dR, thePVposition, theSimPVPosition, bs.position(), mvaValues, selectsLoose, selectsHP);
+        histoProducerAlgo_->fill_recoAssociated_simTrack_histos(w,tp,momentumTP,vertexTP,dxySim,dzSim,dxyPVSim,dzPVSim,nSimHits,nSimLayers,nSimPixelLayers,nSimStripMonoAndStereoLayers,matchedTrackPointer,puinfo.getPU_NumInteractions(), dR, thePVposition, theSimPVPosition, mvaValues, selectsLoose, selectsHP);
         mvaValues.clear();
-
-        if(matchedTrackPointer && matchedSecondTrackPointer) {
-          histoProducerAlgo_->fill_duplicate_histos(histograms.histoProducerAlgo,w, *matchedTrackPointer, *matchedSecondTrackPointer);
-        }
-
           if(doSummaryPlots_) {
-            if(dRtpSelector(tp)) {
-              histograms.h_simul_coll[ww].fill(www);
+            if(dRtpSelectorNoPtCut(tp)) {
+              h_simul_coll_allPt[ww]->Fill(www);
               if (matchedTrackPointer) {
-                histograms.h_assoc_coll[ww].fill(www);
+                h_assoc_coll_allPt[ww]->Fill(www);
+              }
+
+              if(dRtpSelector(tp)) {
+                h_simul_coll[ww]->Fill(www);
+                if (matchedTrackPointer) {
+                  h_assoc_coll[ww]->Fill(www);
+                }
               }
             }
           }
@@ -927,7 +882,7 @@ void MultiTrackValidator::dqmAnalyze(const edm::Event& event, const edm::EventSe
         auto track = trackCollection.refAt(i);
 	rT++;
         if(trackFromSeedFitFailed(*track)) ++seed_fit_failed;
-        if((*dRTrackSelector)(*track, bs.position())) ++n_selTrack_dr;
+        if((*dRTrackSelector)(*track)) ++n_selTrack_dr;
  
 	bool isSigSimMatched(false);
 	bool isSimMatched(false);
@@ -979,30 +934,32 @@ void MultiTrackValidator::dqmAnalyze(const edm::Event& event, const edm::EventSe
         }
 
 	double dR=dR_trk[i];
-	histoProducerAlgo_->fill_generic_recoTrack_histos(histograms.histoProducerAlgo,w,*track, ttopo, bs.position(), thePVposition, theSimPVPosition, isSimMatched,isSigSimMatched, isChargeMatched, numAssocRecoTracks, puinfo.getPU_NumInteractions(), nSimHits, sharedFraction, dR, mvaValues, selectsLoose, selectsHP);
+	histoProducerAlgo_->fill_generic_recoTrack_histos(w,*track, ttopo, bs.position(), thePVposition, theSimPVPosition, isSimMatched,isSigSimMatched, isChargeMatched, numAssocRecoTracks, puinfo.getPU_NumInteractions(), nSimHits, sharedFraction, dR, mvaValues, selectsLoose, selectsHP);
         mvaValues.clear();
 
         if(doSummaryPlots_) {
-          histograms.h_reco_coll[ww].fill(www);
+          h_reco_coll[ww]->Fill(www);
           if(isSimMatched) {
-            histograms.h_assoc2_coll[ww].fill(www);
+            h_assoc2_coll[ww]->Fill(www);
             if(numAssocRecoTracks>1) {
-              histograms.h_looper_coll[ww].fill(www);
+              h_looper_coll[ww]->Fill(www);
             }
             if(!isSigSimMatched) {
-              histograms.h_pileup_coll[ww].fill(www);
+              h_pileup_coll[ww]->Fill(www);
             }
           }
         }
 
 	// dE/dx
-	if (dodEdxPlots_) histoProducerAlgo_->fill_dedx_recoTrack_histos(histograms.histoProducerAlgo,w,track, v_dEdx);
+	if (dodEdxPlots_) histoProducerAlgo_->fill_dedx_recoTrack_histos(w,track, v_dEdx);
 
 
 	//Fill other histos
 	if (!isSimMatched) continue;
 
-	histoProducerAlgo_->fill_simAssociated_recoTrack_histos(histograms.histoProducerAlgo,w,*track);
+	histoProducerAlgo_->fill_simAssociated_recoTrack_histos(w,*track);
+
+	TrackingParticleRef tpr = tpFound->val.begin()->first;
 
 	/* TO BE FIXED LATER
 	if (associators[ww]=="trackAssociatorByChi2"){
@@ -1019,16 +976,13 @@ void MultiTrackValidator::dqmAnalyze(const edm::Event& event, const edm::EventSe
 	*/
 
 
-        if(doResolutionPlots_[www]) {
-          //Get tracking particle parameters at point of closest approach to the beamline
-          TrackingParticleRef tpr = tpFound->val.begin()->first;
-          TrackingParticle::Vector momentumTP = parametersDefinerTP->momentum(event,setup,tpr);
-          TrackingParticle::Point vertexTP = parametersDefinerTP->vertex(event,setup,tpr);
-          int chargeTP = tpr->charge();
+	//Get tracking particle parameters at point of closest approach to the beamline
+	TrackingParticle::Vector momentumTP = parametersDefinerTP->momentum(event,setup,tpr);
+	TrackingParticle::Point vertexTP = parametersDefinerTP->vertex(event,setup,tpr);
+	int chargeTP = tpr->charge();
 
-          histoProducerAlgo_->fill_ResoAndPull_recoTrack_histos(histograms.histoProducerAlgo,w,momentumTP,vertexTP,chargeTP,
-                                                                *track,bs.position());
-        }
+	histoProducerAlgo_->fill_ResoAndPull_recoTrack_histos(w,momentumTP,vertexTP,chargeTP,
+							     *track,bs.position());
 
 
 	//TO BE FIXED
@@ -1039,10 +993,10 @@ void MultiTrackValidator::dqmAnalyze(const edm::Event& event, const edm::EventSe
       mvaCollections.clear();
       qualityMaskCollections.clear();
 
-      histoProducerAlgo_->fill_trackBased_histos(histograms.histoProducerAlgo,w,at,rT, n_selTrack_dr, n_selTP_dr);
+      histoProducerAlgo_->fill_trackBased_histos(w,at,rT, n_selTrack_dr, n_selTP_dr);
       // Fill seed-specific histograms
       if(doSeedPlots_) {
-        histoProducerAlgo_->fill_seed_histos(histograms.histoProducerAlgo,www, seed_fit_failed, trackCollection.size());
+        histoProducerAlgo_->fill_seed_histos(www, seed_fit_failed, trackCollection.size());
       }
 
 
