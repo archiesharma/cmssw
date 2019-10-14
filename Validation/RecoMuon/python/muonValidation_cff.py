@@ -50,6 +50,19 @@ glbMuonTrackVMuonAssoc.associatormap = 'tpToGlbMuonAssociation'
 glbMuonTrackVMuonAssoc.label = ('globalMuons',)
 glbMuonTrackVMuonAssoc.muonHistoParameters = glbMuonHistoParameters
 
+#-------------------------------------------------------------------------------------------------------------
+
+tightMuonTrackVSel0MuonAssoc = Validation.RecoMuon.MuonTrackValidator_cfi.muonTrackValidator.clone()
+tightMuonTrackVSel0MuonAssoc.associatormap = 'tpToTightMuonAssociation'
+tightMuonTrackVSel0MuonAssoc.associators = ('MuonAssociationByHits',)
+tightMuonTrackVSel0MuonAssoc.label = ('bestMuonTight',)
+tightMuonTrackVSel0MuonAssoc.muonHistoParameters = glbMuonHistoParameters
+#tightMuonTrackVSel0MuonAssoc.usetracker = True
+#tightMuonTrackVSel0MuonAssoc.usemuon = True
+#tightMuonTrackVSel0MuonAssoc.useMCTruth = False
+
+#------------------------------------------------------------------------------------------------------------
+
 staRefitMuonTrackVMuonAssoc = Validation.RecoMuon.MuonTrackValidator_cfi.muonTrackValidator.clone()
 staRefitMuonTrackVMuonAssoc.associatormap = 'tpToStaRefitMuonAssociation'
 staRefitMuonTrackVMuonAssoc.label = ('refittedStandAloneMuons',)
@@ -167,12 +180,14 @@ muonValidation_seq = cms.Sequence(
     +tpToStaMuonAssociation + staMuonTrackVMuonAssoc
     +tpToStaUpdMuonAssociation + staUpdMuonTrackVMuonAssoc
     +tpToGlbMuonAssociation + glbMuonTrackVMuonAssoc
+    +bestMuon_seq + tpToTightMuonAssociation + tightMuonTrackVSel0MuonAssoc
 )
 
 muonValidation_reduced_seq = cms.Sequence(
     probeTracks_seq + tpToTkMuonAssociation + trkProbeTrackVMuonAssoc
     +tpToStaUpdMuonAssociation + staUpdMuonTrackVMuonAssoc
     +tpToGlbMuonAssociation + glbMuonTrackVMuonAssoc
+    +bestMuon_seq + tpToTightMuonAssociation + tightMuonTrackVSel0MuonAssoc
     +tpToDisplacedStaMuonAssociation + displacedStaMuonTrackVMuonAssoc
     +tpToDisplacedTrkMuonAssociation + displacedTrackVMuonAssoc
     +tpToDisplacedGlbMuonAssociation + displacedGlbMuonTrackVMuonAssoc

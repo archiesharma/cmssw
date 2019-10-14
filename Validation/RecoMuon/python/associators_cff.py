@@ -16,6 +16,35 @@ tpToTkmuTrackAssociation = _trackingParticleRecoTrackAsssociation.clone(
     label_tr = cms.InputTag('probeTracks')
 )
 
+selectedVertices = cms.EDFilter("VertexSelector",
+    src = cms.InputTag('offlinePrimaryVertices'),
+    cut = cms.string("isValid & ndof >= 4 & chi2 > 0 & tracksSize > 0 & abs(z) < 24 & abs(position.Rho) < 2."),
+    filter = cms.bool(False)
+)
+
+
+bestMuonTight = cms.EDProducer("MuonTrackProducer",
+   muonsTag = cms.InputTag("muons"),
+   inputDTRecSegment4DCollection = cms.InputTag("dt4DSegments"),
+   inputCSCSegmentCollection = cms.InputTag("cscSegments"),
+   vtxTag = cms.InputTag("offlinePrimaryVertices"),
+   selectionTags = cms.vstring('All'),
+   trackType = cms.string('globalTrackTight')
+)
+
+#-----------------------------------------------------------------------------------------------
+
+bestMuon_seq = cms.Sequence(
+
+                bestMuonTight
+)
+
+extractGemMuons = SimMuon.MCTruth.MuonTrackProducer_cfi.muonTrackProducer.clone()
+extractGemMuons.selectionTags = ('All',)
+extractGemMuons.trackType = "gemMuonTrack"
+extractGemMuonsTracks_seq = cms.Sequence( extractGemMuons )
+
+
 #
 # MuonAssociatorByHits used for all track collections
 #
@@ -67,6 +96,15 @@ tpToGlbMuonAssociation = MABH.clone()
 tpToGlbMuonAssociation.tracksTag = 'globalMuons'
 tpToGlbMuonAssociation.UseTracker = True
 tpToGlbMuonAssociation.UseMuon = True
+
+#--------------------------------------------------------------------------------------------------------
+
+tpToTightMuonAssociation = MABH.clone()
+tpToTightMuonAssociation.tracksTag = 'bestMuonTight'
+tpToTightMuonAssociation.UseTracker = True
+tpToTightMuonAssociation.UseMuon = True
+
+#--------------------------------------------------------------------------------------------------------
 
 tpToStaRefitMuonAssociation = MABH.clone()
 tpToStaRefitMuonAssociation.tracksTag = 'refittedStandAloneMuons'
@@ -205,10 +243,13 @@ tpToGlbCosmic1LegSelMuonAssociation.UseMuon = True
 #
 
 muonAssociation_seq = cms.Sequence(
-    probeTracks_seq+tpToTkMuonAssociation
+    selectedVertices
+    +bestMuon_seq
+    +probeTracks_seq+tpToTkMuonAssociation
     +trackAssociatorByHits+tpToTkmuTrackAssociation
     +seedsOfSTAmuons_seq+tpToStaSeedAssociation+tpToStaMuonAssociation+tpToStaUpdMuonAssociation
     +tpToGlbMuonAssociation
+    +tpToTightMuonAssociation
     )
 
 muonAssociationTEV_seq = cms.Sequence(

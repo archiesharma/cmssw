@@ -10,14 +10,221 @@
 #include "DataFormats/MuonDetId/interface/DTChamberId.h"
 #include "DataFormats/MuonDetId/interface/MuonSubdetId.h"
 #include "DataFormats/MuonReco/interface/MuonSelectors.h"
+#include "DataFormats/VertexReco/interface/Vertex.h"
+#include "DataFormats/VertexReco/interface/VertexFwd.h"
+
 #include <sstream>
 
 #include "FWCore/Framework/interface/ESHandle.h"
 #include "DataFormats/TrackerCommon/interface/TrackerTopology.h"
 #include "Geometry/Records/interface/TrackerTopologyRcd.h"
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+std::vector<double> MuonTrackProducer::findSimVtx(edm::Event& iEvent){
+
+  edm::Handle<reco::GenParticleCollection> genParticles;
+  iEvent.getByToken(genP_Token, genParticles);
+    
+  std::vector<double> vtxCoord;
+  vtxCoord.push_back(0);
+  vtxCoord.push_back(0);
+  vtxCoord.push_back(0);
+  vtxCoord.push_back(0);
+  vtxCoord.push_back(0);
+  vtxCoord.push_back(0);
+  vtxCoord.push_back(0);
+
+  if(genParticles.isValid()){
+
+  	for(reco::GenParticleCollection::const_iterator itg = genParticles->begin(); itg != genParticles->end(); ++itg ){
+
+		int id = itg->pdgId();
+		int status = itg->status();
+		//int nDaughters = itg->numberOfDaughters();
+		int nMothers = itg->numberOfMothers();
+		//double phiGen = itg->phi();
+		//double etaGen = itg->eta();
+		//std::cout<<"id "<<id<<" "<<status<<" "<<nMothers<<" "<<phiGen<<" "<<etaGen<<std::endl;
+
+		if((abs(id) == 23 || abs(id) == 22) && status == 22){//For DY samples
+
+	 		vtxCoord[0] = 1;
+
+			vtxCoord[4] = (double)(itg->vx()); 
+			vtxCoord[5] = (double)(itg->vy());
+			vtxCoord[6] = (double)(itg->vz());
+
+		}
+        else if((abs(id) == 23 || abs(id) == 22) && nMothers == 2){//For ZMM samples
+            
+            vtxCoord[0] = 1;
+            
+            vtxCoord[4] = (double)(itg->vx());
+            vtxCoord[5] = (double)(itg->vy());
+            vtxCoord[6] = (double)(itg->vz());
+            
+        }
+
+		//if(fabs(id) == 23 && nMothers == 2) std::cout<<"ID "<<id<<" Status "<<status<<std::endl;
+
+		else if(abs(id) == 13 && status == 1 && nMothers == 0){//For muon gun samples
+
+	 		vtxCoord[0] = 2;
+
+			vtxCoord[1] = (double)(itg->vx()); 
+			vtxCoord[2] = (double)(itg->vy());
+			vtxCoord[3] = (double)(itg->vz());
+
+		}
+
+		else if(abs(id) == 12 && status == 1 && nMothers == 0){//For nu gun samples
+
+	 		vtxCoord[0] = 3;
+
+			vtxCoord[1] = (double)(itg->vx()); 
+			vtxCoord[2] = (double)(itg->vy());
+			vtxCoord[3] = (double)(itg->vz());
+
+		}
+
+	}
+
+  }
+
+  //std::cout<<vtxCoord.size()<<" "<<vtxCoord[0]<<std::endl;
+  return vtxCoord;
+
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+bool MuonTrackProducer::isTight(edm::Event& iEvent, reco::MuonCollection::const_iterator muon, bool useIPxy, bool useIPz)
+{
+  bool result = false;
+
+  if (muon->muonBestTrack().isNonnull() && muon->innerTrack().isNonnull() && muon->globalTrack().isNonnull()){
+
+	std::vector<double> vtxCoord = findSimVtx(iEvent);
+    GlobalPoint point(vtxCoord[1],vtxCoord[2],vtxCoord[3]);
+    GlobalPoint pointDY(vtxCoord[4],vtxCoord[5],vtxCoord[6]);
+
+	//double muonX = muon->vx();
+	//double muonY = muon->vy();
+	//double muonZ = muon->vz();
+
+	double muonZ = pointDY.z();
+		
+ 	edm::Handle<reco::VertexCollection> vertexHandle;
+  	iEvent.getByToken(vtx_Token,vertexHandle);
+  	const reco::VertexCollection* vertices = vertexHandle.product();
+
+	double distInit = 24;
+	int indexFinal = 0;
+	for(int i = 0; i < (int)vertices->size(); i++){
+
+		//double vtxX = (*vertices)[i].x();
+		//double vtxY = (*vertices)[i].y();
+		double vtxZ = (*vertices)[i].z();
+
+		double dist = fabs(muonZ - vtxZ);
+		//std::cout<<"dist "<<dist<<std::endl;
+		if(dist < distInit){
+				
+			distInit = dist;
+			indexFinal = i;
+
+		}
+
+	}
+	//std::cout<<distInit<<" "<<indexFinal<<std::endl;
+
+	double ipxySim = 999;
+	double ipzSim = 999;
+	
+	if(vtxCoord[0] > 1.5 && vtxCoord[0] < 3.5){//Mu and nu gun samples
+
+        ipxySim = fabs(muon->muonBestTrack()->dxy(math::XYZPoint(point.x(),point.y(),point.z())));
+        ipzSim = fabs(muon->muonBestTrack()->dz(math::XYZPoint(point.x(),point.y(),point.z())));
+        
+	}
+	else if(vtxCoord[0] > 0.5 && vtxCoord[0] < 1.5){//DY samples
+
+		ipxySim = fabs(muon->muonBestTrack()->dxy(math::XYZPoint(pointDY.x(),pointDY.y(),pointDY.z())));
+        ipzSim = fabs(muon->muonBestTrack()->dz(math::XYZPoint(pointDY.x(),pointDY.y(),pointDY.z())));
+
+	}
+	bool ipxySimBool = ipxySim < 0.2;
+	bool ipzSimBool = ipzSim < 0.5;
+    //std::cout<<"vx: "<<point.x()<<" vy: "<<point.y()<<" vz: "<<point.z()<<" |Dxy|: "<<ipxySim<<" "<<ipxySimBool<<" |Dz|: "<<ipzSim<<" "<<ipzSimBool<<std::endl;
+    //std::cout<<"vx: "<<pointDY.x()<<" vy: "<<pointDY.y()<<" vz: "<<pointDY.z()<<" |Dxy|: "<<ipxySim<<" "<<ipxySimBool<<" |Dz|: "<<ipzSim<<" "<<ipzSimBool<<std::endl;
+
+	bool trkLayMeas = muon->innerTrack()->hitPattern().trackerLayersWithMeasurement() > 5; 
+	bool isGlb = muon->isGlobalMuon(); 
+	bool isPF = muon->isPFMuon(); 
+	bool chi2 = muon->globalTrack()->normalizedChi2() < 10.; 
+	bool validHits = muon->globalTrack()->hitPattern().numberOfValidMuonHits() > 0; 
+	bool matchedSt = muon->numberOfMatchedStations() > 1;
+
+	bool ipxy = false;
+	bool ipz = false;
+	if(useIPxy == true){
+
+        if(vertices->size() !=0 && vtxCoord[0] > 0.5 && vtxCoord[0] < 1.5){
+            
+            ipxy = fabs(muon->muonBestTrack()->dxy((*vertices)[indexFinal].position())) < 0.2;
+            //std::cout<<"vx: "<<pointDY.x()<<" vy: "<<pointDY.y()<<" vz: "<<pointDY.z()<<" |Dxy|: "<<ipxy<<std::endl;
+
+        }
+        else if(vtxCoord[0] > 1.5 && vtxCoord[0] < 3.5){
+            
+            ipxy = ipxySimBool;
+            //std::cout<<"vx: "<<point.x()<<" vy: "<<point.y()<<" vz: "<<point.z()<<" |Dxy|: "<<ipxy<<std::endl;
+            
+        }
+
+	}
+	else if(useIPxy == false) ipxy = true;
+
+ 	if(useIPz == true){
+
+        if(vertices->size() !=0 && vtxCoord[0] > 0.5 && vtxCoord[0] < 1.5){
+            
+            ipz = fabs(muon->muonBestTrack()->dz((*vertices)[indexFinal].position())) < 0.5;
+            //std::cout<<"vx: "<<pointDY.x()<<" vy: "<<pointDY.y()<<" vz: "<<pointDY.z()<<" |Dz|: "<<ipz<<std::endl;
+
+        }
+        else if(vtxCoord[0] > 1.5 && vtxCoord[0] < 3.5){
+            
+            ipz = ipzSimBool;
+            //std::cout<<"vx: "<<point.x()<<" vy: "<<point.y()<<" vz: "<<point.z()<<" |Dz|: "<<ipz<<std::endl;
+
+        }
+
+	}
+	else if(useIPz == false) ipz = true;
+      
+	bool validPxlHit = muon->innerTrack()->hitPattern().numberOfValidPixelHits() > 0;
+	//bool validPxlHit = muon->innerTrack()->hitPattern().pixelLayersWithMeasurement(3,2) > 0;
+	//bool validPxlHit = muon->innerTrack()->hitPattern().pixelLayersWithMeasurement(4,3) > 0;
+      
+    //std::cout<<trkLayMeas<<" "<<isGlb<<" "<<isPF<<" "<<chi2<<" "<<validHits<<" "<<matchedSt<<" "<<ipxy<<" "<<ipz<<" "<<validPxlHit<<std::endl;
+
+	if(trkLayMeas && isGlb && isPF && chi2 && validHits && matchedSt && ipxy && ipz && validPxlHit) result = true;
+
+  }
+
+  return result;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 MuonTrackProducer::MuonTrackProducer(const edm::ParameterSet& parset) :
   muonsToken(consumes<reco::MuonCollection>(parset.getParameter< edm::InputTag >("muonsTag"))),
+  vtx_Token(consumes<reco::VertexCollection>(parset.getParameter< edm::InputTag >("vtxTag"))),
+  genP_Token(consumes<reco::GenParticleCollection>(edm::InputTag("genParticles"))),
+  useIPxy(parset.getUntrackedParameter< bool >("useIPxy", true)),
+  useIPz(parset.getUntrackedParameter< bool >("useIPz", true)),
   inputDTRecSegment4DToken_(consumes<DTRecSegment4DCollection>(parset.getParameter<edm::InputTag>("inputDTRecSegment4DCollection"))),
   inputCSCSegmentToken_(consumes<CSCSegmentCollection>(parset.getParameter<edm::InputTag>("inputCSCSegmentCollection"))),
   selectionTags(parset.getParameter< std::vector<std::string> >("selectionTags")),
@@ -139,6 +346,8 @@ void MuonTrackProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetu
     if (isGoodResult) {
       // new copy of Track
       reco::TrackRef trackref;
+      bool tight = isTight(iEvent, muon, useIPxy, useIPz);
+
       if (trackType == "innerTrack") {
         if (muon->innerTrack().isNonnull()) trackref = muon->innerTrack();
         else continue;
@@ -165,6 +374,11 @@ void MuonTrackProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetu
         if (muon->innerTrack().isNonnull() && muon->isME0Muon()){
             trackref = muon->innerTrack();
         }
+        else continue;
+      }
+
+      else if (trackType == "globalTrackTight") {
+        if (muon->globalTrack().isNonnull() && tight) trackref = muon->globalTrack();
         else continue;
       }
 

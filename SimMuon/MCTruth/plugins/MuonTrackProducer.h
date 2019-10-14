@@ -11,12 +11,20 @@
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
 #include "DataFormats/MuonReco/interface/MuonFwd.h"
 #include "DataFormats/MuonReco/interface/Muon.h"
+#include "DataFormats/VertexReco/interface/Vertex.h"
+#include "DataFormats/VertexReco/interface/VertexFwd.h"
 #include "DataFormats/CSCRecHit/interface/CSCSegmentCollection.h"
 #include "DataFormats/DTRecHit/interface/DTRecSegment4DCollection.h"
+#include "DataFormats/BeamSpot/interface/BeamSpot.h"
+#include "DataFormats/HepMCCandidate/interface/GenParticle.h"
+#include "DataFormats/HepMCCandidate/interface/GenParticleFwd.h"
+
 
 class MuonTrackProducer : public edm::stream::EDProducer<> {
   public:
     explicit MuonTrackProducer(const edm::ParameterSet&);
+    std::vector<double> findSimVtx(edm::Event&);
+    bool isTight(edm::Event&, reco::MuonCollection::const_iterator, bool, bool);
     ~MuonTrackProducer() override;
 
   private:
@@ -27,8 +35,12 @@ class MuonTrackProducer : public edm::stream::EDProducer<> {
     edm::Handle<CSCSegmentCollection> cscSegmentCollectionH_;
 
     edm::EDGetTokenT<reco::MuonCollection> muonsToken;
+    edm::EDGetTokenT<reco::VertexCollection> vtx_Token;
+    edm::EDGetTokenT<reco::GenParticleCollection> genP_Token;
+    bool useIPxy, useIPz;
     edm::EDGetTokenT<DTRecSegment4DCollection> inputDTRecSegment4DToken_;
     edm::EDGetTokenT<CSCSegmentCollection> inputCSCSegmentToken_;
+    
 
     std::vector<std::string> selectionTags;
     std::string trackType;
