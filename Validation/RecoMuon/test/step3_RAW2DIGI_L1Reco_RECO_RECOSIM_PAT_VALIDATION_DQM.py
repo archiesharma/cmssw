@@ -28,7 +28,7 @@ process.load('DQMOffline.Configuration.DQMOfflineMC_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
 process.maxEvents = cms.untracked.PSet(
-    input = cms.untracked.int32(10)
+    input = cms.untracked.int32(-1)
 )
 
 # Input source
@@ -221,7 +221,7 @@ process.DQMoutput_step = cms.EndPath(process.DQMoutput)
 
 #process.schedule = cms.Schedule(process.raw2digi_step,process.L1Reco_step,process.reconstruction_step,process.prevalidation_step,process.prevalidation_step2,process.validation_step,process.validation_step2,process.FEVTDEBUGHLToutput_step,process.DQMoutput_step)
 
-process.schedule = cms.Schedule(process.prevalidation_step,process.prevalidation_step2,process.validation_step,process.validation_step2,process.FEVTDEBUGHLToutput_step,process.DQMoutput_step)
+process.schedule = cms.Schedule(process.prevalidation_step,process.prevalidation_step2,process.validation_step,process.validation_step2,process.DQMoutput_step)
 
 #process.schedule.associate(process.patTask)
 #from PhysicsTools.PatAlgos.tools.helpers import associatePatAlgosToolsTask

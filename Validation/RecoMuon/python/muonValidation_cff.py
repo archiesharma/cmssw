@@ -189,7 +189,7 @@ muonValidation_reduced_seq = cms.Sequence(
     +tpToGlbMuonAssociation + glbMuonTrackVMuonAssoc
     +bestMuon_seq + tpToTightMuonAssociation + tightMuonTrackVSel0MuonAssoc
     +tpToDisplacedStaMuonAssociation + displacedStaMuonTrackVMuonAssoc
-    +tpToDisplacedTrkMuonAssociation + displacedTrackVMuonAssoc
+    #+tpToDisplacedTrkMuonAssociation + displacedTrackVMuonAssoc
     +tpToDisplacedGlbMuonAssociation + displacedGlbMuonTrackVMuonAssoc
 )
 
@@ -207,7 +207,7 @@ muonValidationRefit_seq = cms.Sequence(
 muonValidationDisplaced_seq = cms.Sequence(
     seedsOfDisplacedSTAmuons_seq + tpToDisplacedStaSeedAssociation + displacedStaSeedTrackVMuonAssoc
     +tpToDisplacedStaMuonAssociation + displacedStaMuonTrackVMuonAssoc
-    +tpToDisplacedTrkMuonAssociation + displacedTrackVMuonAssoc
+    #+tpToDisplacedTrkMuonAssociation + displacedTrackVMuonAssoc
     +tpToDisplacedGlbMuonAssociation + displacedGlbMuonTrackVMuonAssoc
 )
 
