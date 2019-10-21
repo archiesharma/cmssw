@@ -63,6 +63,61 @@ tightMuonTrackVSel0MuonAssoc.muonHistoParameters = glbMuonHistoParameters
 
 #------------------------------------------------------------------------------------------------------------
 
+#L3TkVMuonAssociation = Validation.RecoMuon.MuonTrackValidator_cfi.muonTrackValidator.clone()
+#L3TkVMuonAssociation.associatormap = 'tpToL3TkMuonAssociation'
+#L3TkVMuonAssociation.associators = ('MuonAssociationByHits',)
+#L3TkVMuonAssociation.label = ('hltIterL3MuonMerged:',)
+#L3TkVMuonAssociation.muonHistoParameters = trkMuonHistoParameters 
+
+l3TkMuonMuTrackVMuonAssoc = Validation.RecoMuon.MuonTrackValidator_cfi.muonTrackValidator.clone()
+l3TkMuonMuTrackVMuonAssoc.associatormap = 'tpToL3TkMuonAssociation'
+l3TkMuonMuTrackVMuonAssoc.label = ('hltIterL3MuonMerged:',)
+#l3TkMuonMuTrackV.dirName = 'HLT/Muon/MuonTrack/'
+#l3TkMuonMuTrackV.beamSpot = 'hltOfflineBeamSpot'
+l3TkMuonMuTrackVMuonAssoc.ignoremissingtrackcollection=True
+l3TkMuonMuTrackVMuonAssoc.muonHistoParameters = trkMuonHistoParameters
+
+l3OITkMuonMuTrackVMuonAssoc = Validation.RecoMuon.MuonTrackValidator_cfi.muonTrackValidator.clone()
+l3OITkMuonMuTrackVMuonAssoc.associatormap = 'tpToL3OITkMuonAssociation'
+l3OITkMuonMuTrackVMuonAssoc.label = ('hltIterL3OIMuonTrackSelectionHighPurity:',)
+#l3TkMuonMuTrackV.dirName = 'HLT/Muon/MuonTrack/'
+#l3TkMuonMuTrackV.beamSpot = 'hltOfflineBeamSpot'
+l3OITkMuonMuTrackVMuonAssoc.ignoremissingtrackcollection=True
+l3OITkMuonMuTrackVMuonAssoc.muonHistoParameters = trkMuonHistoParameters
+
+l3FromL1TkMuonMuTrackVMuonAssoc = Validation.RecoMuon.MuonTrackValidator_cfi.muonTrackValidator.clone()
+l3FromL1TkMuonMuTrackVMuonAssoc.associatormap = 'tpToL3FromL1TkMuonAssociation'
+l3FromL1TkMuonMuTrackVMuonAssoc.label = ('hltIterL3MuonAndMuonFromL1Merged:',)
+#l3TkMuonMuTrackV.dirName = 'HLT/Muon/MuonTrack/'
+#l3TkMuonMuTrackV.beamSpot = 'hltOfflineBeamSpot'
+l3FromL1TkMuonMuTrackVMuonAssoc.ignoremissingtrackcollection=True
+l3FromL1TkMuonMuTrackVMuonAssoc.muonHistoParameters = trkMuonHistoParameters
+
+l3MuonMuTrackVMuonAssoc = Validation.RecoMuon.MuonTrackValidator_cfi.muonTrackValidator.clone()
+l3MuonMuTrackVMuonAssoc.associatormap = 'tpToL3MuonAssociation'
+l3MuonMuTrackVMuonAssoc.label = ('hltIterL3Muons:',)
+#l3TkMuonMuTrackV.dirName = 'HLT/Muon/MuonTrack/'
+#l3TkMuonMuTrackV.beamSpot = 'hltOfflineBeamSpot'
+l3MuonMuTrackVMuonAssoc.ignoremissingtrackcollection=True
+l3MuonMuTrackVMuonAssoc.muonHistoParameters = glbMuonHistoParameters
+
+l3OIGlbMuonMuTrackVMuonAssoc = Validation.RecoMuon.MuonTrackValidator_cfi.muonTrackValidator.clone()
+l3OIGlbMuonMuTrackVMuonAssoc.associatormap = 'tpToL3OITkMuonAssociation'
+l3OIGlbMuonMuTrackVMuonAssoc.label = ('hltIterL3GlbMuon:',)
+#l3TkMuonMuTrackV.dirName = 'HLT/Muon/MuonTrack/'
+#l3TkMuonMuTrackV.beamSpot = 'hltOfflineBeamSpot'
+l3OIGlbMuonMuTrackVMuonAssoc.ignoremissingtrackcollection=True
+l3OIGlbMuonMuTrackVMuonAssoc.muonHistoParameters = glbMuonHistoParameters
+
+l3MuonNoIDMuTrackVMuonAssoc = Validation.RecoMuon.MuonTrackValidator_cfi.muonTrackValidator.clone()
+l3MuonNoIDMuTrackVMuonAssoc.associatormap = 'tpToL3NoIDMuonAssociation'
+l3MuonNoIDMuTrackVMuonAssoc.label = ('hltIterL3MuonsNoID:',)
+#l3TkMuonMuTrackV.dirName = 'HLT/Muon/MuonTrack/'
+#l3TkMuonMuTrackV.beamSpot = 'hltOfflineBeamSpot'
+l3MuonNoIDMuTrackVMuonAssoc.ignoremissingtrackcollection=True
+l3MuonNoIDMuTrackVMuonAssoc.muonHistoParameters = glbMuonHistoParameters
+
+
 staRefitMuonTrackVMuonAssoc = Validation.RecoMuon.MuonTrackValidator_cfi.muonTrackValidator.clone()
 staRefitMuonTrackVMuonAssoc.associatormap = 'tpToStaRefitMuonAssociation'
 staRefitMuonTrackVMuonAssoc.label = ('refittedStandAloneMuons',)
@@ -181,6 +236,13 @@ muonValidation_seq = cms.Sequence(
     +tpToStaUpdMuonAssociation + staUpdMuonTrackVMuonAssoc
     +tpToGlbMuonAssociation + glbMuonTrackVMuonAssoc
     +bestMuon_seq + tpToTightMuonAssociation + tightMuonTrackVSel0MuonAssoc
+    #+tpToL3TkMuonAssociation + L3TkVMuonAssociation 
+    +tpToL3TkMuonAssociation + l3TkMuonMuTrackVMuonAssoc
+    +tpToL3OITkMuonAssociation + l3OITkMuonMuTrackVMuonAssoc
+    +tpToL3FromL1TkMuonAssociation + l3FromL1TkMuonMuTrackVMuonAssoc
+    +tpToL3MuonAssociation + l3MuonMuTrackVMuonAssoc 
+    +tpToL3GlbMuonAssociation + l3OIGlbMuonMuTrackVMuonAssoc
+    +tpToL3NoIDMuonAssociation + l3MuonNoIDMuTrackVMuonAssoc 
 )
 
 muonValidation_reduced_seq = cms.Sequence(
@@ -191,6 +253,12 @@ muonValidation_reduced_seq = cms.Sequence(
     +tpToDisplacedStaMuonAssociation + displacedStaMuonTrackVMuonAssoc
     #+tpToDisplacedTrkMuonAssociation + displacedTrackVMuonAssoc
     +tpToDisplacedGlbMuonAssociation + displacedGlbMuonTrackVMuonAssoc
+    +tpToL3TkMuonAssociation + l3TkMuonMuTrackVMuonAssoc
+    +tpToL3OITkMuonAssociation + l3OITkMuonMuTrackVMuonAssoc
+    +tpToL3FromL1TkMuonAssociation + l3FromL1TkMuonMuTrackVMuonAssoc
+    +tpToL3MuonAssociation + l3MuonMuTrackVMuonAssoc
+    +tpToL3GlbMuonAssociation + l3OIGlbMuonMuTrackVMuonAssoc
+    +tpToL3NoIDMuonAssociation + l3MuonNoIDMuTrackVMuonAssoc
 )
 
 muonValidationTEV_seq = cms.Sequence(

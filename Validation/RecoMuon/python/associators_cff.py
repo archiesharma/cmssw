@@ -250,6 +250,12 @@ muonAssociation_seq = cms.Sequence(
     +seedsOfSTAmuons_seq+tpToStaSeedAssociation+tpToStaMuonAssociation+tpToStaUpdMuonAssociation
     +tpToGlbMuonAssociation
     +tpToTightMuonAssociation
+    +tpToL3TkMuonAssociation
+    +tpToL3OITkMuonAssociation
+    +tpToL3FromL1TkMuonAssociation
+    +tpToL3MuonAssociation
+    +tpToL3GlbMuonAssociation
+    +tpToL3NoIDMuonAssociation
     )
 
 muonAssociationTEV_seq = cms.Sequence(
